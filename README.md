@@ -124,7 +124,7 @@ This applies a TSV-defined grafting plan:
 Example:
 ```
 run_clade_grafting(
-  backbone_path = here::here("project", "results", "grafted", "genus.tre"),
+  backbone_path = here::here("project", "backbones", "genus.tre"),
   plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
   authority = here::here("project", "tables", "antwiki-valid-species-8Mar2026.txt"),
   out_prefix = here::here("project", "results", "grafted",
