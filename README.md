@@ -37,7 +37,9 @@ From the same directory as above.
 ```
 devtools::load_all("MacroPhyloMaker")
 ```
-This will activate all package functions. Now you should be able to run code examples below. Some explainers first.
+This will activate all package functions. Now you should be able to run code examples below. I tested clade grafting to make sure it works. Your current mileage for other functions may vary for the moment.
+
+Some explainers first.
 
 # Repository Structure
 ```
@@ -59,7 +61,7 @@ These are defined in the package and used throughout pipelines:
 `prepare_clade_template()` — converts donor phylogenies into graftable templates
 
 # Important
-All files/scripts must use `here::here(...)`, not relative paths. **This is something that I had to adjust to make this portable, but I am still working to fix it throughout by converting from relative paths.**
+All files/scripts must use `here::here(...)`, not relative paths. **This is something that I had to adjust to make this portable, but I am still working to fix it throughout by converting from relative paths.** Clade grafting example below, at least, should work now.
 
 Do not use:
 
