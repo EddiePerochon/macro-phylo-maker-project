@@ -1564,8 +1564,13 @@ run_clade_grafting <- function(
         next
       }
 
-      if (!grepl("^(/|[A-Za-z]:)", path) && nzchar(plan_dir))
-        path <- file.path(plan_dir, path)
+      if (!grepl("^(/|[A-Za-z]:)", path)) {
+        if (grepl("^project/", path)) {
+          path <- here::here(path)
+        } else {
+          path <- file.path(plan_dir, path)
+        }
+      }
 
       if (!file.exists(path)) {
         n_skip <- n_skip + 1L
