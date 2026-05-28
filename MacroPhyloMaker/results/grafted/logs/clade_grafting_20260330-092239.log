@@ -1,0 +1,20 @@
+=== Genus grafting log: CladeGraft | 2026-03-30 09:22:39 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 3
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Donors ready: 3 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘

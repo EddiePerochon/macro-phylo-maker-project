@@ -1,0 +1,27 @@
+=== Genus extraction log: Oecophylla | 2026-04-11 11:53:29 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1435
+Ingroup (genus=Oecophylla) identified: 2 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Santschiella_kohli (min distance=134.455640)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 2
+tips_out (final tree): 3
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Oecophylla/extract_Oecophylla_20260411-115329_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Oecophylla/extract_Oecophylla_20260411-115329_renamed.tsv

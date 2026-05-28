@@ -1,0 +1,532 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 14:35:54 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 35
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
+Row 2: Input_tree_type = chronogram
+Row 3: Input_tree_type = phylogram
+[skip row 3] Missing MRCA or file path
+Row 4: Input_tree_type = chronogram
+Row 5: Input_tree_type = chronogram
+Row 6: Input_tree_type = chronogram
+Row 7: Input_tree_type = chronogram
+Row 8: Input_tree_type = chronogram
+Row 9: Input_tree_type = chronogram
+Row 10: Input_tree_type = chronogram
+Row 11: Input_tree_type = chronogram
+Row 12: Input_tree_type = chronogram
+Row 13: Input_tree_type = chronogram
+Row 14: Input_tree_type = chronogram
+Row 15: Input_tree_type = phylogram
+Row 16: Input_tree_type = chronogram
+Row 17: Input_tree_type = chronogram
+Row 18: Input_tree_type = chronogram
+Row 19: Input_tree_type = chronogram
+Row 20: Input_tree_type = phylogram
+[skip row 20] Missing MRCA or file path
+Row 21: Input_tree_type = phylogram
+[skip row 21] Missing MRCA or file path
+Row 22: Input_tree_type = phylogram
+[skip row 22] Missing MRCA or file path
+Row 23: Input_tree_type = chronogram
+Row 24: Input_tree_type = chronogram
+Row 25: Input_tree_type = chronogram
+[skip row 25] Missing MRCA or file path
+Row 26: Input_tree_type = phylogram
+[skip row 26] Missing MRCA or file path
+Row 27: Input_tree_type = chronogram
+Row 28: Input_tree_type = phylogram
+[skip row 28] Missing MRCA or file path
+Row 29: Input_tree_type = chronogram
+Row 30: Input_tree_type = phylogram
+[skip row 30] Missing MRCA or file path
+Row 31: Input_tree_type = phylogram
+[skip row 31] Missing MRCA or file path
+Row 32: Input_tree_type = phylogram
+[skip row 32] Missing MRCA or file path
+Row 33: Input_tree_type = chronogram
+[skip row 33] Missing MRCA or file path
+Row 34: Input_tree_type = phylogram
+[skip row 34] Missing MRCA or file path
+Row 35: Input_tree_type = chronogram
+Donors ready: 23 (skipped: 12)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/acropyga/blaimer2016/extract_mrca_Acropyga_donisthorpei_ACR86-Acropyga_arnoldi_ACR22_20260404-165022_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/Campo221-90-98_4runs_2Mgen_combined.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Recurvidris_TH01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 91; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.408633 crown_fraction=0.591367
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/blaimer2012/extract_mrca_Crematogaster_emeryi-Crematogaster_hova_complex_20260404-133421_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Crematogaster_lotti
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 31; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.486845 crown_fraction=0.513155
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/ward2022/extract_mrca_Crematogaster_scutellaris_BBX611-Crematogaster_ashmeadi_D1839_20260404-134141_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Forelius_damiani
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.183456 crown_fraction=0.816544
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Dorymyrmex_ebeninus_D1537-Dorymyrmex_ce01_D2967_20260404-192925_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 8; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.545591 crown_fraction=0.454409
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Forelius_damiani_D3046-Forelius_brasiliensis_D3042_20260404-192925_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 9; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.210162 crown_fraction=0.789838
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Leptomyrmex_relictus_D1200-Leptomyrmex_unicolor_D3033_20260404-192925_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Iberoformica_subrufa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 77; dropped absent: 4
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.127219 crown_fraction=0.872781
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/formica/borowiec2021/extract_mrca_Formica_gagates_F0120-Formica_nevadensis_F0079_20260404-181141_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Nothomyrm_macrops
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.336705 crown_fraction=0.663295
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/myrmecia/mera-rodriguez2023/extract_mrca_Myrmecia_flammicollis_11550-Myrmecia_inquilina_13405_20260409-145529_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_longinoi
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 41; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.055122 crown_fraction=0.944878
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/myrmicini/prebus2025/extract_mrca_Manica_hunteri_OR_S_Mattheiu_Lake_P861-Pogonomyrmex_maricopa_P882_20260404-165809_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Lasius_californicus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 44; dropped absent: 80
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: TRUE
+Input tree declared as chronogram; skipping chronos.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.312838 crown_fraction=0.687162
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/prenolepis/matos-maravi2018/extract_mrca_Zatania_albimaculata-Nylanderia_NYLA026_20260404-171052_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Paratrechina_longicornis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: phylogram; ultrametric: FALSE
+Phylogram detected; estimating chronogram with chronos.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=75.752173
+  logLik=-1.876086
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.495950 crown_fraction=0.504050
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/nylanderia/williams2022/Nylanderia_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cephalotes_setulifer
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: TRUE
+Input tree declared as chronogram; skipping chronos.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.485965 crown_fraction=0.514035
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/pheidole/economo2019/extract_mrca_Pheidole_fimbriata_CASENT0283061-Pheidole_allarmata_CASENT0283450_20260404-164232_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pseudomyrmex_fervidus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 13; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.448367 crown_fraction=0.551633
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pseudomyrmex_perboscii
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 12; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.330818 crown_fraction=0.669182
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2017/extract_mrca_Pseudomyrmex_particeps_D1307-Pseudomyrmex_janzeni_D0620_20260404-173038_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_jtl
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 85; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.415300 crown_fraction=0.584700
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/stenammini/branstetter2022/extract_mrca_Novomessor_albisetosus_EX376-Stenamma_punctiventre_EX309_20260404-124915_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Aphaenogaster_megommata
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 48; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.090304 crown_fraction=0.909696
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/messor/juve2025/extract_mrca_Messor_asmaae_sp1_PAKISTAN_AWEY-Messor_picturatus_maurus_TUNISIA_WGS_SH02-03_20260404-174036_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Leptothorax_calderoni
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 87; dropped absent: 6
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: TRUE
+Input tree declared as chronogram; skipping chronos.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.254239 crown_fraction=0.745761
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/temnothorax/prebus2017/extract_mrca_Temnothorax_nitens_P017-Temnothorax_mpala_P010_20260408-155341_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Acanthognathus_ocellatus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 54; dropped absent: 57
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.071739 crown_fraction=0.928261
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/attini/schultz2024/extract_mrca_Mycocepurus_obsoletus_7308-Trachymyrmex_opulentus_8122_20260404-141656_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Apomyrma_CF02
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 17; dropped absent: 33
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.055569 crown_fraction=0.944431
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/amblyoponinae/ward2016/extract_mrca_Concoctio_concenta-Stigmatomma_GA01_20260409-143917_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cardiocondyla_mauritanica
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 20; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.641749 crown_fraction=0.358251
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/ocymyrmex/mbanyana2024/extract_mrca_Ocymyrmex_sp_2_HYM_C027808_Ocy103-Ocymyrmex_celer_BBC660_20260409-142001_with_outgroup.template.rds
+Collapsing MRCA(Bazboltonia,Gnamptogenys) by retaining backbone tip Acanthoponera and grafting donor as terminal replacement.
+Collapsing MRCA(Rostromyrmex,Leptothorax) by retaining backbone tip Acanthomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Colobopsis,Camponotus) by retaining backbone tip Calomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_macracantha,Crematogaster_kelleri) by retaining backbone tip Crematogaster_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_scutellaris,Crematogaster_pilosa) by retaining backbone tip Crematogaster_coarctata and grafting donor as terminal replacement.
+Collapsing MRCA(Manica,Pogonomyrmex) by retaining backbone tip Hylomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Zatania,Nylanderia) by retaining backbone tip Euprenolepis and grafting donor as terminal replacement.
+[SKIP tree 1] TIP{Nylanderia}: target missing in this backbone.
+[SKIP tree 1] MRCA{Pseudomyrmex_salvini,Pseudomyrmex_elongatulus}: target missing in this backbone.
+[SKIP tree 1] MRCA{Pseudomyrmex_particeps,Pseudomyrmex_janzeni}: target missing in this backbone.
+Collapsing MRCA(Novomessor,Stenamma) by retaining backbone tip Aphaenogaster and grafting donor as terminal replacement.
+Collapsing MRCA(Messor_aciculatus,Messor_denticornis) by retaining backbone tip Messor_aciculatus and grafting donor as terminal replacement.
+Collapsing MRCA(Temnothorax_poeyi,Temnothorax_bernardi) by retaining backbone tip Temnothorax_bernardi and grafting donor as terminal replacement.
+Collapsing MRCA(Apterostigma,Acromyrmex) by retaining backbone tip Acromyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Amblyopone,Myopopone) by retaining backbone tip Adetomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Ocymyrmex_celer,Ocymyrmex_picardi) by retaining backbone tip Ocymyrmex_celer and grafting donor as terminal replacement.
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

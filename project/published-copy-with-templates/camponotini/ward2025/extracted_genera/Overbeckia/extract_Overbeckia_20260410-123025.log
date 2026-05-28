@@ -1,0 +1,27 @@
+=== Genus extraction log: Overbeckia | 2026-04-10 12:30:25 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 221
+Ingroup (genus=Overbeckia) identified: 3 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Calomyrmex_albertisi_D0269 (min distance=0.267260)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 3
+tips_out (final tree): 4
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Overbeckia/extract_Overbeckia_20260410-123025_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Overbeckia/extract_Overbeckia_20260410-123025_renamed.tsv

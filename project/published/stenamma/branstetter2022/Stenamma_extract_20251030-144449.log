@@ -1,0 +1,117 @@
+=== Genus extraction log: Stenamma | 2025-10-30 14:44:49 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 37 ingroup tip(s) in raw tree.
+Kept 37 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Stenamma_punctiventre_EX309 → Stenamma_punctiventre
+  KEEP: Stenamma_striatulum_EX335 → Stenamma_striatulum
+  KEEP: Stenamma_mgb102_EX9 → Stenamma_mgb
+  KEEP: Stenamma_mgb101_EX511 → Stenamma_mgb
+  KEEP: Stenamma_snellingi_EX543 → Stenamma_snellingi
+  KEEP: Stenamma_msilanum_cf_EX541 → Stenamma_msilanum
+  KEEP: Stenamma_debile_EX336 → Stenamma_debile
+  KEEP: Stenamma_californicum_EX512 → Stenamma_californicum
+  KEEP: Stenamma_diecki_EX371 → Stenamma_diecki
+  KEEP: Stenamma_dyscheres_EX510 → Stenamma_dyscheres
+  KEEP: Stenamma_brevicorne_EX109 → Stenamma_brevicorne
+  KEEP: Stenamma_foveolocephalum_EX544 → Stenamma_foveolocephalum
+  KEEP: Stenamma_impar_EX372 → Stenamma_impar
+  KEEP: Stenamma_punctatoventre_EX513 → Stenamma_punctatoventre
+  KEEP: Stenamma_lagunum_EX429 → Stenamma_lagunum
+  KEEP: Stenamma_excisum_EX524 → Stenamma_excisum
+  KEEP: Stenamma_brujita_EX433 → Stenamma_brujita
+  KEEP: Stenamma_huachucanum_EX463 → Stenamma_huachucanum
+  KEEP: Stenamma_lobinodus_EX430 → Stenamma_lobinodus
+  KEEP: Stenamma_llama_EX133 → Stenamma_llama
+  KEEP: Stenamma_diversum_EX432 → Stenamma_diversum
+  KEEP: Stenamma_sandinista_EX527 → Stenamma_sandinista
+  KEEP: Stenamma_schmidti_EX532 → Stenamma_schmidti
+  KEEP: Stenamma_cusuco_EX537 → Stenamma_cusuco
+  KEEP: Stenamma_ochrocnemis_EX350 → Stenamma_ochrocnemis
+  KEEP: Stenamma_zelum_EX535 → Stenamma_zelum
+  KEEP: Stenamma_alas_EX536 → Stenamma_alas
+  KEEP: Stenamma_expolitum_EX369 → Stenamma_expolitum
+  KEEP: Stenamma_crypticum_EX348 → Stenamma_crypticum
+  KEEP: Stenamma_catracho_EX539 → Stenamma_catracho
+  KEEP: Stenamma_saenzae_EX460 → Stenamma_saenzae
+  KEEP: Stenamma_ignotum_EX533 → Stenamma_ignotum
+  KEEP: Stenamma_callipygium_EX267 → Stenamma_callipygium
+  KEEP: Stenamma_felixi_EX370 → Stenamma_felixi
+  KEEP: Stenamma_muralla_EX373 → Stenamma_muralla
+  KEEP: Stenamma_manni_EX530 → Stenamma_manni
+  KEEP: Stenamma_megamanni_EX368 → Stenamma_megamanni
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 1 ingroup species with duplicate tips.
+Species Stenamma_mgb: non-monophyletic; retain Stenamma_mgb (min total patristic distance 0.000000); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 37
+Genus monophyly: TRUE
+Genus MRCA node: 110
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Stenamma_alas
+  KEEP: Stenamma_brevicorne
+  KEEP: Stenamma_brujita
+  KEEP: Stenamma_californicum
+  KEEP: Stenamma_callipygium
+  KEEP: Stenamma_catracho
+  KEEP: Stenamma_crypticum
+  KEEP: Stenamma_cusuco
+  KEEP: Stenamma_debile
+  KEEP: Stenamma_diecki
+  KEEP: Stenamma_diversum
+  KEEP: Stenamma_dyscheres
+  KEEP: Stenamma_excisum
+  KEEP: Stenamma_expolitum
+  KEEP: Stenamma_felixi
+  KEEP: Stenamma_foveolocephalum
+  KEEP: Stenamma_huachucanum
+  KEEP: Stenamma_ignotum
+  KEEP: Stenamma_impar
+  KEEP: Stenamma_lagunum
+  KEEP: Stenamma_llama
+  KEEP: Stenamma_lobinodus
+  KEEP: Stenamma_manni
+  KEEP: Stenamma_megamanni
+  KEEP: Stenamma_mgb
+  KEEP: Stenamma_mgb
+  KEEP: Stenamma_msilanum
+  KEEP: Stenamma_muralla
+  KEEP: Stenamma_ochrocnemis
+  KEEP: Stenamma_punctatoventre
+  KEEP: Stenamma_punctiventre
+  KEEP: Stenamma_saenzae
+  KEEP: Stenamma_sandinista
+  KEEP: Stenamma_schmidti
+  KEEP: Stenamma_snellingi
+  KEEP: Stenamma_striatulum
+  KEEP: Stenamma_zelum
+Total retained genus tips: 37
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Aphaenogaster_honduriana_EX388 (min distance 0.072750).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Stenamma_with_outgroup.tre
+Outgroup in output: Aphaenogaster_honduriana_EX388
+Genus tips in output: 37

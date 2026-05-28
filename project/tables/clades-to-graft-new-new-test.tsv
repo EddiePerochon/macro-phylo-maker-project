@@ -1,0 +1,36 @@
+Subfamily	MRCA	Grafted_species	Phylogeny_pub	Phylogeny_data_source	Input_tree_type	Phylogeny_file_path	Notes
+Ectatomminae	Bazboltonia,Gnamptogenys		Camacho et al 2022	UCEs	phylogram	/home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.tre	
+Myrmicinae	Rostromyrmex,Leptothorax		Blaimer et al 2018	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup.tre	
+Formicinae	FORMICINAE		Blaimer et al 2016	UCEs			
+Formicinae	Acropyga		Blaimer et al 2016	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/acropyga/blaimer2016/extract_mrca_Acropyga_donisthorpei_ACR86-Acropyga_arnoldi_ACR22_20260404-165022_with_outgroup.tre	
+Formicinae	Colobopsis,Camponotus		Ward et al 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/Campo221-90-98_4runs_2Mgen_combined.nwk 	
+Myrmicinae	Crematogaster_macracantha,Crematogaster_kelleri		Blaimer et al 2012	Multilocus	chronogram	/home/marek/ant-megatree/working_code/package/project/published/crematogaster/blaimer2012/extract_mrca_Crematogaster_emeryi-Crematogaster_hova_complex_20260404-133421_with_outgroup.tre	
+Myrmicinae	Crematogaster_scutellaris,Crematogaster_pilosa		Ward and Blaimer 2022	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/crematogaster/ward2022/extract_mrca_Crematogaster_scutellaris_BBX611-Crematogaster_ashmeadi_D1839_20260404-134141_with_outgroup.tre	
+Dolichoderinae	Dorymyrmex		Oberski 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Dorymyrmex_ebeninus_D1537-Dorymyrmex_ce01_D2967_20260404-192925_with_outgroup.tre	
+Dolichoderinae	Forelius		Oberski 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Forelius_damiani_D3046-Forelius_brasiliensis_D3042_20260404-192925_with_outgroup.tre	
+Dolichoderinae	Leptomyrmex		Oberski 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Leptomyrmex_relictus_D1200-Leptomyrmex_unicolor_D3033_20260404-192925_with_outgroup.tre	
+Formicinae	Formica		Borowiec et al 2021	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/formica/borowiec2021/extract_mrca_Formica_gagates_F0120-Formica_nevadensis_F0079_20260404-181141_with_outgroup.tre	
+Myrmeciinae	Myrmecia		Mera-Rodriguez et al 2023	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/myrmecia/mera-rodriguez2023/extract_mrca_Myrmecia_flammicollis_11550-Myrmecia_inquilina_13405_20260409-145529_with_outgroup.tre	not available online
+Formicinae	Manica,Pogonomyrmex		Prebus and Rabeling 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/myrmicini/prebus2025/extract_mrca_Manica_hunteri_OR_S_Mattheiu_Lake_P861-Pogonomyrmex_maricopa_P882_20260404-165809_with_outgroup.tre	
+Formicinae	Zatania,Nylanderia		Matos-Maraví et al 2018	Multilocus	chronogram	/home/marek/ant-megatree/working_code/package/project/published/prenolepis/matos-maravi2018/extract_mrca_Zatania_albimaculata-Nylanderia_NYLA026_20260404-171052_with_outgroup.tre	
+Formicinae	Nylanderia		Williams et al 2022	UCEs	phylogram	/home/marek/ant-megatree/working_code/package/project/published/nylanderia/williams2022/Nylanderia_with_outgroup.tre	
+Myrmicinae	Pheidole		Economo et al 2019	Multilocus	chronogram	/home/marek/ant-megatree/working_code/package/project/published/pheidole/economo2019/extract_mrca_Pheidole_fimbriata_CASENT0283061-Pheidole_allarmata_CASENT0283450_20260404-164232_with_outgroup.tre	
+Myrmicinae	Pseudomyrmex_salvini,Pseudomyrmex_elongatulus		Ward and Branstetter 2022	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.tre	dryad repository missing
+Myrmicinae	Pseudomyrmex_particeps,Pseudomyrmex_janzeni		Ward and Branstetter 2017	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2017/extract_mrca_Pseudomyrmex_particeps_D1307-Pseudomyrmex_janzeni_D0620_20260404-173038_with_outgroup.tre
+Myrmicinae	Novomessor,Stenamma		Branstetter et al 2022	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/stenammini/branstetter2022/extract_mrca_Novomessor_albisetosus_EX376-Stenamma_punctiventre_EX309_20260404-124915_with_outgroup.tre	
+Myrmicinae	VEROMESSOR		Borowiec et al 2026	UCEs			
+Myrmicinae	APHAENOGASTER		Schifani et al 2022				
+Myrmicinae	APHAENOGASTER		DeMarco and Cognato 2016				
+Myrmicinae	Messor_aciculatus,Messor_denticornis		Juve et al 2025	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/messor/juve2025/extract_mrca_Messor_asmaae_sp1_PAKISTAN_AWEY-Messor_picturatus_maurus_TUNISIA_WGS_SH02-03_20260404-174036_with_outgroup.tre	
+Myrmicinae	Temnothorax_poeyi,Temnothorax_bernardi		Prebus et al 2017	Multilocus	chronogram	/home/marek/ant-megatree/working_code/package/project/published/temnothorax/prebus2017/extract_mrca_Temnothorax_nitens_P017-Temnothorax_mpala_P010_20260408-155341_with_outgroup.tre	
+Myrmicinae	TEMNOTHORAX SALVINI GRP		Prebus 2021	UCEs	chronogram		
+Myrmicinae	TEMNOTHORAX UNIFASCIATUS GRP		Csosz 2024	UCEs			
+Myrmicinae	Apterostigma,Acromyrmex		Schultz et al 2022	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/attini/schultz2024/extract_mrca_Mycocepurus_obsoletus_7308-Trachymyrmex_opulentus_8122_20260404-141656_with_outgroup.tre	
+Myrmicinae	ATTA		Barrera et al 2021				
+Amblyoponinae	Amblyopone,Myopopone		Ward and Fisher 2016	Multilocus	chronogram	/home/marek/ant-megatree/working_code/package/project/published/amblyoponinae/ward2016/extract_mrca_Concoctio_concenta-Stigmatomma_GA01_20260409-143917_with_outgroup.tre	not available online
+Dorylinae	ECITON		Winston et al 2017				
+Dorylinae	SYSCIA		Longino and Branstetter 2021				embargoed
+Leptanillinae	LEPTANILLINAE		Griebenow 2026				
+Formicinae	MYRMECOCYSTUS		Van Elst 2021	UCEs	chronogram		
+Dolichoderinae	Linepithema		Wild 2009	Multilocus			
+Myrmicinae	Ocymyrmex_celer,Ocymyrmex_picardi		Mbanyana et al 2024	UCEs	chronogram	/home/marek/ant-megatree/working_code/package/project/published/ocymyrmex/mbanyana2024/extract_mrca_Ocymyrmex_sp_2_HYM_C027808_Ocy103-Ocymyrmex_celer_BBC660_20260409-142001_with_outgroup.tre	

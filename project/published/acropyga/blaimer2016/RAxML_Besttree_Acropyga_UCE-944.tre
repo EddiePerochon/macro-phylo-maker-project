@@ -1,0 +1,72 @@
+#NEXUS
+[Blaimer, B.B., et al. Phylogenomics, biogeography and diversification of obligate mealybug-tending ants in the genus Acropyga. Mol. Phylogenet. Evol. (2016), http://dx.doi.org/10.1016/j.ympev.2016.05.030]
+
+
+BEGIN TAXA;
+	TITLE Taxa;
+	DIMENSIONS NTAX=50;
+	TAXLABELS
+		Acropyga_acutiventris_ACR23 Acropyga_butteli_ACR100 Acropyga_myops_ACR28 Acropyga_myops_ACR26 Acropyga_ambigua_ACR80 Acropyga_pallida_ACR84 Acropyga_pallida_ACR27 Acropyga_sauteri_ACR52 Acropyga_kinomurai_ACR83 Acropyga_lauta_ACR88 Acropyga_lauta_ACR87 Formicinae_genus_01_ZA02 Agraulomyrmex_TZ01 Anoplolepis_gracilipes Formica_moki Camponotus_hyatti Brachymyrmex_sp_ACR53 Nylanderia_hystrix Myrmecocystus_flavipes Lasius_californicus Acropyga_ayanganna_ACR8 Acropyga_panamensis_ACR51 Acropyga_donisthorpei_ACR59 Acropyga_donisthorpei_ACR86 Acropyga_donisthorpei_ACR85 Acropyga_stenotes_ACR55 Acropyga_guianensis_ACR56 Acropyga_guianensis_ACR50 Acropyga_guianensis_ACR21 Acropyga_hirsutula_ACR57 Acropyga_dubitata_ACR102 Acropyga_decedens_goeldii_ACR103 Acropyga_epedana_ACR7 Acropyga_epedana_ACR60 Acropyga_romeo_ACR58 Acropyga_fuhrmanni_ACR1 Acropyga_fuhrmanni_ACR3 Acropyga_fuhrmanni_ACR2 Acropyga_fuhrmanni_ACR5 Acropyga_smithii_ACR54 Acropyga_smithii_ACR6 Acropyga_silvestrii_ACR101 Acropyga_arnoldi_ACR22 Acropyga_silvestrii_ACR90 Acropyga_acutiventris_ACR82 Acropyga_acutiventris_ACR104 Acropyga_acutiventris_ACR89 Acropyga_acutiventris_ACR81 Acropyga_acutiventris_ACR25 Acropyga_acutiventris_ACR24 
+	;
+END;
+
+
+BEGIN TREES;
+	Title 'Trees from "RAxML_Besttree_Acropyga_UCE-944.tre"';
+	LINK Taxa = Taxa;
+	TRANSLATE
+		1 Acropyga_acutiventris_ACR23,
+		2 Acropyga_butteli_ACR100,
+		3 Acropyga_myops_ACR28,
+		4 Acropyga_myops_ACR26,
+		5 Acropyga_ambigua_ACR80,
+		6 Acropyga_pallida_ACR84,
+		7 Acropyga_pallida_ACR27,
+		8 Acropyga_sauteri_ACR52,
+		9 Acropyga_kinomurai_ACR83,
+		10 Acropyga_lauta_ACR88,
+		11 Acropyga_lauta_ACR87,
+		12 Formicinae_genus_01_ZA02,
+		13 Agraulomyrmex_TZ01,
+		14 Anoplolepis_gracilipes,
+		15 Formica_moki,
+		16 Camponotus_hyatti,
+		17 Brachymyrmex_sp_ACR53,
+		18 Nylanderia_hystrix,
+		19 Myrmecocystus_flavipes,
+		20 Lasius_californicus,
+		21 Acropyga_ayanganna_ACR8,
+		22 Acropyga_panamensis_ACR51,
+		23 Acropyga_donisthorpei_ACR59,
+		24 Acropyga_donisthorpei_ACR86,
+		25 Acropyga_donisthorpei_ACR85,
+		26 Acropyga_stenotes_ACR55,
+		27 Acropyga_guianensis_ACR56,
+		28 Acropyga_guianensis_ACR50,
+		29 Acropyga_guianensis_ACR21,
+		30 Acropyga_hirsutula_ACR57,
+		31 Acropyga_dubitata_ACR102,
+		32 Acropyga_decedens_goeldii_ACR103,
+		33 Acropyga_epedana_ACR7,
+		34 Acropyga_epedana_ACR60,
+		35 Acropyga_romeo_ACR58,
+		36 Acropyga_fuhrmanni_ACR1,
+		37 Acropyga_fuhrmanni_ACR3,
+		38 Acropyga_fuhrmanni_ACR2,
+		39 Acropyga_fuhrmanni_ACR5,
+		40 Acropyga_smithii_ACR54,
+		41 Acropyga_smithii_ACR6,
+		42 Acropyga_silvestrii_ACR101,
+		43 Acropyga_arnoldi_ACR22,
+		44 Acropyga_silvestrii_ACR90,
+		45 Acropyga_acutiventris_ACR82,
+		46 Acropyga_acutiventris_ACR104,
+		47 Acropyga_acutiventris_ACR89,
+		48 Acropyga_acutiventris_ACR81,
+		49 Acropyga_acutiventris_ACR25,
+		50 Acropyga_acutiventris_ACR24;
+	TREE tree_1 = (1:9.88E-4,((((((2:0.023428,((3:0.001657,4:0.001349):0.024235,(5:0.027271,(6:0.026227,7:0.018968):0.001374):0.003237):3.27E-4):0.00178,(8:0.032443,((9:0.031127,(10:0.008167,11:0.007062):0.015589):0.00765,((((12:0.027456,13:0.043604):0.026961,(14:0.087873,((15:0.064079,16:0.094975):0.004425,(17:0.181996,(18:0.116771,(19:0.029307,20:0.016492):0.033971):0.024405):0.013708):0.013715):0.03382):0.022909,((21:0.022579,(22:0.023978,((23:0.002873,24:0.001864):0.001456,25:9.67E-4):0.027835):0.001835):0.016687,((26:0.020068,(27:0.005628,(28:0.002397,29:0.002989):0.00432):0.02183):0.010734,(((30:0.016904,(31:0.021499,(32:0.010063,(33:0.002893,34:0.001375):0.013378):0.002388):0.00442):0.002474,35:0.030766):0.007512,((36:8.0E-4,(37:6.87E-4,(38:4.14E-4,39:7.84E-4):1.65E-4):1.36E-4):0.02593,(40:0.01342,41:0.012723):0.009336):0.006082):0.004999):0.010715):0.003647):0.001616,(42:0.023223,(43:0.012937,44:0.016761):7.67E-4):0.00883):6.55E-4):0.006616):0.003676):0.03549,(45:0.003091,46:0.002198):7.85E-4):5.84E-4,47:0.002381):3.33E-4,48:0.005157):3.2E-4,49:0.001675):4.71E-4,50:0.001818);
+END;
+
+
+

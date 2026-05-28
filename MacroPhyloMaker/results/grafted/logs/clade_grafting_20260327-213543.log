@@ -1,0 +1,76 @@
+=== Genus grafting log: CladeGraft | 2026-03-27 21:35:43 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 3
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Donors ready: 3 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.211645 crown_fraction=0.788355
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Proceratium_google
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 601; dropped absent: 82
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.117556 crown_fraction=0.882444
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.270130 crown_fraction=0.729870

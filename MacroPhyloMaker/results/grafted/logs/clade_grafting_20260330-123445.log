@@ -1,0 +1,424 @@
+=== Genus grafting log: CladeGraft | 2026-03-30 12:34:45 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 22
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Donors ready: 22 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.211645 crown_fraction=0.788355
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Proceratium_google
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 601; dropped absent: 82
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.117556 crown_fraction=0.882444
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pheidole_longispinosa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 121; dropped absent: 32
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 110; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 16; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 65; dropped absent: 38
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Metapone_madagascarica
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 108; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.616206 crown_fraction=0.383794
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Crematogaster_lotti
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 31; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.381722 crown_fraction=0.618278
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 21; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 49; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 68; dropped absent: 6
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 81; dropped absent: 11
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 100; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 35; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 115; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.000000 crown_fraction=1.000000
+Grafted donor at Bazboltonia with pos=0.000000 (L_in=0.143961) crown_target=0.752575 T_target=0.954614; dropped old tips=12Grafted donor at Gnamptogenys with pos=0.000000 (L_in=0.143961) crown_target=0.752575 T_target=0.954614; dropped old tips=12
+Grafted donor at Platythyrea with pos=0.001817 (L_in=0.127997) crown_target=0.947183 T_target=1.073363; dropped old tips=55Grafted donor at Leptogenys with pos=0.001817 (L_in=0.127997) crown_target=0.947183 T_target=1.073363; dropped old tips=55
+Grafted donor at Rostromyrmex with pos=0.044982 (L_in=0.044982) crown_target=0.608919 T_target=0.608919; dropped old tips=64Grafted donor at Leptothorax with pos=0.044982 (L_in=0.044982) crown_target=0.608919 T_target=0.608919; dropped old tips=64

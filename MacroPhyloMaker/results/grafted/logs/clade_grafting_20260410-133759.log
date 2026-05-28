@@ -1,0 +1,163 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 13:37:59 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 35
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 3] Missing MRCA or file path
+[skip row 20] Missing MRCA or file path
+[skip row 21] Missing MRCA or file path
+[skip row 22] Missing MRCA or file path
+[skip row 25] Missing MRCA or file path
+[skip row 26] Missing MRCA or file path
+[skip row 28] Missing MRCA or file path
+[skip row 30] Missing MRCA or file path
+[skip row 31] Missing MRCA or file path
+[skip row 32] Missing MRCA or file path
+[skip row 33] Missing MRCA or file path
+[skip row 34] Missing MRCA or file path
+Donors ready: 23 (skipped: 12)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=231.720649
+  logLik=-9.860324
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.132687 crown_fraction=0.867313
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Monomorium_hanneli
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 121; dropped absent: 32
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=1317.491381
+  logLik=-537.745690
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.269684 crown_fraction=0.730316
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Agraulomyrmex_TZ01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=214.273919
+  logLik=-85.136960
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.342726 crown_fraction=0.657274
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/acropyga/blaimer2016/extract_mrca_Acropyga_donisthorpei_ACR86-Acropyga_arnoldi_ACR22_20260404-165022_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmoteras_iriodum
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 203; dropped absent: 15
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=2
+  PHIIC=536.042559
+  logLik=-63.021280
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.624235 crown_fraction=0.375765
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/Campo221-90-98_4runs_2Mgen_combined.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Recurvidris_TH01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 91; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.

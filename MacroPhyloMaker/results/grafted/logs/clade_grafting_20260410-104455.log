@@ -1,0 +1,786 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 10:44:55 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 40
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 3] Missing MRCA or file path
+[skip row 24] Missing MRCA or file path
+[skip row 25] Missing MRCA or file path
+[skip row 26] Missing MRCA or file path
+[skip row 29] Missing MRCA or file path
+[skip row 30] Missing MRCA or file path
+[skip row 32] Missing MRCA or file path
+[skip row 34] Missing MRCA or file path
+[skip row 35] Missing MRCA or file path
+[skip row 36] Missing MRCA or file path
+[skip row 37] Missing MRCA or file path
+[skip row 38] Missing MRCA or file path
+[skip row 39] Missing MRCA or file path
+Donors ready: 27 (skipped: 13)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=231.720649
+  logLik=-9.860324
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.132687 crown_fraction=0.867313
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Monomorium_hanneli
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 121; dropped absent: 32
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=1317.491381
+  logLik=-537.745690
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.269684 crown_fraction=0.730316
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Agraulomyrmex_TZ01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=214.273919
+  logLik=-85.136960
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.342726 crown_fraction=0.657274
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmoteras_iriodum
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 203; dropped absent: 15
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=2
+  PHIIC=536.042559
+  logLik=-63.021280
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.624235 crown_fraction=0.375765
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Camponotous_sp
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 81; dropped absent: 11
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=298.511390
+  logLik=-68.255695
+  converged=FALSE
+  note=WARNING: No chronos model converged; using best NON-converged model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.333395 crown_fraction=0.666605
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Procryptocerus_scabriusculus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 65; dropped absent: 38
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=136.993858
+  logLik=-3.496929
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.579190 crown_fraction=0.420810
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Recurvidris_TH01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 91; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=2
+  PHIIC=791.453635
+  logLik=-302.726817
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.408634 crown_fraction=0.591366
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Crematogaster_lotti
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 31; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=72.741812
+  logLik=-5.370906
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.486846 crown_fraction=0.513154
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Forelius_damiani
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=254.503793
+  logLik=-97.251896
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.183456 crown_fraction=0.816544
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 8; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=71.648805
+  logLik=-27.824403
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.545591 crown_fraction=0.454409
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 9; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=89.628665
+  logLik=-35.814333
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.210163 crown_fraction=0.789837
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Iberoformica_subrufa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 77; dropped absent: 4
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=206.373379
+  logLik=-26.186689
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.127269 crown_fraction=0.872731
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmecocystus_mexicanus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 21; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=42.933645
+  logLik=-0.466822
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.097743 crown_fraction=0.902257
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Nothomyrm_macrops
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=162.657204
+  logLik=-19.328602
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.336722 crown_fraction=0.663278
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_longinoi
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 41; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=114.414686
+  logLik=-16.207343
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.055201 crown_fraction=0.944799
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Lasius_californicus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 44; dropped absent: 80
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree is already ultrametric; skipping chronos and using as chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.312838 crown_fraction=0.687162
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Paratrechina_longicornis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=75.752173
+  logLik=-1.876086
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.495950 crown_fraction=0.504050
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cephalotes_setulifer
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree is already ultrametric; skipping chronos and using as chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.485965 crown_fraction=0.514035
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrcidris_epicharis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 100; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=correlated
+  lambda=10
+  rate_cats=NA
+  PHIIC=605.356041
+  logLik=-3.672767
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.423713 crown_fraction=0.576287
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pseudomyrmex_fervidus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 13; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=96.742260
+  logLik=-35.371130
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.448365 crown_fraction=0.551635
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pseudomyrmex_perboscii
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 12; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=95.528418
+  logLik=-35.764209
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.330819 crown_fraction=0.669181
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_jtl
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 85; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=752.607595
+  logLik=-291.303798
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.426278 crown_fraction=0.573722
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Aphaenogaster_megommata
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 48; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=125.260296
+  logLik=-14.630148
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.090307 crown_fraction=0.909693
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Leptothorax_calderoni
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 87; dropped absent: 6
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree is already ultrametric; skipping chronos and using as chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.254239 crown_fraction=0.745761
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Acanthognathus_ocellatus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 54; dropped absent: 57
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=158.246786
+  logLik=-25.123393
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.071739 crown_fraction=0.928261
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Apomyrma_CF02
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 17; dropped absent: 33
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=189.241900
+  logLik=-77.620950
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.055570 crown_fraction=0.944430
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cardiocondyla_mauritanica
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 20; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=52.916981
+  logLik=-6.458490
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.641748 crown_fraction=0.358252
+Collapsing MRCA(Bazboltonia,Gnamptogenys) by retaining backbone tip Acanthoponera and grafting donor as terminal replacement.
+Collapsing MRCA(Rostromyrmex,Leptothorax) by retaining backbone tip Acanthomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Colobopsis,Camponotus) by retaining backbone tip Calomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Polyrhachis_callima,Polyrhachis_exercita) by retaining backbone tip Polyrhachis_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_macracantha,Crematogaster_kelleri) by retaining backbone tip Crematogaster_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_scutellaris,Crematogaster_pilosa) by retaining backbone tip Crematogaster_coarctata and grafting donor as terminal replacement.
+Collapsing MRCA(Manica,Pogonomyrmex) by retaining backbone tip Hylomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Zatania,Nylanderia) by retaining backbone tip Euprenolepis and grafting donor as terminal replacement.
+[SKIP tree 1] TIP{Nylanderia}: target missing in this backbone.
+Collapsing MRCA(Pseudomyrmex_salvini,Pseudomyrmex_elongatulus) by retaining backbone tip Pseudomyrmex_apache and grafting donor as terminal replacement.
+Collapsing MRCA(Pseudomyrmex_particeps,Pseudomyrmex_janzeni) by retaining backbone tip Pseudomyrmex_ferrugineus and grafting donor as terminal replacement.
+Collapsing MRCA(Novomessor,Stenamma) by retaining backbone tip Aphaenogaster and grafting donor as terminal replacement.
+Collapsing MRCA(Messor_aciculatus,Messor_denticornis) by retaining backbone tip Messor_aciculatus and grafting donor as terminal replacement.
+Collapsing MRCA(Temnothorax_poeyi,Temnothorax_bernardi) by retaining backbone tip Temnothorax_bernardi and grafting donor as terminal replacement.
+Collapsing MRCA(Apterostigma,Acromyrmex) by retaining backbone tip Acromyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Amblyopone,Myopopone) by retaining backbone tip Adetomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Ocymyrmex_celer,Ocymyrmex_picardi) by retaining backbone tip Ocymyrmex_celer and grafting donor as terminal replacement.
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

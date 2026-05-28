@@ -1,0 +1,27 @@
+=== Genus extraction log: Colobopsis | 2026-04-10 12:30:25 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 221
+Ingroup (genus=Colobopsis) identified: 20 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Polyrhachis_AU_A_D2316 (min distance=0.767647)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 20
+tips_out (final tree): 19
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Colobopsis/extract_Colobopsis_20260410-123025_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Colobopsis/extract_Colobopsis_20260410-123025_renamed.tsv

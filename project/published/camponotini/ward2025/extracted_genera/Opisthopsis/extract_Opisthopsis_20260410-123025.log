@@ -1,0 +1,27 @@
+=== Genus extraction log: Opisthopsis | 2026-04-10 12:30:25 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 221
+Ingroup (genus=Opisthopsis) identified: 5 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Camponotus_ephippiatus_D2024 (min distance=0.714068)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 5
+tips_out (final tree): 6
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Opisthopsis/extract_Opisthopsis_20260410-123025_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Opisthopsis/extract_Opisthopsis_20260410-123025_renamed.tsv

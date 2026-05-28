@@ -1,0 +1,37 @@
+Package: AntPhyloMaker
+Title: Tools for Extracting, Grafting, and Assembling Ant Phylogenies
+Version: 2026.03.05.1
+Authors@R: 
+    person("Marek", "Borowiec", role = c("aut", "cre"),
+           email = "marek.borowiec@colostate.edu",
+           comment = c(ORCID = "0000-0001-7510-4064"))
+Description: Provides tools to extract cleaned genus-level subtrees 
+    with outgroups, graft donor genus trees into an ultrametric backbone 
+    chronogram (including stem-aware chronos-based rescaling), fill genus-
+    level tips with species-level names using AntWiki, convert AntWiki 
+    tables to TACT taxonomy format, and generate autosized or paginated 
+    PDF plots of large phylogenies.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 4.1)
+Imports:
+    ape,
+    phytools,
+    data.table,
+    readr,
+    dplyr,
+    stringr,
+    cli,
+    utils,
+    stats,
+    graphics,
+    grDevices
+Suggests:
+    optparse,
+    testthat,
+    knitr,
+    rmarkdown,
+    withr
+Config/testthat/edition: 3
+RoxygenNote: 7.3.3

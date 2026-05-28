@@ -1,0 +1,45 @@
+=== Genus grafting log: CladeGraft | 2026-03-23 16:15:00 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 3
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 1] Missing Genus or file path
+[skip row 2] Missing Genus or file path
+Donors ready: 1 (skipped: 2)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.270130 crown_fraction=0.729870
+Grafted donor at tip=Acropyga position=0.191218 (L=0.261989)
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

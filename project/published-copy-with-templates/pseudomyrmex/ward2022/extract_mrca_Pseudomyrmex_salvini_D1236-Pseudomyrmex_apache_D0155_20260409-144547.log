@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-09 14:45:47 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 49
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 46
+Outgroup (sister_one): Pseudomyrmex_fervidus_D0861 (min distance=30.287688)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 46
+tips_out (final tree): 47
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.tre

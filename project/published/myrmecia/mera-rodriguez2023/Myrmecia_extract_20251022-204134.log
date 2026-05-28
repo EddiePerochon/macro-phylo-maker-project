@@ -1,0 +1,301 @@
+=== Genus extraction log: Myrmecia | 2025-10-22 20:41:34 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 108 ingroup tip(s) in raw tree.
+Kept 108 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Myrmecia_flammicollis_11550 → Myrmecia_flammicollis
+  KEEP: Myrmecia_petiolata_9860 → Myrmecia_petiolata
+  KEEP: Myrmecia_nigrocinta_9859 → Myrmecia_nigrocinta
+  KEEP: Myrmecia_nigrocinta_9858 → Myrmecia_nigrocinta
+  KEEP: Myrmecia_fucosa_9847 → Myrmecia_fucosa
+  KEEP: Myrmecia_picta_9861 → Myrmecia_picta
+  KEEP: Myrmecia_picta_9862 → Myrmecia_picta
+  KEEP: Myrmecia_infima_11533 → Myrmecia_infima
+  KEEP: Myrmecia_urens_9889 → Myrmecia_urens
+  KEEP: Myrmecia_urens_9886 → Myrmecia_urens
+  KEEP: Myrmecia_urens_9887 → Myrmecia_urens
+  KEEP: Myrmecia_apicalis_9821 → Myrmecia_apicalis
+  KEEP: Myrmecia_mandibularis_9852 → Myrmecia_mandibularis
+  KEEP: Myrmecia_mandibularis_9853 → Myrmecia_mandibularis
+  KEEP: Myrmecia_mandibularis_9884 → Myrmecia_mandibularis
+  KEEP: Myrmecia_fulvipes_9848 → Myrmecia_fulvipes
+  KEEP: Myrmecia_fulvipes_9849 → Myrmecia_fulvipes
+  KEEP: Myrmecia_piliventris_9864 → Myrmecia_piliventris
+  KEEP: Myrmecia_piliventris_9865 → Myrmecia_piliventris
+  KEEP: Myrmecia_gilberti_9851 → Myrmecia_gilberti
+  KEEP: Myrmecia_fulviculis_13403 → Myrmecia_fulviculis
+  KEEP: Myrmecia_nigrascapa_11549 → Myrmecia_nigrascapa
+  KEEP: Myrmecia_michaelseni_9854 → Myrmecia_michaelseni
+  KEEP: Myrmecia_chrysogaster_11519 → Myrmecia_chrysogaster
+  KEEP: Myrmecia_queenslandica_9885 → Myrmecia_queenslandica
+  KEEP: Myrmecia_nobilis_11535 → Myrmecia_nobilis
+  KEEP: Myrmecia_froggatti_9846 → Myrmecia_froggatti
+  KEEP: Myrmecia_froggatti_11534 → Myrmecia_froggatti
+  KEEP: Myrmecia_testaceipes_11527 → Myrmecia_testaceipes
+  KEEP: Myrmecia_acuta_11524 → Myrmecia_acuta
+  KEEP: Myrmecia_chasei_11518 → Myrmecia_chasei
+  KEEP: Myrmecia_picta_chasei_9863 → Myrmecia_picta
+  KEEP: Myrmecia_clarki_9827 → Myrmecia_clarki
+  KEEP: Myrmecia_dispar_9843 → Myrmecia_dispar
+  KEEP: Myrmecia_occidentalis_11520 → Myrmecia_occidentalis
+  KEEP: Myrmecia_tepperi_9873 → Myrmecia_tepperi
+  KEEP: Myrmecia_elegans_9844 → Myrmecia_elegans
+  KEEP: Myrmecia_varians_9891 → Myrmecia_varians
+  KEEP: Myrmecia_varians_9890 → Myrmecia_varians
+  KEEP: Myrmecia_croslandi_11522 → Myrmecia_croslandi
+  KEEP: Myrmecia_pilosula_cplx_11501 → Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula_cplx_9899 → Myrmecia_pilosula
+  KEEP: Myrmecia_impaternata_11526 → Myrmecia_impaternata
+  KEEP: Myrmecia_pilosula_cplx_9898 → Myrmecia_pilosula
+  KEEP: Myrmecia_haskinsorum_11525 → Myrmecia_haskinsorum
+  KEEP: Myrmecia_pilosula_11523 → Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula_cplx_11503 → Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula_cplx_11502 → Myrmecia_pilosula
+  KEEP: Myrmecia_urens_9888 → Myrmecia_urens
+  KEEP: Myrmecia_esuriensis_11541 → Myrmecia_esuriensis
+  KEEP: Myrmecia_midas_9855 → Myrmecia_midas
+  KEEP: Myrmecia_pulchra_9835 → Myrmecia_pulchra
+  KEEP: Myrmecia_pulchra_9866 → Myrmecia_pulchra
+  KEEP: Myrmecia_mjobergi_11548 → Myrmecia_mjobergi
+  KEEP: Myrmecia_regularis_9868 → Myrmecia_regularis
+  KEEP: Myrmecia_forficata_9831 → Myrmecia_forficata
+  KEEP: Myrmecia_forficata_9845 → Myrmecia_forficata
+  KEEP: Myrmecia_brevinoda_9841 → Myrmecia_brevinoda
+  KEEP: Myrmecia_brevinoda_9826 → Myrmecia_brevinoda
+  KEEP: Myrmecia_hisuta_11521 → Myrmecia_hisuta
+  KEEP: Myrmecia_erecta_11539 → Myrmecia_erecta
+  KEEP: Myrmecia_pyriformis_9867 → Myrmecia_pyriformis
+  KEEP: Myrmecia_browningi_11538 → Myrmecia_browningi
+  KEEP: Myrmecia_analis_9822 → Myrmecia_analis
+  KEEP: Myrmecia_minuscula_11546 → Myrmecia_minuscula
+  KEEP: Myrmecia_comata_11540 → Myrmecia_comata
+  KEEP: Myrmecia_rowlandi_11532 → Myrmecia_rowlandi
+  KEEP: Myrmecia_flavicoma_11547 → Myrmecia_flavicoma
+  KEEP: Myrmecia_tarsata_9836 → Myrmecia_tarsata
+  KEEP: Myrmecia_tarsata_9872 → Myrmecia_tarsata
+  KEEP: Myrmecia_tridentata_11531 → Myrmecia_tridentata
+  KEEP: Myrmecia_eugellensis_9829 → Myrmecia_eugellensis
+  KEEP: Myrmecia_fabricii_11542 → Myrmecia_fabricii
+  KEEP: Myrmecia_athertonensis_13402 → Myrmecia_athertonensis
+  KEEP: Myrmecia_auriventris_9823 → Myrmecia_auriventris
+  KEEP: Myrmecia_borealis_9824 → Myrmecia_borealis
+  KEEP: Myrmecia_gulosa_9833 → Myrmecia_gulosa
+  KEEP: Myrmecia_forceps_9830 → Myrmecia_forceps
+  KEEP: Myrmecia_simillima_9870 → Myrmecia_simillima
+  KEEP: Myrmecia_simillima_9869 → Myrmecia_simillima
+  KEEP: Myrmecia_simillima_9871 → Myrmecia_simillima
+  KEEP: Myrmecia_arnoldi_11536 → Myrmecia_arnoldi
+  KEEP: Myrmecia_fulgida_11543 → Myrmecia_fulgida
+  KEEP: Myrmecia_pavida_11528 → Myrmecia_pavida
+  KEEP: Myrmecia_vindex_9875 → Myrmecia_vindex
+  KEEP: Myrmecia_vindex_11529 → Myrmecia_vindex
+  KEEP: Myrmecia_vindex_9874 → Myrmecia_vindex
+  KEEP: Myrmecia_vindex_9878 → Myrmecia_vindex
+  KEEP: Myrmecia_vindex_9877 → Myrmecia_vindex
+  KEEP: Myrmecia_gratiosa_11545 → Myrmecia_gratiosa
+  KEEP: Myrmecia_vindex_11530 → Myrmecia_vindex
+  KEEP: Myrmecia_inquilina_12745 → Myrmecia_inquilina
+  KEEP: Myrmecia_fuscipes_9832 → Myrmecia_fuscipes
+  KEEP: Myrmecia_fuscipes_9850 → Myrmecia_fuscipes
+  KEEP: Myrmecia_desertorum_9828 → Myrmecia_desertorum
+  KEEP: Myrmecia_desertorum_9842 → Myrmecia_desertorum
+  KEEP: Myrmecia_nigriceps_11551 → Myrmecia_nigriceps
+  KEEP: Myrmecia_vindex_9876 → Myrmecia_vindex
+  KEEP: Myrmecia_nigriceps_9834 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps_9857 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps_9856 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps_11554 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps_11552 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps_11557 → Myrmecia_nigriceps
+  KEEP: Myrmecia_nov_11556 → Myrmecia_nov
+  KEEP: Myrmecia_inquilina_13404 → Myrmecia_inquilina
+  KEEP: Myrmecia_inquilina_12746 → Myrmecia_inquilina
+  KEEP: Myrmecia_inquilina_13405 → Myrmecia_inquilina
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 19 ingroup species with duplicate tips.
+Species Myrmecia_brevinoda: non-monophyletic; retain Myrmecia_brevinoda (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_desertorum: monophyletic; retain Myrmecia_desertorum (min crown depth -0.003360); drop 0 duplicate(s).
+Species Myrmecia_forficata: monophyletic; retain Myrmecia_forficata (min crown depth -0.001514); drop 0 duplicate(s).
+Species Myrmecia_froggatti: monophyletic; retain Myrmecia_froggatti (min crown depth -0.005485); drop 0 duplicate(s).
+Species Myrmecia_fulvipes: non-monophyletic; retain Myrmecia_fulvipes (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_fuscipes: monophyletic; retain Myrmecia_fuscipes (min crown depth -0.003989); drop 0 duplicate(s).
+Species Myrmecia_inquilina: non-monophyletic; retain Myrmecia_inquilina (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_mandibularis: monophyletic; retain Myrmecia_mandibularis (min crown depth -0.003185); drop 0 duplicate(s).
+Species Myrmecia_nigriceps: non-monophyletic; retain Myrmecia_nigriceps (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_nigrocinta: non-monophyletic; retain Myrmecia_nigrocinta (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_picta: non-monophyletic; retain Myrmecia_picta (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_piliventris: monophyletic; retain Myrmecia_piliventris (min crown depth -0.001811); drop 0 duplicate(s).
+Species Myrmecia_pilosula: non-monophyletic; retain Myrmecia_pilosula (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_pulchra: monophyletic; retain Myrmecia_pulchra (min crown depth -0.003181); drop 0 duplicate(s).
+Species Myrmecia_simillima: monophyletic; retain Myrmecia_simillima (min crown depth -0.004312); drop 0 duplicate(s).
+Species Myrmecia_tarsata: non-monophyletic; retain Myrmecia_tarsata (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_urens: non-monophyletic; retain Myrmecia_urens (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_varians: non-monophyletic; retain Myrmecia_varians (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Myrmecia_vindex: non-monophyletic; retain Myrmecia_vindex (min total patristic distance 0.000000); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 132
+Genus monophyly: TRUE
+Genus MRCA node: 205
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Myrmecia_1_9883
+  KEEP: Myrmecia_10_9882
+  KEEP: Myrmecia_11_11509
+  KEEP: Myrmecia_11_9881
+  KEEP: Myrmecia_12_11510
+  KEEP: Myrmecia_12_11511
+  KEEP: Myrmecia_2_11504
+  KEEP: Myrmecia_2_11505
+  KEEP: Myrmecia_2_9880
+  KEEP: Myrmecia_4_11512
+  KEEP: Myrmecia_4_11515
+  KEEP: Myrmecia_5_11506
+  KEEP: Myrmecia_6_11513
+  KEEP: Myrmecia_7_11507
+  KEEP: Myrmecia_7_9879
+  KEEP: Myrmecia_8_11508
+  KEEP: Myrmecia_8_11514
+  KEEP: Myrmecia_A_11516
+  KEEP: Myrmecia_acuta
+  KEEP: Myrmecia_analis
+  KEEP: Myrmecia_apicalis
+  KEEP: Myrmecia_Apicalis_9825
+  KEEP: Myrmecia_arnoldi
+  KEEP: Myrmecia_athertonensis
+  KEEP: Myrmecia_auriventris
+  KEEP: Myrmecia_B_11517
+  KEEP: Myrmecia_borealis
+  KEEP: Myrmecia_brevinoda
+  KEEP: Myrmecia_brevinoda
+  KEEP: Myrmecia_browningi
+  KEEP: Myrmecia_chasei
+  KEEP: Myrmecia_chrysogaster
+  KEEP: Myrmecia_clarki
+  KEEP: Myrmecia_comata
+  KEEP: Myrmecia_croslandi
+  KEEP: Myrmecia_desertorum
+  KEEP: Myrmecia_desertorum
+  KEEP: Myrmecia_dispar
+  KEEP: Myrmecia_elegans
+  KEEP: Myrmecia_erecta
+  KEEP: Myrmecia_esuriensis
+  KEEP: Myrmecia_eugellensis
+  KEEP: Myrmecia_fabricii
+  KEEP: Myrmecia_flammicollis
+  KEEP: Myrmecia_flavicoma
+  KEEP: Myrmecia_forceps
+  KEEP: Myrmecia_forficata
+  KEEP: Myrmecia_forficata
+  KEEP: Myrmecia_froggatti
+  KEEP: Myrmecia_froggatti
+  KEEP: Myrmecia_fucosa
+  KEEP: Myrmecia_fulgida
+  KEEP: Myrmecia_fulviculis
+  KEEP: Myrmecia_fulvipes
+  KEEP: Myrmecia_fulvipes
+  KEEP: Myrmecia_fuscipes
+  KEEP: Myrmecia_fuscipes
+  KEEP: Myrmecia_gilberti
+  KEEP: Myrmecia_gratiosa
+  KEEP: Myrmecia_gulosa
+  KEEP: Myrmecia_haskinsorum
+  KEEP: Myrmecia_hisuta
+  KEEP: Myrmecia_impaternata
+  KEEP: Myrmecia_infima
+  KEEP: Myrmecia_inquilina
+  KEEP: Myrmecia_inquilina
+  KEEP: Myrmecia_inquilina
+  KEEP: Myrmecia_inquilina
+  KEEP: Myrmecia_mandibularis
+  KEEP: Myrmecia_mandibularis
+  KEEP: Myrmecia_mandibularis
+  KEEP: Myrmecia_michaelseni
+  KEEP: Myrmecia_midas
+  KEEP: Myrmecia_minuscula
+  KEEP: Myrmecia_mjobergi
+  KEEP: Myrmecia_nigrascapa
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigriceps
+  KEEP: Myrmecia_nigrocinta
+  KEEP: Myrmecia_nigrocinta
+  KEEP: Myrmecia_nobilis
+  KEEP: Myrmecia_nov
+  KEEP: Myrmecia_occidentalis
+  KEEP: Myrmecia_pavida
+  KEEP: Myrmecia_petiolata
+  KEEP: Myrmecia_picta
+  KEEP: Myrmecia_picta
+  KEEP: Myrmecia_picta
+  KEEP: Myrmecia_piliventris
+  KEEP: Myrmecia_piliventris
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pilosula
+  KEEP: Myrmecia_pulchra
+  KEEP: Myrmecia_pulchra
+  KEEP: Myrmecia_pyriformis
+  KEEP: Myrmecia_queenslandica
+  KEEP: Myrmecia_regularis
+  KEEP: Myrmecia_rowlandi
+  KEEP: Myrmecia_simillima
+  KEEP: Myrmecia_simillima
+  KEEP: Myrmecia_simillima
+  KEEP: Myrmecia_Steven1_9837
+  KEEP: Myrmecia_Steven2_9838
+  KEEP: Myrmecia_Steven3_9839
+  KEEP: Myrmecia_Steven4_9840
+  KEEP: Myrmecia_tarsata
+  KEEP: Myrmecia_tarsata
+  KEEP: Myrmecia_tepperi
+  KEEP: Myrmecia_testaceipes
+  KEEP: Myrmecia_tridentata
+  KEEP: Myrmecia_urens
+  KEEP: Myrmecia_urens
+  KEEP: Myrmecia_urens
+  KEEP: Myrmecia_urens
+  KEEP: Myrmecia_varians
+  KEEP: Myrmecia_varians
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+  KEEP: Myrmecia_vindex
+Total retained genus tips: 132
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Nothomyrmecia__9893 (min distance 0.137542).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Myrmecia_with_outgroup.tre
+Outgroup in output: Nothomyrmecia__9893
+Genus tips in output: 93

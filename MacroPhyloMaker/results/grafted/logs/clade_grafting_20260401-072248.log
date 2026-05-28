@@ -1,0 +1,693 @@
+=== Genus grafting log: CladeGraft | 2026-04-01 07:22:48 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 22
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Donors ready: 22 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=231.720649
+  logLik=-9.860324
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.132687 crown_fraction=0.867313
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Proceratium_google
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 601; dropped absent: 82
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=1308.094084
+  logLik=-53.047042
+  converged=FALSE
+  note=WARNING: No chronos model converged; using best NON-converged model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.502852 crown_fraction=0.497148
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pheidole_longispinosa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 121; dropped absent: 32
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=276.887118
+  logLik=-17.443559
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.080846 crown_fraction=0.919154
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Formicinae_genus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=50.148750
+  logLik=-3.074375
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.322158 crown_fraction=0.677842
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Overbeckia_my
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 110; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=230.724324
+  logLik=-5.362162
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.170427 crown_fraction=0.829573
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Lathidris_montivagus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 16; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=34.729102
+  logLik=-1.364551
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.341515 crown_fraction=0.658485
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Procryptocerus_scabriusculus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 65; dropped absent: 38
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=136.993858
+  logLik=-3.496929
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.579190 crown_fraction=0.420810
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Metapone_madagascarica
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 108; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=228.981443
+  logLik=-6.490721
+  converged=FALSE
+  note=WARNING: No chronos model converged; using best NON-converged model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.435834 crown_fraction=0.564166
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Crematogaster_lotti
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 31; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=63.376273
+  logLik=-0.688136
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.300627 crown_fraction=0.699373
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Forelius_damiani
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=64.301719
+  logLik=-2.150860
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.316167 crown_fraction=0.683833
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Iberoformica_subrufa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=163.548230
+  logLik=-1.774115
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.429721 crown_fraction=0.570279
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmecocystus_mexicanus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 21; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=42.933645
+  logLik=-0.466822
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.097743 crown_fraction=0.902257
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Aphaenogaster_leveillei
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 49; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=107.109418
+  logLik=-4.554709
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.179885 crown_fraction=0.820115
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Nothomyrmecia__9893
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=133.090096
+  logLik=-4.545048
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.576809 crown_fraction=0.423191
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: 'Manica_invidia'
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 68; dropped absent: 6
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=relaxed
+  lambda=0.1
+  rate_cats=NA
+  PHIIC=761.574108
+  logLik=-177.664358
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.250000 crown_fraction=0.750000
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Paratrechina_longicornis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=75.752173
+  logLik=-1.876086
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.495950 crown_fraction=0.504050
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cephalotes_setulifer
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=568.841714
+  logLik=-43.420857
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.546094 crown_fraction=0.453906
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Camponotous_sp
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 81; dropped absent: 11
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=298.511390
+  logLik=-68.255695
+  converged=FALSE
+  note=WARNING: No chronos model converged; using best NON-converged model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.333395 crown_fraction=0.666605
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrcidris_epicharis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 100; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=correlated
+  lambda=10
+  rate_cats=NA
+  PHIIC=605.356041
+  logLik=-3.672767
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.423713 crown_fraction=0.576287
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Aphaenogaster_honduriana
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 35; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=75.149409
+  logLik=-2.574705
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.104983 crown_fraction=0.895017
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pilotrochus_besmerus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 115; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=248.633759
+  logLik=-9.316879
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.484184 crown_fraction=0.515816
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Harpagoxenus_sublaevis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=1
+  PHIIC=176.734499
+  logLik=-8.367249
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.476122 crown_fraction=0.523878
+Grafting donor 'ok' as clade onto MRCA(Bazboltonia,Gnamptogenys)
+Grafted donor at MRCA(anchors) with pos=0.017296 (L_in=0.143961) crown_target=0.827949 T_target=0.954614; dropped old tips=12
+Grafting donor 'ok' as clade onto MRCA(Platythyrea,Leptogenys)
+Grafted donor at MRCA(anchors) with pos=0.000000 (L_in=0.127997) crown_target=0.533620 T_target=1.073363; dropped old tips=55
+Grafting donor 'ok' as clade onto MRCA(Rostromyrmex,Leptothorax)
+Grafted donor at MRCA(anchors) with pos=0.000000 (L_in=0.044982) crown_target=0.559691 T_target=0.608919; dropped old tips=64
+Grafting donor 'ok' as tip replacing TIP(Acropyga)[DEBUG TIP] Before graft: tip=Acropyga
+[DEBUG TIP] tip=Acropyga parent_node=1384 L=0.261989 r=0.322158 crown_target=0.177587 bind.position=0.177587 parent_height=1.010427 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.177587
+[DEBUG TIP] post-graft donor crown height=0.177587 (expected=0.177587)
+Grafting donor 'ok' as tip replacing TIP(Camponotus)[DEBUG TIP] Before graft: tip=Camponotus
+[DEBUG TIP] tip=Camponotus parent_node=1396 L=0.178824 r=0.170427 crown_target=0.148348 bind.position=0.148348 parent_height=1.093592 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.148348
+[DEBUG TIP] post-graft donor crown height=0.148348 (expected=0.148348)
+Grafting donor 'ok' as tip replacing TIP(Colobopsis)[DEBUG TIP] Before graft: tip=Colobopsis
+[DEBUG TIP] tip=Colobopsis parent_node=1499 L=0.351471 r=0.341515 crown_target=0.231438 bind.position=0.231438 parent_height=0.920945 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.231438
+[DEBUG TIP] post-graft donor crown height=0.231438 (expected=0.231438)
+Grafting donor 'ok' as tip replacing TIP(Cephalotes)[DEBUG TIP] Before graft: tip=Cephalotes
+[DEBUG TIP] tip=Cephalotes parent_node=1233 L=0.302182 r=0.579190 crown_target=0.127161 bind.position=0.127161 parent_height=0.970234 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.127161
+[DEBUG TIP] post-graft donor crown height=0.127161 (expected=0.127161)
+Grafting donor 'ok' as clade onto MRCA(Crematogaster_macracantha,Crematogaster_kelleri)
+Grafted donor at MRCA(anchors) with pos=0.020528 (L_in=0.180254) crown_target=0.206758 T_target=0.366485; dropped old tips=16
+Grafting donor 'ok' as clade onto MRCA(Crematogaster_scutellaris,Crematogaster_pilosa)
+Grafted donor at MRCA(anchors) with pos=0.000226 (L_in=0.030367) crown_target=0.070120 T_target=0.100261; dropped old tips=8
+Grafting donor 'ok' as tip replacing TIP(Dorymyrmex)[DEBUG TIP] Before graft: tip=Dorymyrmex
+[DEBUG TIP] tip=Dorymyrmex parent_node=2043 L=0.316589 r=0.316167 crown_target=0.216494 bind.position=0.216494 parent_height=0.955827 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.216494
+[DEBUG TIP] post-graft donor crown height=0.216494 (expected=0.216494)
+Grafting donor 'ok' as tip replacing TIP(Formica)[DEBUG TIP] Before graft: tip=Formica
+[DEBUG TIP] tip=Formica parent_node=2035 L=0.152988 r=0.429721 crown_target=0.087246 bind.position=0.087246 parent_height=1.119428 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.087246
+[DEBUG TIP] post-graft donor crown height=0.087246 (expected=0.087246)
+Grafting donor 'ok' as tip replacing TIP(Lasius)[DEBUG TIP] Before graft: tip=Lasius
+[DEBUG TIP] tip=Lasius parent_node=2211 L=0.131666 r=0.097743 crown_target=0.118797 bind.position=0.118797 parent_height=1.140750 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.118797
+[DEBUG TIP] post-graft donor crown height=0.118797 (expected=0.118797)
+Grafting donor 'ok' as tip replacing TIP(Messor)[DEBUG TIP] Before graft: tip=Messor
+[DEBUG TIP] tip=Messor parent_node=1843 L=0.286982 r=0.179885 crown_target=0.235358 bind.position=0.235358 parent_height=0.985434 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.235358
+[DEBUG TIP] post-graft donor crown height=0.235358 (expected=0.235358)
+Grafting donor 'ok' as tip replacing TIP(Myrmecia)[DEBUG TIP] Before graft: tip=Myrmecia
+[DEBUG TIP] tip=Myrmecia parent_node=2410 L=0.439780 r=0.576809 crown_target=0.186111 bind.position=0.186111 parent_height=0.832636 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.186111
+[DEBUG TIP] post-graft donor crown height=0.186111 (expected=0.186111)
+Grafting donor 'ok' as tip replacing TIP(Myrmica)[DEBUG TIP] Before graft: tip=Myrmica
+[DEBUG TIP] tip=Myrmica parent_node=2006 L=0.216458 r=0.250000 crown_target=0.162344 bind.position=0.162344 parent_height=1.055958 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.162344
+[DEBUG TIP] post-graft donor crown height=0.162344 (expected=0.162344)
+Grafting donor 'ok' as tip replacing TIP(Nylanderia)[DEBUG TIP] Before graft: tip=Nylanderia
+[DEBUG TIP] tip=Nylanderia parent_node=2517 L=0.331567 r=0.495950 crown_target=0.167126 bind.position=0.167126 parent_height=0.940849 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.167126
+[DEBUG TIP] post-graft donor crown height=0.167126 (expected=0.167126)
+Grafting donor 'ok' as tip replacing TIP(Pheidole)[DEBUG TIP] Before graft: tip=Pheidole
+[DEBUG TIP] tip=Pheidole parent_node=1731 L=0.476563 r=0.546094 crown_target=0.216315 bind.position=0.216315 parent_height=0.795853 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.216315
+[DEBUG TIP] post-graft donor crown height=0.216315 (expected=0.216315)
+Grafting donor 'ok' as tip replacing TIP(Polyrhachis)[DEBUG TIP] Before graft: tip=Polyrhachis
+[DEBUG TIP] tip=Polyrhachis parent_node=2772 L=0.251418 r=0.333395 crown_target=0.167597 bind.position=0.167597 parent_height=1.020998 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.167597
+[DEBUG TIP] post-graft donor crown height=0.167597 (expected=0.167597)
+Grafting donor 'ok' as tip replacing TIP(Pseudomyrmex)[DEBUG TIP] Before graft: tip=Pseudomyrmex
+[DEBUG TIP] tip=Pseudomyrmex parent_node=3314 L=0.437340 r=0.423713 crown_target=0.252033 bind.position=0.252033 parent_height=0.835076 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.252033
+[DEBUG TIP] post-graft donor crown height=0.252033 (expected=0.252033)
+Grafting donor 'ok' as tip replacing TIP(Stenamma)[DEBUG TIP] Before graft: tip=Stenamma
+[DEBUG TIP] tip=Stenamma parent_node=2710 L=0.432800 r=0.104983 crown_target=0.387363 bind.position=0.387363 parent_height=0.839616 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.387363
+[DEBUG TIP] post-graft donor crown height=0.387363 (expected=0.387363)
+Grafting donor 'ok' as tip replacing TIP(Strumigenys)[DEBUG TIP] Before graft: tip=Strumigenys
+[DEBUG TIP] tip=Strumigenys parent_node=2497 L=0.358202 r=0.484184 crown_target=0.184766 bind.position=0.184766 parent_height=0.914214 tip_height=1.272416
+[DEBUG TIP] donor crown height after scaling=0.184766
+[DEBUG TIP] post-graft donor crown height=0.184766 (expected=0.184766)
+[SKIP tree 1] TIP{Temnothorax}: target missing in this backbone.
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

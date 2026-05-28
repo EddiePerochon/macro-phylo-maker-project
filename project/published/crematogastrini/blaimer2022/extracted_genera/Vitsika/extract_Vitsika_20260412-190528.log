@@ -1,0 +1,27 @@
+=== Genus extraction log: Vitsika | 2026-04-12 19:05:28 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 155
+Ingroup (genus=Vitsika) identified: 3 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Malagidris_belti (min distance=75.180800)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 3
+tips_out (final tree): 4
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Vitsika/extract_Vitsika_20260412-190528_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Vitsika/extract_Vitsika_20260412-190528_renamed.tsv

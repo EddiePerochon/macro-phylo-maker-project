@@ -1,0 +1,577 @@
+=== Genus grafting log: CladeGraft | 2026-04-04 20:02:12 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 44
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 4] Missing MRCA or file path
+[skip row 22] Missing MRCA or file path
+[skip row 25] Missing MRCA or file path
+[skip row 26] Missing MRCA or file path
+[skip row 27] Missing MRCA or file path
+[skip row 31] Missing MRCA or file path
+[skip row 32] Missing MRCA or file path
+[skip row 34] Missing MRCA or file path
+[skip row 35] Missing MRCA or file path
+[skip row 36] Missing MRCA or file path
+[skip row 37] Missing MRCA or file path
+[skip row 38] Missing MRCA or file path
+[skip row 39] Missing MRCA or file path
+[skip row 40] Missing MRCA or file path
+[skip row 41] Missing MRCA or file path
+[skip row 42] Missing MRCA or file path
+[skip row 43] Missing MRCA or file path
+[skip row 44] Missing MRCA or file path
+Donors ready: 26 (skipped: 18)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.211645 crown_fraction=0.788355
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Proceratium_google
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 601; dropped absent: 82
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.117556 crown_fraction=0.882444
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Monomorium_hanneli
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 121; dropped absent: 32
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.075777 crown_fraction=0.924223
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Agraulomyrmex_TZ01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.342732 crown_fraction=0.657268
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmoteras_iriodum
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 203; dropped absent: 15
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.538921 crown_fraction=0.461079
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Camponotous_sp
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 81; dropped absent: 11
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.443890 crown_fraction=0.556110
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Procryptocerus_scabriusculus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 65; dropped absent: 38
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.551898 crown_fraction=0.448102
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Recurvidris_TH01
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 91; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.408634 crown_fraction=0.591366
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Crematogaster_lotti
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 31; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.486848 crown_fraction=0.513152
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Forelius_damiani
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.183456 crown_fraction=0.816544
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 8; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.545591 crown_fraction=0.454409
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Dorymyrmex_paranensis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 9; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.210162 crown_fraction=0.789838
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Iberoformica_subrufa
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 77; dropped absent: 4
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.127219 crown_fraction=0.872781
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrmecocystus_mexicanus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 21; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.152936 crown_fraction=0.847064
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Nothomyrmecia__9893
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.580548 crown_fraction=0.419452
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_longinoi
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 41; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.055122 crown_fraction=0.944878
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Lasius_californicus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 44; dropped absent: 80
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree is already ultrametric; skipping chronos and using as chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.312838 crown_fraction=0.687162
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Paratrechina_longicornis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.499711 crown_fraction=0.500289
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Cephalotes_setulifer
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree is already ultrametric; skipping chronos and using as chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.485965 crown_fraction=0.514035
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Myrcidris_epicharis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 100; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.430380 crown_fraction=0.569620
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pseudomyrmex_perboscii
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 12; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.330819 crown_fraction=0.669181
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Adelomyrmex_jtl
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 85; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.415301 crown_fraction=0.584699
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Aphaenogaster_megommata
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 48; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.090305 crown_fraction=0.909695
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Pilotrochus_besmerus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 115; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.242773 crown_fraction=0.757227
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Harpagoxenus_sublaevis
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 7
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.440965 crown_fraction=0.559035
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Acanthognathus_ocellatus
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 54; dropped absent: 57
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.071739 crown_fraction=0.928261
+Collapsing MRCA(Bazboltonia,Gnamptogenys) by retaining backbone tip Acanthoponera and grafting donor as terminal replacement.
+Collapsing MRCA(Platythyrea,Leptogenys) by retaining backbone tip Anochetus and grafting donor as terminal replacement.
+Collapsing MRCA(Rostromyrmex,Leptothorax) by retaining backbone tip Acanthomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Colobopsis,Camponotus) by retaining backbone tip Calomyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Polyrhachis_callima,Polyrhachis_exercita) by retaining backbone tip Polyrhachis_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_macracantha,Crematogaster_kelleri) by retaining backbone tip Crematogaster_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_scutellaris,Crematogaster_pilosa) by retaining backbone tip Crematogaster_coarctata and grafting donor as terminal replacement.
+Collapsing MRCA(Manica,Pogonomyrmex) by retaining backbone tip Hylomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Zatania,Nylanderia) by retaining backbone tip Euprenolepis and grafting donor as terminal replacement.
+[SKIP tree 1] TIP{Nylanderia}: target missing in this backbone.
+Collapsing MRCA(Pseudomyrmex_particeps,Pseudomyrmex_janzeni) by retaining backbone tip Pseudomyrmex_ferrugineus and grafting donor as terminal replacement.
+Collapsing MRCA(Novomessor,Stenamma) by retaining backbone tip Aphaenogaster and grafting donor as terminal replacement.
+Collapsing MRCA(Messor_aciculatus,Messor_denticornis) by retaining backbone tip Messor_aciculatus and grafting donor as terminal replacement.
+Collapsing MRCA(Temnothorax_poeyi,Temnothorax_bernardi) by retaining backbone tip Temnothorax_bernardi and grafting donor as terminal replacement.
+Collapsing MRCA(Apterostigma,Acromyrmex) by retaining backbone tip Acromyrmex and grafting donor as terminal replacement.
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

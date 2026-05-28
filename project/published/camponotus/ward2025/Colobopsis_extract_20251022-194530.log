@@ -1,0 +1,58 @@
+=== Genus extraction log: Colobopsis | 2025-10-22 19:45:30 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 19 ingroup tip(s) in raw tree.
+Kept 19 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Colobopsis_anderseni_D2294 → Colobopsis_anderseni
+  KEEP: Colobopsis_sommeri_nr_D2298 → Colobopsis_sommeri
+  KEEP: Colobopsis_gasseri_D2293 → Colobopsis_gasseri
+  KEEP: Colobopsis_conithorax_D0271 → Colobopsis_conithorax
+  KEEP: Colobopsis_quadriceps_D2709 → Colobopsis_quadriceps
+  KEEP: Colobopsis_polynesica_D1518 → Colobopsis_polynesica
+  KEEP: Colobopsis_dentata_D2291 → Colobopsis_dentata
+  KEEP: Colobopsis_vitiensis_D0542 → Colobopsis_vitiensis
+  KEEP: Colobopsis_moeschi_lygaea_D1482 → Colobopsis_moeschi
+  KEEP: Colobopsis_vitrea_D1516 → Colobopsis_vitrea
+  KEEP: Colobopsis_truncata_D2045 → Colobopsis_truncata
+  KEEP: Colobopsis_impressa_D2705 → Colobopsis_impressa
+  KEEP: Colobopsis_etiolata_D2704 → Colobopsis_etiolata
+  KEEP: Colobopsis_papago_D2708 → Colobopsis_papago
+  KEEP: Colobopsis_cylindrica_nr_D1944 → Colobopsis_cylindrica
+  KEEP: Colobopsis_my03_D2016 → Colobopsis_my
+  KEEP: Colobopsis_my01_D2014 → Colobopsis_my
+  KEEP: Colobopsis_leonardi_D1517 → Colobopsis_leonardi
+  KEEP: Colobopsis_my04_D2017 → Colobopsis_my
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 1 ingroup species with duplicate tips.
+Species Colobopsis_my: non-monophyletic; retain Colobopsis_my03_D2016 (min total patristic distance 0.023518); drop 2 duplicate(s).
+  DROP duplicate: Colobopsis_my01_D2014 (total patristic distance 0.024841)
+  DROP duplicate: Colobopsis_my04_D2017 (total patristic distance 0.025625)
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 18
+Genus monophyly: TRUE
+Genus MRCA node: 230
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Lathidris_montivagus_nr_D2826 (min distance 0.068826).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Colobopsis_with_outgroup.tre
+Genus tips in output: 18 | Outgroup: Lathidris_montivagus_nr_D2826

@@ -1,0 +1,791 @@
+=== Genus grafting log: CladeGraft | 2026-03-10 16:09:40 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 354
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 1] Missing Genus or file path
+[skip row 2] Missing Genus or file path
+[skip row 3] Missing Genus or file path
+[skip row 4] Missing Genus or file path
+[skip row 5] Missing Genus or file path
+[skip row 7] Missing Genus or file path
+[skip row 8] Missing Genus or file path
+[skip row 9] Missing Genus or file path
+[skip row 10] Missing Genus or file path
+[skip row 12] Missing Genus or file path
+[skip row 13] Missing Genus or file path
+[skip row 14] Missing Genus or file path
+[skip row 15] Missing Genus or file path
+[skip row 16] Missing Genus or file path
+[skip row 17] Missing Genus or file path
+[skip row 18] Missing Genus or file path
+[skip row 19] Missing Genus or file path
+[skip row 20] Missing Genus or file path
+[skip row 21] Missing Genus or file path
+[skip row 22] Missing Genus or file path
+[skip row 24] Missing Genus or file path
+[skip row 25] Missing Genus or file path
+[skip row 26] Missing Genus or file path
+[skip row 27] Missing Genus or file path
+[skip row 28] Missing Genus or file path
+[skip row 29] Missing Genus or file path
+[skip row 30] Missing Genus or file path
+[skip row 31] Missing Genus or file path
+[skip row 32] Missing Genus or file path
+[skip row 33] Missing Genus or file path
+[skip row 34] Missing Genus or file path
+[skip row 35] Missing Genus or file path
+[skip row 36] Missing Genus or file path
+[skip row 37] Missing Genus or file path
+[skip row 38] Missing Genus or file path
+[skip row 39] Missing Genus or file path
+[skip row 40] Missing Genus or file path
+[skip row 41] Missing Genus or file path
+[skip row 42] Missing Genus or file path
+[skip row 43] Missing Genus or file path
+[skip row 44] Missing Genus or file path
+[skip row 45] Missing Genus or file path
+[skip row 46] Missing Genus or file path
+[skip row 47] Missing Genus or file path
+[skip row 48] Missing Genus or file path
+[skip row 49] Missing Genus or file path
+[skip row 50] Missing Genus or file path
+[skip row 51] Missing Genus or file path
+[skip row 52] Missing Genus or file path
+[skip row 53] Missing Genus or file path
+[skip row 54] Missing Genus or file path
+[skip row 55] Missing Genus or file path
+[skip row 56] Missing Genus or file path
+[skip row 57] Missing Genus or file path
+[skip row 58] Missing Genus or file path
+[skip row 60] Missing Genus or file path
+[skip row 61] Missing Genus or file path
+[skip row 62] Missing Genus or file path
+[skip row 63] Missing Genus or file path
+[skip row 64] Missing Genus or file path
+[skip row 66] Missing Genus or file path
+[skip row 67] Missing Genus or file path
+[skip row 68] Missing Genus or file path
+[skip row 69] Missing Genus or file path
+[skip row 70] Missing Genus or file path
+[skip row 71] Missing Genus or file path
+[skip row 72] Missing Genus or file path
+[skip row 74] Missing Genus or file path
+[skip row 75] Missing Genus or file path
+[skip row 76] Missing Genus or file path
+[skip row 78] Missing Genus or file path
+[skip row 79] Missing Genus or file path
+[skip row 80] Missing Genus or file path
+[skip row 81] Missing Genus or file path
+[skip row 82] Missing Genus or file path
+[skip row 83] Missing Genus or file path
+[skip row 84] Missing Genus or file path
+[skip row 85] Missing Genus or file path
+[skip row 86] Missing Genus or file path
+[skip row 88] Missing Genus or file path
+[skip row 89] Missing Genus or file path
+[skip row 90] Missing Genus or file path
+[skip row 91] Missing Genus or file path
+[skip row 92] Missing Genus or file path
+[skip row 93] Missing Genus or file path
+[skip row 94] Missing Genus or file path
+[skip row 95] Missing Genus or file path
+[skip row 96] Missing Genus or file path
+[skip row 97] Missing Genus or file path
+[skip row 98] Missing Genus or file path
+[skip row 101] Missing Genus or file path
+[skip row 102] Missing Genus or file path
+[skip row 103] Missing Genus or file path
+[skip row 104] Missing Genus or file path
+[skip row 106] Missing Genus or file path
+[skip row 107] Missing Genus or file path
+[skip row 108] Missing Genus or file path
+[skip row 109] Missing Genus or file path
+[skip row 110] Missing Genus or file path
+[skip row 111] Missing Genus or file path
+[skip row 112] Missing Genus or file path
+[skip row 113] Missing Genus or file path
+[skip row 114] Missing Genus or file path
+[skip row 115] Missing Genus or file path
+[skip row 116] Missing Genus or file path
+[skip row 117] Missing Genus or file path
+[skip row 118] Missing Genus or file path
+[skip row 120] Missing Genus or file path
+[skip row 121] Missing Genus or file path
+[skip row 122] Missing Genus or file path
+[skip row 123] Missing Genus or file path
+[skip row 124] Missing Genus or file path
+[skip row 125] Missing Genus or file path
+[skip row 126] Missing Genus or file path
+[skip row 127] Missing Genus or file path
+[skip row 129] Missing Genus or file path
+[skip row 130] Missing Genus or file path
+[skip row 131] Missing Genus or file path
+[skip row 132] Missing Genus or file path
+[skip row 133] Missing Genus or file path
+[skip row 136] Missing Genus or file path
+[skip row 137] Missing Genus or file path
+[skip row 139] Missing Genus or file path
+[skip row 140] Missing Genus or file path
+[skip row 141] Missing Genus or file path
+[skip row 142] Missing Genus or file path
+[skip row 143] Missing Genus or file path
+[skip row 144] Missing Genus or file path
+[skip row 145] Missing Genus or file path
+[skip row 146] Missing Genus or file path
+[skip row 147] Missing Genus or file path
+[skip row 148] Missing Genus or file path
+[skip row 149] Missing Genus or file path
+[skip row 150] Missing Genus or file path
+[skip row 151] Missing Genus or file path
+[skip row 153] Missing Genus or file path
+[skip row 154] Missing Genus or file path
+[skip row 155] Missing Genus or file path
+[skip row 156] Missing Genus or file path
+[skip row 157] Missing Genus or file path
+[skip row 159] Missing Genus or file path
+[skip row 160] Missing Genus or file path
+[skip row 161] Missing Genus or file path
+[skip row 162] Missing Genus or file path
+[skip row 163] Missing Genus or file path
+[skip row 165] Missing Genus or file path
+[skip row 166] Missing Genus or file path
+[skip row 167] Missing Genus or file path
+[skip row 168] Missing Genus or file path
+[skip row 169] Missing Genus or file path
+[skip row 170] Missing Genus or file path
+[skip row 171] Missing Genus or file path
+[skip row 172] Missing Genus or file path
+[skip row 173] Missing Genus or file path
+[skip row 174] Missing Genus or file path
+[skip row 175] Missing Genus or file path
+[skip row 176] Missing Genus or file path
+[skip row 177] Missing Genus or file path
+[skip row 178] Missing Genus or file path
+[skip row 179] Missing Genus or file path
+[skip row 180] Missing Genus or file path
+[skip row 181] Missing Genus or file path
+[skip row 182] Missing Genus or file path
+[skip row 184] Missing Genus or file path
+[skip row 185] Missing Genus or file path
+[skip row 186] Missing Genus or file path
+[skip row 187] Missing Genus or file path
+[skip row 188] Missing Genus or file path
+[skip row 189] Missing Genus or file path
+[skip row 190] Missing Genus or file path
+[skip row 191] Missing Genus or file path
+[skip row 192] Missing Genus or file path
+[skip row 193] Missing Genus or file path
+[skip row 194] Missing Genus or file path
+[skip row 195] Missing Genus or file path
+[skip row 196] Missing Genus or file path
+[skip row 198] Missing Genus or file path
+[skip row 199] file not found: /home/marek/ant-megatree/working_code/package/project/X
+[skip row 200] Missing Genus or file path
+[skip row 201] Missing Genus or file path
+[skip row 202] Missing Genus or file path
+[skip row 203] Missing Genus or file path
+[skip row 204] Missing Genus or file path
+[skip row 205] Missing Genus or file path
+[skip row 206] Missing Genus or file path
+[skip row 207] Missing Genus or file path
+[skip row 208] Missing Genus or file path
+[skip row 209] Missing Genus or file path
+[skip row 210] Missing Genus or file path
+[skip row 211] Missing Genus or file path
+[skip row 212] Missing Genus or file path
+[skip row 213] Missing Genus or file path
+[skip row 214] Missing Genus or file path
+[skip row 215] Missing Genus or file path
+[skip row 216] Missing Genus or file path
+[skip row 217] Missing Genus or file path
+[skip row 219] Missing Genus or file path
+[skip row 220] Missing Genus or file path
+[skip row 221] Missing Genus or file path
+[skip row 222] Missing Genus or file path
+[skip row 224] Missing Genus or file path
+[skip row 225] Missing Genus or file path
+[skip row 226] Missing Genus or file path
+[skip row 227] Missing Genus or file path
+[skip row 228] Missing Genus or file path
+[skip row 229] Missing Genus or file path
+[skip row 230] Missing Genus or file path
+[skip row 231] Missing Genus or file path
+[skip row 232] Missing Genus or file path
+[skip row 233] Missing Genus or file path
+[skip row 234] Missing Genus or file path
+[skip row 235] Missing Genus or file path
+[skip row 236] Missing Genus or file path
+[skip row 237] Missing Genus or file path
+[skip row 238] Missing Genus or file path
+[skip row 239] Missing Genus or file path
+[skip row 240] Missing Genus or file path
+[skip row 241] Missing Genus or file path
+[skip row 242] Missing Genus or file path
+[skip row 243] Missing Genus or file path
+[skip row 244] Missing Genus or file path
+[skip row 245] Missing Genus or file path
+[skip row 246] Missing Genus or file path
+[skip row 247] Missing Genus or file path
+[skip row 248] Missing Genus or file path
+[skip row 249] Missing Genus or file path
+[skip row 250] Missing Genus or file path
+[skip row 252] Missing Genus or file path
+[skip row 253] Missing Genus or file path
+[skip row 254] Missing Genus or file path
+[skip row 255] Missing Genus or file path
+[skip row 256] Missing Genus or file path
+[skip row 257] Missing Genus or file path
+[skip row 258] Missing Genus or file path
+[skip row 259] Missing Genus or file path
+[skip row 260] Missing Genus or file path
+[skip row 261] Missing Genus or file path
+[skip row 263] Missing Genus or file path
+[skip row 265] Missing Genus or file path
+[skip row 266] Missing Genus or file path
+[skip row 267] Missing Genus or file path
+[skip row 268] Missing Genus or file path
+[skip row 269] Missing Genus or file path
+[skip row 270] Missing Genus or file path
+[skip row 271] Missing Genus or file path
+[skip row 272] Missing Genus or file path
+[skip row 273] Missing Genus or file path
+[skip row 274] Missing Genus or file path
+[skip row 275] Missing Genus or file path
+[skip row 276] Missing Genus or file path
+[skip row 277] Missing Genus or file path
+[skip row 278] Missing Genus or file path
+[skip row 279] Missing Genus or file path
+[skip row 280] Missing Genus or file path
+[skip row 282] Missing Genus or file path
+[skip row 283] Missing Genus or file path
+[skip row 284] Missing Genus or file path
+[skip row 285] Missing Genus or file path
+[skip row 286] Missing Genus or file path
+[skip row 287] Missing Genus or file path
+[skip row 288] Missing Genus or file path
+[skip row 289] Missing Genus or file path
+[skip row 290] Missing Genus or file path
+[skip row 292] Missing Genus or file path
+[skip row 293] Missing Genus or file path
+[skip row 294] Missing Genus or file path
+[skip row 295] Missing Genus or file path
+[skip row 296] Missing Genus or file path
+[skip row 297] Missing Genus or file path
+[skip row 298] Missing Genus or file path
+[skip row 299] Missing Genus or file path
+[skip row 300] Missing Genus or file path
+[skip row 301] Missing Genus or file path
+[skip row 302] Missing Genus or file path
+[skip row 303] Missing Genus or file path
+[skip row 304] Missing Genus or file path
+[skip row 305] Missing Genus or file path
+[skip row 306] Missing Genus or file path
+[skip row 308] Missing Genus or file path
+[skip row 310] Missing Genus or file path
+[skip row 311] Missing Genus or file path
+[skip row 312] Missing Genus or file path
+[skip row 313] Missing Genus or file path
+[skip row 315] Missing Genus or file path
+[skip row 316] Missing Genus or file path
+[skip row 317] Missing Genus or file path
+[skip row 318] Missing Genus or file path
+[skip row 319] Missing Genus or file path
+[skip row 320] Missing Genus or file path
+[skip row 321] Missing Genus or file path
+[skip row 322] Missing Genus or file path
+[skip row 323] Missing Genus or file path
+[skip row 325] Missing Genus or file path
+[skip row 326] Missing Genus or file path
+[skip row 327] Missing Genus or file path
+[skip row 328] Missing Genus or file path
+[skip row 329] Missing Genus or file path
+[skip row 330] Missing Genus or file path
+[skip row 331] Missing Genus or file path
+[skip row 332] Missing Genus or file path
+[skip row 333] Missing Genus or file path
+[skip row 334] Missing Genus or file path
+[skip row 335] Missing Genus or file path
+[skip row 337] Missing Genus or file path
+[skip row 338] Missing Genus or file path
+[skip row 339] Missing Genus or file path
+[skip row 340] Missing Genus or file path
+[skip row 341] Missing Genus or file path
+[skip row 342] Missing Genus or file path
+[skip row 343] Missing Genus or file path
+[skip row 344] Missing Genus or file path
+[skip row 345] Missing Genus or file path
+[skip row 346] Missing Genus or file path
+[skip row 347] Missing Genus or file path
+[skip row 348] Missing Genus or file path
+[skip row 349] Missing Genus or file path
+[skip row 350] Missing Genus or file path
+[skip row 351] Missing Genus or file path
+[skip row 352] Missing Genus or file path
+[skip row 353] Missing Genus or file path
+[skip row 354] Missing Genus or file path
+Donors ready: 33 (skipped: 321)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 22; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.322158 crown_fraction=0.677842
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 16; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.734191 crown_fraction=0.265809
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 51; dropped absent: 8
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.235020 crown_fraction=0.764980
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 110; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.170427 crown_fraction=0.829573
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 65; dropped absent: 38
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.579190 crown_fraction=0.420810
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 16; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.341515 crown_fraction=0.658485
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 108; dropped absent: 9
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+No chronos config converged; falling back to NNLS.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.616206 crown_fraction=0.383794
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 8; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.825431 crown_fraction=0.174569
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 10; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.757896 crown_fraction=0.242104
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 30; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.316167 crown_fraction=0.683833
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 11; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.667037 crown_fraction=0.332963
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 80; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.429721 crown_fraction=0.570279
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 17; dropped absent: 14
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.234611 crown_fraction=0.765389
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 13; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.045715 crown_fraction=0.954285
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 18; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.337212 crown_fraction=0.662788
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 46; dropped absent: 18
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.398590 crown_fraction=0.601410
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 21; dropped absent: 0
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.097743 crown_fraction=0.902257
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 112; dropped absent: 12
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.170193 crown_fraction=0.829807
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 7; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.679459 crown_fraction=0.320541
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 49; dropped absent: 3
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.179885 crown_fraction=0.820115
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 62; dropped absent: 30
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.576809 crown_fraction=0.423191
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 36; dropped absent: 37
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.495950 crown_fraction=0.504050
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 41; dropped absent: 1
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Selected chronos: model=discrete lambda=0.1
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.171632 crown_fraction=0.828368
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 241; dropped absent: 19
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘

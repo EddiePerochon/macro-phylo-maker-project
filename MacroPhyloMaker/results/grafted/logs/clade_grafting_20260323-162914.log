@@ -1,0 +1,30 @@
+=== Genus grafting log: CladeGraft | 2026-03-23 16:29:14 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 3
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Donors ready: 3 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Multiple outgroups; selected: Heteroponera_brounii_GPC08 (min dist=0.084552)
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 18; dropped absent: 14

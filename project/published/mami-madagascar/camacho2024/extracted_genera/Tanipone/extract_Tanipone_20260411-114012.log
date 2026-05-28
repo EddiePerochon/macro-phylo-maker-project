@@ -1,0 +1,27 @@
+=== Genus extraction log: Tanipone | 2026-04-11 11:40:12 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1183
+Ingroup (genus=Tanipone) identified: 9 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Simopone_nonnihil (min distance=144.000000)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 9
+tips_out (final tree): 10
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Tanipone/extract_Tanipone_20260411-114012_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Tanipone/extract_Tanipone_20260411-114012_renamed.tsv

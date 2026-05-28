@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-09 14:20:01 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 28
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 26
+Outgroup (sister_one): Cardiocondyla_mauritanica_T223 (min distance=1.100534)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 26
+tips_out (final tree): 27
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ocymyrmex/mbanyana2024/extract_mrca_Ocymyrmex_sp_2_HYM_C027808_Ocy103-Ocymyrmex_celer_BBC660_20260409-142001_with_outgroup.tre

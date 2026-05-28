@@ -1,0 +1,464 @@
+=== Genus grafting log: CladeGraft | 2026-04-12 21:33:56 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 198
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
+Row 2: Input_tree_type = phylogram
+Row 3: Input_tree_type = phylogram
+Row 4: Input_tree_type = phylogram
+Row 5: Input_tree_type = phylogram
+Row 6: Input_tree_type = phylogram
+Row 7: Input_tree_type = phylogram
+Row 8: Input_tree_type = phylogram
+Row 9: Input_tree_type = phylogram
+Row 10: Input_tree_type = phylogram
+Row 11: Input_tree_type = phylogram
+Row 12: Input_tree_type = phylogram
+Row 13: Input_tree_type = phylogram
+Row 14: Input_tree_type = phylogram
+Row 15: Input_tree_type = phylogram
+Row 16: Input_tree_type = phylogram
+Row 17: Input_tree_type = phylogram
+Row 18: Input_tree_type = phylogram
+Row 19: Input_tree_type = phylogram
+Row 20: Input_tree_type = phylogram
+Row 21: Input_tree_type = phylogram
+Row 22: Input_tree_type = phylogram
+Row 23: Input_tree_type = phylogram
+Row 24: Input_tree_type = phylogram
+Row 25: Input_tree_type = phylogram
+Row 26: Input_tree_type = phylogram
+Row 27: Input_tree_type = phylogram
+Row 28: Input_tree_type = phylogram
+Row 29: Input_tree_type = phylogram
+Row 30: Input_tree_type = phylogram
+Row 31: Input_tree_type = phylogram
+Row 32: Input_tree_type = phylogram
+Row 33: Input_tree_type = phylogram
+Row 34: Input_tree_type = phylogram
+Row 35: Input_tree_type = phylogram
+Row 36: Input_tree_type = phylogram
+Row 37: Input_tree_type = phylogram
+Row 38: Input_tree_type = phylogram
+Row 39: Input_tree_type = phylogram
+Row 40: Input_tree_type = phylogram
+Row 41: Input_tree_type = phylogram
+Row 42: Input_tree_type = phylogram
+Row 43: Input_tree_type = phylogram
+Row 44: Input_tree_type = phylogram
+Row 45: Input_tree_type = phylogram
+Row 46: Input_tree_type = phylogram
+Row 47: Input_tree_type = chronogram
+Row 48: Input_tree_type = chronogram
+Row 49: Input_tree_type = chronogram
+Row 50: Input_tree_type = chronogram
+Row 51: Input_tree_type = chronogram
+Row 52: Input_tree_type = chronogram
+Row 53: Input_tree_type = chronogram
+Row 54: Input_tree_type = chronogram
+Row 55: Input_tree_type = chronogram
+Row 56: Input_tree_type = chronogram
+Row 57: Input_tree_type = chronogram
+Row 58: Input_tree_type = chronogram
+Row 59: Input_tree_type = chronogram
+Row 60: Input_tree_type = chronogram
+Row 61: Input_tree_type = chronogram
+Row 62: Input_tree_type = chronogram
+Row 63: Input_tree_type = chronogram
+Row 64: Input_tree_type = chronogram
+Row 65: Input_tree_type = chronogram
+Row 66: Input_tree_type = chronogram
+Row 67: Input_tree_type = chronogram
+Row 68: Input_tree_type = chronogram
+Row 69: Input_tree_type = chronogram
+Row 70: Input_tree_type = chronogram
+Row 71: Input_tree_type = chronogram
+Row 72: Input_tree_type = chronogram
+Row 73: Input_tree_type = chronogram
+Row 74: Input_tree_type = chronogram
+Row 75: Input_tree_type = chronogram
+Row 76: Input_tree_type = chronogram
+Row 77: Input_tree_type = chronogram
+Row 78: Input_tree_type = chronogram
+Row 79: Input_tree_type = chronogram
+Row 80: Input_tree_type = phylogram
+Row 81: Input_tree_type = chronogram
+Row 82: Input_tree_type = chronogram
+Row 83: Input_tree_type = chronogram
+Row 84: Input_tree_type = chronogram
+Row 85: Input_tree_type = chronogram
+Row 86: Input_tree_type = chronogram
+Row 87: Input_tree_type = phylogram
+Row 88: Input_tree_type = chronogram
+Row 89: Input_tree_type = chronogram
+Row 90: Input_tree_type = chronogram
+Row 91: Input_tree_type = phylogram
+Row 92: Input_tree_type = chronogram
+Row 93: Input_tree_type = phylogram
+Row 94: Input_tree_type = chronogram
+Row 95: Input_tree_type = chronogram
+Row 96: Input_tree_type = chronogram
+Row 97: Input_tree_type = phylogram
+[skip row 97] Missing MRCA or file path
+Row 98: Input_tree_type = phylogram
+[skip row 98] Missing MRCA or file path
+Row 99: Input_tree_type = phylogram
+[skip row 99] Missing MRCA or file path
+Row 100: Input_tree_type = chronogram
+Row 101: Input_tree_type = phylogram
+Row 102: Input_tree_type = chronogram
+Row 103: Input_tree_type = chronogram
+Row 104: Input_tree_type = chronogram
+Row 105: Input_tree_type = chronogram
+Row 106: Input_tree_type = phylogram
+[skip row 106] Missing MRCA or file path
+Row 107: Input_tree_type = chronogram
+Row 108: Input_tree_type = chronogram
+Row 109: Input_tree_type = chronogram
+Row 110: Input_tree_type = chronogram
+Row 111: Input_tree_type = chronogram
+Row 112: Input_tree_type = chronogram
+Row 113: Input_tree_type = chronogram
+Row 114: Input_tree_type = chronogram
+Row 115: Input_tree_type = chronogram
+Row 116: Input_tree_type = chronogram
+Row 117: Input_tree_type = chronogram
+Row 118: Input_tree_type = chronogram
+Row 119: Input_tree_type = chronogram
+Row 120: Input_tree_type = chronogram
+Row 121: Input_tree_type = chronogram
+Row 122: Input_tree_type = chronogram
+Row 123: Input_tree_type = chronogram
+Row 124: Input_tree_type = chronogram
+Row 125: Input_tree_type = phylogram
+[skip row 125] Missing MRCA or file path
+Row 126: Input_tree_type = phylogram
+[skip row 126] Missing MRCA or file path
+Row 127: Input_tree_type = phylogram
+[skip row 127] Missing MRCA or file path
+Row 128: Input_tree_type = chronogram
+[skip row 128] Missing MRCA or file path
+Row 129: Input_tree_type = phylogram
+[skip row 129] Missing MRCA or file path
+Row 130: Input_tree_type = chronogram
+Row 131: Input_tree_type = phylogram
+[skip row 131] Missing MRCA or file path
+Row 132: Input_tree_type = phylogram
+[skip row 132] Missing MRCA or file path
+Row 133: Input_tree_type = phylogram
+[skip row 133] Missing MRCA or file path
+Row 134: Input_tree_type = phylogram
+[skip row 134] Missing MRCA or file path
+Row 135: Input_tree_type = phylogram
+[skip row 135] Missing MRCA or file path
+Row 136: Input_tree_type = chronogram
+Row 137: Input_tree_type = chronogram
+Row 138: Input_tree_type = phylogram
+[skip row 138] Missing MRCA or file path
+Row 139: Input_tree_type = phylogram
+[skip row 139] Missing MRCA or file path
+Row 140: Input_tree_type = phylogram
+[skip row 140] Missing MRCA or file path
+Row 141: Input_tree_type = phylogram
+[skip row 141] Missing MRCA or file path
+Row 142: Input_tree_type = phylogram
+[skip row 142] Missing MRCA or file path
+Row 143: Input_tree_type = phylogram
+[skip row 143] Missing MRCA or file path
+Row 144: Input_tree_type = phylogram
+[skip row 144] Missing MRCA or file path
+Row 145: Input_tree_type = chronogram
+Row 146: Input_tree_type = chronogram
+Row 147: Input_tree_type = chronogram
+Row 148: Input_tree_type = chronogram
+Row 149: Input_tree_type = chronogram
+Row 150: Input_tree_type = chronogram
+Row 151: Input_tree_type = chronogram
+Row 152: Input_tree_type = chronogram
+Row 153: Input_tree_type = chronogram
+Row 154: Input_tree_type = chronogram
+Row 155: Input_tree_type = chronogram
+Row 156: Input_tree_type = chronogram
+Row 157: Input_tree_type = chronogram
+Row 158: Input_tree_type = chronogram
+Row 159: Input_tree_type = chronogram
+Row 160: Input_tree_type = chronogram
+Row 161: Input_tree_type = chronogram
+Row 162: Input_tree_type = chronogram
+Row 163: Input_tree_type = chronogram
+Row 164: Input_tree_type = chronogram
+Row 165: Input_tree_type = chronogram
+Row 166: Input_tree_type = chronogram
+[skip row 166] Missing MRCA or file path
+Row 167: Input_tree_type = phylogram
+[skip row 167] Missing MRCA or file path
+Row 168: Input_tree_type = phylogram
+[skip row 168] Missing MRCA or file path
+Row 169: Input_tree_type = phylogram
+[skip row 169] Missing MRCA or file path
+Row 170: Input_tree_type = chronogram
+Row 171: Input_tree_type = chronogram
+Row 172: Input_tree_type = chronogram
+Row 173: Input_tree_type = chronogram
+Row 174: Input_tree_type = chronogram
+Row 175: Input_tree_type = phylogram
+[skip row 175] Missing MRCA or file path
+Row 176: Input_tree_type = phylogram
+[skip row 176] Missing MRCA or file path
+Row 177: Input_tree_type = phylogram
+[skip row 177] Missing MRCA or file path
+Row 178: Input_tree_type = phylogram
+[skip row 178] Missing MRCA or file path
+Row 179: Input_tree_type = phylogram
+[skip row 179] Missing MRCA or file path
+Row 180: Input_tree_type = phylogram
+[skip row 180] Missing MRCA or file path
+Row 181: Input_tree_type = phylogram
+[skip row 181] Missing MRCA or file path
+Row 182: Input_tree_type = phylogram
+[skip row 182] Missing MRCA or file path
+Row 183: Input_tree_type = phylogram
+[skip row 183] Missing MRCA or file path
+Row 184: Input_tree_type = phylogram
+[skip row 184] Missing MRCA or file path
+Row 185: Input_tree_type = phylogram
+[skip row 185] Missing MRCA or file path
+Row 186: Input_tree_type = phylogram
+[skip row 186] Missing MRCA or file path
+Row 187: Input_tree_type = phylogram
+[skip row 187] Missing MRCA or file path
+Row 188: Input_tree_type = phylogram
+[skip row 188] Missing MRCA or file path
+Row 189: Input_tree_type = phylogram
+[skip row 189] Missing MRCA or file path
+Row 190: Input_tree_type = phylogram
+[skip row 190] Missing MRCA or file path
+Row 191: Input_tree_type = phylogram
+[skip row 191] Missing MRCA or file path
+Row 192: Input_tree_type = phylogram
+[skip row 192] Missing MRCA or file path
+Row 193: Input_tree_type = phylogram
+[skip row 193] Missing MRCA or file path
+Row 194: Input_tree_type = phylogram
+[skip row 194] Missing MRCA or file path
+Row 195: Input_tree_type = phylogram
+[skip row 195] Missing MRCA or file path
+Row 196: Input_tree_type = phylogram
+[skip row 196] Missing MRCA or file path
+Row 197: Input_tree_type = phylogram
+[skip row 197] Missing MRCA or file path
+Row 198: Input_tree_type = phylogram
+[skip row 198] Missing MRCA or file path
+Donors ready: 149 (skipped: 49)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Acanthoponera/extract_Acanthoponera_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Alfaria/extract_Alfaria_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Ectatomma/extract_Ectatomma_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Gnamptogenys/extract_Gnamptogenys_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Heteroponera/extract_Heteroponera_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Holcoponera/extract_Holcoponera_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Poneracantha/extract_Poneracantha_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Rhytidoponera/extract_Rhytidoponera_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Stictoponera/extract_Stictoponera_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Typhlomyrmex/extract_Typhlomyrmex_20260412-190053_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Anochetus/extract_Anochetus_20260412-190431_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Austroponera/extract_Austroponera_20260412-190432_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Belonopelta/extract_Belonopelta_20260412-190432_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Bothroponera/extract_Bothroponera_20260412-190432_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Brachyponera/extract_Brachyponera_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Centromyrmex/extract_Centromyrmex_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Cryptopone/extract_Cryptopone_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Diacamma/extract_Diacamma_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Dinoponera/extract_Dinoponera_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Ectomomyrmex/extract_Ectomomyrmex_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Emeryopone/extract_Emeryopone_20260412-190433_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Euponera/extract_Euponera_20260412-190434_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Fisheropone/extract_Fisheropone_20260412-190434_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Hagensia/extract_Hagensia_20260412-190434_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Hypoponera/extract_Hypoponera_20260412-190434_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Leptogenys/extract_Leptogenys_20260412-190434_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Loboponera/extract_Loboponera_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Mayaponera/extract_Mayaponera_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Mesoponera/extract_Mesoponera_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Myopias/extract_Myopias_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Neoponera/extract_Neoponera_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Odontomachus/extract_Odontomachus_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Odontoponera/extract_Odontoponera_20260412-190435_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Ophthalmopone/extract_Ophthalmopone_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Pachycondyla/extract_Pachycondyla_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Phrynoponera/extract_Phrynoponera_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Platythyrea/extract_Platythyrea_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Plectroctena/extract_Plectroctena_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Ponera/extract_Ponera_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Psalidomyrmex/extract_Psalidomyrmex_20260412-190436_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Pseudoneoponera/extract_Pseudoneoponera_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Pseudoponera/extract_Pseudoponera_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Rasopone/extract_Rasopone_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Simopelta/extract_Simopelta_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Thaumatomyrmex/extract_Thaumatomyrmex_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Wadeura/extract_Wadeura_20260412-190437_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Atopomyrmex/extract_Atopomyrmex_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Cardiocondyla/extract_Cardiocondyla_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Carebara/extract_Carebara_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Cataulacus/extract_Cataulacus_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Crematogaster/extract_Crematogaster_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Dacetinops/extract_Dacetinops_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Huberia/extract_Huberia_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Lophomyrmex/extract_Lophomyrmex_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Lordomyrma/extract_Lordomyrma_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Malagidris/extract_Malagidris_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Meranoplus/extract_Meranoplus_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Myrmecina/extract_Myrmecina_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Nesomyrmex/extract_Nesomyrmex_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Ocymyrmex/extract_Ocymyrmex_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Podomyrma/extract_Podomyrma_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Pristomyrmex/extract_Pristomyrmex_20260412-190527_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Romblonella/extract_Romblonella_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Rotastruma/extract_Rotastruma_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Royidris/extract_Royidris_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Temnothorax/extract_Temnothorax_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Tetramorium/extract_Tetramorium_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Trichomyrmex/extract_Trichomyrmex_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Vitsika/extract_Vitsika_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Vollenhovia/extract_Vollenhovia_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extracted_genera/Xenomyrmex/extract_Xenomyrmex_20260412-190528_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/acropyga/blaimer2016/extract_mrca_Acropyga_donisthorpei_ACR86-Acropyga_arnoldi_ACR22_20260404-165022_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Calomyrmex/extract_Calomyrmex_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Colobopsis/extract_Colobopsis_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Camponotus/extract_Camponotus_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Echinopla/extract_Echinopla_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Overbeckia/extract_Overbeckia_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Opisthopsis/extract_Opisthopsis_20260410-123025_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/camponotini/ward2025/extracted_genera/Lathidris/extract_Lathidris_20260410-123026_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/cephalotes/price2022/Cephalotes_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/blaimer2012/extract_mrca_Crematogaster_emeryi-Crematogaster_hova_complex_20260404-133421_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/ward2022/extract_mrca_Crematogaster_scutellaris_BBX611-Crematogaster_ashmeadi_D1839_20260404-134141_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Dorymyrmex_ebeninus_D1537-Dorymyrmex_ce01_D2967_20260404-192925_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Forelius_damiani_D3046-Forelius_brasiliensis_D3042_20260404-192925_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorymyrmex/oberski2025/extract_mrca_Leptomyrmex_relictus_D1200-Leptomyrmex_unicolor_D3033_20260404-192925_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formica/borowiec2021/extract_mrca_Formica_gagates_F0120-Formica_nevadensis_F0079_20260404-181141_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/lasius/boudinot2022/Lasius_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/myrmecia/mera-rodriguez2023/extract_mrca_Myrmecia_flammicollis_11550-Myrmecia_inquilina_13405_20260409-145529_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/myrmicini/prebus2025/extract_mrca_Manica_hunteri_OR_S_Mattheiu_Lake_P861-Pogonomyrmex_maricopa_P882_20260404-165809_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/prenolepis/matos-maravi2018/extract_mrca_Zatania_albimaculata-Nylanderia_NYLA026_20260404-171052_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/nylanderia/williams2022/Nylanderia_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/pheidole/economo2019/extract_mrca_Pheidole_fimbriata_CASENT0283061-Pheidole_allarmata_CASENT0283450_20260404-164232_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/chomicki2015/Pseudomyrmex_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2017/extract_mrca_Pseudomyrmex_particeps_D1307-Pseudomyrmex_janzeni_D0620_20260404-173038_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/stenammini/branstetter2022/extract_mrca_Novomessor_albisetosus_EX376-Stenamma_punctiventre_EX309_20260404-124915_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/messor/juve2025/extract_mrca_Messor_asmaae_sp1_PAKISTAN_AWEY-Messor_picturatus_maurus_TUNISIA_WGS_SH02-03_20260404-174036_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/strumigenys/booher2021/Strumigenys_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/temnothorax/prebus2017/extract_mrca_Temnothorax_nitens_P017-Temnothorax_mpala_P010_20260408-155341_with_outgroup_no_aztecus.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/temnothorax/prebus2021/filtered_data_beast_output_renamed.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/temnothorax/csosz2024/Csosz_et_al_unifasciatus_no_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/attini/schultz2024/extract_mrca_Mycocepurus_obsoletus_7308-Trachymyrmex_opulentus_8122_20260404-141656_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Aenictus/extract_Aenictus_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Cerapachys/extract_Cerapachys_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Cheliomyrmex/extract_Cheliomyrmex_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Cylindromyrmex/extract_Cylindromyrmex_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Dorylus/extract_Dorylus_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Eciton/extract_Eciton_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Labidus/extract_Labidus_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Leptanilloides/extract_Leptanilloides_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Lioponera/extract_Lioponera_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Neivamyrmex/extract_Neivamyrmex_20260410-124621_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Acanthostichus_AZ_M277
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 2; dropped absent: 2
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: chronogram; ultrametric: FALSE
+Input tree declared as chronogram; skipping chronos.
+Chronogram not ultrametric (likely numerical jitter); enforcing ultrametricity using 'extend'.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.875601 crown_fraction=0.124399
+Saved donor template to: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Neocerapachys/extract_Neocerapachys_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Nomamyrmex/extract_Nomamyrmex_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Ooceraea/extract_Ooceraea_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Parasyscia/extract_Parasyscia_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Simopone/extract_Simopone_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Tanipone/extract_Tanipone_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Yunodorylus/extract_Yunodorylus_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/borowiec2019/extracted_genera/Zasphinctus/extract_Zasphinctus_20260410-124621_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/ocymyrmex/mbanyana2024/extract_mrca_Ocymyrmex_sp_2_HYM_C027808_Ocy103-Ocymyrmex_celer_BBC660_20260409-142001_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/brachymyrmex/probst2024/extract_mrca_Brachymyrmex_heeri_EXRP182-Brachymyrmex_admotus_EXRP163_20260411-120339_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/myrmelachista/probst2024/extract_mrca_Myrmelachista_hoffmanni_EXRP103-Myrmelachista_lauropacifica_EXRP74_20260411-120339_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extract_mrca_Onychomyrmex_hedleyi-Mystrium_mirror_20260411-115038_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Aptinoma/extract_Aptinoma_20260411-115327_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Liometopum/extract_Liometopum_20260411-115328_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Bothriomyrmex/extract_Bothriomyrmex_20260411-115328_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Dolichoderus/extract_Dolichoderus_20260411-115328_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Azteca/extract_Azteca_20260411-115328_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Leptomyrmex/extract_Leptomyrmex_20260411-115328_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Anonychomyrma/extract_Anonychomyrma_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Froggattella/extract_Froggattella_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Iridomyrmex/extract_Iridomyrmex_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Linepithema/extract_Linepithema_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Tetraponera/extract_Tetraponera_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Oecophylla/extract_Oecophylla_20260411-115329_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Myrmica/extract_Myrmica_20260411-115330_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Tetramorium/extract_Tetramorium_20260411-115330_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Cardiocondyla/extract_Cardiocondyla_20260411-115330_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Megalomyrmex/extract_Megalomyrmex_20260411-115330_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Syllophopsis/extract_Syllophopsis_20260411-115330_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Myrmicaria/extract_Myrmicaria_20260411-115331_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Ochetomyrmex/extract_Ochetomyrmex_20260411-115331_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Polyrhachis/extract_Polyrhachis_20260411-115331_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Malagidris/extract_Malagidris_20260411-114011_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Metapone/extract_Metapone_20260411-114011_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Royidris/extract_Royidris_20260411-114011_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Tanipone/extract_Tanipone_20260411-114012_with_outgroup.template.rds
+Reusing cached donor template: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Vitsika/extract_Vitsika_20260411-114012_with_outgroup.template.rds
+Collapsing MRCA(Crematogaster_macracantha,Crematogaster_kelleri) by retaining backbone tip Crematogaster_aberrans and grafting donor as terminal replacement.
+Collapsing MRCA(Crematogaster_scutellaris,Crematogaster_pilosa) by retaining backbone tip Crematogaster_coarctata and grafting donor as terminal replacement.
+Collapsing MRCA(Manica,Pogonomyrmex) by retaining backbone tip Hylomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Zatania,Nylanderia) by retaining backbone tip Euprenolepis and grafting donor as terminal replacement.
+[SKIP tree 1] TIP{Nylanderia}: target missing in this backbone.
+Collapsing MRCA(Pseudomyrmex_salvini,Pseudomyrmex_elongatulus) by retaining backbone tip Pseudomyrmex_apache and grafting donor as terminal replacement.
+Collapsing MRCA(Pseudomyrmex_particeps,Pseudomyrmex_janzeni) by retaining backbone tip Pseudomyrmex_ferrugineus and grafting donor as terminal replacement.
+Collapsing MRCA(Novomessor,Stenamma) by retaining backbone tip Aphaenogaster and grafting donor as terminal replacement.
+Collapsing MRCA(Messor_aciculatus,Messor_denticornis) by retaining backbone tip Messor_aciculatus and grafting donor as terminal replacement.
+Collapsing MRCA(Temnothorax_poeyi,Temnothorax_bernardi) by retaining backbone tip Temnothorax_bernardi and grafting donor as terminal replacement.
+Collapsing MRCA(Apterostigma,Acromyrmex) by retaining backbone tip Acromyrmex and grafting donor as terminal replacement.
+Collapsing MRCA(Ocymyrmex_celer,Ocymyrmex_picardi) by retaining backbone tip Ocymyrmex_celer and grafting donor as terminal replacement.
+Collapsing MRCA(Amblyopone,Myopopone) by retaining backbone tip Adetomyrma and grafting donor as terminal replacement.
+Collapsing MRCA(Leptomyrmex_garretti,Leptomyrmex_puberulus) by retaining backbone tip Leptomyrmex_burwelli and grafting donor as terminal replacement.
+Collapsing MRCA(Myrmica_wheeleri,Myrmica_fracticornis) by retaining backbone tip Myrmica_americana and grafting donor as terminal replacement.
+Collapsing MRCA(Tetramorium_taylori,Tetramorium_validiusculum) by retaining backbone tip Tetramorium_atratulum and grafting donor as terminal replacement.
+Collapsing MRCA(Cardiocondyla_mauritanica,Cardiocondyla_thoracica) by retaining backbone tip Cardiocondyla_mauritanica and grafting donor as terminal replacement.
+Collapsing MRCA(Malagidris_belti,Malagidris_jugum) by retaining backbone tip Malagidris_belti and grafting donor as terminal replacement.
+[SKIP tree 1] TIP{Metapone_madagascarica}: target missing in this backbone.
+[SKIP tree 1] MRCA{Royidris_longiseta,Royidris_notorthenes}: target missing in this backbone.
+Collapsing MRCA(Tanipone_aglandula,Tanipone_scelesta) by retaining backbone tip Tanipone_aglandula and grafting donor as terminal replacement.
+Collapsing MRCA(Vitsika_producta,Vitsika_suspicax) by retaining backbone tip Vitsika_brevis and grafting donor as terminal replacement.
+
+┌─────────────────────────┐
+│ write plots & tip lists │
+└─────────────────────────┘

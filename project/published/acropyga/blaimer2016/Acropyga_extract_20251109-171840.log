@@ -1,0 +1,134 @@
+=== Genus extraction log: Acropyga | 2025-11-09 17:18:40 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 41 ingroup tip(s) in raw tree.
+Kept 41 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Acropyga_silvestrii_ACR101 → Acropyga_silvestrii
+  KEEP: Acropyga_arnoldi_ACR22 → Acropyga_arnoldi
+  KEEP: Acropyga_silvestrii_ACR90 → Acropyga_silvestrii
+  KEEP: Acropyga_kinomurai_ACR83 → Acropyga_kinomurai
+  KEEP: Acropyga_lauta_ACR88 → Acropyga_lauta
+  KEEP: Acropyga_lauta_ACR87 → Acropyga_lauta
+  KEEP: Acropyga_sauteri_ACR52 → Acropyga_sauteri
+  KEEP: Acropyga_butteli_ACR100 → Acropyga_butteli
+  KEEP: Acropyga_myops_ACR28 → Acropyga_myops
+  KEEP: Acropyga_myops_ACR26 → Acropyga_myops
+  KEEP: Acropyga_ambigua_ACR80 → Acropyga_ambigua
+  KEEP: Acropyga_pallida_ACR84 → Acropyga_pallida
+  KEEP: Acropyga_pallida_ACR27 → Acropyga_pallida
+  KEEP: Acropyga_acutiventris_ACR82 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR104 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR89 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR81 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR25 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR23 → Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris_ACR24 → Acropyga_acutiventris
+  KEEP: Acropyga_ayanganna_ACR8 → Acropyga_ayanganna
+  KEEP: Acropyga_panamensis_ACR51 → Acropyga_panamensis
+  KEEP: Acropyga_donisthorpei_ACR85 → Acropyga_donisthorpei
+  KEEP: Acropyga_donisthorpei_ACR59 → Acropyga_donisthorpei
+  KEEP: Acropyga_donisthorpei_ACR86 → Acropyga_donisthorpei
+  KEEP: Acropyga_stenotes_ACR55 → Acropyga_stenotes
+  KEEP: Acropyga_guianensis_ACR56 → Acropyga_guianensis
+  KEEP: Acropyga_guianensis_ACR50 → Acropyga_guianensis
+  KEEP: Acropyga_guianensis_ACR21 → Acropyga_guianensis
+  KEEP: Acropyga_romeo_ACR58 → Acropyga_romeo
+  KEEP: Acropyga_hirsutula_ACR57 → Acropyga_hirsutula
+  KEEP: Acropyga_dubitata_ACR102 → Acropyga_dubitata
+  KEEP: Acropyga_decedens_goeldii_ACR103 → Acropyga_decedens
+  KEEP: Acropyga_epedana_ACR7 → Acropyga_epedana
+  KEEP: Acropyga_epedana_ACR60 → Acropyga_epedana
+  KEEP: Acropyga_smithii_ACR54 → Acropyga_smithii
+  KEEP: Acropyga_smithii_ACR6 → Acropyga_smithii
+  KEEP: Acropyga_fuhrmanni_ACR1 → Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni_ACR3 → Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni_ACR2 → Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni_ACR5 → Acropyga_fuhrmanni
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 10 ingroup species with duplicate tips.
+Species Acropyga_acutiventris: monophyletic; retain Acropyga_acutiventris (min crown depth -0.003091); drop 0 duplicate(s).
+Species Acropyga_donisthorpei: monophyletic; retain Acropyga_donisthorpei (min crown depth -0.000967); drop 0 duplicate(s).
+Species Acropyga_epedana: monophyletic; retain Acropyga_epedana (min crown depth -0.002893); drop 0 duplicate(s).
+Species Acropyga_fuhrmanni: monophyletic; retain Acropyga_fuhrmanni (min crown depth -0.000800); drop 0 duplicate(s).
+Species Acropyga_guianensis: monophyletic; retain Acropyga_guianensis (min crown depth -0.005628); drop 0 duplicate(s).
+Species Acropyga_lauta: monophyletic; retain Acropyga_lauta (min crown depth -0.008167); drop 0 duplicate(s).
+Species Acropyga_myops: monophyletic; retain Acropyga_myops (min crown depth -0.001657); drop 0 duplicate(s).
+Species Acropyga_pallida: monophyletic; retain Acropyga_pallida (min crown depth -0.026227); drop 0 duplicate(s).
+Species Acropyga_silvestrii: non-monophyletic; retain Acropyga_silvestrii (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Acropyga_smithii: monophyletic; retain Acropyga_smithii (min crown depth -0.013420); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 41
+Genus monophyly: TRUE
+Genus MRCA node: 60
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_acutiventris
+  KEEP: Acropyga_ambigua
+  KEEP: Acropyga_arnoldi
+  KEEP: Acropyga_ayanganna
+  KEEP: Acropyga_butteli
+  KEEP: Acropyga_decedens
+  KEEP: Acropyga_donisthorpei
+  KEEP: Acropyga_donisthorpei
+  KEEP: Acropyga_donisthorpei
+  KEEP: Acropyga_dubitata
+  KEEP: Acropyga_epedana
+  KEEP: Acropyga_epedana
+  KEEP: Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni
+  KEEP: Acropyga_fuhrmanni
+  KEEP: Acropyga_guianensis
+  KEEP: Acropyga_guianensis
+  KEEP: Acropyga_guianensis
+  KEEP: Acropyga_hirsutula
+  KEEP: Acropyga_kinomurai
+  KEEP: Acropyga_lauta
+  KEEP: Acropyga_lauta
+  KEEP: Acropyga_myops
+  KEEP: Acropyga_myops
+  KEEP: Acropyga_pallida
+  KEEP: Acropyga_pallida
+  KEEP: Acropyga_panamensis
+  KEEP: Acropyga_romeo
+  KEEP: Acropyga_sauteri
+  KEEP: Acropyga_silvestrii
+  KEEP: Acropyga_silvestrii
+  KEEP: Acropyga_smithii
+  KEEP: Acropyga_smithii
+  KEEP: Acropyga_stenotes
+Total retained genus tips: 41
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Formicinae_genus_01_ZA02 (min distance 0.101476).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Acropyga_with_outgroup.tre
+Outgroup in output: Formicinae_genus_01_ZA02
+Genus tips in output: 23

@@ -1,0 +1,60 @@
+=== Genus extraction log: Lioponera | 2025-11-09 17:38:28 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 8 ingroup tip(s) in raw tree.
+Kept 8 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Lioponera_longitarsus_M193 → Lioponera_longitarsus
+  KEEP: Lioponera_vespula_M210 → Lioponera_vespula
+  KEEP: Lioponera_nr_mayri_M215 → Lioponera_mayri
+  KEEP: Lioponera_nr_kraepelinii_M131 → Lioponera_kraepelinii
+  KEEP: Lioponera_cf_suscitata_M267 → Lioponera_suscitata
+  KEEP: Lioponera_marginata_M249 → Lioponera_marginata
+  KEEP: Lioponera_ruficornis_M165 → Lioponera_ruficornis
+  KEEP: Lioponera_clarus_M137 → Lioponera_clarus
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+No intraspecific duplicates detected within ingroup.
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 10
+Genus monophyly: TRUE
+Genus MRCA node: 188
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Lioponera_clarus
+  KEEP: Lioponera_kraepelinii
+  KEEP: Lioponera_longitarsus
+  KEEP: Lioponera_marginata
+  KEEP: Lioponera_mayri
+  KEEP: Lioponera_MY_M268
+  KEEP: Lioponera_PG_M250
+  KEEP: Lioponera_ruficornis
+  KEEP: Lioponera_suscitata
+  KEEP: Lioponera_vespula
+Total retained genus tips: 10
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Parasyscia_MG_M212 (min distance 0.167295).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Lioponera_with_outgroup.tre
+Outgroup in output: Parasyscia_MG_M212
+Genus tips in output: 11

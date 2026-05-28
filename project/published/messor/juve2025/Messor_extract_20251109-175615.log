@@ -1,0 +1,241 @@
+=== Genus extraction log: Messor | 2025-11-09 17:56:15 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 88 ingroup tip(s) in raw tree.
+Kept 88 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Messor_asmaae_sp1_PAKISTAN_AWEY → Messor_asmaae
+  KEEP: Messor_rufotestaceus_ISRAEL_AWEY → Messor_rufotestaceus
+  KEEP: Messor_aureaspinosus_sp2_IRAK_AWEY → Messor_aureaspinosus
+  KEEP: Messor_lobicornis_submuticus_sp8_TUNISIA_AWEY → Messor_lobicornis
+  KEEP: Messor_aciculatus_CHINA_AWEY → Messor_aciculatus
+  KEEP: Messor_aciculatus_BRAN → Messor_aciculatus
+  KEEP: Messor_variabilis_TURKMENISTAN_AWEY → Messor_variabilis
+  KEEP: Messor_excursionis__sp4_PAKISTAN_AWEY → Messor_excursionis
+  KEEP: Messor_oertzeni_SAMOS_WGS_LAGOZW → Messor_oertzeni
+  KEEP: Messor_himalayanus_INDIA_AWEY → Messor_himalayanus
+  KEEP: Messor_reticuliventris_PAKISTAN_AWEY → Messor_reticuliventris
+  KEEP: Messor_orientalis_SYRIA_AWEY → Messor_orientalis
+  KEEP: Messor_mcarthuri_queen_RHODES_WGS_LGR15Q → Messor_mcarthuri
+  KEEP: Messor_mcarthuri_TURKIYE_WGS_Y15243-1 → Messor_mcarthuri
+  KEEP: Messor_ponticus_queen_UKRAINE_WGS_RDNIPQ → Messor_ponticus
+  KEEP: Messor_ibericus_male_FRANCE_WGS_RINSAM → Messor_ibericus
+  KEEP: Messor_ibericus_queen_ITALY_WGS_SH10-25 → Messor_ibericus
+  KEEP: Messor_muticus_ARMENIA_WGS_Y15479-1 → Messor_muticus
+  KEEP: Messor_muticus_queen_ARMENIA_WGS_Y15472-1 → Messor_muticus
+  KEEP: Messor_structor4_queen_AUSTRIA_WGS_M893AQ → Messor_structor
+  KEEP: Messor_structor4_AUSTRIA_WGS_Y14576-5 → Messor_structor
+  KEEP: Messor_structor3_male_FRANCE_WGS_SH09-21 → Messor_structor
+  KEEP: Messor_structor3_queen_FRANCE_WGS_SH09-03 → Messor_structor
+  KEEP: Messor_structor3_FRANCE_WGS_Y15268-1 → Messor_structor
+  KEEP: Messor_capitatus_FRANCE_WGS_SH07-15 → Messor_capitatus
+  KEEP: Messor_capitatus_FRANCE_WGS_SH09-13 → Messor_capitatus
+  KEEP: Messor_barbarus_lin2_queen_ALGERIA_WGS_SH10-09 → Messor_barbarus
+  KEEP: Messor_barbarus_gallaoides__lin1_MAROCCO_WGS_SH03-19 → Messor_barbarus
+  KEEP: Messor_barbarus_lin1_ALGERIA_WGS_SH10-04 → Messor_barbarus
+  KEEP: Messor_barbarus_lin1_male_ALGERIA_WGS_SH10-10 → Messor_barbarus
+  KEEP: Messor_decipiens_SOUTHAFR_AWEY → Messor_decipiens
+  KEEP: Messor_capensis_SOUTHAFR_AWEY → Messor_capensis
+  KEEP: Messor_piceus_SOUTHAFR_AWEY → Messor_piceus
+  KEEP: Messor_denticornis_NAMIBIA_AWEY → Messor_denticornis
+  KEEP: Messor_tropicorum_NAMIBIA_AWEY00048-0101 → Messor_tropicorum
+  KEEP: Messor_piceus_BRAN → Messor_piceus
+  KEEP: Messor_capensis_BRAN → Messor_capensis
+  KEEP: Messor_denticornis_BRAN → Messor_denticornis
+  KEEP: Messor_regalis_NIGERIA_AWEY → Messor_regalis
+  KEEP: Messor_arenarius_TUNISIA_AWEY → Messor_arenarius
+  KEEP: Messor_arenarius_ALGERIA_WGS_SH02-01 → Messor_arenarius
+  KEEP: Messor_hodnii_ALGERIA_WGS_SH10-02 → Messor_hodnii
+  KEEP: Messor_striativentris__sp13_LIBYA_AWEY → Messor_striativentris
+  KEEP: Messor_striativentris__sp6_MAROCCO_AWEY → Messor_striativentris
+  KEEP: Messor_lusitanicus_SPAIN_AWEY → Messor_lusitanicus
+  KEEP: Messor_hispanicus_SPAIN_AWEY → Messor_hispanicus
+  KEEP: Messor_angularis_KENYA_AWEY → Messor_angularis
+  KEEP: Messor_semirufus_SYRIA_AWEY → Messor_semirufus
+  KEEP: Messor_meridionalis_YOUGOSLAVIA_AWEY → Messor_meridionalis
+  KEEP: Messor_wasmanni_GREECE_WGS_Y15408-1 → Messor_wasmanni
+  KEEP: Messor_wasmanni_queen_CRETE_WGS_SH03-02 → Messor_wasmanni
+  KEEP: Messor_dentatus__sp10_LIBYA_AWEY → Messor_dentatus
+  KEEP: Messor_dentatus_SYRIA_AWEY → Messor_dentatus
+  KEEP: Messor_dentatus_sp17_IRAK_AWEY → Messor_dentatus
+  KEEP: Messor_dentatus__sp22_PAKISTAN_AWEY → Messor_dentatus
+  KEEP: Messor_cf_incorruptus_sp3_SYRIA_AWEY → Messor_incorruptus
+  KEEP: Messor_instabilis_PAKISTAN_AWEY → Messor_instabilis
+  KEEP: Messor_galla_KENYA_AWEY → Messor_galla
+  KEEP: Messor_mediosanguineus_queen_AWEY00069-0101 → Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus_AWEY00029-0101 → Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus_sp21_IRAK_AWEY → Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus_sp19_TURKIYE_AWEY → Messor_mediosanguineus
+  KEEP: Messor_sanctus_TUNISIA_WGS_SH02-04 → Messor_sanctus
+  KEEP: Messor_bouvieri_MAJORCA_AWEY → Messor_bouvieri
+  KEEP: Messor_aegyptiacus_felah_sp7_MAROCCO_AWEY → Messor_aegyptiacus
+  KEEP: Messor_punctaticeps_MAROCCO_AWEY → Messor_punctaticeps
+  KEEP: Messor_collingwoodi_NIGER_AWEY → Messor_collingwoodi
+  KEEP: Messor_aegyptiacus_felah_sp5_LIBYA_AWEY → Messor_aegyptiacus
+  KEEP: Messor_foreli_MAROCCO_AWEY → Messor_foreli
+  KEEP: Messor_marocanus_sp20_SPAIN_AWEY → Messor_marocanus
+  KEEP: Messor_marocanus_MAROCCO_AWEY → Messor_marocanus
+  KEEP: Messor_medioruber_montanus_sp9_MOROCCO_AWEY → Messor_medioruber
+  KEEP: Messor_medioruber_montanus__ALGERIA_WGS_SH10-07 → Messor_medioruber
+  KEEP: Messor_punctaticeps_TUNISIA_WGS_SH02-02 → Messor_punctaticeps
+  KEEP: Messor_punctaticeps__sp12_TUNISIA_AWEY → Messor_punctaticeps
+  KEEP: Messor_striatulus_MAROCCO_AWEY → Messor_striatulus
+  KEEP: Messor_striativentris_ALGERIA_AWEY → Messor_striativentris
+  KEEP: Messor_minor_calabricus_ITALY_AWEY → Messor_minor
+  KEEP: Messor_sp18_ISRAEL_AWEY → Messor_sp
+  KEEP: Messor_minor_maurus_CANARY_AWEY → Messor_minor
+  KEEP: Messor_picturatus_MAROCCO_AWEY → Messor_picturatus
+  KEEP: Messor_aegyptiacus_TUNISIA_AWEY → Messor_aegyptiacus
+  KEEP: Messor_ebeninus_BRAN → Messor_ebeninus
+  KEEP: Messor_striatulus_ALGERIA_WGS_SH10-05 → Messor_striatulus
+  KEEP: Messor_striatulus_ALGERIA_WGS_SH11-03 → Messor_striatulus
+  KEEP: Messor_picturatus_maurus_TUNISIA_WGS_SH02-03 → Messor_picturatus
+  KEEP: Messor_marocanus_MAROCCO_WGS_SH02-05 → Messor_marocanus
+  KEEP: Messor_minor_CANARY_WGS_SH03-22 → Messor_minor
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 22 ingroup species with duplicate tips.
+Species Messor_aciculatus: monophyletic; retain Messor_aciculatus (min crown depth -0.010281); drop 0 duplicate(s).
+Species Messor_aegyptiacus: non-monophyletic; retain Messor_aegyptiacus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_arenarius: non-monophyletic; retain Messor_arenarius (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_barbarus: monophyletic; retain Messor_barbarus (min crown depth -0.006119); drop 0 duplicate(s).
+Species Messor_capensis: non-monophyletic; retain Messor_capensis (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_capitatus: monophyletic; retain Messor_capitatus (min crown depth -0.007970); drop 0 duplicate(s).
+Species Messor_dentatus: monophyletic; retain Messor_dentatus (min crown depth -0.008061); drop 0 duplicate(s).
+Species Messor_denticornis: non-monophyletic; retain Messor_denticornis (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_ibericus: monophyletic; retain Messor_ibericus (min crown depth -0.000786); drop 0 duplicate(s).
+Species Messor_marocanus: non-monophyletic; retain Messor_marocanus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_mcarthuri: monophyletic; retain Messor_mcarthuri (min crown depth -0.005387); drop 0 duplicate(s).
+Species Messor_medioruber: monophyletic; retain Messor_medioruber (min crown depth -0.015466); drop 0 duplicate(s).
+Species Messor_mediosanguineus: monophyletic; retain Messor_mediosanguineus (min crown depth -0.011986); drop 0 duplicate(s).
+Species Messor_minor: non-monophyletic; retain Messor_minor (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_muticus: monophyletic; retain Messor_muticus (min crown depth -0.004165); drop 0 duplicate(s).
+Species Messor_piceus: non-monophyletic; retain Messor_piceus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_picturatus: non-monophyletic; retain Messor_picturatus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_punctaticeps: non-monophyletic; retain Messor_punctaticeps (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_striativentris: non-monophyletic; retain Messor_striativentris (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_striatulus: non-monophyletic; retain Messor_striatulus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Messor_structor: monophyletic; retain Messor_structor (min crown depth -0.002124); drop 0 duplicate(s).
+Species Messor_wasmanni: monophyletic; retain Messor_wasmanni (min crown depth -0.002829); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 89
+Genus monophyly: TRUE
+Genus MRCA node: 296
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Messor_aciculatus
+  KEEP: Messor_aciculatus
+  KEEP: Messor_aegyptiacus
+  KEEP: Messor_aegyptiacus
+  KEEP: Messor_aegyptiacus
+  KEEP: Messor_angularis
+  KEEP: Messor_arenarius
+  KEEP: Messor_arenarius
+  KEEP: Messor_asmaae
+  KEEP: Messor_aureaspinosus
+  KEEP: Messor_barbarus
+  KEEP: Messor_barbarus
+  KEEP: Messor_barbarus
+  KEEP: Messor_barbarus
+  KEEP: Messor_bouvieri
+  KEEP: Messor_capensis
+  KEEP: Messor_capensis
+  KEEP: Messor_capitatus
+  KEEP: Messor_capitatus
+  KEEP: Messor_collingwoodi
+  KEEP: Messor_decipiens
+  KEEP: Messor_dentatus
+  KEEP: Messor_dentatus
+  KEEP: Messor_dentatus
+  KEEP: Messor_dentatus
+  KEEP: Messor_denticornis
+  KEEP: Messor_denticornis
+  KEEP: Messor_ebeninus
+  KEEP: Messor_excursionis
+  KEEP: Messor_foreli
+  KEEP: Messor_galla
+  KEEP: Messor_himalayanus
+  KEEP: Messor_hispanicus
+  KEEP: Messor_hodnii
+  KEEP: Messor_ibericus
+  KEEP: Messor_ibericus
+  KEEP: Messor_incorruptus
+  KEEP: Messor_instabilis
+  KEEP: Messor_lobicornis
+  KEEP: Messor_lusitanicus
+  KEEP: Messor_marocanus
+  KEEP: Messor_marocanus
+  KEEP: Messor_marocanus
+  KEEP: Messor_mcarthuri
+  KEEP: Messor_mcarthuri
+  KEEP: Messor_medioruber
+  KEEP: Messor_medioruber
+  KEEP: Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus
+  KEEP: Messor_mediosanguineus
+  KEEP: Messor_meridionalis
+  KEEP: Messor_minor
+  KEEP: Messor_minor
+  KEEP: Messor_minor
+  KEEP: Messor_muticus
+  KEEP: Messor_muticus
+  KEEP: Messor_NAMIBIA_striatifrons_AWEY
+  KEEP: Messor_oertzeni
+  KEEP: Messor_orientalis
+  KEEP: Messor_piceus
+  KEEP: Messor_piceus
+  KEEP: Messor_picturatus
+  KEEP: Messor_picturatus
+  KEEP: Messor_ponticus
+  KEEP: Messor_punctaticeps
+  KEEP: Messor_punctaticeps
+  KEEP: Messor_punctaticeps
+  KEEP: Messor_regalis
+  KEEP: Messor_reticuliventris
+  KEEP: Messor_rufotestaceus
+  KEEP: Messor_sanctus
+  KEEP: Messor_semirufus
+  KEEP: Messor_sp
+  KEEP: Messor_striativentris
+  KEEP: Messor_striativentris
+  KEEP: Messor_striativentris
+  KEEP: Messor_striatulus
+  KEEP: Messor_striatulus
+  KEEP: Messor_striatulus
+  KEEP: Messor_structor
+  KEEP: Messor_structor
+  KEEP: Messor_structor
+  KEEP: Messor_structor
+  KEEP: Messor_structor
+  KEEP: Messor_tropicorum
+  KEEP: Messor_variabilis
+  KEEP: Messor_wasmanni
+  KEEP: Messor_wasmanni
+Total retained genus tips: 89
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Aphaenogaster_leveillei (min distance 0.071086).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Messor_with_outgroup.tre
+Outgroup in output: Aphaenogaster_leveillei
+Genus tips in output: 53

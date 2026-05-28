@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-13 13:22:02 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 77
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 72
+Outgroup (sister_one): Hylomyrma_immanis_GUY_PS_EX1599 (min distance=1.270155)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 72
+tips_out (final tree): 73
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/pogonomyrmex/graber2026/extract_mrca_Pogonomyrmex_mayri_COL_MG_RA1054-Pogonomyrmex_maricopa_USA_AZ_RA1020_20260413-132202_with_outgroup.tre

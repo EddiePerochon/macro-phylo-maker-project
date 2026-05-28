@@ -1,0 +1,27 @@
+=== Genus extraction log: Royidris | 2026-04-11 11:40:11 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1183
+Ingroup (genus=Royidris) identified: 13 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Vitsika_labes (min distance=29.988479)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 13
+tips_out (final tree): 14
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Royidris/extract_Royidris_20260411-114011_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Royidris/extract_Royidris_20260411-114011_renamed.tsv

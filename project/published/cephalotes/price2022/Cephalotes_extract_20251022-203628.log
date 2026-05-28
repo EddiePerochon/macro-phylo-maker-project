@@ -1,0 +1,325 @@
+=== Genus extraction log: Cephalotes | 2025-10-22 20:36:28 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 129 ingroup tip(s) in raw tree.
+Kept 129 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Cephalotes_manni_pow0043A → Cephalotes_manni
+  KEEP: Cephalotes_notatus_pow389b → Cephalotes_notatus
+  KEEP: Cephalotes_bruchi_KK38 → Cephalotes_bruchi
+  KEEP: Cephalotes_bruchi_AW02a1 → Cephalotes_bruchi
+  KEEP: Cephalotes_bohlsiorfieb_SP168 → Cephalotes_bohlsiorfieb
+  KEEP: Cephalotes_liogaster_PSW12398b2 → Cephalotes_liogaster
+  KEEP: Cephalotes_pilosus_Cephalotes_e17orig → Cephalotes_pilosus
+  KEEP: Cephalotes_bivestituscf_pow0078a → Cephalotes_bivestituscf
+  KEEP: Cephalotes_guayaki_AW05pow0235B → Cephalotes_guayaki
+  KEEP: Cephalotes_undescribed_pow420a → Cephalotes_undescribed
+  KEEP: Cephalotes_fiebrigi_AW03a2 → Cephalotes_fiebrigi
+  KEEP: Cephalotes_jheringi_AVS2187a → Cephalotes_jheringi
+  KEEP: Cephalotes_specularis_pow490a → Cephalotes_specularis
+  KEEP: Cephalotes_adolphi_pow380a → Cephalotes_adolphi
+  KEEP: Cephalotes_targionii_pow0602A → Cephalotes_targionii
+  KEEP: Cephalotes_tinyang_pow0635a → Cephalotes_tinyang
+  KEEP: Cephalotes_undescribed_pow363b → Cephalotes_undescribed
+  KEEP: Cephalotes_undescribed_CSM0904B → Cephalotes_undescribed
+  KEEP: Cephalotes_bigang_pow0637A → Cephalotes_bigang
+  KEEP: Cephalotes_angustus_pow547a → Cephalotes_angustus
+  KEEP: Cephalotes_umbraculatus_CSM3483a → Cephalotes_umbraculatus
+  KEEP: Cephalotes_umbraculatus_JSC200a → Cephalotes_umbraculatus
+  KEEP: Cephalotes_eumbraculatus_CSM3360a → Cephalotes_eumbraculatus
+  KEEP: Cephalotes_patellaris_CSRA1186c → Cephalotes_patellaris
+  KEEP: Cephalotes_varians_CSM3389a → Cephalotes_varians
+  KEEP: Cephalotes_pallens_CSM2424aB → Cephalotes_pallens
+  KEEP: Cephalotes_epallens_CSM3517a → Cephalotes_epallens
+  KEEP: Cephalotes_porrasi_pow153d → Cephalotes_porrasi
+  KEEP: Cephalotes_patellaris_GB16a1 → Cephalotes_patellaris
+  KEEP: Cephalotes_ejamaicensis_JKW239a → Cephalotes_ejamaicensis
+  KEEP: Cephalotes_jamaicensis_JKW970a → Cephalotes_jamaicensis
+  KEEP: Cephalotes_pallidus_PSW11330 → Cephalotes_pallidus
+  KEEP: Cephalotes_sp17pall_pow411a → Cephalotes_sp
+  KEEP: Cephalotes_decoloratus_pow0465c → Cephalotes_decoloratus
+  KEEP: Cephalotes_pallidoides_pow403b → Cephalotes_pallidoides
+  KEEP: Cephalotes_pellans_pow0386c → Cephalotes_pellans
+  KEEP: Cephalotes_undespinel_CFP06A → Cephalotes_undespinel
+  KEEP: Cephalotes_pin1hippo_pow493a → Cephalotes_pin
+  KEEP: Cephalotes_spnov2_C18bb1 → Cephalotes_spnov
+  KEEP: Cephalotes_maculatus_CSM2581a → Cephalotes_maculatus
+  KEEP: Cephalotes_nrmaculatus_pow546 → Cephalotes_maculatus
+  KEEP: Cephalotes_pileininr_pow103bA → Cephalotes_pileininr
+  KEEP: Cephalotes_maculatus_pow0053a → Cephalotes_maculatus
+  KEEP: Cephalotes_emaculatus_pow0046c → Cephalotes_emaculatus
+  KEEP: Cephalotes_maculatusaffn_pow0633a1 → Cephalotes_maculatusaffn
+  KEEP: Cephalotes_sp18grandcl_pow454a → Cephalotes_sp
+  KEEP: Cephalotes_grandinosus_pow364a → Cephalotes_grandinosus
+  KEEP: Cephalotes_egrandinosus_CSM3362a → Cephalotes_egrandinosus
+  KEEP: Cephalotes_egrandinosus_CSM0905aA → Cephalotes_egrandinosus
+  KEEP: Cephalotes_pindark_pow0636A → Cephalotes_pindark
+  KEEP: Cephalotes_liepini_pow460b → Cephalotes_liepini
+  KEEP: Cephalotes_pinsp15_pow427a → Cephalotes_pinsp
+  KEEP: Cephalotes_persimilis_pow413a → Cephalotes_persimilis
+  KEEP: Cephalotes_persimplex_PSW12322 → Cephalotes_persimplex
+  KEEP: Cephalotes_simillimus_CSM3505b → Cephalotes_simillimus
+  KEEP: Cephalotes_minutus_AVS2330a5 → Cephalotes_minutus
+  KEEP: Cephalotes_lamcladesp_pow417A → Cephalotes_lamcladesp
+  KEEP: Cephalotes_simillimus_pow0399a → Cephalotes_simillimus
+  KEEP: Cephalotes_minutusa_CSMCSM2337a_Cephalotes_eminutus → Cephalotes_minutusa
+  KEEP: Cephalotes_minutus_JSC215a → Cephalotes_minutus
+  KEEP: Cephalotes_echristopherseni_pow205b → Cephalotes_echristopherseni
+  KEEP: Cephalotes_pusillus_AVS2288 → Cephalotes_pusillus
+  KEEP: Cephalotes_undescribed_C1050419A → Cephalotes_undescribed
+  KEEP: Cephalotes_pusillus_pow0578a → Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus_pow0374c → Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus_TRS08a1 → Cephalotes_pusillus
+  KEEP: Cephalotes_epusillus_pow0098A → Cephalotes_epusillus
+  KEEP: Cephalotes_pusillus_CSRA1168a → Cephalotes_pusillus
+  KEEP: Cephalotes_spinosus_CSM3063d → Cephalotes_spinosus
+  KEEP: Cephalotes_spinosus_pow0035a → Cephalotes_spinosus
+  KEEP: Cephalotes_spinosus_CSRA1203c → Cephalotes_spinosus
+  KEEP: Cephalotes_lamclade_SP56a → Cephalotes_lamclade
+  KEEP: Cephalotes_christophersenicf_pow247a → Cephalotes_christophersenicf
+  KEEP: Cephalotes_coffcladespnov_CSM895a → Cephalotes_coffcladespnov
+  KEEP: Cephalotes_setulifer_CSM2353b → Cephalotes_setulifer
+  KEEP: Cephalotes_coffcladeundet_JSC09 → Cephalotes_coffcladeundet
+  KEEP: Cephalotes_trichophorus_CFP04a1 → Cephalotes_trichophorus
+  KEEP: Cephalotes_cristatus_C47665a → Cephalotes_cristatus
+  KEEP: Cephalotes_cristatus_CSRA1185a → Cephalotes_cristatus
+  KEEP: Cephalotes_cordatus_pow0423a → Cephalotes_cordatus
+  KEEP: Cephalotes_cordatus_CSM3433a → Cephalotes_cordatus
+  KEEP: Cephalotes_spnov5_pow0034wA → Cephalotes_spnov
+  KEEP: Cephalotes_pavonii_CSM3452a → Cephalotes_pavonii
+  KEEP: Cephalotes_eduarduli_pow387a → Cephalotes_eduarduli
+  KEEP: Cephalotes_eduarduli_KK26 → Cephalotes_eduarduli
+  KEEP: Cephalotes_eduarduli_AW04 → Cephalotes_eduarduli
+  KEEP: Cephalotes_sp12depclade_pow0457a → Cephalotes_sp
+  KEEP: Cephalotes_depsp_e1050919D → Cephalotes_depsp
+  KEEP: Cephalotes_basalis_CSM1196d → Cephalotes_basalis
+  KEEP: Cephalotes_cordiventris_GB57a → Cephalotes_cordiventris
+  KEEP: Cephalotes_ebasalis_CSM3361a → Cephalotes_ebasalis
+  KEEP: Cephalotes_mompox_ER4a1 → Cephalotes_mompox
+  KEEP: Cephalotes_ecordiventris_CSM0903 → Cephalotes_ecordiventris
+  KEEP: Cephalotes_cordiae_JSC04 → Cephalotes_cordiae
+  KEEP: Cephalotes_complanatus_pow0036A → Cephalotes_complanatus
+  KEEP: Cephalotes_ramiphilus_DAD04a → Cephalotes_ramiphilus
+  KEEP: Cephalotes_ramiphilus_pow409a → Cephalotes_ramiphilus
+  KEEP: Cephalotes_rohweri_RS01a1 → Cephalotes_rohweri
+  KEEP: Cephalotes_hirsutus_pow216c → Cephalotes_hirsutus
+  KEEP: Cephalotes_wheeleri_JSC211a → Cephalotes_wheeleri
+  KEEP: Cephalotes_goniodontus_JSC203d → Cephalotes_goniodontus
+  KEEP: Cephalotes_multispinosus_Cephalotes_e29B → Cephalotes_multispinosus
+  KEEP: Cephalotes_biguttatus_pow0124 → Cephalotes_biguttatus
+  KEEP: Cephalotes_lenca_CCDB11393a → Cephalotes_lenca
+  KEEP: Cephalotes_curvistriatus_CCDB11398a → Cephalotes_curvistriatus
+  KEEP: Cephalotes_texanus_JSC235a → Cephalotes_texanus
+  KEEP: Cephalotes_bimaculatus_JSC221a → Cephalotes_bimaculatus
+  KEEP: Cephalotes_scutulatus_JTL02a1 → Cephalotes_scutulatus
+  KEEP: Cephalotes_betoi_pow390a → Cephalotes_betoi
+  KEEP: Cephalotes_kukulcan_JKW378a → Cephalotes_kukulcan
+  KEEP: Cephalotes_kukulcan_JTL01bPC → Cephalotes_kukulcan
+  KEEP: Cephalotes_clypeatus_pow438 → Cephalotes_clypeatus
+  KEEP: Cephalotes_clypeatus_SP83a1 → Cephalotes_clypeatus
+  KEEP: Cephalotes_auricomus_pow0471 → Cephalotes_auricomus
+  KEEP: Cephalotes_unimaculatus_pow461a → Cephalotes_unimaculatus
+  KEEP: Cephalotes_atratus_CSM3341Arest → Cephalotes_atratus
+  KEEP: Cephalotes_eatratus_CSM3467Arest → Cephalotes_eatratus
+  KEEP: Cephalotes_atratus_pow0090 → Cephalotes_atratus
+  KEEP: Cephalotes_atratus_C47364a → Cephalotes_atratus
+  KEEP: Cephalotes_atratus_CSM3002a → Cephalotes_atratus
+  KEEP: Cephalotes_marginatus_DK07 → Cephalotes_marginatus
+  KEEP: Cephalotes_serraticeps_SY13 → Cephalotes_serraticeps
+  KEEP: Cephalotes_alfaroi_SY01 → Cephalotes_alfaroi
+  KEEP: Cephalotes_oculatus_pow528a → Cephalotes_oculatus
+  KEEP: Cephalotes_eopacus_CSM2992b → Cephalotes_eopacus
+  KEEP: Cephalotes_opacus_CSM3441a → Cephalotes_opacus
+  KEEP: Cephalotes_eminutus_CSM3023a → Cephalotes_eminutus
+  KEEP: Cephalotes_placidus_CSM3490C → Cephalotes_placidus
+  KEEP: Cephalotes_placidus_SP81bPC → Cephalotes_placidus
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 20 ingroup species with duplicate tips.
+Species Cephalotes_atratus: non-monophyletic; retain Cephalotes_atratus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_bruchi: monophyletic; retain Cephalotes_bruchi (min crown depth -0.001856); drop 0 duplicate(s).
+Species Cephalotes_clypeatus: monophyletic; retain Cephalotes_clypeatus (min crown depth -0.001197); drop 0 duplicate(s).
+Species Cephalotes_cordatus: monophyletic; retain Cephalotes_cordatus (min crown depth -0.007306); drop 0 duplicate(s).
+Species Cephalotes_cristatus: monophyletic; retain Cephalotes_cristatus (min crown depth -0.003119); drop 0 duplicate(s).
+Species Cephalotes_eduarduli: monophyletic; retain Cephalotes_eduarduli (min crown depth -0.001055); drop 0 duplicate(s).
+Species Cephalotes_egrandinosus: monophyletic; retain Cephalotes_egrandinosus (min crown depth -0.001663); drop 0 duplicate(s).
+Species Cephalotes_kukulcan: monophyletic; retain Cephalotes_kukulcan (min crown depth -0.001828); drop 0 duplicate(s).
+Species Cephalotes_maculatus: non-monophyletic; retain Cephalotes_maculatus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_minutus: non-monophyletic; retain Cephalotes_minutus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_patellaris: non-monophyletic; retain Cephalotes_patellaris (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_placidus: monophyletic; retain Cephalotes_placidus (min crown depth -0.000829); drop 0 duplicate(s).
+Species Cephalotes_pusillus: non-monophyletic; retain Cephalotes_pusillus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_ramiphilus: monophyletic; retain Cephalotes_ramiphilus (min crown depth -0.003697); drop 0 duplicate(s).
+Species Cephalotes_simillimus: non-monophyletic; retain Cephalotes_simillimus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_sp: non-monophyletic; retain Cephalotes_sp (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_spinosus: monophyletic; retain Cephalotes_spinosus (min crown depth -0.000872); drop 0 duplicate(s).
+Species Cephalotes_spnov: non-monophyletic; retain Cephalotes_spnov (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_umbraculatus: non-monophyletic; retain Cephalotes_umbraculatus (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Cephalotes_undescribed: non-monophyletic; retain Cephalotes_undescribed (min total patristic distance 0.000000); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 134
+Genus monophyly: TRUE
+Genus MRCA node: 138
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Cephalotes_1angcl_pow0491a
+  KEEP: Cephalotes_2angcl_pow492a
+  KEEP: Cephalotes_503angcl_pow503a
+  KEEP: Cephalotes_516angcl_pow516A
+  KEEP: Cephalotes_544angcl_pow544a
+  KEEP: Cephalotes_adolphi
+  KEEP: Cephalotes_alfaroi
+  KEEP: Cephalotes_angustus
+  KEEP: Cephalotes_atratus
+  KEEP: Cephalotes_atratus
+  KEEP: Cephalotes_atratus
+  KEEP: Cephalotes_atratus
+  KEEP: Cephalotes_auricomus
+  KEEP: Cephalotes_basalis
+  KEEP: Cephalotes_betoi
+  KEEP: Cephalotes_bigang
+  KEEP: Cephalotes_biguttatus
+  KEEP: Cephalotes_bimaculatus
+  KEEP: Cephalotes_bivestituscf
+  KEEP: Cephalotes_bohlsiorfieb
+  KEEP: Cephalotes_bruchi
+  KEEP: Cephalotes_bruchi
+  KEEP: Cephalotes_christophersenicf
+  KEEP: Cephalotes_clypeatus
+  KEEP: Cephalotes_clypeatus
+  KEEP: Cephalotes_coffcladespnov
+  KEEP: Cephalotes_coffcladeundet
+  KEEP: Cephalotes_complanatus
+  KEEP: Cephalotes_cordatus
+  KEEP: Cephalotes_cordatus
+  KEEP: Cephalotes_cordiae
+  KEEP: Cephalotes_cordiventris
+  KEEP: Cephalotes_cristatus
+  KEEP: Cephalotes_cristatus
+  KEEP: Cephalotes_curvistriatus
+  KEEP: Cephalotes_decoloratus
+  KEEP: Cephalotes_depsp
+  KEEP: Cephalotes_eatratus
+  KEEP: Cephalotes_ebasalis
+  KEEP: Cephalotes_echristopherseni
+  KEEP: Cephalotes_ecordiventris
+  KEEP: Cephalotes_eduarduli
+  KEEP: Cephalotes_eduarduli
+  KEEP: Cephalotes_eduarduli
+  KEEP: Cephalotes_egrandinosus
+  KEEP: Cephalotes_egrandinosus
+  KEEP: Cephalotes_ejamaicensis
+  KEEP: Cephalotes_emaculatus
+  KEEP: Cephalotes_eminutus
+  KEEP: Cephalotes_eopacus
+  KEEP: Cephalotes_epallens
+  KEEP: Cephalotes_epusillus
+  KEEP: Cephalotes_eumbraculatus
+  KEEP: Cephalotes_fiebrigi
+  KEEP: Cephalotes_goniodontus
+  KEEP: Cephalotes_grandinosus
+  KEEP: Cephalotes_guayaki
+  KEEP: Cephalotes_hirsutus
+  KEEP: Cephalotes_jamaicensis
+  KEEP: Cephalotes_jheringi
+  KEEP: Cephalotes_kukulcan
+  KEEP: Cephalotes_kukulcan
+  KEEP: Cephalotes_lamclade
+  KEEP: Cephalotes_lamcladesp
+  KEEP: Cephalotes_lenca
+  KEEP: Cephalotes_liepini
+  KEEP: Cephalotes_liogaster
+  KEEP: Cephalotes_maculatus
+  KEEP: Cephalotes_maculatus
+  KEEP: Cephalotes_maculatus
+  KEEP: Cephalotes_maculatusaffn
+  KEEP: Cephalotes_manni
+  KEEP: Cephalotes_marginatus
+  KEEP: Cephalotes_minutus
+  KEEP: Cephalotes_minutus
+  KEEP: Cephalotes_minutusa
+  KEEP: Cephalotes_mompox
+  KEEP: Cephalotes_multispinosus
+  KEEP: Cephalotes_notatus
+  KEEP: Cephalotes_oculatus
+  KEEP: Cephalotes_opacus
+  KEEP: Cephalotes_pallens
+  KEEP: Cephalotes_pallidoides
+  KEEP: Cephalotes_pallidus
+  KEEP: Cephalotes_patellaris
+  KEEP: Cephalotes_patellaris
+  KEEP: Cephalotes_pavonii
+  KEEP: Cephalotes_pellans
+  KEEP: Cephalotes_persimilis
+  KEEP: Cephalotes_persimplex
+  KEEP: Cephalotes_pileininr
+  KEEP: Cephalotes_pilosus
+  KEEP: Cephalotes_pin
+  KEEP: Cephalotes_pindark
+  KEEP: Cephalotes_pinsp
+  KEEP: Cephalotes_placidus
+  KEEP: Cephalotes_placidus
+  KEEP: Cephalotes_porrasi
+  KEEP: Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus
+  KEEP: Cephalotes_pusillus
+  KEEP: Cephalotes_ramiphilus
+  KEEP: Cephalotes_ramiphilus
+  KEEP: Cephalotes_rohweri
+  KEEP: Cephalotes_scutulatus
+  KEEP: Cephalotes_serraticeps
+  KEEP: Cephalotes_setulifer
+  KEEP: Cephalotes_simillimus
+  KEEP: Cephalotes_simillimus
+  KEEP: Cephalotes_sp
+  KEEP: Cephalotes_sp
+  KEEP: Cephalotes_sp
+  KEEP: Cephalotes_specularis
+  KEEP: Cephalotes_spinosus
+  KEEP: Cephalotes_spinosus
+  KEEP: Cephalotes_spinosus
+  KEEP: Cephalotes_spnov
+  KEEP: Cephalotes_spnov
+  KEEP: Cephalotes_targionii
+  KEEP: Cephalotes_texanus
+  KEEP: Cephalotes_tinyang
+  KEEP: Cephalotes_trichophorus
+  KEEP: Cephalotes_umbraculatus
+  KEEP: Cephalotes_umbraculatus
+  KEEP: Cephalotes_undescribed
+  KEEP: Cephalotes_undescribed
+  KEEP: Cephalotes_undescribed
+  KEEP: Cephalotes_undescribed
+  KEEP: Cephalotes_undespinel
+  KEEP: Cephalotes_unimaculatus
+  KEEP: Cephalotes_varians
+  KEEP: Cephalotes_wheeleri
+Total retained genus tips: 134
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Procryptocerus_scabriusculus_JSC229A (min distance 0.107673).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Cephalotes_with_outgroup.tre
+Outgroup in output: Procryptocerus_scabriusculus_JSC229A
+Genus tips in output: 104

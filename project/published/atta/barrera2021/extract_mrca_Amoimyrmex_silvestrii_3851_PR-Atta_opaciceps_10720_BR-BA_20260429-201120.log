@@ -1,0 +1,10 @@
+=== Genus extraction log: clade | 2026-04-29 20:11:20 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+clean: genus_species
+outgroup: sister_one
+seed: 42
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/atta/barrera2021/extract_mrca_Amoimyrmex_silvestrii_3851_PR-Atta_opaciceps_10720_BR-BA_20260429-201120_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/atta/barrera2021/extract_mrca_Amoimyrmex_silvestrii_3851_PR-Atta_opaciceps_10720_BR-BA_20260429-201120_renamed.tsv

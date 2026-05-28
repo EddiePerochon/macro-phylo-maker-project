@@ -1,0 +1,48 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 13:40:08 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 67
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+[skip row 4] Missing MRCA or file path
+[skip row 31] Missing MRCA or file path
+[skip row 32] Missing MRCA or file path
+[skip row 33] Missing MRCA or file path
+[skip row 37] Missing MRCA or file path
+[skip row 38] Missing MRCA or file path
+[skip row 40] Missing MRCA or file path
+[skip row 42] Missing MRCA or file path
+[skip row 62] Missing MRCA or file path
+[skip row 63] Missing MRCA or file path
+[skip row 64] Missing MRCA or file path
+[skip row 65] Missing MRCA or file path
+[skip row 66] Missing MRCA or file path
+Donors ready: 54 (skipped: 13)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 22
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree not ultrametric or chronos forced; estimating chronogram.

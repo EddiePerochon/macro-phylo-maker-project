@@ -1,0 +1,28 @@
+=== Genus extraction log: Mystrium | 2026-04-20 11:50:36 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1183
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (genus=Mystrium) identified: 10 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Stigmatomma_roahady (min distance=99.206534)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 10
+tips_out (final tree): 11
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extract_Mystrium_20260420-115036_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extract_Mystrium_20260420-115036_renamed.tsv

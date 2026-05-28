@@ -1,0 +1,262 @@
+=== Genus extraction log: Camponotus | 2025-10-22 20:24:29 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 110 ingroup tip(s) in raw tree.
+Kept 110 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Camponotus_micragyne_BBX864 → Camponotus_micragyne
+  KEEP: Camponotus_posteropilus_D2353 → Camponotus_posteropilus
+  KEEP: Camponotus_thomasseti_MAMI0086 → Camponotus_thomasseti
+  KEEP: Camponotus_kutteri_D2022 → Camponotus_kutteri
+  KEEP: Camponotus_philippinensis_cf_D1170 → Camponotus_philippinensis
+  KEEP: Camponotus_adustus_D1483 → Camponotus_adustus
+  KEEP: Camponotus_mackayensis_D1062 → Camponotus_mackayensis
+  KEEP: Camponotus_ephippiatus_D2024 → Camponotus_ephippiatus
+  KEEP: Camponotus_macromischoides_D2369 → Camponotus_macromischoides
+  KEEP: Camponotus_christophei_D2737 → Camponotus_christophei
+  KEEP: Camponotus_thysanopus_D2061 → Camponotus_thysanopus
+  KEEP: Camponotus_vicinus_D2526 → Camponotus_vicinus
+  KEEP: Camponotus_yogi_D2145 → Camponotus_yogi
+  KEEP: Camponotus_americanus_D1919a → Camponotus_americanus
+  KEEP: Camponotus_laevissimus_D1896 → Camponotus_laevissimus
+  KEEP: Camponotus_modoc_D1897a → Camponotus_modoc
+  KEEP: Camponotus_obscuripes_D1900a → Camponotus_obscuripes
+  KEEP: Camponotus_aegaeus_D2031 → Camponotus_aegaeus
+  KEEP: Camponotus_lateralis_D1998 → Camponotus_lateralis
+  KEEP: Camponotus_semirufus_D2036 → Camponotus_semirufus
+  KEEP: Camponotus_kiusiuensis_D2040 → Camponotus_kiusiuensis
+  KEEP: Camponotus_texanus_D1920 → Camponotus_texanus
+  KEEP: Camponotus_quadrinotatus_D1515 → Camponotus_quadrinotatus
+  KEEP: Camponotus_fallax_BBX867 → Camponotus_fallax
+  KEEP: Camponotus_hyatti_D0296 → Camponotus_hyatti
+  KEEP: Camponotus_concolor_BBX475 → Camponotus_concolor
+  KEEP: Camponotus_putatus_D1485 → Camponotus_putatus
+  KEEP: Camponotus_radovae_MAMI0630 → Camponotus_radovae
+  KEEP: Camponotus_cuneiscapus_D2746 → Camponotus_cuneiscapus
+  KEEP: Camponotus_sericeus_D1473 → Camponotus_sericeus
+  KEEP: Camponotus_buchneri_D1466 → Camponotus_buchneri
+  KEEP: Camponotus_polyrhachioides_D1467 → Camponotus_polyrhachioides
+  KEEP: Camponotus_rotundinodis_D1468 → Camponotus_rotundinodis
+  KEEP: Camponotus_aberrans_D1463 → Camponotus_aberrans
+  KEEP: Camponotus_brookei_D1474 → Camponotus_brookei
+  KEEP: Camponotus_thadeus_D2231 → Camponotus_thadeus
+  KEEP: Camponotus_aeneopilosus_D1510 → Camponotus_aeneopilosus
+  KEEP: Camponotus_inflatus_D2248 → Camponotus_inflatus
+  KEEP: Camponotus_gambeyi_D2286 → Camponotus_gambeyi
+  KEEP: Camponotus_pulchellus_nr1_D2288 → Camponotus_pulchellus
+  KEEP: Camponotus_innexus_D2244 → Camponotus_innexus
+  KEEP: Camponotus_chalceus_D2199 → Camponotus_chalceus
+  KEEP: Camponotus_inverallensis_D2251 → Camponotus_inverallensis
+  KEEP: Camponotus_consobrinus_D1509 → Camponotus_consobrinus
+  KEEP: Camponotus_rufus_D2225 → Camponotus_rufus
+  KEEP: Camponotus_intrepidus_D2230 → Camponotus_intrepidus
+  KEEP: Camponotus_piliventris_D1508 → Camponotus_piliventris
+  KEEP: Camponotus_donnellani_D2228 → Camponotus_donnellani
+  KEEP: Camponotus_wiederkehri_D2253 → Camponotus_wiederkehri
+  KEEP: Camponotus_gibbinotus_D1024 → Camponotus_gibbinotus
+  KEEP: Camponotus_perjurus_D2222 → Camponotus_perjurus
+  KEEP: Camponotus_rubiginosus_D2198 → Camponotus_rubiginosus
+  KEEP: Camponotus_chrysurus_D1469 → Camponotus_chrysurus
+  KEEP: Camponotus_turkestanus_D2044 → Camponotus_turkestanus
+  KEEP: Camponotus_megalonyx_D2000 → Camponotus_megalonyx
+  KEEP: Camponotus_dorycus_D2352 → Camponotus_dorycus
+  KEEP: Camponotus_festinus_D2354 → Camponotus_festinus
+  KEEP: Camponotus_rufifemur_D1513 → Camponotus_rufifemur
+  KEEP: Camponotus_camelinus_D2362 → Camponotus_camelinus
+  KEEP: Camponotus_mutilarius_D2361 → Camponotus_mutilarius
+  KEEP: Camponotus_carin_D1942 → Camponotus_carin
+  KEEP: Camponotus_laconicus_D2358 → Camponotus_laconicus
+  KEEP: Camponotus_nicobarensis_D1514 → Camponotus_nicobarensis
+  KEEP: Camponotus_humilior_D1512 → Camponotus_humilior
+  KEEP: Camponotus_novaehollandiae_nr_D2013 → Camponotus_novaehollandiae
+  KEEP: Camponotus_sylvaticus_D2012 → Camponotus_sylvaticus
+  KEEP: Camponotus_crawleyi_D1475 → Camponotus_crawleyi
+  KEEP: Camponotus_baldaccii_D2038 → Camponotus_baldaccii
+  KEEP: Camponotus_hesperius_D2719 → Camponotus_hesperius
+  KEEP: Camponotus_bianconii_D2725 → Camponotus_bianconii
+  KEEP: Camponotus_cosmicus_D2843 → Camponotus_cosmicus
+  KEEP: Camponotus_parius_D2355 → Camponotus_parius
+  KEEP: Camponotus_vestitus_D2364 → Camponotus_vestitus
+  KEEP: Camponotus_liandia_MAMI0141 → Camponotus_liandia
+  KEEP: Camponotus_cervicalis_MAMI0618 → Camponotus_cervicalis
+  KEEP: Camponotus_gibber_MAMI0296 → Camponotus_gibber
+  KEEP: Camponotus_hova_MAMI0057 → Camponotus_hova
+  KEEP: Camponotus_dicksoni_D2751 → Camponotus_dicksoni
+  KEEP: Camponotus_bayeri_D1472 → Camponotus_bayeri
+  KEEP: Camponotus_fulvopilosus_D1470 → Camponotus_fulvopilosus
+  KEEP: Camponotus_alamaina_D0693 → Camponotus_alamaina
+  KEEP: Camponotus_edmondi_BBX477 → Camponotus_edmondi
+  KEEP: Camponotus_andrianjaka_D0941 → Camponotus_andrianjaka
+  KEEP: Camponotus_repens_BBX304 → Camponotus_repens
+  KEEP: Camponotus_nidulans_D2020 → Camponotus_nidulans
+  KEEP: Camponotus_cingulatus_D2739 → Camponotus_cingulatus
+  KEEP: Camponotus_femoratus_D2009 → Camponotus_femoratus
+  KEEP: Camponotus_rufipes_D2830 → Camponotus_rufipes
+  KEEP: Camponotus_claviscapus_D1197 → Camponotus_claviscapus
+  KEEP: Camponotus_festinatus_D2185 → Camponotus_festinatus
+  KEEP: Camponotus_ramulorum_D2833 → Camponotus_ramulorum
+  KEEP: Camponotus_chilensis_D2736 → Camponotus_chilensis
+  KEEP: Camponotus_mirabilis_D1505 → Camponotus_mirabilis
+  KEEP: Camponotus_sexguttatus_D1503 → Camponotus_sexguttatus
+  KEEP: Camponotus_sericeiventris_D1502 → Camponotus_sericeiventris
+  KEEP: Camponotus_heathi_D1507 → Camponotus_heathi
+  KEEP: Camponotus_integellus_D2049 → Camponotus_integellus
+  KEEP: Camponotus_pellitus_D2051 → Camponotus_pellitus
+  KEEP: Camponotus_novogranadensis_D1498 → Camponotus_novogranadensis
+  KEEP: Camponotus_punctulatus_D1504 → Camponotus_punctulatus
+  KEEP: Camponotus_constructor_D2717 → Camponotus_constructor
+  KEEP: Camponotus_striatus_D2561 → Camponotus_striatus
+  KEEP: Camponotus_planatus_D1499 → Camponotus_planatus
+  KEEP: Camponotus_latangulus_D2565 → Camponotus_latangulus
+  KEEP: Camponotus_arboreus_D2063 → Camponotus_arboreus
+  KEEP: Camponotus_crassus_D2150 → Camponotus_crassus
+  KEEP: Camponotus_auricomus_D2064 → Camponotus_auricomus
+  KEEP: Camponotus_linnaei_D1506 → Camponotus_linnaei
+  KEEP: Camponotus_bidens_D2566 → Camponotus_bidens
+  KEEP: Camponotus_sanctaefidei_D1500 → Camponotus_sanctaefidei
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+No intraspecific duplicates detected within ingroup.
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 110
+Genus monophyly: TRUE
+Genus MRCA node: 341
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Camponotus_aberrans
+  KEEP: Camponotus_adustus
+  KEEP: Camponotus_aegaeus
+  KEEP: Camponotus_aeneopilosus
+  KEEP: Camponotus_alamaina
+  KEEP: Camponotus_americanus
+  KEEP: Camponotus_andrianjaka
+  KEEP: Camponotus_arboreus
+  KEEP: Camponotus_auricomus
+  KEEP: Camponotus_baldaccii
+  KEEP: Camponotus_bayeri
+  KEEP: Camponotus_bianconii
+  KEEP: Camponotus_bidens
+  KEEP: Camponotus_brookei
+  KEEP: Camponotus_buchneri
+  KEEP: Camponotus_camelinus
+  KEEP: Camponotus_carin
+  KEEP: Camponotus_cervicalis
+  KEEP: Camponotus_chalceus
+  KEEP: Camponotus_chilensis
+  KEEP: Camponotus_christophei
+  KEEP: Camponotus_chrysurus
+  KEEP: Camponotus_cingulatus
+  KEEP: Camponotus_claviscapus
+  KEEP: Camponotus_concolor
+  KEEP: Camponotus_consobrinus
+  KEEP: Camponotus_constructor
+  KEEP: Camponotus_cosmicus
+  KEEP: Camponotus_crassus
+  KEEP: Camponotus_crawleyi
+  KEEP: Camponotus_cuneiscapus
+  KEEP: Camponotus_dicksoni
+  KEEP: Camponotus_donnellani
+  KEEP: Camponotus_dorycus
+  KEEP: Camponotus_edmondi
+  KEEP: Camponotus_ephippiatus
+  KEEP: Camponotus_fallax
+  KEEP: Camponotus_femoratus
+  KEEP: Camponotus_festinatus
+  KEEP: Camponotus_festinus
+  KEEP: Camponotus_fulvopilosus
+  KEEP: Camponotus_gambeyi
+  KEEP: Camponotus_gibber
+  KEEP: Camponotus_gibbinotus
+  KEEP: Camponotus_heathi
+  KEEP: Camponotus_hesperius
+  KEEP: Camponotus_hova
+  KEEP: Camponotus_humilior
+  KEEP: Camponotus_hyatti
+  KEEP: Camponotus_inflatus
+  KEEP: Camponotus_innexus
+  KEEP: Camponotus_integellus
+  KEEP: Camponotus_intrepidus
+  KEEP: Camponotus_inverallensis
+  KEEP: Camponotus_kiusiuensis
+  KEEP: Camponotus_kutteri
+  KEEP: Camponotus_laconicus
+  KEEP: Camponotus_laevissimus
+  KEEP: Camponotus_latangulus
+  KEEP: Camponotus_lateralis
+  KEEP: Camponotus_liandia
+  KEEP: Camponotus_linnaei
+  KEEP: Camponotus_mackayensis
+  KEEP: Camponotus_macromischoides
+  KEEP: Camponotus_megalonyx
+  KEEP: Camponotus_micragyne
+  KEEP: Camponotus_mirabilis
+  KEEP: Camponotus_modoc
+  KEEP: Camponotus_mutilarius
+  KEEP: Camponotus_nicobarensis
+  KEEP: Camponotus_nidulans
+  KEEP: Camponotus_novaehollandiae
+  KEEP: Camponotus_novogranadensis
+  KEEP: Camponotus_obscuripes
+  KEEP: Camponotus_parius
+  KEEP: Camponotus_pellitus
+  KEEP: Camponotus_perjurus
+  KEEP: Camponotus_philippinensis
+  KEEP: Camponotus_piliventris
+  KEEP: Camponotus_planatus
+  KEEP: Camponotus_polyrhachioides
+  KEEP: Camponotus_posteropilus
+  KEEP: Camponotus_pulchellus
+  KEEP: Camponotus_punctulatus
+  KEEP: Camponotus_putatus
+  KEEP: Camponotus_quadrinotatus
+  KEEP: Camponotus_radovae
+  KEEP: Camponotus_ramulorum
+  KEEP: Camponotus_repens
+  KEEP: Camponotus_rotundinodis
+  KEEP: Camponotus_rubiginosus
+  KEEP: Camponotus_rufifemur
+  KEEP: Camponotus_rufipes
+  KEEP: Camponotus_rufus
+  KEEP: Camponotus_sanctaefidei
+  KEEP: Camponotus_semirufus
+  KEEP: Camponotus_sericeiventris
+  KEEP: Camponotus_sericeus
+  KEEP: Camponotus_sexguttatus
+  KEEP: Camponotus_striatus
+  KEEP: Camponotus_sylvaticus
+  KEEP: Camponotus_texanus
+  KEEP: Camponotus_thadeus
+  KEEP: Camponotus_thomasseti
+  KEEP: Camponotus_thysanopus
+  KEEP: Camponotus_turkestanus
+  KEEP: Camponotus_vestitus
+  KEEP: Camponotus_vicinus
+  KEEP: Camponotus_wiederkehri
+  KEEP: Camponotus_yogi
+Total retained genus tips: 110
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Overbeckia_my01_D2498 (min distance 0.038745).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Camponotus_with_outgroup.tre
+Outgroup in output: Overbeckia_my01_D2498
+Genus tips in output: 111

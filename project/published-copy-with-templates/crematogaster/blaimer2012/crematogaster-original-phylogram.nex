@@ -1,0 +1,212 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=132;
+	taxlabels
+	Stenamma_dyscheres
+	Aphaenogaster_occidentalis
+	Metapone_madagascarica
+	Vollenhovia_emeryi
+	Tetramorium_validiusculum
+	Leptothorax_muscorum_complex
+	Temnothorax_rugatulus
+	Recurvidris_TH01
+	C_meso_TH1[&!name="C_ortho_TH1"]
+	C_ortho_MAY2[&!name="C_reticulata"]
+	C_osakensis
+	C_smithi
+	C_flavomicrops
+	C_sumichrasti
+	C_sordidula
+	C_biroi_smythiesii[&!name="C_binghamii"]
+	C_longipilosa
+	C_aculeata
+	C_ortho_KALI1[&!name="C_baduvi"]
+	C_fritzi_MIC[&!name="C_fritzi"]
+	C_ortho_MAY1[&!name="C_cf_gavapiga"]
+	C_rasoherinae_maha[&!name="C_rasoherinae"]
+	C_neo_ARG1[&!name="C_quadriformis"]
+	C_nigropilosa
+	C_ortho_ARG1[&!name="C_victima"]
+	C_acuta
+	C_arcuata
+	C_corvina
+	C_formosa
+	C_cf_torosa[&!name="C_torosa"]
+	C_longispina
+	C_tenuicula
+	C_meso_KN1[&!name="C_cf_dolens"]
+	C_ortho_CAR1
+	C_ortho10_kal
+	C_madecassa_amdi[&!name="C_madecassa"]
+	C_ortho04_isa
+	C_ortho05_nb
+	C_ortho08_vaky
+	C_mesonotalis_AUS[&!name="c_mesonotalis"]
+	C_paradoxa
+	C_rhachio_PNG2
+	C_emeryi
+	C_meijerei_2[&!name="C_meijerei"]
+	C_stadelmanni_GA[&!name="C_stadelmanni"]
+	C_ranavalonae3_ahe[&!name="C_ranavalonae"]
+	C_agnetis_may[&!name="C_agnetis"]
+	C_aberrans_IN[&!name="C_aberrans"]
+	C_santschii
+	C_subnuda
+	C_cf_ferrari
+	C_ss_MAY6[&!name="C_fraxatrix"]
+	C_ss_TZ2
+	C_ss17_anky[&!name="C_deegeri"]
+	C_ss19_mal
+	C_ss09_ahe
+	C_ss02_mora[&!name="C_sewellii"]
+	C_ss23_loy
+	C_ss11_ahe
+	C_ss04_ame
+	C_ss18_anka
+	C_ss07_kba
+	C_ss24_rano
+	C_ss22_isa
+	C_ss08_anka[&!name="C_lobata"]
+	C_ss_TZ4[&!name="C_cf_rufigena"]
+	C_ss_TZ1[&!name="C_cf_latuka"]
+	C_ss_KN1[&!name="C_cf_excisa"]
+	C_ss_MOZ1[&!name="C_castanea"]
+	C_ss_YE1[&!name="C_flaviventris"]
+	C_ss10_atbao
+	C_ss_TZ3[&!name="C_gerstaeckeri-group"]
+	C_ss_AUS1[&!name="C_cf_laeviceps"]
+	C_ss_MAY3[&!name="C_cf_ochracea"]
+	C_flava
+	C_ss_MAY5[&!name="C_cf_rogenhoferi"]
+	C_colobo_CAM1[&!name="C_cf_cylindriceps"]
+	C_politula[&!name="C_sagei"]
+	C_treubi
+	C_ss_TH1[&!name="C_cf_kojimai"]
+	C_irritabilis
+	C_obnigra_SOL[&!name="C_obnigra"]
+	C_ss_AUS3
+	C_ss_AUS2
+	C_ss_TZ5[&!name="C_cf_bequaerti"]
+	C_sph_TZ1[&!name="C_cf_luctans"]
+	C_ss_CAR1[&!name="C_cf_chlorotica"]
+	C_sph_KN1[&!name="C_cf_concava"]
+	C_atopo_GA1[&!name="C_cf_gabonensis"]
+	C_atopo_KN2[&!name="C_wellmani"]
+	C_ss_ZA1[&!name="C_cf_desperans"]
+	C_liengmei
+	C_malala_ank[&!name="C_malala"]
+	C_hova_complex5_tovy[&!name="C_hova-complex"]
+	C_sabatra_mds[&!name="C_sabatra"]
+	C_mahery_andri[&!name="C_mahery"]
+	C_nosibeensis_nb[&!name="C_nosibeensis"]
+	C_grevei_mar[&!name="C_grevei"]
+	C_sisa_man[&!name="C_sisa"]
+	C_lango
+	C_ss05_ivo[&!name="C_madagascariensis"]
+	C_ss21_avy
+	C_ss01_kao[&!name="C_kelleri"]
+	C_atopo_CAR1
+	C_atopo_KN1[&!name="C_cf_buchneri"]
+	C_atopo_CAR2[&!name="C_cf_depressa"]
+	C_ss15_mva
+	C_pilosa
+	C_lineolata
+	C_coarctata
+	C_marioni
+	C_isolata
+	C_opaca
+	C_ss_GC1[&!name="C_ionia"]
+	C_scutellaris
+	C_rothneyi
+	C_subcircularis
+	C_inflata
+	C_onusta
+	C_ampullaris
+	C_modigliani
+	C_coriaria
+	C_decamera
+	C_borneensis
+	C_HFmsp10
+	C_ss_KALI1[&!name="C_fruhstorferi"]
+	C_ss_AUS5
+	C_ss_AUS4[&!name="C_mjobergi"]
+	C_abrupta
+	C_dahlii
+	C_tetracantha
+	C_weberi
+;
+end;
+
+begin trees;
+	tree con_50_majrule = [&R] (Stenamma_dyscheres:0.039082,Aphaenogaster_occidentalis:0.041385,(Metapone_madagascarica:0.112479,(Vollenhovia_emeryi:0.059418,Tetramorium_validiusculum:0.060574)[&posterior=0.6]:0.006143,(Leptothorax_muscorum_complex:0.037737,Temnothorax_rugatulus:0.041387)[&posterior=1.0]:0.013074,Recurvidris_TH01:0.058678,(((((((C_meso_TH1:0.007037,C_ortho_MAY2:0.005767)[&posterior=1.0]:0.011232,((C_osakensis:0.007331,(C_smithi:0.005287,(C_flavomicrops:0.00541,C_sumichrasti:0.005141)[&posterior=1.0]:0.002125)[&posterior=1.0]:0.008538)[&posterior=0.75]:0.001071,C_sordidula:0.015414)[&posterior=0.62]:0.001306)[&posterior=0.87]:0.001514,(C_biroi_smythiesii:0.004507,C_longipilosa:0.005268)[&posterior=1.0]:0.00619)[&posterior=0.91]:0.002095,(((C_aculeata:0.007571,C_ortho_KALI1:0.005126)[&posterior=0.94]:0.001876,C_fritzi_MIC:0.008309)[&posterior=1.0]:0.005556,C_ortho_MAY1:0.013764)[&posterior=0.63]:0.002252)[&posterior=1.0]:0.00232,(((C_rasoherinae_maha:0.014252,(((C_neo_ARG1:0.016233,(C_nigropilosa:0.018079,(C_ortho_ARG1:0.008479,((C_acuta:0.00374,C_arcuata:0.008754)[&posterior=1.0]:0.004721,(C_corvina:0.005501,C_formosa:0.005951)[&posterior=1.0]:0.001964)[&posterior=1.0]:0.002521)[&posterior=0.99]:0.001888)[&posterior=1.0]:0.001521)[&posterior=0.81]:0.001356,(C_cf_torosa:0.015318,C_longispina:0.012581)[&posterior=0.98]:0.001782)[&posterior=1.0]:0.001547,C_tenuicula:0.012615)[&posterior=1.0]:0.00296)[&posterior=0.82]:0.001571,(C_meso_KN1:0.015539,C_ortho_CAR1:0.010583)[&posterior=1.0]:0.004878)[&posterior=0.82]:0.00105,((C_ortho10_kal:0.006972,(C_madecassa_amdi:0.00456,C_ortho04_isa:0.004123)[&posterior=1.0]:0.003402)[&posterior=1.0]:0.003676,(C_ortho05_nb:0.005578,C_ortho08_vaky:0.004335)[&posterior=1.0]:0.003669)[&posterior=0.91]:0.001005)[&posterior=1.0]:0.004255)[&posterior=0.94]:0.001919,(((C_mesonotalis_AUS:0.006493,C_paradoxa:0.005046)[&posterior=0.97]:0.001287,C_rhachio_PNG2:0.004173)[&posterior=0.99]:0.001322,C_emeryi:0.002406)[&posterior=1.0]:0.008901)[&posterior=1.0]:0.009697,((((C_meijerei_2:0.010917,(C_stadelmanni_GA:0.007449,((C_ranavalonae3_ahe:0.005595,C_agnetis_may:0.005182)[&posterior=1.0]:0.002844,(C_aberrans_IN:0.007989,C_santschii:0.004423)[&posterior=1.0]:0.002762)[&posterior=1.0]:0.003181)[&posterior=0.98]:0.001279)[&posterior=1.0]:0.010682,((C_subnuda:0.018121,(C_cf_ferrari:0.006537,C_ss_MAY6:0.007014)[&posterior=1.0]:0.005274)[&posterior=1.0]:0.001612,((C_ss_TZ2:0.009853,(((((((C_ss17_anky:0.003499,C_ss19_mal:0.001755)[&posterior=0.98]:0.001243,C_ss09_ahe:0.00134)[&posterior=0.52]:9.04E-4,C_ss02_mora:0.005728,C_ss23_loy:0.002777,C_ss11_ahe:0.005164,((C_ss04_ame:0.003111,C_ss18_anka:0.002457)[&posterior=1.0]:0.001486,(C_ss07_kba:0.003105,C_ss24_rano:0.001862,C_ss22_isa:0.004246)[&posterior=0.95]:6.58E-4)[&posterior=0.7]:6.67E-4,C_ss08_anka:0.003751)[&posterior=0.87]:7.22E-4,C_ss_TZ4:0.005377,C_ss_TZ1:0.005616,C_ss_KN1:0.002567)[&posterior=0.81]:9.45E-4,C_ss_MOZ1:0.004775)[&posterior=0.74]:9.27E-4,(C_ss_YE1:0.005978,C_ss10_atbao:0.001559)[&posterior=1.0]:0.00184)[&posterior=0.61]:5.92E-4,C_ss_TZ3:0.004169)[&posterior=1.0]:0.002811)[&posterior=0.63]:0.001211,(C_ss_AUS1:0.008304,(C_ss_MAY3:0.007042,(C_flava:0.001265,C_ss_MAY5:0.001904)[&posterior=1.0]:0.008412)[&posterior=1.0]:0.001269)[&posterior=0.97]:0.001259)[&posterior=1.0]:0.007357)[&posterior=1.0]:0.006604)[&posterior=0.6]:0.001056,(((C_colobo_CAM1:0.014125,C_politula:0.009503)[&posterior=0.58]:0.001477,((C_treubi:0.003803,C_ss_TH1:0.005976)[&posterior=1.0]:0.002184,(C_irritabilis:0.006108,((C_obnigra_SOL:0.003591,C_ss_AUS3:0.001905)[&posterior=1.0]:0.00171,C_ss_AUS2:0.003325)[&posterior=0.98]:0.001562)[&posterior=1.0]:0.004507)[&posterior=1.0]:0.004584)[&posterior=1.0]:0.004697,(((((((((C_ss_TZ5:0.008227,C_sph_TZ1:0.003504)[&posterior=1.0]:0.002796,C_ss_CAR1:0.010087)[&posterior=1.0]:0.001381,C_sph_KN1:0.007863)[&posterior=1.0]:0.001345,C_atopo_GA1:0.009796)[&posterior=0.99]:9.75E-4,(C_atopo_KN2:0.009857,C_ss_ZA1:0.01043)[&posterior=0.8]:0.001551,((C_liengmei:0.005448,(C_malala_ank:0.004528,(((((C_hova_complex5_tovy:0.002696,C_sabatra_mds:0.00307)[&posterior=0.98]:9.76E-4,C_mahery_andri:0.002106)[&posterior=1.0]:0.001647,C_nosibeensis_nb:0.006014)[&posterior=0.83]:9.56E-4,C_grevei_mar:0.003763)[&posterior=0.74]:9.49E-4,C_sisa_man:0.003324)[&posterior=0.99]:0.001208)[&posterior=1.0]:0.003874)[&posterior=1.0]:0.006787,C_lango:0.008211)[&posterior=0.81]:0.001094)[&posterior=0.97]:0.001077,(C_ss05_ivo:0.003244,(C_ss21_avy:0.003229,C_ss01_kao:0.00369)[&posterior=0.9]:0.00123)[&posterior=1.0]:0.005512)[&posterior=0.62]:6.25E-4,((C_atopo_CAR1:0.004954,C_atopo_KN1:0.002762)[&posterior=1.0]:0.004836,C_atopo_CAR2:0.008479)[&posterior=1.0]:0.0064)[&posterior=0.72]:9.46E-4,C_ss15_mva:0.012655)[&posterior=0.92]:8.76E-4,((((C_pilosa:0.001629,C_lineolata:0.002187)[&posterior=1.0]:0.001865,(C_coarctata:0.00412,C_marioni:0.002561)[&posterior=1.0]:0.001571)[&posterior=0.52]:5.19E-4,(C_isolata:0.003828,C_opaca:0.004166)[&posterior=0.95]:8.51E-4)[&posterior=0.98]:0.001246,(C_ss_GC1:0.003175,C_scutellaris:0.002715)[&posterior=1.0]:0.001645)[&posterior=1.0]:0.003631)[&posterior=1.0]:0.004525)[&posterior=0.98]:0.001183)[&posterior=1.0]:0.009121,(((C_rothneyi:0.015026,(((C_subcircularis:0.009418,(C_inflata:0.004145,C_onusta:0.004243)[&posterior=1.0]:0.004005)[&posterior=0.77]:0.001099,C_ampullaris:0.00987)[&posterior=0.65]:7.62E-4,C_modigliani:0.008021)[&posterior=1.0]:0.009045)[&posterior=1.0]:0.004118,C_coriaria:0.016339)[&posterior=0.89]:0.002061,((C_decamera:0.002862,(C_borneensis:0.001929,C_HFmsp10:0.002612)[&posterior=1.0]:0.002029)[&posterior=1.0]:0.016966,(C_ss_KALI1:0.011003,((C_ss_AUS5:0.005406,C_ss_AUS4:0.006511)[&posterior=1.0]:0.009081,((C_abrupta:0.011756,(C_dahlii:0.006758,C_tetracantha:0.007003)[&posterior=0.79]:8.72E-4)[&posterior=0.69]:0.001032,C_weberi:0.006819)[&posterior=1.0]:0.004283)[&posterior=1.0]:0.005265)[&posterior=0.68]:0.002157)[&posterior=1.0]:0.006955)[&posterior=1.0]:0.007651)[&posterior=1.0]:0.011342)[&posterior=1.0]:0.045621)[&posterior=1.0]:0.047725);
+	tree con_50_majrule = [&R] (Stenamma_dyscheres:0.039082,Aphaenogaster_occidentalis:0.041385,(Metapone_madagascarica:0.112479,(Vollenhovia_emeryi:0.059418,Tetramorium_validiusculum:0.060574):0.006143,(Leptothorax_muscorum_complex:0.037737,Temnothorax_rugatulus:0.041387):0.013074,Recurvidris_TH01:0.058678,(((((((C_meso_TH1:0.007037,C_ortho_MAY2:0.005767):0.011232,((C_osakensis:0.007331,(C_smithi:0.005287,(C_flavomicrops:0.00541,C_sumichrasti:0.005141):0.002125):0.008538):0.001071,C_sordidula:0.015414):0.001306):0.001514,(C_biroi_smythiesii:0.004507,C_longipilosa:0.005268):0.00619):0.002095,(((C_aculeata:0.007571,C_ortho_KALI1:0.005126):0.001876,C_fritzi_MIC:0.008309):0.005556,C_ortho_MAY1:0.013764):0.002252):0.00232,(((C_rasoherinae_maha:0.014252,(((C_neo_ARG1:0.016233,(C_nigropilosa:0.018079,(C_ortho_ARG1:0.008479,((C_acuta:0.00374,C_arcuata:0.008754):0.004721,(C_corvina:0.005501,C_formosa:0.005951):0.001964):0.002521):0.001888):0.001521):0.001356,(C_cf_torosa:0.015318,C_longispina:0.012581):0.001782):0.001547,C_tenuicula:0.012615):0.00296):0.001571,(C_meso_KN1:0.015539,C_ortho_CAR1:0.010583):0.004878):0.00105,((C_ortho10_kal:0.006972,(C_madecassa_amdi:0.00456,C_ortho04_isa:0.004123):0.003402):0.003676,(C_ortho05_nb:0.005578,C_ortho08_vaky:0.004335):0.003669):0.001005):0.004255):0.001919,(((C_mesonotalis_AUS:0.006493,C_paradoxa:0.005046):0.001287,C_rhachio_PNG2:0.004173):0.001322,C_emeryi:0.002406):0.008901):0.009697,((((C_meijerei_2:0.010917,(C_stadelmanni_GA:0.007449,((C_ranavalonae3_ahe:0.005595,C_agnetis_may:0.005182):0.002844,(C_aberrans_IN:0.007989,C_santschii:0.004423):0.002762):0.003181):0.001279):0.010682,((C_subnuda:0.018121,(C_cf_ferrari:0.006537,C_ss_MAY6:0.007014):0.005274):0.001612,((C_ss_TZ2:0.009853,(((((((C_ss17_anky:0.003499,C_ss19_mal:0.001755):0.001243,C_ss09_ahe:0.00134):9.04E-4,C_ss02_mora:0.005728,C_ss23_loy:0.002777,C_ss11_ahe:0.005164,((C_ss04_ame:0.003111,C_ss18_anka:0.002457):0.001486,(C_ss07_kba:0.003105,C_ss24_rano:0.001862,C_ss22_isa:0.004246):6.58E-4):6.67E-4,C_ss08_anka:0.003751):7.22E-4,C_ss_TZ4:0.005377,C_ss_TZ1:0.005616,C_ss_KN1:0.002567):9.45E-4,C_ss_MOZ1:0.004775):9.27E-4,(C_ss_YE1:0.005978,C_ss10_atbao:0.001559):0.00184):5.92E-4,C_ss_TZ3:0.004169):0.002811):0.001211,(C_ss_AUS1:0.008304,(C_ss_MAY3:0.007042,(C_flava:0.001265,C_ss_MAY5:0.001904):0.008412):0.001269):0.001259):0.007357):0.006604):0.001056,(((C_colobo_CAM1:0.014125,C_politula:0.009503):0.001477,((C_treubi:0.003803,C_ss_TH1:0.005976):0.002184,(C_irritabilis:0.006108,((C_obnigra_SOL:0.003591,C_ss_AUS3:0.001905):0.00171,C_ss_AUS2:0.003325):0.001562):0.004507):0.004584):0.004697,(((((((((C_ss_TZ5:0.008227,C_sph_TZ1:0.003504):0.002796,C_ss_CAR1:0.010087):0.001381,C_sph_KN1:0.007863):0.001345,C_atopo_GA1:0.009796):9.75E-4,(C_atopo_KN2:0.009857,C_ss_ZA1:0.01043):0.001551,((C_liengmei:0.005448,(C_malala_ank:0.004528,(((((C_hova_complex5_tovy:0.002696,C_sabatra_mds:0.00307):9.76E-4,C_mahery_andri:0.002106):0.001647,C_nosibeensis_nb:0.006014):9.56E-4,C_grevei_mar:0.003763):9.49E-4,C_sisa_man:0.003324):0.001208):0.003874):0.006787,C_lango:0.008211):0.001094):0.001077,(C_ss05_ivo:0.003244,(C_ss21_avy:0.003229,C_ss01_kao:0.00369):0.00123):0.005512):6.25E-4,((C_atopo_CAR1:0.004954,C_atopo_KN1:0.002762):0.004836,C_atopo_CAR2:0.008479):0.0064):9.46E-4,C_ss15_mva:0.012655):8.76E-4,((((C_pilosa:0.001629,C_lineolata:0.002187):0.001865,(C_coarctata:0.00412,C_marioni:0.002561):0.001571):5.19E-4,(C_isolata:0.003828,C_opaca:0.004166):8.51E-4):0.001246,(C_ss_GC1:0.003175,C_scutellaris:0.002715):0.001645):0.003631):0.004525):0.001183):0.009121,(((C_rothneyi:0.015026,(((C_subcircularis:0.009418,(C_inflata:0.004145,C_onusta:0.004243):0.004005):0.001099,C_ampullaris:0.00987):7.62E-4,C_modigliani:0.008021):0.009045):0.004118,C_coriaria:0.016339):0.002061,((C_decamera:0.002862,(C_borneensis:0.001929,C_HFmsp10:0.002612):0.002029):0.016966,(C_ss_KALI1:0.011003,((C_ss_AUS5:0.005406,C_ss_AUS4:0.006511):0.009081,((C_abrupta:0.011756,(C_dahlii:0.006758,C_tetracantha:0.007003):8.72E-4):0.001032,C_weberi:0.006819):0.004283):0.005265):0.002157):0.006955):0.007651):0.011342):0.045621):0.047725);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="User Selection";
+	set appearance.backgroundColour=#-1;
+	set appearance.branchColorAttribute="User Selection";
+	set appearance.branchLineWidth=2.0;
+	set appearance.foregroundColour=#-16777216;
+	set appearance.selectionColour=#-2144520576;
+	set branchLabels.colorAttribute="User Selection";
+	set branchLabels.displayAttribute="posterior";
+	set branchLabels.fontName="Arial";
+	set branchLabels.fontSize=10;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=true;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=574;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set nodeBars.barWidth=4.0;
+	set nodeLabels.colorAttribute="User Selection";
+	set nodeLabels.displayAttribute="posterior";
+	set nodeLabels.fontName="Arial";
+	set nodeLabels.fontSize=10;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=2;
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=0.025;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleAxis.significantDigits=4;
+	set scaleBar.automaticScale=false;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.01;
+	set scaleBar.significantDigits=4;
+	set tipLabels.colorAttribute="User Selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="Arial";
+	set tipLabels.fontSize=12;
+	set tipLabels.fontStyle=2;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=false;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

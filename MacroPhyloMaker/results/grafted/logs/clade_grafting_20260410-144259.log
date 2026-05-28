@@ -1,0 +1,99 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 14:42:59 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 66
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
+Row 2: Input_tree_type = phylogram
+Row 3: Input_tree_type = chronogram
+Row 4: Input_tree_type = phylogram
+[skip row 4] Missing MRCA or file path
+Row 5: Input_tree_type = chronogram
+Row 6: Input_tree_type = chronogram
+Row 7: Input_tree_type = chronogram
+Row 8: Input_tree_type = chronogram
+Row 9: Input_tree_type = chronogram
+Row 10: Input_tree_type = chronogram
+Row 11: Input_tree_type = chronogram
+Row 12: Input_tree_type = chronogram
+Row 13: Input_tree_type = phylogram
+Row 14: Input_tree_type = phylogram
+Row 15: Input_tree_type = chronogram
+Row 16: Input_tree_type = chronogram
+Row 17: Input_tree_type = chronogram
+Row 18: Input_tree_type = chronogram
+Row 19: Input_tree_type = chronogram
+Row 20: Input_tree_type = chronogram
+Row 21: Input_tree_type = phylogram
+Row 22: Input_tree_type = chronogram
+Row 23: Input_tree_type = chronogram
+Row 24: Input_tree_type = chronogram
+Row 25: Input_tree_type = phylogram
+Row 26: Input_tree_type = chronogram
+Row 27: Input_tree_type = phylogram
+Row 28: Input_tree_type = chronogram
+Row 29: Input_tree_type = chronogram
+[skip row 29] file not found: /home/marek/ant-megatree/working_code/package/project/published/pseudomyrmex/ward2017/extract_mrca_Pseudomyrmex_particeps_D1307-Pseudomyrmex_janzeni_D0620_20260404-173038_with_outgroup.tr
+Row 30: Input_tree_type = chronogram
+Row 31: Input_tree_type = phylogram
+[skip row 31] Missing MRCA or file path
+Row 32: Input_tree_type = phylogram
+[skip row 32] Missing MRCA or file path
+Row 33: Input_tree_type = phylogram
+[skip row 33] Missing MRCA or file path
+Row 34: Input_tree_type = chronogram
+Row 35: Input_tree_type = phylogram
+Row 36: Input_tree_type = chronogram
+Row 37: Input_tree_type = chronogram
+[skip row 37] Missing MRCA or file path
+Row 38: Input_tree_type = phylogram
+[skip row 38] Missing MRCA or file path
+Row 39: Input_tree_type = chronogram
+Row 40: Input_tree_type = phylogram
+[skip row 40] Missing MRCA or file path
+Row 41: Input_tree_type = chronogram
+Row 42: Input_tree_type = chronogram
+Row 43: Input_tree_type = chronogram
+Row 44: Input_tree_type = chronogram
+Row 45: Input_tree_type = chronogram
+Row 46: Input_tree_type = chronogram
+Row 47: Input_tree_type = chronogram
+Row 48: Input_tree_type = chronogram
+Row 49: Input_tree_type = chronogram
+Row 50: Input_tree_type = chronogram
+Row 51: Input_tree_type = chronogram
+Row 52: Input_tree_type = chronogram
+Row 53: Input_tree_type = chronogram
+Row 54: Input_tree_type = chronogram
+Row 55: Input_tree_type = chronogram
+Row 56: Input_tree_type = chronogram
+Row 57: Input_tree_type = chronogram
+Row 58: Input_tree_type = chronogram
+Row 59: Input_tree_type = chronogram
+Row 60: Input_tree_type = chronogram
+Row 61: Input_tree_type = phylogram
+[skip row 61] Missing MRCA or file path
+Row 62: Input_tree_type = phylogram
+[skip row 62] Missing MRCA or file path
+Row 63: Input_tree_type = phylogram
+[skip row 63] Missing MRCA or file path
+Row 64: Input_tree_type = chronogram
+[skip row 64] Missing MRCA or file path
+Row 65: Input_tree_type = phylogram
+[skip row 65] Missing MRCA or file path
+Row 66: Input_tree_type = chronogram
+Donors ready: 53 (skipped: 13)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘

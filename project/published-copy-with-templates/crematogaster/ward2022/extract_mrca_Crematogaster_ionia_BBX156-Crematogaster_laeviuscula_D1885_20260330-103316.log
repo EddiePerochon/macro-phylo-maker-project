@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-03-30 10:33:16 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 57
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 55
+Outgroup (sister_one): Crematogaster_lotti_BBX565 (min distance=0.017776)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 55
+tips_out (final tree): 56
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/ward2022/extract_mrca_Crematogaster_ionia_BBX156-Crematogaster_laeviuscula_D1885_20260330-103316_with_outgroup.tre

@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-04 17:40:36 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 64
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 57
+Outgroup (sister_one): Aphaenogaster_megommata (min distance=0.430632)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 57
+tips_out (final tree): 58
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/messor/juve2025/extract_mrca_Messor_asmaae_sp1_PAKISTAN_AWEY-Messor_picturatus_maurus_TUNISIA_WGS_SH02-03_20260404-174036_with_outgroup.tre

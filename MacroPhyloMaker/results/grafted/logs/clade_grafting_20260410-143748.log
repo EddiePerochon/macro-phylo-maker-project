@@ -1,0 +1,11 @@
+=== Genus grafting log: CladeGraft | 2026-04-10 14:37:48 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 66
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
