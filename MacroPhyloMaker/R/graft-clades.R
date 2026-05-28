@@ -1486,13 +1486,19 @@ run_clade_grafting <- function(
         log_msg(logger, "[skip row ", i, "] Missing MRCA or file path")
         next
       }
-      if (!grepl("^(/|[A-Za-z]:)", path) && nzchar(plan_dir)) path <- file.path(plan_dir, path)
-      if (!file.exists(path)) {
-        n_skip <- n_skip + 1L
-        log_msg(logger, "[skip row ", i, "] file not found: ", path)
-        next
+    path <- trimws(path)
+    if (!grepl("^(/|[A-Za-z]:)", path)) {
+      if (grepl("^project/", path)) {
+        path <- here::here(path)
+      } else {
+        path <- file.path(plan_dir, path)
       }
-
+    }
+    if (!file.exists(path)) {
+      n_skip <- n_skip + 1L
+      log_msg(logger, "[skip row ", i, "] file not found: ", path)
+      next
+    }
       if (grepl(",", token)) {
         anchors <- parse_csv(token)
         placement <- list(type = "clade", anchors = anchors)
