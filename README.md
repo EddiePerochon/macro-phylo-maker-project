@@ -86,8 +86,6 @@ tree_path <- here::here(
 
 Example:
 ```
-library(ape)
-
 tree <- read.tree(
   here::here("project", "published", "attini", "hanisch2022",
              "Pbruchi_MC1_SN_mcmctree_combr1-4_rename.nwk")
@@ -149,12 +147,16 @@ This:
 ## Outputs
 
 All outputs are written to:
+
 project/results/
 
 Including:
 
 `.tre` — Newick trees
+
 `.pdf` — visualizations
+
 `_graft_log.tsv` — detailed logs
+
 `_tips.txt` — final tip lists
 
