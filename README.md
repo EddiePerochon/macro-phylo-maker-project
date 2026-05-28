@@ -66,9 +66,7 @@ All files/scripts must use `here::here(...)`, not relative paths. **This is some
 
 Do not use:
 
-absolute paths (/home/...)
-setwd()
-"../"
+absolute paths `(/home/...)`, `setwd()`, `"../"`
 
 Example:
 
@@ -148,7 +146,7 @@ This:
 
 All outputs are written to:
 
-project/results/
+`project/results/`
 
 Including:
 
