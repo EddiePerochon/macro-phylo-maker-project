@@ -17,17 +17,12 @@ The goal is to allow fully reproducible construction of large phylogenies by:
 ## Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/macro-phylo-maker-project.git
+git clone https://github.com/marekborowiec/macro-phylo-maker-project.git
 cd macro-phylo-maker-project
 ```
 
-## Open the R project
-**From R interface**, open the file:
-```
-macro-phylo-maker-project.Rproj
-```
-
 ## Install required R packages
+Inside directory `macro-phylo-maker-project` open `R` command line interface and install:
 ```
 install.packages(c(
   "devtools",
@@ -38,9 +33,11 @@ install.packages(c(
 ```
 
 ## Load the development package
+From the same directory as above.
 ```
 devtools::load_all("MacroPhyloMaker")
 ```
+This will activate all package functions. Now you should be able to run code examples below. Some explainers first.
 
 # Repository Structure
 ```
@@ -128,10 +125,16 @@ Example:
 ```
 run_clade_grafting(
   backbone_path = here::here("project", "results", "grafted", "genus.tre"),
-  plan_path     = here::here("project", "tables", "clades-to-graft.tsv"),
-  authority     = here::here("project", "tables", "antwiki-valid-species-8Mar2026.txt"),
-  out_prefix    = here::here("project", "results", "grafted", "backbone_clade_grafted"),
-  seed_mode     = 42
+  plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
+  authority = here::here("project", "tables", "antwiki-valid-species-8Mar2026.txt"),
+  out_prefix = here::here("project", "results", "grafted",
+                          "backbone_clade_grafted_new_bby_test"),
+  seed_mode = 42,
+  chronos_select = "auto",
+  ultrametric_final = "none",
+  plot_pdf = TRUE,
+  pdf_auto = TRUE,
+  plot_cex = 0.35
 )
 ```
 
