@@ -135,7 +135,7 @@ You must provide:
 
 Two modes are available:
 
--**Genus mode (genus = "Genus")**
+**Genus mode (genus = "Genus")**
 
 - selects all tips matching Genus_species
 - optionally collapses duplicate species names
@@ -144,7 +144,7 @@ Two modes are available:
   - "prune_extras" (default): keeps only genus members within the MRCA,
   - "error": aborts
 
--**MRCA mode (mrca_tips = c("taxon1","taxon2"))**
+**MRCA mode (mrca_tips = c("taxon1","taxon2"))**
 
 - extracts the clade subtended by those anchors
 
@@ -158,7 +158,7 @@ Two modes are available:
 
 - outgroup = "none":
 
- - returns the ingroup only
+  - returns the ingroup only
 
 ## Grafting tips
 
