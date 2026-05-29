@@ -151,13 +151,11 @@ Two modes are available:
 ### Outgroup selection
 
 -  `outgroup = "sister_one"` (default):
-
   - finds the sister clade to the ingroup
   - selects one tip with minimum patristic distance to the ingroup
   - appends that tip to the output tree
 
 - `outgroup = "none"`:
-
   - returns the ingroup only
 
 ### Tree preprocessing
