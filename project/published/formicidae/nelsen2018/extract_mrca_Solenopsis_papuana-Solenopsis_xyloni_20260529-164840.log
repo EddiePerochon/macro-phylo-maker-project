@@ -1,0 +1,10 @@
+=== Genus extraction log: clade | 2026-05-29 16:48:40 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+clean: genus_species
+outgroup: sister_one
+seed: 42
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/formicidae/nelsen2018/extract_mrca_Solenopsis_papuana-Solenopsis_xyloni_20260529-164840_with_outgroup.tre
+Wrote renames TSV: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/formicidae/nelsen2018/extract_mrca_Solenopsis_papuana-Solenopsis_xyloni_20260529-164840_renamed.tsv
