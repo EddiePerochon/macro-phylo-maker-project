@@ -121,6 +121,45 @@ This:
 * optionally adds the closest sister outgroup
 * writes Newick + log files
 
+The function `extract_clade_with_outgroup()` is used to extract a focal clade from a larger phylogeny and optionally append a single outgroup taxon for downstream grafting.
+
+### Basic usage
+
+You must provide:
+
+- a tree (phylo object), and exactly one of:
+- genus → extract all species in a genus or
+- mrca_tips → extract a clade defined by the MRCA of specified tips
+
+### Defining the ingroup
+
+Two modes are available:
+
+-**Genus mode (genus = "Genus")**
+
+- selects all tips matching Genus_species
+- optionally collapses duplicate species names
+- if the genus is non-monophyletic: 
+
+  - "prune_extras" (default): keeps only genus members within the MRCA,
+  - "error": aborts
+
+-**MRCA mode (mrca_tips = c("taxon1","taxon2"))**
+
+- extracts the clade subtended by those anchors
+
+### Outgroup selection
+
+- outgroup = "sister_one" (default):
+
+  - finds the sister clade to the ingroup
+  - selects one tip with minimum patristic distance to the ingroup
+  - appends that tip to the output tree
+
+- outgroup = "none":
+
+ - returns the ingroup only
+
 ## Grafting tips
 
 Example:
