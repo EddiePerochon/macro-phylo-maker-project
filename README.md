@@ -246,7 +246,40 @@ Alfaria      graft sister to tip       Poneracantha
   - Inserts a genus somewhere within a specified clade
   - Placement is randomized (controlled by `seed_mode`)
 
-Additional parameters (e.g., branch-length scaling) may be included but are optional for basic use.
+### Branch attachment along a distribution
+For grafting operations, the exact point where a new lineage attaches along a branch is drawn from a continuous distribution between two relative positions on that branch.
+
+- The attachment location is expressed as a fraction of branch length:
+  - `0` = immediately at the parent node
+  - `1` = at the descendant tip
+- The interval for possible placement is controlled by:
+  - `min_frac` → lower bound
+  - `max_frac` → upper bound
+- The function samples a position randomly within this interval, using a distribution defined by:
+  - `shape1`, `shape2` (parameters of a Beta distribution)
+
+**Interpretation**
+
+- Uniform placement
+  - `shape1` = 1, `shape2` = 1
+  - attachment equally likely anywhere between `min_frac` and `max_frac`
+
+- Bias toward the base of the branch
+  - `shape1` < `shape2`
+  - attachment closer to the parent node
+
+- Bias toward the tip
+  - `shape1` > `shape2`
+  - attachment closer to the descendant lineage
+
+**Example**
+```
+min_frac = 0.1
+max_frac = 0.9
+shape1 = 1
+shape2 = 1
+```
+→ attachment is drawn uniformly between 10% and 90% along the branch.
 
 ### How graft placement works
 For each row:
@@ -260,7 +293,7 @@ For each row:
 
 ### Reproducibility
 
-`seed_mode` ensures consistent placement for stochastic operations (e.g., random grafts)
+`seed_mode` ensures consistent placement for stochastic operations (e.g., random grafts, branch placement drawn from distribution)
 Always set a seed for reproducible pipelines
 
 ### Outputs
