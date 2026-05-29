@@ -3,7 +3,7 @@
 This repository contains:
 
 - **`MacroPhyloMaker/`** — an R package for phylogenetic grafting
-- **`project/`** — input data, tables, and scripts used to generate results
+- **`project/`** — input trees and tables used to generate results
 
 The goal is to allow fully reproducible construction of large phylogenies by:
 1. Extracting clades from published trees
