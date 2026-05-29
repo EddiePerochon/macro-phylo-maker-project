@@ -85,18 +85,33 @@ tree_path <- here::here(
 
 Example:
 ```
-tree <- read.tree(
-  here::here("project", "published", "attini", "hanisch2022",
-             "Pbruchi_MC1_SN_mcmctree_combr1-4_rename.nwk")
+solenopsis <- read.tree(
+  here::here(
+    "project", "published", "formicidae", "nelsen2018",
+    "Dryad_Supplementary_File_7_ML_TREE_treepl_185.tre"
+  )
 )
 
-res <- extract_clade_with_outgroup(
-  tree,
-  mrca_tips = c("Mycocepurus_goeldii_1495", "Pseudoatta_sp_nov_1478"),
+extract_clade_with_outgroup(
+  solenopsis,
+  genus = NULL,
+  mrca_tips = c("Solenopsis_papuana", "Solenopsis_xyloni"),
   outgroup = "sister_one",
+  clean = "genus_species",
+  nonmono = "prune_extras",
   resolve_polytomies = TRUE,
   force_positive_lengths = TRUE,
-  out_dir = here::here("project", "published", "attini", "hanisch2022")
+  seed = 42L,
+  write_tree = TRUE,
+  tree_path = NULL,
+  write_renames = TRUE,
+  renames_path = NULL,
+  write_drops = TRUE,
+  drops_path = NULL,
+
+  out_dir = here::here(
+    "project", "published", "formicidae", "nelsen2018"
+  )
 )
 ```
 
