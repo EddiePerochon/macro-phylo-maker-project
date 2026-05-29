@@ -45,9 +45,11 @@ Some explainers first.
 ```
 MacroPhyloMaker/        # R package (core functions)
 project/
+  backbones/                                         # backbone trees
+    Borowiec-129to158Ma-independent-genus-only.tre   # Borowiec et al. 2025 tree
+    genus.tree                                       # as above but with missing genera grafted
   published/            # input phylogenies
-  tables/               # TSV metadata and taxonomy
-  scripts/              # analysis scripts
+  tables/               # graft tables and taxonomy authority
   results/              # outputs (trees, logs, PDFs)
 ```
 
