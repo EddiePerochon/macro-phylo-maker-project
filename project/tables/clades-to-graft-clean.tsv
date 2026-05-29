@@ -81,7 +81,9 @@ Dolichoderinae	Ocymyrmex_celer,Ocymyrmex_picardi	NA	Mbanyana et al 2024	UCEs	chr
 	Ochetomyrmex	NA	Nelsen et al 2023	Multilocus	chronogram	outgroup	project/published/formicidae/nelsen2023/extracted_genera/Ochetomyrmex/extract_Ochetomyrmex_20260411-115331_with_outgroup.tre		
 	Polyrhachis	NA	Nelsen et al 2023	Multilocus	chronogram	outgroup	project/published/formicidae/nelsen2023/extracted_genera/Polyrhachis/extract_Polyrhachis_20260411-115331_with_outgroup.tre		
 	Monomorium	NA	Nelsen et al 2023	Multilocus	chronogram	outgroup			
-		NA							
+	Solenopsis	NA	Nelsen et al 2018	Multilocus	chronogram	outgroup	project/published/formicidae/nelsen2018/extract_mrca_Solenopsis_papuana-Solenopsis_xyloni_20260529-165727_with_outgroup.tre		
+	Chelaner	NA	Nelsen et al 2018	Multilocus	chronogram	outgroup	project/published/formicidae/nelsen2018/extract_mrca_Chelaner_decuria-Chelaner_bicornis_20260529-171150_with_outgroup.tre		
+	Technomyrmex	NA	Nelsen et al 2018	Multilocus	chronogram	outgroup	published/formicidae/nelsen2018/extract_mrca_Technomyrmex_fisheri-Technomyrmex_difficilis_20260529-171448_with_outgroup.tre		
 		NA							
 	MAMI taxa:	NA						Grafts in three places	
 Easy	Malagidris_belti,Malagidris_jugum	NA	Camacho2024	UCEs	chronogram	outgroup	project/published/mami-madagascar/camacho2024/extracted_genera/Malagidris/extract_Malagidris_20260411-114011_with_outgroup.tre		
