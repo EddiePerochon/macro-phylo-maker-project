@@ -126,7 +126,7 @@ This:
 Example:
 ```
 run_tip_grafting(
-  backbone_path = here::here("project", "backbone", "genus.tre"),
+  backbone_path = here::here("project", "backbones", "genus.tre"),
   plan_path     = here::here("project", "tables", "grafted_genera.tsv"),
   out_prefix    = here::here("project", "results", "grafted", "genus"),
   seed_mode     = 42,
@@ -135,7 +135,7 @@ run_tip_grafting(
 ```
 This applies a TSV-defined grafting plan:
 
-* attaches new tips or clades
+* attaches new tips (in this case, genera missing from Borowiec et al. 2025)
 * writes resulting tree + logs
 
 ## Clade grafting
