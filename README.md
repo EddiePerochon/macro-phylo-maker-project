@@ -69,7 +69,7 @@ Do not use:
 
 absolute paths `(/home/...)`, `setwd()`, `"../"`
 
-Example:
+### Example:
 
 ```
 tree_path <- here::here(
@@ -83,7 +83,7 @@ tree_path <- here::here(
 
 ## Extract clades from source trees
 
-Example:
+### Example:
 ```
 solenopsis <- read.tree(
   here::here(
@@ -128,8 +128,8 @@ The function `extract_clade_with_outgroup()` is used to extract a focal clade fr
 You must provide:
 
 - a tree (phylo object), and exactly one of:
-- genus → extract all species in a genus or
-- mrca_tips → extract a clade defined by the MRCA of specified tips
+- `genus` → extract all species in a genus or
+- `mrca_tips` → extract a clade defined by the MRCA of specified tips
 
 ### Defining the ingroup
 
@@ -137,12 +137,12 @@ Two modes are available:
 
 **Genus mode (genus = "Genus")**
 
-- selects all tips matching Genus_species
+- selects all tips matching `Genus_species`
 - optionally collapses duplicate species names
 - if the genus is non-monophyletic: 
 
-  - "prune_extras" (default): keeps only genus members within the MRCA,
-  - "error": aborts
+  - `"prune_extras"` (default): keeps only genus members within the MRCA,
+  - `"error"`: aborts
 
 **MRCA mode (mrca_tips = c("taxon1","taxon2"))**
 
@@ -150,19 +150,58 @@ Two modes are available:
 
 ### Outgroup selection
 
-- outgroup = "sister_one" (default):
+-  `outgroup = "sister_one"` (default):
 
   - finds the sister clade to the ingroup
   - selects one tip with minimum patristic distance to the ingroup
   - appends that tip to the output tree
 
-- outgroup = "none":
+- `outgroup = "none"`:
 
   - returns the ingroup only
 
+### Tree preprocessing
+
+By default, the function prepares trees for downstream use:
+
+- `resolve_polytomies = TRUE` → randomly resolves polytomies
+- `force_positive_lengths = TRUE` → removes zero/negative branch lengths
+- `clean = "genus_species"` → standardizes tip labels and collapses duplicates
+
+Set seed to make these steps reproducible.
+
+### Outputs
+
+The function returns a list:
+
+- `tree` → extracted subtree
+- `outgroup` → chosen outgroup tip (if any)
+- `ingroup_tips` → tips retained
+- `paths` → output file paths
+
+If `write_tree = TRUE`, the subtree is written automatically:
+```
+<stem>_with_outgroup.tre
+<stem>_renamed.tsv
+<stem>_dropped.tsv
+```
+
+All files are written to out_dir unless explicitly overridden.
+
+### Typical use in this project
+
+This function is used to:
+
+- Extract clades from published phylogenies
+- Standardize labels and remove duplicates
+- Add a single outgroup tip
+- Produce donor trees for clade grafting
+
+These outputs are then referenced in the clade grafting plan file.
+
 ## Grafting tips
 
-Example:
+### Example:
 ```
 run_tip_grafting(
   backbone_path = here::here("project", "backbones", "genus.tre"),
@@ -176,6 +215,71 @@ This applies a TSV-defined grafting plan:
 
 * attaches new tips (in this case, genera missing from Borowiec et al. 2025)
 * writes resulting tree + logs
+
+### Inputs
+
+- Backbone tree (`backbone_path`)
+  - A genus-level phylogeny (Newick)
+  - Must already contain the taxa used as anchors for grafting
+  - Typically produced or curated prior to grafting
+
+- Grafting table (`plan_path`)
+  - Tab-delimited file specifying how each genus should be inserted
+  - Each row corresponds to one grafting operation
+
+**Grafting table structure**
+
+Minimum required columns: `GraftedTip`, `Function`, `Sister`
+
+Example:
+```
+GraftedTip   Function                  Sister
+Poneracantha graft sister to clade     Gnamptogenys,Typhlomyrmex
+Alfaria      graft sister to tip       Poneracantha
+```
+
+**Supported grafting operations**
+
+- graft sister to tip
+  - Inserts a new genus as sister to an existing tip
+- graft sister to clade
+  - Inserts a genus as sister to the MRCA of two or more taxa
+- graft within clade random
+  - Inserts a genus somewhere within a specified clade
+  - Placement is randomized (controlled by `seed_mode`)
+
+Additional parameters (e.g., branch-length scaling) may be included but are optional for basic use.
+
+### How graft placement works
+For each row:
+
+1. Identify the placement location:
+  - single taxon → tip
+  - multiple taxa → MRCA of those taxa
+2. Insert the new genus (`GraftedTip`) relative to that location
+3. Assign branch lengths according to the specified model (or defaults)
+4. Repeat for all rows in the table
+
+### Reproducibility
+
+`seed_mode` ensures consistent placement for stochastic operations (e.g., random grafts)
+Always set a seed for reproducible pipelines
+
+### Outputs
+The function writes:
+```
+<out_prefix>.tre → updated backbone tree
+<out_prefix>_graft_log.tsv → detailed record of graft operations
+optional PDF plots if enabled
+```
+All outputs are written to the directory specified by `out_prefix`.
+
+### Typical workflow
+Tip grafting is the first major step in the assembly pipeline:
+
+- Start with a genus-level backbone tree
+- Add missing genera using `run_tip_grafting()`
+- Use the resulting tree as input for clade grafting
 
 ## Clade grafting
 
