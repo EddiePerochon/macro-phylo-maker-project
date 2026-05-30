@@ -198,6 +198,7 @@ This function is used to:
 These outputs are then referenced in the clade grafting plan file.
 
 ## Grafting tips
+The function `run_tip_grafting()` inserts tips into a backbone phylogeny according to a predefined grafting table. This can be the first grafting step, producing a backbone used for downstream clade grafting, or used to attach isolated tips missing from grafted clades.
 
 ### Example:
 ```
@@ -217,7 +218,7 @@ This applies a TSV-defined grafting plan:
 ### Inputs
 
 - Backbone tree (`backbone_path`)
-  - A genus-level phylogeny (Newick)
+  - A phylogeny (Newick)
   - Must already contain the taxa used as anchors for grafting
   - Typically produced or curated prior to grafting
 
@@ -263,11 +264,9 @@ For grafting operations, the exact point where a new lineage attaches along a br
 - Uniform placement
   - `shape1` = 1, `shape2` = 1
   - attachment equally likely anywhere between `min_frac` and `max_frac`
-
 - Bias toward the base of the branch
   - `shape1` < `shape2`
   - attachment closer to the parent node
-
 - Bias toward the tip
   - `shape1` > `shape2`
   - attachment closer to the descendant lineage
@@ -279,7 +278,7 @@ max_frac = 0.9
 shape1 = 1
 shape2 = 1
 ```
-→ attachment is drawn uniformly between 10% and 90% along the branch.
+→ Attachment is drawn uniformly between 10% and 90% along the branch.
 
 ### How graft placement works
 For each row:
@@ -313,6 +312,7 @@ Tip grafting is the first major step in the assembly pipeline:
 - Use the resulting tree as input for clade grafting
 
 ## Clade grafting
+The function `run_clade_grafting()` integrates full donor phylogenies (clades) into a backbone tree. It takes a TSV plan describing donor trees and their placement, converts donors into standardized templates, and grafts them onto the backbone while preserving branch‑length structure.
 
 Example:
 ```
@@ -338,19 +338,112 @@ This:
 * grafts onto backbone (tip or MRCA placement)
 * ensures ultrametricity of final tree
 
-## Outputs
+### Inputs
 
-All outputs are written to:
+- Backbone tree (`backbone_path`)
+  - An ultrametric genus-level tree (typically output of tip grafting)
+  - Must include anchor taxa used for placement
 
-`project/results/`
+- Clade grafting plan (`plan_path`)
+  - TSV file specifying donor phylogenies and where to graft them
+  - Each row = one clade graft
 
-Including:
+- Authority file (`authority`)
+  - Optional species list used to standardize and filter donor tips
 
-`.tre` — Newick trees
+**Grafting plan structure**
 
-`.pdf` — visualizations
+Minimum required columns: `MRCA`, `Phylogeny_file_path`
 
-`_graft_log.tsv` — detailed logs
+Example:
+```
+MRCA                          Phylogeny_file_path
+Atta,Acromyrmex               project/published/attini/tree.tre
+Camponotus                    project/published/camponotus/tree.tre
+```
+**Placement modes**
+Placement is determined automatically from the MRCA column:
 
-`_tips.txt` — final tip lists
+Clade graft (MRCA mode)
+
+Multiple taxa (comma-separated)
+Donor is grafted at the MRCA of those taxa
+
+Tip replacement (single label)
+
+Single taxon
+Donor replaces that terminal branch
+
+**How clade grafting works**
+For each row:
+
+Read donor tree
+Prepare template:
+
+clean tip labels
+infer ingroup and (optionally) outgroup
+convert to chronogram if needed
+compute donor stem fraction r
+
+Identify placement in backbone:
+
+MRCA of anchors (clade mode), or
+specific tip (tip mode)
+
+Modify backbone:
+
+drop existing taxa at the target clade
+retain one representative tip (internally)
+
+Graft donor:
+
+insert scaled donor crown along a branch
+placement depth determined by r or a distribution
+
+Repeat for all rows
+
+**Stem vs crown grafting**
+Controlled by the optional Stem_mode column in the plan:
+
+outgroup (default)
+
+uses donor stem length (more realistic timing)
+
+crown
+
+ignores stem, grafts using crown-only placement
+
+**Time scaling and chronograms**
+
+If a donor tree is not ultrametric:
+
+converted to a chronogram using ape::chronos()
+best-fitting model selected automatically (chronos_select = "auto")
+
+If already ultrametric:
+
+used directly
+
+**Branch placement**
+
+Graft position along a branch is determined by:
+
+donor stem fraction (r)
+or a Beta-distributed position (crown mode)
+
+Ensures:
+
+consistent scaling between donor and backbone
+no zero-length branches
+preserved ultrametric structure
+
+**Outputs**
+The function writes:
+```
+<out_prefix>.tre → final grafted tree
+<out_prefix>_graft_log.tsv → all graft operations
+<out_prefix>.pdf → tree visualization (optional)
+<out_prefix>_tips.txt → final tip list
+```
+
 
