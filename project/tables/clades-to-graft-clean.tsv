@@ -37,7 +37,7 @@ Myrmicinae	Strumigenys	NA	Booher et al 2021	RADseq	chronogram	crown	project/publ
 Myrmicinae	Temnothorax_poeyi,Temnothorax_bernardi	NA	Prebus et al 2017	Multilocus	chronogram	outgroup	project/published/temnothorax/prebus2017/extract_mrca_Temnothorax_nitens_P017-Temnothorax_mpala_P010_20260408-155341_with_outgroup_no_aztecus.tre	Temnothorax_aztecus removed from backbone to account for the fact that the donor has no matching outgroup and spans more of the root branch than simply MRCA of longinoi and aztecus	
 Myrmicinae	Temnothorax_longinoi	NA	Prebus 2021	UCEs	chronogram	crown	project/published/temnothorax/prebus2021/filtered_data_beast_output_renamed.nwk		
 Myrmicinae	Temnothorax_unifasciatus	NA	Csosz 2024	UCEs	chronogram	crown	project/published/temnothorax/csosz2024/Csosz_et_al_unifasciatus_no_outgroup.nwk		
-Myrmicinae	Apterostigma,Acromyrmex	NA	Hanisch et al 2022	UCEs	chronogram	crown	project/published/attini/hanisch2022/extract_mrca_Mycocepurus_goeldii_1495-Pseudoatta_sp_nov_1478_20260429-194218_with_outgroup.tre		
+Myrmicinae	Apterostigma,Acromyrmex	NA	Hanisch et al 2022	UCEs	chronogram	crown	project/published/attini/hanisch2022/extract_mrca_Mycocepurus_goeldii_1495-Pseudoatta_sp_nov_1478_20260530-141054_with_outgroup.tre		
 Hard	Pheidole_longispinosa,Pheidole_grallatrix	NA	Camacho et al 2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/extract_mrca_Pheidole_diakritos-Pheidole_andapa_20260418-151451_with_outgroup.tre		
 Dorylinae	Dorylus,Eciton	NA	Borowiec 2019	UCEs	chronogram	crown	project/published/dorylinae/borowiec2019/dorylinae-orignal-chronogram.nwk		
 Dorylinae	ECITON	NA	Winston et al 2017						
@@ -47,7 +47,7 @@ Leptanillinae	MYRMECOCYSTUS	NA	Van Elst 2021	UCEs	chronogram	outgroup
 Formicinae	Linepithema	NA	Wild 2009	Multilocus					
 Dolichoderinae	Ocymyrmex_celer,Ocymyrmex_picardi	NA	Mbanyana et al 2024	UCEs	chronogram	outgroup	project/published/ocymyrmex/mbanyana2024/extract_mrca_Ocymyrmex_sp_2_HYM_C027808_Ocy103-Ocymyrmex_celer_BBC660_20260409-142001_with_outgroup.tre		
 	Sericomyrmex_scrobifer,Sericomyrmex_mayri	NA	Jesovnik et al 2017	UCEs	chronogram	crown	project/published/sericomyrmex/jesovnik2017/extract_mrca_Sericomyrmex_saramama_938_1526_PE-Sericomyrmex_saussurei_921_1524_PE_20260413-140222_with_outgroup.tre	https://doi.org/10.1111/syen.12228	
-	Amoimyrmex_striatus,Acromyrmex_heyeri	NA	Barrera et al 2021	UCEs	chronogram	crown	project/published/atta/barrera2021/extract_mrca_Amoimyrmex_silvestrii_3851_PR-Atta_opaciceps_10720_BR-BA_20260429-201120_with_outgroup.tre	https://doi.org/10.1093/isd/ixab029	
+	Atta_texana	NA	Barrera et al 2021	UCEs	chronogram	outgroup	project/published/atta/barrera2021/extract_mrca_Atta_mexicana_10732_MX-Atta_laevigata_10039_BR-SP_20260530-141021_with_outgroup.tre	https://doi.org/10.1093/isd/ixab029	
 	Myrmicocrypta_tuberculata,Myrmicocrypta_ednaella	NA	Sosa-Calvo et al 2018	Multilocus	chronogram	crown	project/published/myrmicocrypta/sosa-calvo2018/extract_mrca_Myrmicocrypta_JSC048_1214-Myrmicocrypta_tuberculata_1278_20260429-200139_with_outgroup.tre	https://doi.org/10.1111/syen.12313	
 		NA							
 	Brachymyrmex	NA	Probst et al 2024	UCEs	chronogram	outgroup	project/published/brachymyrmex/probst2024/extract_mrca_Brachymyrmex_heeri_EXRP182-Brachymyrmex_admotus_EXRP163_20260411-120339_with_outgroup.tre		

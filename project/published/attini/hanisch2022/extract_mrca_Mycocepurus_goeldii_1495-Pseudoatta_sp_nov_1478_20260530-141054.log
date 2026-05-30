@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-05-30 14:10:54 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 136
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 79
+Outgroup (sister_one): Acanthognathus_ocellatus_1492 (min distance=1.457817)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 79
+tips_out (final tree): 80
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/attini/hanisch2022/extract_mrca_Mycocepurus_goeldii_1495-Pseudoatta_sp_nov_1478_20260530-141054_with_outgroup.tre
