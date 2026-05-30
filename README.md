@@ -364,65 +364,51 @@ Camponotus                    project/published/camponotus/tree.tre
 **Placement modes**
 Placement is determined automatically from the MRCA column:
 
-Clade graft (MRCA mode)
+- Clade graft (MRCA mode)
+  - Multiple taxa (comma-separated)
+  - Donor is grafted at the MRCA of those taxa
 
-Multiple taxa (comma-separated)
-Donor is grafted at the MRCA of those taxa
-
-Tip replacement (single label)
-
-Single taxon
-Donor replaces that terminal branch
+- Tip replacement (single label)
+  - Single taxon
+  - Donor replaces that terminal branch
 
 **How clade grafting works**
 For each row:
 
-Read donor tree
-Prepare template:
-
-clean tip labels
-infer ingroup and (optionally) outgroup
-convert to chronogram if needed
-compute donor stem fraction r
-
-Identify placement in backbone:
-
-MRCA of anchors (clade mode), or
-specific tip (tip mode)
-
-Modify backbone:
-
-drop existing taxa at the target clade
-retain one representative tip (internally)
-
-Graft donor:
-
-insert scaled donor crown along a branch
-placement depth determined by r or a distribution
-
-Repeat for all rows
+1. Read donor tree
+2. Prepare template:
+  - clean tip labels
+  - infer ingroup and (optionally) outgroup
+  - convert to chronogram if needed
+  - compute donor stem fraction r
+3. Identify placement in backbone:
+  - MRCA of anchors (clade mode), or
+  - specific tip (tip mode)
+4. Modify backbone:
+  - drop existing taxa at the target clade
+  - retain one representative tip (internally)
+5. Graft donor:
+  - insert scaled donor crown along a branch
+  - placement depth determined by r or a distribution
+6. Repeat for all rows
 
 **Stem vs crown grafting**
-Controlled by the optional Stem_mode column in the plan:
+Controlled by the optional `Stem_mode` column in the plan:
 
-outgroup (default)
+- outgroup (default)
+  - uses donor stem length (more realistic timing)
 
-uses donor stem length (more realistic timing)
-
-crown
-
-ignores stem, grafts using crown-only placement
+- crown
+  - ignores stem, grafts using crown-only placement
 
 **Time scaling and chronograms**
 
-If a donor tree is not ultrametric:
+- If a donor tree is not ultrametric:
+  - converted to a chronogram using ape::chronos()
+  - best-fitting model selected automatically (chronos_select = "auto")
 
-converted to a chronogram using ape::chronos()
-best-fitting model selected automatically (chronos_select = "auto")
-
-If already ultrametric:
-
-used directly
+- If already ultrametric:
+  - used directly
 
 **Branch placement**
 
