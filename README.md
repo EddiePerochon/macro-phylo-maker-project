@@ -410,19 +410,6 @@ Controlled by the optional `Stem_mode` column in the plan:
 - If already ultrametric:
   - used directly
 
-**Branch placement**
-
-Graft position along a branch is determined by:
-
-donor stem fraction (r)
-or a Beta-distributed position (crown mode)
-
-Ensures:
-
-consistent scaling between donor and backbone
-no zero-length branches
-preserved ultrametric structure
-
 **Outputs**
 The function writes:
 ```
