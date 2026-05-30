@@ -85,7 +85,7 @@ tree_path <- here::here(
 
 ### Example:
 ```
-solenopsis <- read.tree(
+res <- read.tree(
   here::here(
     "project", "published", "formicidae", "nelsen2018",
     "Dryad_Supplementary_File_7_ML_TREE_treepl_185.tre"
@@ -93,7 +93,7 @@ solenopsis <- read.tree(
 )
 
 extract_clade_with_outgroup(
-  solenopsis,
+  res,
   genus = NULL,
   mrca_tips = c("Solenopsis_papuana", "Solenopsis_xyloni"),
   outgroup = "sister_one",
