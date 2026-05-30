@@ -116,6 +116,7 @@
 #'   \code{graft_many_clades()}, \code{.make_logger()}, \code{log_msg()}, \code{log_section()}.
 #' @md
 #' @export
+
 extract_clade_with_outgroup <- function(
   tree,
   genus = NULL,
@@ -135,18 +136,18 @@ extract_clade_with_outgroup <- function(
   out_dir = ".",
   logger = NULL
 ) {
-
   stopifnot(inherits(tree, "phylo"))
   outgroup <- match.arg(outgroup)
   nonmono <- match.arg(nonmono)
+
+  if (is.null(genus) && is.null(mrca_tips)) stop("Provide either 'genus' or 'mrca_tips'.")
+  if (!is.null(genus) && !is.null(mrca_tips)) stop("Provide only one of 'genus' or 'mrca_tips'.")
+
   clean <- match.arg(clean)
+  if (is.null(genus) && identical(clean, "genus_species")) clean <- "none"
 
-  if (is.null(genus) && is.null(mrca_tips))
-    stop("Provide either 'genus' or 'mrca_tips'.")
-  if (!is.null(genus) && !is.null(mrca_tips))
-    stop("Provide only one of 'genus' or 'mrca_tips'.")
-
-  ## ---- logger setup --------------------------------------------------
+  # ---- logger setup ----------------------------------------------------------
+  # Build a stable prefix for file names & logs
   prefix <- if (!is.null(genus)) {
     paste0("extract_", genus)
   } else {
@@ -157,6 +158,7 @@ extract_clade_with_outgroup <- function(
 
   created_logger <- FALSE
   if (is.null(logger)) {
+    # Create a per-call logger (append console + file)
     logger <- .make_logger(
       outdir = out_dir,
       genus = if (!is.null(genus)) genus else "clade",
@@ -167,146 +169,158 @@ extract_clade_with_outgroup <- function(
     on.exit(.close_logger(logger), add = TRUE)
   }
 
-  log_file <- if (inherits(logger, "smart_logger")) {
-    normalizePath(logger$file, mustWork = FALSE)
-  } else {
-    normalizePath(file.path(out_dir, paste0(prefix, ".log")), mustWork = FALSE)
-  }
+  # Helper: base stem for sidecar files (.tre / .tsv) aligned with the log file
+  log_file <- if (inherits(logger, "smart_logger")) logger$file else file.path(out_dir, paste0(prefix, ".log"))
   stem <- sub("\\.log$", "", log_file)
 
+  # ---- sections --------------------------------------------------------------
   log_section(logger, "Settings")
+  log_msg(logger, "resolve_polytomies: ", resolve_polytomies)
+  log_msg(logger, "force_positive_lengths: ", force_positive_lengths)
   log_msg(logger, "clean: ", clean)
+  log_msg(logger, "nonmono: ", nonmono)
   log_msg(logger, "outgroup: ", outgroup)
-  log_msg(logger, "seed: ", seed)
+  log_msg(logger, "seed: ", as.integer(seed))
 
-  ## ---- preprocessing ------------------------------------------------
-  tr <- tree
+  tr0 <- tree
+  log_section(logger, "Input")
+  log_msg(logger, "tips_in: ", length(tr0$tip.label))
+
+  # ---- 0) resolve polytomies / positive lengths -----------------------------
+  tr <- tr0
   if (isTRUE(resolve_polytomies) || isTRUE(force_positive_lengths)) {
-    tr <- .resolve_polytomies_positive_lengths(
-      tr,
+    tr <- .resolve_polytomies_positive_lengths(tr,
       seed = seed,
       do_resolve = resolve_polytomies,
       do_positive = force_positive_lengths
     )
+    log_msg(
+      logger, "Preprocess: polytomies=", resolve_polytomies,
+      ", positive_lengths=", force_positive_lengths
+    )
   }
 
-  renames_df <- data.frame(raw = character(), clean = character(), stringsAsFactors = FALSE)
-  dropped_vec <- character()
+  # ---- 1) define ingroup & optionally clean/collapse -------------------------
+  tips_all <- tr$tip.label
+  renames_df <- data.frame(raw = character(0), clean = character(0), stringsAsFactors = FALSE)
+  dropped_vec <- character(0)
 
-  ## ==================================================================
-  ## GENUS MODE
-  ## ==================================================================
   if (!is.null(genus)) {
-
     if (identical(clean, "genus_species")) {
-      ci <- .clean_ingroup_labels(tr, genus)
+      ci <- .clean_ingroup_labels(tr, genus = genus) # list(tree, renamed, dropped)
       tr <- ci$tree
-      if (nrow(ci$renamed))
-        renames_df <- rbind(renames_df, ci$renamed)
-      if (length(ci$dropped))
-        dropped_vec <- unique(c(dropped_vec, ci$dropped))
+      if (nrow(ci$renamed)) renames_df <- rbind(renames_df, ci$renamed)
+      if (length(ci$dropped)) dropped_vec <- unique(c(dropped_vec, ci$dropped))
 
-      cd <- .collapse_species_duplicates_ingroup(tr, genus)
+      cd <- .collapse_species_duplicates_ingroup(tr, genus = genus) # list(tree, dropped)
       tr <- cd$tree
-      if (length(cd$dropped))
-        dropped_vec <- unique(c(dropped_vec, cd$dropped))
+      if (length(cd$dropped)) dropped_vec <- unique(c(dropped_vec, cd$dropped))
+      tips_all <- tr$tip.label
     }
-
-    ingroup_hits <- vapply(tr$tip.label, function(x) {
+    ingroup_tips <- tips_all[vapply(tips_all, function(x) {
       parts <- strsplit(x, "_", fixed = TRUE)[[1]]
       length(parts) >= 2 && parts[1] == genus
-    }, logical(1))
+    }, logical(1))]
+    if (!length(ingroup_tips)) stop("No tips found for genus '", genus, "' after cleaning.")
+    log_msg(logger, "Ingroup (genus=", genus, ") identified: ", length(ingroup_tips), " tips")
 
-    if (!any(ingroup_hits))
-      stop("No tips found for genus '", genus, "'.")
-
-    ingroup_tips <- tr$tip.label[ingroup_hits]
-    mrca_node <- ape::getMRCA(tr, ingroup_tips)
-    sub <- ape::extract.clade(tr, mrca_node)
-
-  ## ==================================================================
-  ## MRCA MODE
-  ## ==================================================================
-  } else {
-
-    if (!all(mrca_tips %in% tr$tip.label))
-      stop("mrca_tips not found in tree.")
-
-    mrca_node <- ape::getMRCA(tr, mrca_tips)
-    if (is.na(mrca_node))
-      stop("Could not compute MRCA for supplied anchors.")
-
-    sub <- ape::extract.clade(tr, mrca_node)
-
-    if (identical(clean, "genus_species")) {
-
-      raw_labels <- sub$tip.label
-      cleaned <- vapply(raw_labels, .clean_label_to_binomial,
-                        character(1), genus_hint = NULL)
-
-      keep <- !is.na(cleaned) & nzchar(cleaned)
-
-      if (any(keep)) {
-        renames_df <- rbind(
-          renames_df,
-          data.frame(
-            raw = raw_labels[keep],
-            clean = cleaned[keep],
-            stringsAsFactors = FALSE
-          )
-        )
-        sub$tip.label[keep] <- cleaned[keep]
-      }
-
-      if (any(!keep)) {
-        dropped_vec <- unique(c(dropped_vec, raw_labels[!keep]))
-        sub <- ape::drop.tip(sub, raw_labels[!keep])
-      }
+    is_mono <- ape::is.monophyletic(tr, ingroup_tips)
+    log_msg(logger, "Genus monophyly: ", is_mono)
+    if (!is_mono && identical(nonmono, "error")) {
+      stop("Genus '", genus, "' is not monophyletic. Use nonmono='prune_extras'.")
     }
-
-    cd2 <- .collapse_species_duplicates_by_binomial(sub)
-    sub <- cd2$tree
-    if (length(cd2$dropped))
-      dropped_vec <- unique(c(dropped_vec, cd2$dropped))
+    mrca_node <- ape::getMRCA(tr, ingroup_tips)
+    if (is.na(mrca_node)) stop("Could not identify MRCA for genus '", genus, "'.")
+    sub <- ape::extract.clade(tr, mrca_node)
+    if (!is_mono && identical(nonmono, "prune_extras")) {
+      keep <- intersect(sub$tip.label, ingroup_tips)
+      sub <- if (length(keep)) ape::keep.tip(sub, keep) else sub
+      log_msg(logger, "Pruned non-genus tips inside MRCA (prune_extras).")
+    }
+    ingroup_tips <- sub$tip.label
+  } else {
+    if (!all(mrca_tips %in% tips_all)) {
+      miss <- setdiff(mrca_tips, tips_all)
+      stop("mrca_tips not in tree: ", paste(miss, collapse = ", "))
+    }
+    mrca_node <- ape::getMRCA(tr, mrca_tips)
+    if (is.na(mrca_node)) stop("Could not compute MRCA for supplied anchors.")
+    sub <- ape::extract.clade(tr, mrca_node)
+    ingroup_tips <- sub$tip.label
+    log_msg(logger, "Ingroup (MRCA of anchors) size: ", length(ingroup_tips))
+    if (identical(clean, "genus_species")) {
+      cd2 <- .collapse_species_duplicates_by_binomial(sub) # list(tree, dropped)
+      sub <- cd2$tree
+      if (length(cd2$dropped)) dropped_vec <- unique(c(dropped_vec, cd2$dropped))
+      ingroup_tips <- sub$tip.label
+      log_msg(logger, "Collapsed intraspecific duplicates by binomial (MRCA mode).")
+    }
   }
 
-  ## ---- write outputs -----------------------------------------------
-  out_tree <- sub
-  paths <- list()
+  # ---- 2) optional sister outgroup ------------------------------------------
+  chosen_out <- NA_character_
+  min_d <- NA_real_
+  if (!identical(outgroup, "none")) {
+    parent <- .parent_of(tr)
+    parent_node <- parent[mrca_node]
+    if (!is.na(parent_node) && parent_node > 0) {
+      kids <- tr$edge[tr$edge[, 1] == parent_node, 2]
+      sis <- setdiff(kids, mrca_node)
+      if (length(sis) == 1) {
+        sis_desc <- phytools::getDescendants(tr, sis)
+        sis_tips <- sis_desc[sis_desc <= length(tr$tip.label)]
+        sis_labels <- setdiff(tr$tip.label[sis_tips], ingroup_tips)
+        if (length(sis_labels) >= 1) {
+          D <- ape::cophenetic.phylo(tr)
+          mins <- sapply(sis_labels, function(x) min(D[x, ingroup_tips], na.rm = TRUE))
+          min_d <- min(mins, na.rm = TRUE)
+          candidates <- sort(names(which(mins == min_d)))
+          set.seed(as.integer(seed))
+          chosen_out <- candidates[1]
+          log_msg(logger, "Outgroup (sister_one): ", chosen_out, " (min distance=", sprintf("%.6f", min_d), ")")
+        } else {
+          log_msg(logger, "No eligible sister tips for outgroup.")
+        }
+      } else {
+        log_msg(logger, "No unique sister clade for MRCA; outgroup skipped.")
+      }
+    } else {
+      log_msg(logger, "MRCA at root or no parent; outgroup skipped.")
+    }
+  }
 
+  out_tree <- if (is.na(chosen_out)) sub else ape::keep.tip(tr, c(ingroup_tips, chosen_out))
+  log_section(logger, "Output")
+  log_msg(logger, "ingroup_out: ", length(ingroup_tips))
+  log_msg(logger, "tips_out (final tree): ", length(out_tree$tip.label))
+
+  # ---- 3) write files (tree + renames/drops) --------------------------------
+  paths <- list()
+  # Tree path
   if (isTRUE(write_tree)) {
     if (is.null(tree_path)) {
-      suffix <- if (identical(outgroup, "none")) "_no_outgroup" else "_with_outgroup"
+      suffix <- if (is.na(chosen_out)) "_no_outgroup" else "_with_outgroup"
       tree_path <- paste0(stem, suffix, ".tre")
     }
+    dir.create(dirname(normalizePath(tree_path, mustWork = FALSE)), recursive = TRUE, showWarnings = FALSE)
     ape::write.tree(out_tree, file = tree_path)
     log_msg(logger, "Wrote tree: ", tree_path)
     paths$tree <- tree_path
   }
 
+  # Renames TSV (ingroup)
   if (isTRUE(write_renames) && nrow(renames_df)) {
-    if (is.null(renames_path))
-      renames_path <- paste0(stem, "_renamed.tsv")
-    utils::write.table(
-      renames_df,
-      file = renames_path,
-      sep = "\t",
-      row.names = FALSE,
-      quote = FALSE
-    )
+    if (is.null(renames_path)) renames_path <- paste0(stem, "_renamed.tsv")
+    utils::write.table(renames_df, file = renames_path, sep = "\t", row.names = FALSE, quote = FALSE)
     log_msg(logger, "Wrote renames TSV: ", renames_path)
     paths$renames <- renames_path
   }
 
+  # Drops TSV (ingroup duplicates)
   if (isTRUE(write_drops) && length(dropped_vec)) {
-    if (is.null(drops_path))
-      drops_path <- paste0(stem, "_dropped.tsv")
-    utils::write.table(
-      data.frame(dropped = sort(unique(dropped_vec))),
-      file = drops_path,
-      sep = "\t",
-      row.names = FALSE,
-      quote = FALSE
+    if (is.null(drops_path)) drops_path <- paste0(stem, "_dropped.tsv")
+    utils::write.table(data.frame(dropped = sort(unique(dropped_vec))),
+      file = drops_path, sep = "\t", row.names = FALSE, quote = FALSE
     )
     log_msg(logger, "Wrote drops TSV: ", drops_path)
     paths$drops <- drops_path
@@ -314,8 +328,8 @@ extract_clade_with_outgroup <- function(
 
   invisible(list(
     tree = out_tree,
-    outgroup = NA_character_,
-    ingroup_tips = out_tree$tip.label,
+    outgroup = chosen_out,
+    ingroup_tips = ingroup_tips,
     paths = paths
   ))
 }
