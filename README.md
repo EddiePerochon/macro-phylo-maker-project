@@ -97,7 +97,7 @@ extract_clade_with_outgroup(
   genus = NULL,
   mrca_tips = c("Solenopsis_papuana", "Solenopsis_xyloni"),
   outgroup = "sister_one",
-  clean = "genus_species",
+  clean = "none",
   nonmono = "prune_extras",
   resolve_polytomies = TRUE,
   force_positive_lengths = TRUE,
@@ -147,6 +147,7 @@ Two modes are available:
 **MRCA mode (mrca_tips = c("taxon1","taxon2"))**
 
 - extracts the clade subtended by those anchors
+- note that `clean = "genus_species"` will not work in this mode; grafting functions will still clean 
 
 ### Outgroup selection
 
