@@ -63,9 +63,23 @@
 #' @param mrca_tips Optional character vector of tip labels whose MRCA defines
 #'   the clade. Exactly one of \code{genus} or \code{mrca_tips} must be supplied.
 #' @param outgroup One of \code{"sister_one"} (default; see above) or \code{"none"}.
-#' @param clean One of \code{"genus_species"} (default in genus mode) or \code{"none"}.
-#'   With \code{genus}, canonicalize and collapse intraspecific duplicates; with
-#'   \code{mrca_tips}, collapse duplicates by binomial if \code{"genus_species"}.
+#' @param clean One of \code{"genus_species"} or \code{"none"}.
+#'   Controls whether tip labels are canonicalized to \code{Genus_species}
+#'   and intraspecific duplicates are collapsed.
+#'
+#'   \strong{Important: timing differs by mode}
+#'
+#'   \itemize{
+#'     \item In \code{genus} mode, cleaning is applied to the ingroup during
+#'           genus-based selection and prior to duplicate collapse.
+#'
+#'     \item In \code{mrca_tips} mode, cleaning is applied \emph{only after}
+#'           the MRCA-defined clade has been extracted. The input tree is
+#'           never globally cleaned prior to MRCA matching.
+#'   }
+#'
+#'   This design ensures that \code{mrca_tips} are always matched against the
+#'   original, unmodified tip labels in the input tree.
 #' @param nonmono For non-monophyly in \code{genus} mode: \code{"prune_extras"} (default)
 #'   keeps only genus tips within the MRCA; \code{"error"} aborts.
 #' @param resolve_polytomies Logical; if \code{TRUE} (default) resolves polytomies randomly.
