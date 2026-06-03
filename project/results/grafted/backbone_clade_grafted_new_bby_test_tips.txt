@@ -2662,7 +2662,6 @@ Eciton_vagans
 Eciton_lucanoides
 Eciton_burchellii
 Eciton_hamatum
-Eciton_rapax
 Neivamyrmex_swainsonii
 Neivamyrmex_adnepos
 Neivamyrmex_alfaroi

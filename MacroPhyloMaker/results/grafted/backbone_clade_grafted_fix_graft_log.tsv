@@ -1,4 +1,0 @@
-n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	target_type	target_label	L_backbone	position_bound	dropped_n	crown_target	T_target	backbone_index
-106	Stenamma_alas	0.0259736384047779	0.211644598416174	0.788355401583826	clade	Bazboltonia,Gnamptogenys	0.143961	1.43961e-07	12	0.752575104115898	0.954614001	1
-601	Proceratium_google	0.0199862500342763	0.117556036127685	0.882443963872315	clade	Platythyrea,Leptogenys	0.127997	0.00181670027632402	55	0.947182701276324	1.073363001	1
-22	NA	0	1e-08	0.99999999	tip	Acropyga	0.2619890006	0.261988738610999	NA	NA	NA	1

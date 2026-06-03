@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-06-03 19:47:19 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1746
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 14
+Outgroup (sister_one): Kempfidris_inusualis (min distance=137.701252)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 14
+tips_out (final tree): 15
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/formicidae/nelsen2018/extract_mrca_Solenopsis_papuana-Solenopsis_xyloni_20260603-194719_with_outgroup.tre
