@@ -7,6 +7,8 @@ This document tracks planned features, improvements, and maintenance tasks.
 ## High Priority
 
 - [ ] Write unit tests for all exported functions (≥80% coverage)
+- [ ] Make sure AntWiki taxonomy to TACT template works
+- [ ] Correctly handle paraphyletic genera in TACT templates
 
 ## Testing & Validation
 
@@ -34,5 +36,6 @@ This document tracks planned features, improvements, and maintenance tasks.
 ## Done
 
 - [X] Check whether the extract clade function correctly parses names with "cf" in them (e.g., Dorylinae) 
+- [X] Ensure extract clade writes dropped tips log
 
 ---
