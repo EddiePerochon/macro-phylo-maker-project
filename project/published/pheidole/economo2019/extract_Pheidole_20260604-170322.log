@@ -1,4 +1,4 @@
-=== Genus extraction log: clade | 2026-04-04 16:42:32 ===
+=== Genus extraction log: Pheidole | 2026-06-04 17:03:22 ===
 
 ┌──────────┐
 │ Settings │
@@ -15,7 +15,8 @@ seed: 42
 └──────────┘
 tips_in: 450
 Preprocess: polytomies=TRUE, positive_lengths=TRUE
-Ingroup (MRCA of anchors) size: 449
+Ingroup (genus=Pheidole) identified: 449 tips
+Genus monophyly: TRUE
 Outgroup (sister_one): Cephalotes_setulifer_CASENT0283451 (min distance=114.413954)
 
 ┌──────────┐
@@ -23,4 +24,4 @@ Outgroup (sister_one): Cephalotes_setulifer_CASENT0283451 (min distance=114.4139
 └──────────┘
 ingroup_out: 449
 tips_out (final tree): 450
-Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/pheidole/economo2019/extract_mrca_Pheidole_fimbriata_CASENT0283061-Pheidole_allarmata_CASENT0283450_20260404-164232_with_outgroup.tre
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/pheidole/economo2019/extract_Pheidole_20260604-170322_with_outgroup.tre

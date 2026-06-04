@@ -1587,7 +1587,6 @@ Pheidole_umbonata
 Pheidole_fuscula
 Pheidole_sericella
 Pheidole_gambogia
-Pheidole_nemoralis
 Pheidole_xanthocnemis
 Pheidole_conficta
 Pheidole_isis

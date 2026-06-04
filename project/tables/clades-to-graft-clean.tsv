@@ -23,7 +23,7 @@ Myrmicinae	Manica,Pogonomyrmex	NA	Prebus and Rabeling 2025	UCEs	chronogram	crown
 Myrmicinae	Pogonomyrmex_striatinodus,Pogonomyrmex_apache	NA	Graber et al 2026	UCEs	chronogram	crown	project/published/pogonomyrmex/graber2026/extract_mrca_Pogonomyrmex_mayri_COL_MG_RA1054-Pogonomyrmex_maricopa_USA_AZ_RA1020_20260413-132202_with_outgroup.tre		
 Formicinae	Zatania,Nylanderia	NA	Matos-Maraví et al 2018	Multilocus	chronogram	crown	project/published/prenolepis/matos-maravi2018/extract_mrca_Zatania_albimaculata-Nylanderia_NYLA026_20260404-171052_with_outgroup.tre		
 Formicinae	Nylanderia_helleri,Nylanderia_obscura	NA	Williams et al 2022	UCEs	phylogram	outgroup	project/published/nylanderia/williams2022/Nylanderia_with_outgroup.tre		
-Myrmicinae	Pheidole	NA	Economo et al 2019	Multilocus	chronogram	outgroup	project/published/pheidole/economo2019/extract_mrca_Pheidole_fimbriata_CASENT0283061-Pheidole_allarmata_CASENT0283450_20260404-164232_with_outgroup.tre		
+Myrmicinae	Pheidole	NA	Economo et al 2019	Multilocus	chronogram	outgroup	project/published/pheidole/economo2019/extract_Pheidole_20260604-170322_with_outgroup_Pheidole_nemoralis_CASENT0283759_removed.tre		
 Myrmicinae	Pseudomyrmex	NA	Chomicki 2015	Multilocus	phylogram	outgroup	project/published/pseudomyrmex/chomicki2015/Pseudomyrmex_with_outgroup.tre		
 Myrmicinae	Pseudomyrmex	NA	Nelsen 2023	Multilocus	chronogram	outgroup			
 Myrmicinae	Pseudomyrmex_salvini,Pseudomyrmex_elongatulus	NA	Ward and Branstetter 2022	UCEs	chronogram	outgroup	project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.tre	dryad repository missing	
