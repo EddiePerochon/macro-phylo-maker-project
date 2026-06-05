@@ -35,9 +35,25 @@ the clade. Exactly one of \code{genus} or \code{mrca_tips} must be supplied.}
 
 \item{outgroup}{One of \code{"sister_one"} (default; see above) or \code{"none"}.}
 
-\item{clean}{One of \code{"genus_species"} (default in genus mode) or \code{"none"}.
-With \code{genus}, canonicalize and collapse intraspecific duplicates; with
-\code{mrca_tips}, collapse duplicates by binomial if \code{"genus_species"}.}
+\item{clean}{One of \code{"genus_species"} or \code{"none"}.
+Controls whether tip labels are canonicalized to \code{Genus_species}
+and intraspecific duplicates are collapsed.
+
+\strong{Important: timing differs by mode}
+
+\itemize{
+\item In \code{genus} mode, cleaning is applied to the ingroup during
+genus-based selection and prior to duplicate collapse.
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\\item In \code{mrca_tips} mode, cleaning is applied \\emph\{only after\}
+      the MRCA-defined clade has been extracted. The input tree is
+      never globally cleaned prior to MRCA matching.
+}\if{html}{\out{</div>}}
+
+}
+
+This design ensures that \code{mrca_tips} are always matched against the
+original, unmodified tip labels in the input tree.}
 
 \item{nonmono}{For non-monophyly in \code{genus} mode: \code{"prune_extras"} (default)
 keeps only genus tips within the MRCA; \code{"error"} aborts.}
