@@ -1971,6 +1971,7 @@ Goniomma_hispanicum
 Goniomma_blanci
 Oxyopomyrmex_saulcyi
 Oxyopomyrmex_magnus
+Aphaenogaster_pallida
 Aphaenogaster_subterranea
 Aphaenogaster_iberica
 Aphaenogaster_sardoa
