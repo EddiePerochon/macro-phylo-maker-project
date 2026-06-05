@@ -23,6 +23,7 @@ This document tracks planned features, improvements, and maintenance tasks.
 - [ ] Rectify duplicate Strumigenys emmae
 - [ ] Rectify duplicate Mystrium mysticum
 - [ ] Rectify duplicate Mystrium rogeri
+- [ ] Consider incorporating helper CLI scripts into package (AntWiki to TACT taxonomy, filling genus-only tips with species) 
 
 ## Testing & Validation
 
@@ -52,5 +53,6 @@ This document tracks planned features, improvements, and maintenance tasks.
 - [X] Check whether the extract clade function correctly parses names with "cf" in them (e.g., Dorylinae) 
 - [X] Ensure extract clade writes dropped tips log
 - [X] Rectified duplicate Pheidole nemoralis based on species-group placement in Salata and Fisher 2020 (10.3897/zookeys.905.39592)
+- [X] Move helper scripts into package directory
 
 ---
