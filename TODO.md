@@ -9,21 +9,17 @@ This document tracks planned features, improvements, and maintenance tasks.
 - [ ] Write unit tests for all exported functions (≥80% coverage)
 - [ ] Make sure AntWiki taxonomy to TACT template works
 - [ ] Correctly handle paraphyletic genera in TACT templates
-  - [ ] Oxyopomyrmex: 
-        Nested in Goniomma, 2 species in backbone but 14 total; 
-        - [ ] Can graft separately using TACT, 
-        - [ ] prune from backbone, 
-        - [X] and replace back onto final tree sister to Goniomma blanci
-  - [ ] Aphaenogaster: 
-        Tropical Aphaenogaster clade can be called Deromyrma in both tree and csv;
-        - [ ] This requires figuring out which species missing from the phylogeny belong to Deromyrma
-        hen Aphaenogaster s. str. is paraphyletic with respect to Messor;
-        - [ ] But in Juve et al. 2025 it is not. So this can be fixed by extracting both Aphaenogaster and Messor from that tree
-  - [ ] Rossomyrmex:
-        Nested in Cataglyphis.
-        - [ ] Can graft separately using TACT, 
-        - [ ] prune from backbone, 
-        - [X] and replace back onto final tree?
+  - [ ] Oxyopomyrmex: Nested in Goniomma, 2 species in backbone but 14 total; 
+    - [ ] Can graft separately using TACT, 
+    - [ ] prune from backbone, 
+    - [X] and replace back onto final tree sister to Goniomma blanci
+  - [ ] Aphaenogaster: Tropical Aphaenogaster clade can be called Deromyrma in both tree and csv;
+    - [ ] This requires figuring out which species missing from the phylogeny belong to Deromyrma
+    - [ ] Then Aphaenogaster s. str. is paraphyletic with respect to Messor; But in Juve et al. 2025 it is not. So this can be fixed by extracting both Aphaenogaster and Messor from that tree
+  - [ ] Rossomyrmex: Nested in Cataglyphis.
+    - [ ] Can graft separately using TACT, 
+    - [ ] prune from backbone, 
+    - [X] and replace back onto final tree?
 - [ ] Rectify duplicate Strumigenys emmae
 - [ ] Rectify duplicate Mystrium mysticum
 - [ ] Rectify duplicate Mystrium rogeri
