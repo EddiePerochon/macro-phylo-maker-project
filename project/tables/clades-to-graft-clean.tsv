@@ -24,7 +24,7 @@ Myrmicinae	Pogonomyrmex_striatinodus,Pogonomyrmex_apache	NA	Graber et al 2026	UC
 Formicinae	Zatania,Nylanderia	NA	Matos-Maraví et al 2018	Multilocus	chronogram	crown	project/published/prenolepis/matos-maravi2018/extract_mrca_Zatania_albimaculata-Nylanderia_NYLA026_20260404-171052_with_outgroup.tre		
 Formicinae	Nylanderia_helleri,Nylanderia_obscura	NA	Williams et al 2022	UCEs	phylogram	outgroup	project/published/nylanderia/williams2022/Nylanderia_with_outgroup.tre		
 Myrmicinae	Pheidole	NA	Economo et al 2019	Multilocus	chronogram	outgroup	project/published/pheidole/economo2019/extract_Pheidole_20260604-170322_with_outgroup_Pheidole_nemoralis_CASENT0283759_removed.tre		
-Myrmicinae	Pseudomyrmex	NA	Chomicki 2015	Multilocus	phylogram	outgroup	project/published/pseudomyrmex/chomicki2015/Pseudomyrmex_with_outgroup.tre		
+Myrmicinae	Pseudomyrmex	NA	Chomicki 2015	Multilocus	phylogram	outgroup	project/published/pseudomyrmex/chomicki2015/Pseudomyrmex_with_outgroup.tre	removed duplicate Pheidole nemoralis that was possibly misidentified	
 Myrmicinae	Pseudomyrmex	NA	Nelsen 2023	Multilocus	chronogram	outgroup			
 Myrmicinae	Pseudomyrmex_salvini,Pseudomyrmex_elongatulus	NA	Ward and Branstetter 2022	UCEs	chronogram	outgroup	project/published/pseudomyrmex/ward2022/extract_mrca_Pseudomyrmex_salvini_D1236-Pseudomyrmex_apache_D0155_20260409-144547_with_outgroup.tre	dryad repository missing	
 Myrmicinae	Pseudomyrmex_particeps,Pseudomyrmex_janzeni	NA	Ward and Branstetter 2017	UCEs	chronogram	outgroup	project/published/pseudomyrmex/ward2017/extract_mrca_Pseudomyrmex_particeps_D1307-Pseudomyrmex_janzeni_D0620_20260404-173038_with_outgroup.tre		
@@ -95,7 +95,7 @@ Easy	Vitsika_producta,Vitsika_suspicax	NA	Camacho2024	UCEs	chronogram	outgroup	p
 Hard	Aphaenogaster?	NA							
 Hard	Cataulacus?	NA							
 Hard	Meranoplus	NA							
-Hard	Mystrium_barrybressleri,Mystrium_mirror	NA	Camacho2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/extract_Mystrium_20260420-115036_with_outgroup.tre		
+Hard	Mystrium_mysticum,Mystrium_mirror	NA	Camacho2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/extract_Mystrium_20260420-115036_with_outgroup.tre		
 Hard	Nesomyrmex	NA							
 Hard	Paraparatrechina?	NA							
 Hard	Paratrechina?	NA							
@@ -103,7 +103,7 @@ Hard	Paratrechina?	NA
 Hard	Simopone	NA							
 Hard	Solenopsis	NA							
 Hard	Stigmatomma	NA							
-Hard	Strumigenys_bibiolona,Strumigenys_lura	NA	Camacho2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/extract_mrca_Strumigenys_ravola-Strumigenys_charino_20260418-151451_with_outgroup.tre		
+Hard	Strumigenys_bibiolona,Strumigenys_lura	NA	Camacho2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/xtract_mrca_Strumigenys_ravola-Strumigenys_charino_20260418-151451_with_outgroup_Strumigenys_emmae_removed.tre		
 Hard	Technomyrmex	NA							
 Hard	Tetramorium	NA							
 Hard	Tetraponera	NA							
