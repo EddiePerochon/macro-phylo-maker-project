@@ -6,6 +6,7 @@ This document tracks planned features, improvements, and maintenance tasks.
 
 ## High Priority
 
+- [ ] Redo Amblyoponinae extraction from Nelsen 2018
 - [ ] Write unit tests for all exported functions (≥80% coverage)
 - [ ] Make sure AntWiki taxonomy to TACT template works
 - [ ] Correctly handle paraphyletic genera in TACT templates
@@ -20,6 +21,10 @@ This document tracks planned features, improvements, and maintenance tasks.
     - [ ] Can graft separately using TACT, 
     - [ ] prune from backbone, 
     - [X] and replace back onto final tree?
+  - [ ] Stigmatomma: Polyphyletic. The type species is S. denticulatum and it is a clade with S. scrobiceps, S. silvestrii. Would need to remove S. boltoni, S. pallipes, S. oregonense.
+    - [ ] Remove Stigmatomma_boltoni, Stigmatomma_pallipes, Stigmatomma_oregonense and
+    - [ ] Graft remaining using TACT? This will basically mean we are making it monophyletic depite knowing it is not.
+    - [ ] Alternatively, graft Stigmatomma but also prune Adetomyrma, Xymmer, and Mystrium. Then re-graft those three genera within Amblyopone (leaning towards that) 
 - [ ] Consider incorporating helper CLI scripts into package (AntWiki to TACT taxonomy, filling genus-only tips with species) 
 
 ## Testing & Validation
