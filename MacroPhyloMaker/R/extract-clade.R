@@ -158,8 +158,13 @@ extract_clade_with_outgroup <- function(
   if (!is.null(genus) && !is.null(mrca_tips)) stop("Provide only one of 'genus' or 'mrca_tips'.")
 
   clean <- match.arg(clean)
-  if (is.null(genus) && identical(clean, "genus_species")) clean <- "none"
 
+  if (is.null(genus) && identical(clean, "genus_species")) {
+    warning("clean='genus_species' ignored in MRCA mode")
+    clean <- "none"
+  }
+
+  mrca_tips <- .normalize_tip_labels(mrca_tips)
   # ---- logger setup ----------------------------------------------------------
   # Build a stable prefix for file names & logs
   prefix <- if (!is.null(genus)) {
@@ -226,7 +231,7 @@ extract_clade_with_outgroup <- function(
       if (nrow(ci$renamed)) renames_df <- rbind(renames_df, ci$renamed)
       if (length(ci$dropped)) dropped_vec <- unique(c(dropped_vec, ci$dropped))
 
-      cd <- .collapse_species_duplicates_ingroup(tr, genus = genus) # list(tree, dropped)
+      cd <- .collapse_species_duplicates_ingroup(tr, genus = genus)
       tr <- cd$tree
       if (length(cd$dropped)) dropped_vec <- unique(c(dropped_vec, cd$dropped))
       tips_all <- tr$tip.label
@@ -380,9 +385,8 @@ extract_clade_with_outgroup <- function(
   parent
 }
 
-# list(tree, renamed=data.frame, dropped=character)
 .clean_ingroup_labels <- function(tree, genus) {
-  labs <- tree$tip.label
+  labs <- .normalize_tip_labels(tree$tip.label)
   idx <- which(vapply(labs, function(lbl) {
     bin <- .clean_label_to_binomial(lbl, genus_hint = NULL)
     if (is.na(bin)) {
@@ -416,7 +420,6 @@ extract_clade_with_outgroup <- function(
   list(tree = tree, renamed = ren_map, dropped = dropped)
 }
 
-# list(tree, dropped=character)
 .collapse_species_duplicates_ingroup <- function(tr, genus) {
   labs <- tr$tip.label
   idx <- which(vapply(labs, function(x) {
@@ -457,7 +460,6 @@ extract_clade_with_outgroup <- function(
   list(tree = tr, dropped = unique(to_drop))
 }
 
-# list(tree, dropped=character)
 .collapse_species_duplicates_by_binomial <- function(tr) {
   labs <- tr$tip.label
   has_bin <- grepl("^[A-Z][a-z]+_[a-z]+", labs)
@@ -504,4 +506,8 @@ extract_clade_with_outgroup <- function(
   species <- tolower(parts[2])
   if (!is.null(genus_hint) && nzchar(genus_hint) && Genus != genus_hint) Genus <- genus_hint
   paste(Genus, species, sep = "_")
+}
+
+.normalize_tip_labels <- function(x) {
+  gsub("\\s+", "_", x)
 }
