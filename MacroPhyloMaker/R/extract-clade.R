@@ -10,23 +10,41 @@
 #' @details
 #' \strong{Workflow}
 #' \itemize{
-#'   \item \emph{Preprocess (optional)}: resolve polytomies and/or nudge non-positive
-#'         edge lengths to small positive values.
+#'   \item \emph{Preprocess (optional)}:
+#'   resolve polytomies and/or nudge non-positive
+#'   edge lengths to small positive values.
+#'
 #'   \item \emph{Define the ingroup}:
-#'         \itemize{
-#'           \item If \code{genus} is given, the ingroup is all tips whose
-#'                 canonicalized labels start with \code{paste0(genus, "_")}.
-#'                 Optionally collapse intraspecific duplicates inside the genus.
-#'           \item If \code{mrca_tips} is given, the ingroup is the clade defined by
-#'                 the MRCA of those anchors; optionally collapse duplicates by binomial.
-#'         }
-#'   \item \emph{Non-monophyly (genus mode)}: if genus tips are not monophyletic,
-#'         either error out (\code{nonmono="error"}) or prune away non-genus
-#'         descendants within the MRCA (\code{nonmono="prune_extras"}, default).
-#'   \item \emph{Outgroup (see below)}: add a single outgroup tip if requested.
-#'   \item \emph{Write outputs}: the extracted subtree (and optional TSVs with
-#'         renames/dropped tips) are written with filenames aligned to the logger
-#'         file stem (e.g., \code{<stem>_with_outgroup.tre}).
+#'   \itemize{
+#'     \item If \code{genus} is given, the ingroup is all tips whose
+#'     canonicalized labels start with \code{paste0(genus, "_")}.
+#'     Optionally collapse intraspecific duplicates inside the genus.
+#'
+#'     \item If \code{mrca_tips} is given, the ingroup is the clade defined by
+#'     the MRCA of those anchors; optionally collapse duplicates by binomial.
+#'   }
+#'
+#'   \item \emph{Non-monophyly (genus mode)}:
+#'   \itemize{
+#'     \item If genus tips are not monophyletic:
+#'     \itemize{
+#'       \item The MRCA of all genus-matching tips is identified.
+#'       \item The entire clade descending from that MRCA is extracted.
+#'       \item All tips not belonging to the focal genus are removed.
+#'     }
+#'
+#'     \item This produces a subtree containing all genus tips, but it may not
+#'     reflect a natural monophyletic group in the original tree if the genus
+#'     is non-monophyletic.
+#'   }
+#'
+#'   \item \emph{Outgroup (see below)}:
+#'   add a single outgroup tip if requested.
+#'
+#'   \item \emph{Write outputs}:
+#'   the extracted subtree (and optional TSVs with renames/dropped tips)
+#'   are written with filenames aligned to the logger file stem
+#'   (e.g., \code{<stem>_with_outgroup.tre}).
 #' }
 #'
 #' \strong{Outgroup selection}
@@ -160,7 +178,7 @@ extract_clade_with_outgroup <- function(
   clean <- match.arg(clean)
 
   if (is.null(genus) && identical(clean, "genus_species")) {
-    warning("clean='genus_species' ignored in MRCA mode")
+    log_msg("clean='genus_species' ignored in MRCA mode")
     clean <- "none"
   }
 
@@ -226,14 +244,29 @@ extract_clade_with_outgroup <- function(
 
   if (!is.null(genus)) {
     if (identical(clean, "genus_species")) {
-      ci <- .clean_ingroup_labels(tr, genus = genus) # list(tree, renamed, dropped)
+      ci <- .clean_ingroup_labels(tr, genus = genus)
       tr <- ci$tree
-      if (nrow(ci$renamed)) renames_df <- rbind(renames_df, ci$renamed)
-      if (length(ci$dropped)) dropped_vec <- unique(c(dropped_vec, ci$dropped))
-
-      cd <- .collapse_species_duplicates_ingroup(tr, genus = genus)
+      if (nrow(ci$renamed))
+        renames_df <- rbind(renames_df, ci$renamed)
+      if (length(ci$dropped))
+        dropped_vec <- unique(c(dropped_vec, ci$dropped))
+      ## ---- unified collapse (phylo mode) ----
+      labs <- tr$tip.label
+      # Define species groups only for THIS genus
+      is_genus <- vapply(labs, function(x) {
+        parts <- strsplit(x, "_", fixed = TRUE)[[1]]
+        length(parts) >= 2 && parts[1] == genus
+      }, logical(1))
+      group_ids <- rep(NA_character_, length(labs))
+      group_ids[is_genus] <- sub("^([A-Za-z]+_[a-z]+).*", "\\1", labs[is_genus], perl = TRUE)
+      cd <- .collapse_species_duplicates(
+        tr,
+        group_ids = group_ids,
+        method = "phylo"
+      )
       tr <- cd$tree
-      if (length(cd$dropped)) dropped_vec <- unique(c(dropped_vec, cd$dropped))
+      if (length(cd$dropped))
+        dropped_vec <- unique(c(dropped_vec, cd$dropped))
       tips_all <- tr$tip.label
     }
     ingroup_tips <- tips_all[vapply(tips_all, function(x) {
@@ -242,15 +275,26 @@ extract_clade_with_outgroup <- function(
     }, logical(1))]
     if (!length(ingroup_tips)) stop("No tips found for genus '", genus, "' after cleaning.")
     log_msg(logger, "Ingroup (genus=", genus, ") identified: ", length(ingroup_tips), " tips")
-
+    if (length(ingroup_tips) == 1) {
+      log_msg(logger, "Single-tip genus after cleaning/collapse; skipping MRCA extraction.")
+    }
     is_mono <- ape::is.monophyletic(tr, ingroup_tips)
     log_msg(logger, "Genus monophyly: ", is_mono)
     if (!is_mono && identical(nonmono, "error")) {
       stop("Genus '", genus, "' is not monophyletic. Use nonmono='prune_extras'.")
     }
-    mrca_node <- ape::getMRCA(tr, ingroup_tips)
-    if (is.na(mrca_node)) stop("Could not identify MRCA for genus '", genus, "'.")
-    sub <- ape::extract.clade(tr, mrca_node)
+    if (length(ingroup_tips) == 1) {
+      # No MRCA possible — keep tip directly
+      log_msg(logger, "Single-tip genus after cleaning/collapse; extracting directly without MRCA.")
+      sub <- ape::keep.tip(tr, ingroup_tips)
+      mrca_node <- NA_integer_
+    } else {
+      mrca_node <- ape::getMRCA(tr, ingroup_tips)
+      if (length(mrca_node) == 0 || is.na(mrca_node)) {
+        stop("Could not identify MRCA for genus '", genus, "'.")
+      }
+      sub <- ape::extract.clade(tr, mrca_node)
+    }
     if (!is_mono && identical(nonmono, "prune_extras")) {
       keep <- intersect(sub$tip.label, ingroup_tips)
       sub <- if (length(keep)) ape::keep.tip(sub, keep) else sub
@@ -262,15 +306,32 @@ extract_clade_with_outgroup <- function(
       miss <- setdiff(mrca_tips, tips_all)
       stop("mrca_tips not in tree: ", paste(miss, collapse = ", "))
     }
-    mrca_node <- ape::getMRCA(tr, mrca_tips)
-    if (is.na(mrca_node)) stop("Could not compute MRCA for supplied anchors.")
-    sub <- ape::extract.clade(tr, mrca_node)
+    if (length(mrca_tips) == 1) {
+      sub <- ape::keep.tip(tr, mrca_tips)
+      mrca_node <- NA_integer_
+    } else {
+      mrca_node <- ape::getMRCA(tr, mrca_tips)
+      if (length(mrca_node) == 0 || is.na(mrca_node)) {
+        stop("Could not compute MRCA for supplied anchors.")
+      }
+      sub <- ape::extract.clade(tr, mrca_node)
+    }
     ingroup_tips <- sub$tip.label
     log_msg(logger, "Ingroup (MRCA of anchors) size: ", length(ingroup_tips))
     if (identical(clean, "genus_species")) {
-      cd2 <- .collapse_species_duplicates_by_binomial(sub) # list(tree, dropped)
+      ## ---- unified collapse (distance mode) ----
+      labs <- sub$tip.label
+      has_bin <- grepl("^[A-Z][a-z]+_[a-z]+", labs)
+      group_ids <- rep(NA_character_, length(labs))
+      group_ids[has_bin] <- sub("^([A-Za-z]+_[a-z]+).*", "\\1", labs[has_bin], perl = TRUE)
+      cd2 <- .collapse_species_duplicates(
+        sub,
+        group_ids = group_ids,
+        method = "distance"
+      )
       sub <- cd2$tree
-      if (length(cd2$dropped)) dropped_vec <- unique(c(dropped_vec, cd2$dropped))
+      if (length(cd2$dropped))
+        dropped_vec <- unique(c(dropped_vec, cd2$dropped))
       ingroup_tips <- sub$tip.label
       log_msg(logger, "Collapsed intraspecific duplicates by binomial (MRCA mode).")
     }
@@ -420,68 +481,68 @@ extract_clade_with_outgroup <- function(
   list(tree = tree, renamed = ren_map, dropped = dropped)
 }
 
-.collapse_species_duplicates_ingroup <- function(tr, genus) {
-  labs <- tr$tip.label
-  idx <- which(vapply(labs, function(x) {
-    parts <- strsplit(x, "_", fixed = TRUE)[[1]]
-    length(parts) >= 2 && parts[1] == genus
-  }, logical(1)))
-  if (!length(idx)) {
-    return(list(tree = tr, dropped = character(0)))
-  }
-  ing <- labs[idx]
-  keys <- sub("^([A-Za-z]+_[a-z]+).*$", "\\1", ing, perl = TRUE)
-  tab <- table(keys)
-  if (!any(tab > 1)) {
-    return(list(tree = tr, dropped = character(0)))
-  }
-  D <- ape::cophenetic.phylo(tr)
-  to_drop <- character(0)
-  for (sp in names(tab[tab > 1])) {
-    sp_tips <- ing[keys == sp]
-    if (length(sp_tips) < 2) next
-    if (ape::is.monophyletic(tr, sp_tips)) {
-      mnode <- ape::getMRCA(tr, sp_tips)
-      H <- phytools::nodeHeights(tr)
-      root_age <- max(H[, 2])
-      nh_mrca <- phytools::nodeheight(tr, mnode)
-      tip_nodes <- match(sp_tips, labs)
-      tip_heights <- setNames(sapply(tip_nodes, function(n) phytools::nodeheight(tr, n)), sp_tips)
-      crown_depths <- (root_age - tip_heights) - (root_age - nh_mrca)
-      keep <- names(which.min(crown_depths))
-      to_drop <- c(to_drop, setdiff(sp_tips, keep))
-    } else {
-      sums <- sapply(sp_tips, function(x) sum(D[x, setdiff(sp_tips, x)], na.rm = TRUE))
-      keep <- names(which.min(sums))
-      to_drop <- c(to_drop, setdiff(sp_tips, keep))
-    }
-  }
-  if (length(to_drop)) tr <- ape::drop.tip(tr, unique(to_drop))
-  list(tree = tr, dropped = unique(to_drop))
-}
+.collapse_species_duplicates <- function(
+  tr,
+  group_ids,
+  method = c("phylo", "distance")
+) {
+  method <- match.arg(method)
 
-.collapse_species_duplicates_by_binomial <- function(tr) {
   labs <- tr$tip.label
-  has_bin <- grepl("^[A-Z][a-z]+_[a-z]+", labs)
-  if (!any(has_bin)) {
-    return(list(tree = tr, dropped = character(0)))
+  idx_all <- seq_along(labs)
+
+  groups <- split(idx_all, group_ids)
+
+  to_drop_idx <- integer(0)
+
+  D <- ape::cophenetic.phylo(tr)  # compute once
+
+  for (sp in names(groups)) {
+    sp_idx <- groups[[sp]]
+
+    if (length(sp_idx) < 2) next
+
+    if (method == "phylo") {
+      sp_labels <- labs[sp_idx]
+
+      if (ape::is.monophyletic(tr, sp_labels)) {
+        mnode <- ape::getMRCA(tr, sp_labels)
+
+        H <- phytools::nodeHeights(tr)
+        root_age <- max(H[,2])
+        nh_mrca <- phytools::nodeheight(tr, mnode)
+
+        tip_heights <- sapply(sp_idx, function(i)
+          phytools::nodeheight(tr, i)
+        )
+
+        crown_depths <- (root_age - tip_heights) -
+                        (root_age - nh_mrca)
+
+        keep_idx <- sp_idx[which.min(crown_depths)]
+
+      } else {
+        sums <- sapply(sp_idx, function(i)
+          sum(D[i, sp_idx[sp_idx != i]], na.rm = TRUE)
+        )
+        keep_idx <- sp_idx[which.min(sums)]
+      }
+
+    } else {
+      sums <- sapply(sp_idx, function(i)
+        sum(D[i, sp_idx[sp_idx != i]], na.rm = TRUE)
+      )
+      keep_idx <- sp_idx[which.min(sums)]
+    }
+
+    to_drop_idx <- c(to_drop_idx, setdiff(sp_idx, keep_idx))
   }
-  keys <- sub("^([A-Za-z]+_[a-z]+).*$", "\\1", labs[has_bin], perl = TRUE)
-  tab <- table(keys)
-  if (!any(tab > 1)) {
-    return(list(tree = tr, dropped = character(0)))
+
+  if (length(to_drop_idx)) {
+    tr <- ape::drop.tip(tr, unique(to_drop_idx))
   }
-  D <- ape::cophenetic.phylo(tr)
-  to_drop <- character(0)
-  for (sp in names(tab[tab > 1])) {
-    sp_tips <- labs[has_bin][keys == sp]
-    if (length(sp_tips) < 2) next
-    sums <- sapply(sp_tips, function(x) sum(D[x, setdiff(sp_tips, x)], na.rm = TRUE))
-    keep <- names(which.min(sums))
-    to_drop <- c(to_drop, setdiff(sp_tips, keep))
-  }
-  if (length(to_drop)) tr <- ape::drop.tip(tr, unique(to_drop))
-  list(tree = tr, dropped = unique(to_drop))
+
+  list(tree = tr, dropped = labs[unique(to_drop_idx)])
 }
 
 .clean_label_to_binomial <- function(label, genus_hint = NULL) {
