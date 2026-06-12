@@ -6,6 +6,9 @@ This document tracks planned features, improvements, and maintenance tasks.
 
 ## High Priority
 
+- [X] Count genera in each tree
+- [X] Find out which genera are missing from species tree with phylogenetic info
+- [ ] Graft missing genera back onto the species tree with phylogenetic info 
 - [ ] Redo Amblyoponinae extraction from Nelsen 2018
 - [ ] Write unit tests for all exported functions (≥80% coverage)
 - [ ] Make sure AntWiki taxonomy to TACT template works
