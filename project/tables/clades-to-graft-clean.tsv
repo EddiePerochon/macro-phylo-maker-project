@@ -1,7 +1,7 @@
 Subfamily	MRCA	Grafted_species	Phylogeny_pub	Phylogeny_data_source	Input_tree_type	Stem_mode	Phylogeny_file_path	Notes	Original_Tree
 Ectatomminae	Bazboltonia,Gnamptogenys	NA	Camacho et al 2022	UCEs	phylogram	crown	project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.tre		/home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.tre
-Ponerinae	Platythyrea,Leptogenys	NA	Fisher et al 2025	UCEs	phylogram	crown	project/published/ponerinae/extract_mrca_Anochetus_afr01_EX2929_CASENT0845774-Platythyrea_arnoldi_D2118_CASENT0842276_20260311-154558_with_outgroup.tre		
-Myrmicinae	Rostromyrmex,Leptothorax	NA	Blaimer et al 2018	UCEs	chronogram	crown	project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup.tre		
+Ponerinae	Platythyrea,Leptogenys	NA	Fisher et al 2025	UCEs	phylogram	crown	project/published/ponerinae/fisher2025/extract_mrca_Anochetus_afr01_EX2929_CASENT0845774-Platythyrea_arnoldi_D2118_CASENT0842276_20260311-154558_with_outgroup.tre		
+Myrmicinae	Rostromyrmex,Leptothorax	NA	Blaimer et al 2018	UCEs	chronogram	crown	project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup-no-orphans.tre		
 Formicinae	Acropyga	NA	Blaimer et al 2016	UCEs	chronogram	outgroup	project/published/acropyga/blaimer2016/extract_mrca_Acropyga_donisthorpei_ACR86-Acropyga_arnoldi_ACR22_20260404-165022_with_outgroup.tre		
 Formicinae	Calomyrmex	NA	Ward et al 2025	UCEs	chronogram	outgroup	project/published/camponotini/ward2025/extracted_genera/Calomyrmex/extract_Calomyrmex_20260410-123025_with_outgroup.tre	split into genera	
 Formicinae	Colobopsis	NA	Ward et al 2025	UCEs	chronogram	outgroup	project/published/camponotini/ward2025/extracted_genera/Colobopsis/extract_Colobopsis_20260410-123025_with_outgroup.tre		
@@ -39,7 +39,7 @@ Myrmicinae	Temnothorax_longinoi	NA	Prebus 2021	UCEs	chronogram	crown	project/pub
 Myrmicinae	Temnothorax_unifasciatus	NA	Csosz 2024	UCEs	chronogram	crown	project/published/temnothorax/csosz2024/Csosz_et_al_unifasciatus_no_outgroup.nwk		
 Myrmicinae	Apterostigma,Acromyrmex	NA	Hanisch et al 2022	UCEs	chronogram	crown	project/published/attini/hanisch2022/extract_mrca_Mycocepurus_goeldii_1495-Pseudoatta_sp_nov_1478_20260530-141054_with_outgroup.tre		
 Hard	Pheidole_longispinosa,Pheidole_grallatrix	NA	Camacho et al 2024	UCEs	chronogram	crown	project/published/mami-madagascar/camacho2024/extract_mrca_Pheidole_diakritos-Pheidole_andapa_20260418-151451_with_outgroup.tre		
-Dorylinae	Dorylus,Eciton	NA	Borowiec 2019	UCEs	chronogram	crown	project/published/dorylinae/borowiec2019/dorylinae-orignal-chronogram-rapax-removed.nwk		
+Dorylinae	Dorylus,Eciton	NA	Borowiec 2019	UCEs	chronogram	crown	project/published/dorylinae/borowiec2019/dorylinae-orignal-chronogram-rapax-removed-no-orphans.nwk		
 Dorylinae	ECITON	NA	Winston et al 2017						
 Dorylinae	SYSCIA	NA	Longino and Branstetter 2021					embargoed	
 Dorylinae	LEPTANILLINAE	NA	Griebenow 2026						
