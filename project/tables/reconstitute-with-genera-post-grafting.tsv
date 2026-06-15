@@ -1,0 +1,9 @@
+Subfamily	GraftedTip	Function	Sister	shape1	shape2	min_frac	max_frac	include_terminal	include_stem	Reference	DOI
+Myrmicinae	Formosimyrma	graft sister to tip	Melissotarsus_insularis	6	2	0.8	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
+Myrmicinae	Gaoligongidris	graft sister to clade	Eutetramorium_parvum,Vitsika_breviscapa	6	2	0.1	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
+Ponerine	Igaponera	graft sister to clade	Dinoponera_quadriceps,Dinoponera_longipes	6	2	0.8	0.9	NA	NA	Fisher et al (2025)	https://doi.org/10.3897%2Fzookeys.1264.173399
+Ectatomminae	Aulacopone	graft sister to clade	Heteroponera_monticola,Heteroponera_panamensis	1	1	0.1	0.9	NA	NA	Taylor (1980)	NA
+Myrmicinae	Peronomyrmex	graft sister to clade	Pristomyrmex_orbiceps,Pristomyrmex_rigidus	6	2	0.1	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
+Attini	Pseudoatta	graft within clade random	Acromyrmex_versicolor,Acromyrmex_crassispinus	1	1	0.1	0.9	TRUE	TRUE	Hanish et al (2022)	https://doi.org/10.1093%2Fisd%2Fixab029
+Crematogastrini	Secostruma	graft sister to tip	Dilobocondyla_borneensis	1	1	0.1	0.9	NA	NA	Ward et al (2010)	https://doi.org/10.1093/sysbio/syq012
+Crematogastrini	Strongylognathus	graft within clade random	Tetramorium_impurum,Tetramorium_caespitum	1	1	0.1	0.9	TRUE	TRUE	Blaimer et al (2018)	https://doi.org/10.1093/isd/ixy013

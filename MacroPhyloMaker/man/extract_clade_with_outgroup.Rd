@@ -102,23 +102,45 @@ messages through AntPhyloMaker's lightweight logger.
 \details{
 \strong{Workflow}
 \itemize{
-\item \emph{Preprocess (optional)}: resolve polytomies and/or nudge non-positive
+\item \emph{Preprocess (optional)}:
+resolve polytomies and/or nudge non-positive
 edge lengths to small positive values.
+
 \item \emph{Define the ingroup}:
 \itemize{
 \item If \code{genus} is given, the ingroup is all tips whose
 canonicalized labels start with \code{paste0(genus, "_")}.
 Optionally collapse intraspecific duplicates inside the genus.
-\item If \code{mrca_tips} is given, the ingroup is the clade defined by
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\\item If \code{mrca_tips} is given, the ingroup is the clade defined by
 the MRCA of those anchors; optionally collapse duplicates by binomial.
+}\if{html}{\out{</div>}}
+
 }
-\item \emph{Non-monophyly (genus mode)}: if genus tips are not monophyletic,
-either error out (\code{nonmono="error"}) or prune away non-genus
-descendants within the MRCA (\code{nonmono="prune_extras"}, default).
-\item \emph{Outgroup (see below)}: add a single outgroup tip if requested.
-\item \emph{Write outputs}: the extracted subtree (and optional TSVs with
-renames/dropped tips) are written with filenames aligned to the logger
-file stem (e.g., \code{<stem>_with_outgroup.tre}).
+
+\item \emph{Non-monophyly (genus mode)}:
+\itemize{
+\item If genus tips are not monophyletic:
+\itemize{
+\item The MRCA of all genus-matching tips is identified.
+\item The entire clade descending from that MRCA is extracted.
+\item All tips not belonging to the focal genus are removed.
+}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\\item This produces a subtree containing all genus tips, but it may not
+reflect a natural monophyletic group in the original tree if the genus
+is non-monophyletic.
+}\if{html}{\out{</div>}}
+
+}
+
+\item \emph{Outgroup (see below)}:
+add a single outgroup tip if requested.
+
+\item \emph{Write outputs}:
+the extracted subtree (and optional TSVs with renames/dropped tips)
+are written with filenames aligned to the logger file stem
+(e.g., \code{<stem>_with_outgroup.tre}).
 }
 
 \strong{Outgroup selection}

@@ -264,6 +264,7 @@ Parvaponera_darwinii
 Wadeura_pauli
 Wadeura_guianensis
 Wadeura_holmgrenita
+Sritoponera_suspecta
 Cryptopone_odax
 Cryptopone_rotundiceps
 Cryptopone_ochracea
@@ -461,6 +462,7 @@ Hypoponera_producta
 Hypoponera_meridia
 Hypoponera_sakalava
 Hypoponera_indigens
+Neoponera_bucki
 Odontomachus_assiniensis
 Odontomachus_coquereli
 Odontomachus_latidens
@@ -486,6 +488,7 @@ Odontomachus_malignus
 Odontomachus_hastatus
 Odontomachus_chelifer
 Odontomachus_meinerti
+Odontomachus_spissus
 Odontomachus_biumbonatus
 Odontomachus_opaciventris
 Odontomachus_clarus
@@ -827,6 +830,7 @@ Carebara_urichi
 Melissotarsus_insularis
 Rhopalomastix_rothneyi
 Cyphoidris_exalta
+Dicroaspis_cryptocera
 Calyptomyrmex_kaurus
 Indomyrma_dasypyx
 Dacetinops_cirrosus
@@ -841,6 +845,7 @@ Meranoplus_mcarthuri
 Lophomyrmex_bedoti
 Lophomyrmex_ambiguus
 Adlerzia_froggatti
+Recurvidris_browni
 Stereomyrmex_horni
 Trichomyrmex_robustior
 Trichomyrmex_criniceps
@@ -855,6 +860,7 @@ Podomyrma_silvicola
 Tetheamyrma_subspongia
 Dacatria_templaris
 Proatta_butteli
+Kartidris_sparsipila
 Mayriella_ebbei
 Dilobocondyla_borneensis
 Perissomyrmex_snyderi
@@ -865,6 +871,7 @@ Acanthomyrmex_ferox
 Myrmecina_striata
 Myrmecina_americana
 Myrmecina_graminicola
+Paratopula_andamanensis
 Poecilomyrma_myrmecodiae
 Romblonella_elysii
 Romblonella_scrobifera
@@ -875,6 +882,7 @@ Vombisidris_bilongrudi
 Harpagoxenus_sublaevis
 Formicoxenus_diversipilosus
 Leptothorax_muscorum
+Lasiomyrma_gedensis
 Lordomyrma_epinotalis
 Ancyridris_polyrhachioides
 Propodilobus_pingorum
@@ -2586,6 +2594,7 @@ Lioponera_mayri
 Lioponera_suscitata
 Lioponera_marginata
 Lioponera_ruficornis
+Lividopone_livida
 Zasphinctus_wilsoni
 Zasphinctus_sarowiwai
 Zasphinctus_trux
@@ -2600,17 +2609,20 @@ Simopone_conradti
 Simopone_marleyi
 Simopone_rex
 Simopone_trita
+Eusphinctus_furcatus
 Syscia_augustae
 Syscia_typhla
 Ooceraea_fragosa
 Ooceraea_australis
 Ooceraea_biroi
+Eburopone_easoana
 Cerapachys_sulcinodis
 Cerapachys_antennatus
 Chrysapace_sauteri
 Chrysapace_jacobsoni
 Yunodorylus_paradoxus
 Yunodorylus_eguchii
+Aenictogiton_attenuatus
 Dorylus_laevigatus
 Dorylus_conradti
 Dorylus_orientalis

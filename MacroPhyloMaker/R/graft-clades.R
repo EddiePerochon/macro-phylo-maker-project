@@ -604,7 +604,7 @@ prepare_clade_template <- function(
 
     ## 2. extract Genus_species safely, drop suffixes/IDs
     sub(
-      "^([A-Z][a-z]+)_(?:cf|nr|aff|sp)?_?([a-z]{3,}).*",
+      "^([A-Z][a-z]+)_(?:cf|nr|aff|sp_nr)?_?([a-z]{3,}).*",
       "\\1_\\2",
       x
     )
