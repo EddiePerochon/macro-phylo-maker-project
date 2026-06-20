@@ -8,7 +8,7 @@ This document tracks planned features, improvements, and maintenance tasks.
 
 - [X] Count genera in each tree
 - [X] Find out which genera are missing from species tree with phylogenetic info
-- [ ] Fix issue with grafting dropping tips where species name starts with "sp"
+- [X] Fix issue with grafting dropping tips where species name starts with "sp"
 - [ ] Figure out how to deal with Gaolingidris: In the all-genera grafted tree under seed 42 it is sister to Malagidris within a clade of Malagasy-endemic genera. This seems unlikely. However, grafting it outside of these genera will create inconsistency between species-grafted and genus-grafted trees. Similar situation may br the case with Peronomyrmex being sister to Pristomyrmex. Is that realistic?
 - [ ] Graft missing genera back onto the species tree with phylogenetic info 
 - [ ] Redo Amblyoponinae extraction from Nelsen 2018

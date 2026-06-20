@@ -181,6 +181,29 @@ extract_ingroup_by_anchors <- function(tree, anchors) {
 
 #' Apply grafting plan to a tree from a parameter table
 #'
+#' \strong{Grafting modes}
+#'
+#' The \code{Function} column in the plan controls how taxa are grafted:
+#'
+#' \itemize{
+#'   \item \code{"sister_to_tip"}:
+#'     Attach the new taxon as a sister to a specified tip.
+#'
+#'   \item \code{"sister_to_clade"}:
+#'     Attach the new taxon as sister to a clade defined by one or more tips.
+#'
+#'   \item \code{"within_clade_random"}:
+#'     Insert the new taxon at a random position within a clade,
+#'     optionally constrained by Beta-distributed branch position priors.
+#' }
+#'
+#' \strong{Branch position priors}
+#'
+#' When placing a taxon along a branch, its position is sampled from a
+#' Beta distribution defined by \code{shape1} and \code{shape2},
+#' and constrained to lie between \code{min_frac} and \code{max_frac}
+#' of branch length.
+#'
 #' @param tree A `phylo` object.
 #' @param plan_df Data frame with at least columns: `Function`, `GraftedTip`, `Sister`.
 #' @param default_shape1,default_shape2 Beta-shape parameters for randomization (if used by graft funcs).
@@ -201,7 +224,8 @@ apply_grafts_from_table <- function(tree,
                                     default_include_stem = FALSE,
                                     seed = NULL,
                                     strict = TRUE,
-                                    return_log = TRUE) {
+                                    return_log = TRUE,
+                                    verbose = FALSE) {
   if (!inherits(tree, "phylo")) stop("'tree' must be a phylo.")
   if (!is.null(seed)) set.seed(as.integer(seed))
   plan <- as.data.frame(plan_df, stringsAsFactors = FALSE, check.names = FALSE)
@@ -316,10 +340,12 @@ apply_grafts_from_table <- function(tree,
     age_str <- sprintf("%.6g", meta$attach_age %||% NA_real_)
     drop_str <- if (pre_dropped) " (pre-dropped existing tip)" else ""
     etype <- if (!is.null(res$edge_type) && !is.na(res$edge_type)) paste0(" edge=", res$edge_type) else ""
-    cat(sprintf(
-      "[%d/%d] %s: %s  ⟂  %s  at pos=%s (attach_age=%s)%s%s\n",
-      i, n_total, res$mode_txt, new_label, res$target_txt, pos_str, age_str, etype, drop_str
-    ))
+    if (isTRUE(verbose)) {
+      cat(sprintf(
+        "[%d/%d] %s: %s  ⟂  %s  at pos=%s (attach_age=%s)%s%s\n",
+        i, n_total, res$mode_txt, new_label, res$target_txt, pos_str, age_str, etype, drop_str
+      ))
+    }
 
     log_list[[i]] <- data.frame(
       step = i,
@@ -380,10 +406,10 @@ pipeline_write_outputs <- function(
   pdf_auto = TRUE, plot_cex = 0.4, plot_fn = NULL
 ) {
   if (is.null(out_prefix)) {
-    tree_path <- "ant_clade_chrono_grafted.tre"
-    pdf_path <- "grafted.pdf"
+    tree_path <- "grafted_tree.tre"
+    pdf_path <- "grafted_tree.pdf"
     log_path <- "graft_log.tsv"
-    tips_path <- "genera-on-grafted-tree.txt"
+    tips_path <- "grafted_tree_tips.txt"
   } else {
     tree_path <- paste0(out_prefix, ".tre")
     pdf_path <- paste0(out_prefix, ".pdf")
@@ -449,11 +475,11 @@ pipeline_write_outputs <- function(
 #' )
 #' }
 #' @export
-run_tip_grafting <- function(backbone_path = "FigTree-root-prior-129to158Ma-independent-genus-only.tre",
-                             plan_path = "grafted_genera.tsv",
+run_tip_grafting <- function(backbone_path = NULL,
+                             plan_path = NULL,
                              out_prefix = NULL,
                              seed_mode = "fixed",
-                             ingroup_anchors = c("Martialis", "Camponotus"),
+                             ingroup_anchors = NULL,
                              prefer_tree_index = 2L, # kept for compatibility, ignored
                              drop_tips = NULL,
                              plot_pdf = TRUE,
@@ -518,7 +544,7 @@ run_tip_grafting <- function(backbone_path = "FigTree-root-prior-129to158Ma-inde
 
     # (4) outputs
     suffix <- if (nB > 1) sprintf("__t%02d", b) else ""
-    op <- if (is.null(out_prefix)) paste0("ant_clade_chrono_grafted", suffix) else paste0(out_prefix, suffix)
+    op <- if (is.null(out_prefix)) paste0("grafted", suffix) else paste0(out_prefix, suffix)
 
     pipeline_write_outputs(tree_final, res$log,
       out_prefix = op,

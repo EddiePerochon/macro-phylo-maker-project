@@ -1,0 +1,8 @@
+=== Genus extraction log: clade | 2026-04-29 20:01:04 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+clean: genus_species
+outgroup: sister_one
+seed: 42

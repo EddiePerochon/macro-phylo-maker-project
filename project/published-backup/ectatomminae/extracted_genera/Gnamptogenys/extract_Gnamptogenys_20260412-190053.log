@@ -1,0 +1,27 @@
+=== Genus extraction log: Gnamptogenys | 2026-04-12 19:00:53 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 150
+Ingroup (genus=Gnamptogenys) identified: 31 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Typhlomyrmex_reichenspergeri_GAB79 (min distance=0.093967)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 31
+tips_out (final tree): 32
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Gnamptogenys/extract_Gnamptogenys_20260412-190053_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Gnamptogenys/extract_Gnamptogenys_20260412-190053_renamed.tsv

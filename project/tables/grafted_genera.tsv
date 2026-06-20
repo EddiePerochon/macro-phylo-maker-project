@@ -57,8 +57,8 @@ Myrmicinae	Talaridris	graft sister to tip	Eurhopalothrix	1	1	0.1	0.9	NA	NA	Ward 
 Myrmicinae	Paramycetophylax	graft sister to tip	Cyphomyrmex	1	1	0.8	0.9	NA	NA	Hanish et al (2022)	https://doi.org/10.1093/isd/ixab029
 Myrmicinae	Secostruma	graft sister to tip	Dilobocondyla	1	1	0.1	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
 Myrmicinae	Formosimyrma	graft within clade random	Ocymyrmex,Leptothorax	6	2	0.8	0.9	TRUE	TRUE	Ward et al (2015)	https://doi.org/10.1111/syen.12090
-Myrmicinae	Peronomyrmex	graft within clade random	Ocymyrmex,Leptothorax	6	2	0.1	0.9	TRUE	TRUE	Ward et al (2015)	https://doi.org/10.1111/syen.12090
-Myrmicinae	Gaoligongidris	graft within clade random	Ocymyrmex,Leptothorax	6	2	0.1	0.9	TRUE	TRUE	Ward et al (2015)	https://doi.org/10.1111/syen.12090
+Myrmicinae	Peronomyrmex	graft sister to tip	Podomyrma	1	1	0.1	0.9	NA	NA	Taylor (1970)	NA
+Myrmicinae	Gaoligongidris	graft within clade random	Lasiomyrma,Propodilobus	6	2	0.1	0.9	TRUE	TRUE	Xu (2012)	NA
 Myrmicinae	Rostromyrmex	graft sister to clade	Ocymyrmex,Leptothorax	1	1	0.1	0.9	NA	NA	Blaimer et al (2018)	https://doi.org/10.1093/isd/ixy013
 Myrmicinae	Erromyrma	graft sister to tip	Monomorium	1	1	0.8	0.9	NA	NA	Sparks et al (2019)	https://doi.org/10.1071/IS16080
 Myrmicinae	Epelysidris	graft sister to tip	Erromyrma	1	1	0.8	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090

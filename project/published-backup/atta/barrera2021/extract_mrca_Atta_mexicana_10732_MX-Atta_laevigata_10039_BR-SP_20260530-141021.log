@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-05-30 14:10:21 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 73
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 39
+Outgroup (sister_one): Acromyrmex_octospinosus_1475_PN (min distance=0.334770)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 39
+tips_out (final tree): 40
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/atta/barrera2021/extract_mrca_Atta_mexicana_10732_MX-Atta_laevigata_10039_BR-SP_20260530-141021_with_outgroup.tre

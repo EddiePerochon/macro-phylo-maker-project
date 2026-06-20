@@ -1,0 +1,27 @@
+=== Genus extraction log: Stictoponera | 2026-04-12 19:00:53 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 150
+Ingroup (genus=Stictoponera) identified: 9 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Gnamptogenys_volcano_EX1409 (min distance=0.126648)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 9
+tips_out (final tree): 10
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Stictoponera/extract_Stictoponera_20260412-190053_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Stictoponera/extract_Stictoponera_20260412-190053_renamed.tsv

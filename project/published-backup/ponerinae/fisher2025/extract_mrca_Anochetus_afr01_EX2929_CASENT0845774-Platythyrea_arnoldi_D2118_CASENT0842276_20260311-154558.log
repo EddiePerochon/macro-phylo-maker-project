@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-03-11 15:45:58 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1169
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 1166
+Outgroup (sister_one): Proceratium_google_MAMI0434_CASENT0035028 (min distance=0.307431)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 1166
+tips_out (final tree): 1167
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ponerinae//extract_mrca_Anochetus_afr01_EX2929_CASENT0845774-Platythyrea_arnoldi_D2118_CASENT0842276_20260311-154558_with_outgroup.tre

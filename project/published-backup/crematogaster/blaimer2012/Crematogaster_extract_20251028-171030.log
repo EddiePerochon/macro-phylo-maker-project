@@ -1,0 +1,293 @@
+=== Genus extraction log: Crematogaster | 2025-10-28 17:10:30 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 123 ingroup tip(s) in raw tree.
+Kept 123 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Crematogaster_ortho_TH1 → Crematogaster_ortho
+  KEEP: Crematogaster_reticulata
+  KEEP: Crematogaster_osakensis
+  KEEP: Crematogaster_smithi
+  KEEP: Crematogaster_flavomicrops
+  KEEP: Crematogaster_sumichrasti
+  KEEP: Crematogaster_sordidula
+  KEEP: Crematogaster_binghamii
+  KEEP: Crematogaster_longipilosa
+  KEEP: Crematogaster_aculeata
+  KEEP: Crematogaster_baduvi
+  KEEP: Crematogaster_fritzi
+  KEEP: Crematogaster_cf_gavapiga → Crematogaster_gavapiga
+  KEEP: Crematogaster_rasoherinae
+  KEEP: Crematogaster_quadriformis
+  KEEP: Crematogaster_nigropilosa
+  KEEP: Crematogaster_victima
+  KEEP: Crematogaster_acuta
+  KEEP: Crematogaster_arcuata
+  KEEP: Crematogaster_corvina
+  KEEP: Crematogaster_formosa
+  KEEP: Crematogaster_torosa
+  KEEP: Crematogaster_longispina
+  KEEP: Crematogaster_tenuicula
+  KEEP: Crematogaster_cf_dolens → Crematogaster_dolens
+  KEEP: Crematogaster_ortho_CAR1 → Crematogaster_ortho
+  KEEP: Crematogaster_ortho10_kal → Crematogaster_ortho
+  KEEP: Crematogaster_madecassa
+  KEEP: Crematogaster_telolafy
+  KEEP: Crematogaster_mpanjono
+  KEEP: Crematogaster_volamena
+  KEEP: Crematogaster_mesonotalis
+  KEEP: Crematogaster_paradoxa
+  KEEP: Crematogaster_rhachio_PNG2 → Crematogaster_rhachio
+  KEEP: Crematogaster_emeryi
+  KEEP: Crematogaster_meijerei
+  KEEP: Crematogaster_stadelmanni
+  KEEP: Crematogaster_ranavalonae
+  KEEP: Crematogaster_agnetis
+  KEEP: Crematogaster_aberrans
+  KEEP: Crematogaster_santschii
+  KEEP: Crematogaster_subnuda
+  KEEP: Crematogaster_cf_ferrari → Crematogaster_ferrari
+  KEEP: Crematogaster_fraxatrix
+  KEEP: Crematogaster_ss_TZ2 → Crematogaster_ss
+  KEEP: Crematogaster_deegeri
+  KEEP: Crematogaster_ramamy
+  KEEP: Crematogaster_dentata
+  KEEP: Crematogaster_sewellii
+  KEEP: Crematogaster_malahelo
+  KEEP: Crematogaster_maina
+  KEEP: Crematogaster_dentata2 → Crematogaster_dentata
+  KEEP: Crematogaster_ramamy2 → Crematogaster_ramamy
+  KEEP: Crematogaster_mafybe
+  KEEP: Crematogaster_alafara
+  KEEP: Crematogaster_bara
+  KEEP: Crematogaster_lobata
+  KEEP: Crematogaster_cf_rufigena → Crematogaster_rufigena
+  KEEP: Crematogaster_cf_latuka → Crematogaster_latuka
+  KEEP: Crematogaster_cf_excisa → Crematogaster_excisa
+  KEEP: Crematogaster_castanea
+  KEEP: Crematogaster_flaviventris
+  KEEP: Crematogaster_tricolor
+  KEEP: Crematogaster_gerstaeckeri-group → Crematogaster_gerstaeckeri
+  KEEP: Crematogaster_cf_laeviceps → Crematogaster_laeviceps
+  KEEP: Crematogaster_cf_ochracea → Crematogaster_ochracea
+  KEEP: Crematogaster_flava
+  KEEP: Crematogaster_cf_rogenhoferi → Crematogaster_rogenhoferi
+  KEEP: Crematogaster_cf_cylindriceps → Crematogaster_cylindriceps
+  KEEP: Crematogaster_sagei
+  KEEP: Crematogaster_treubi
+  KEEP: Crematogaster_cf_kojimai → Crematogaster_kojimai
+  KEEP: Crematogaster_irritabilis
+  KEEP: Crematogaster_obnigra
+  KEEP: Crematogaster_ss_AUS3 → Crematogaster_ss
+  KEEP: Crematogaster_ss_AUS2 → Crematogaster_ss
+  KEEP: Crematogaster_cf_bequaerti → Crematogaster_bequaerti
+  KEEP: Crematogaster_cf_luctans → Crematogaster_luctans
+  KEEP: Crematogaster_cf_chlorotica → Crematogaster_chlorotica
+  KEEP: Crematogaster_cf_concava → Crematogaster_concava
+  KEEP: Crematogaster_cf_gabonensis → Crematogaster_gabonensis
+  KEEP: Crematogaster_wellmani
+  KEEP: Crematogaster_cf_desperans → Crematogaster_desperans
+  KEEP: Crematogaster_liengmei
+  KEEP: Crematogaster_malala
+  KEEP: Crematogaster_hova-complex → Crematogaster_hova
+  KEEP: Crematogaster_sabatra
+  KEEP: Crematogaster_mahery
+  KEEP: Crematogaster_nosibeensis
+  KEEP: Crematogaster_grevei
+  KEEP: Crematogaster_sisa
+  KEEP: Crematogaster_lango
+  KEEP: Crematogaster_madagascariensis
+  KEEP: Crematogaster_hazolava
+  KEEP: Crematogaster_kelleri
+  KEEP: Crematogaster_atopo_CAR1 → Crematogaster_atopo
+  KEEP: Crematogaster_cf_buchneri → Crematogaster_buchneri
+  KEEP: Crematogaster_cf_depressa → Crematogaster_depressa
+  KEEP: Crematogaster_tsisitsilo
+  KEEP: Crematogaster_pilosa
+  KEEP: Crematogaster_lineolata
+  KEEP: Crematogaster_coarctata
+  KEEP: Crematogaster_marioni
+  KEEP: Crematogaster_isolata
+  KEEP: Crematogaster_opaca
+  KEEP: Crematogaster_ionia
+  KEEP: Crematogaster_scutellaris
+  KEEP: Crematogaster_rothneyi
+  KEEP: Crematogaster_subcircularis
+  KEEP: Crematogaster_inflata
+  KEEP: Crematogaster_onusta
+  KEEP: Crematogaster_ampullaris
+  KEEP: Crematogaster_modigliani
+  KEEP: Crematogaster_coriaria
+  KEEP: Crematogaster_decamera
+  KEEP: Crematogaster_borneensis
+  KEEP: Crematogaster_fruhstorferi
+  KEEP: Crematogaster_ss_AUS5 → Crematogaster_ss
+  KEEP: Crematogaster_mjobergi
+  KEEP: Crematogaster_abrupta
+  KEEP: Crematogaster_dahlii
+  KEEP: Crematogaster_tetracantha
+  KEEP: Crematogaster_weberi
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 4 ingroup species with duplicate tips.
+Species Crematogaster_dentata: non-monophyletic; retain Crematogaster_dentata (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Crematogaster_ortho: non-monophyletic; retain Crematogaster_ortho (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Crematogaster_ramamy: non-monophyletic; retain Crematogaster_ramamy (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Crematogaster_ss: non-monophyletic; retain Crematogaster_ss (min total patristic distance 0.000000); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 124
+Genus monophyly: TRUE
+Genus MRCA node: 139
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Crematogaster_aberrans
+  KEEP: Crematogaster_abrupta
+  KEEP: Crematogaster_aculeata
+  KEEP: Crematogaster_acuta
+  KEEP: Crematogaster_agnetis
+  KEEP: Crematogaster_alafara
+  KEEP: Crematogaster_ampullaris
+  KEEP: Crematogaster_arcuata
+  KEEP: Crematogaster_atopo
+  KEEP: Crematogaster_baduvi
+  KEEP: Crematogaster_bara
+  KEEP: Crematogaster_bequaerti
+  KEEP: Crematogaster_binghamii
+  KEEP: Crematogaster_borneensis
+  KEEP: Crematogaster_buchneri
+  KEEP: Crematogaster_castanea
+  KEEP: Crematogaster_chlorotica
+  KEEP: Crematogaster_coarctata
+  KEEP: Crematogaster_concava
+  KEEP: Crematogaster_coriaria
+  KEEP: Crematogaster_corvina
+  KEEP: Crematogaster_cylindriceps
+  KEEP: Crematogaster_dahlii
+  KEEP: Crematogaster_decamera
+  KEEP: Crematogaster_deegeri
+  KEEP: Crematogaster_dentata
+  KEEP: Crematogaster_dentata
+  KEEP: Crematogaster_depressa
+  KEEP: Crematogaster_desperans
+  KEEP: Crematogaster_dolens
+  KEEP: Crematogaster_emeryi
+  KEEP: Crematogaster_excisa
+  KEEP: Crematogaster_ferrari
+  KEEP: Crematogaster_flava
+  KEEP: Crematogaster_flaviventris
+  KEEP: Crematogaster_flavomicrops
+  KEEP: Crematogaster_formosa
+  KEEP: Crematogaster_fraxatrix
+  KEEP: Crematogaster_fritzi
+  KEEP: Crematogaster_fruhstorferi
+  KEEP: Crematogaster_gabonensis
+  KEEP: Crematogaster_gavapiga
+  KEEP: Crematogaster_gerstaeckeri
+  KEEP: Crematogaster_grevei
+  KEEP: Crematogaster_hazolava
+  KEEP: Crematogaster_HFmsp10
+  KEEP: Crematogaster_hova
+  KEEP: Crematogaster_inflata
+  KEEP: Crematogaster_ionia
+  KEEP: Crematogaster_irritabilis
+  KEEP: Crematogaster_isolata
+  KEEP: Crematogaster_kelleri
+  KEEP: Crematogaster_kojimai
+  KEEP: Crematogaster_laeviceps
+  KEEP: Crematogaster_lango
+  KEEP: Crematogaster_latuka
+  KEEP: Crematogaster_liengmei
+  KEEP: Crematogaster_lineolata
+  KEEP: Crematogaster_lobata
+  KEEP: Crematogaster_longipilosa
+  KEEP: Crematogaster_longispina
+  KEEP: Crematogaster_luctans
+  KEEP: Crematogaster_madagascariensis
+  KEEP: Crematogaster_madecassa
+  KEEP: Crematogaster_mafybe
+  KEEP: Crematogaster_mahery
+  KEEP: Crematogaster_maina
+  KEEP: Crematogaster_malahelo
+  KEEP: Crematogaster_malala
+  KEEP: Crematogaster_marioni
+  KEEP: Crematogaster_meijerei
+  KEEP: Crematogaster_mesonotalis
+  KEEP: Crematogaster_mjobergi
+  KEEP: Crematogaster_modigliani
+  KEEP: Crematogaster_mpanjono
+  KEEP: Crematogaster_nigropilosa
+  KEEP: Crematogaster_nosibeensis
+  KEEP: Crematogaster_obnigra
+  KEEP: Crematogaster_ochracea
+  KEEP: Crematogaster_onusta
+  KEEP: Crematogaster_opaca
+  KEEP: Crematogaster_ortho
+  KEEP: Crematogaster_ortho
+  KEEP: Crematogaster_ortho
+  KEEP: Crematogaster_osakensis
+  KEEP: Crematogaster_paradoxa
+  KEEP: Crematogaster_pilosa
+  KEEP: Crematogaster_quadriformis
+  KEEP: Crematogaster_ramamy
+  KEEP: Crematogaster_ramamy
+  KEEP: Crematogaster_ranavalonae
+  KEEP: Crematogaster_rasoherinae
+  KEEP: Crematogaster_reticulata
+  KEEP: Crematogaster_rhachio
+  KEEP: Crematogaster_rogenhoferi
+  KEEP: Crematogaster_rothneyi
+  KEEP: Crematogaster_rufigena
+  KEEP: Crematogaster_sabatra
+  KEEP: Crematogaster_sagei
+  KEEP: Crematogaster_santschii
+  KEEP: Crematogaster_scutellaris
+  KEEP: Crematogaster_sewellii
+  KEEP: Crematogaster_sisa
+  KEEP: Crematogaster_smithi
+  KEEP: Crematogaster_sordidula
+  KEEP: Crematogaster_ss
+  KEEP: Crematogaster_ss
+  KEEP: Crematogaster_ss
+  KEEP: Crematogaster_ss
+  KEEP: Crematogaster_stadelmanni
+  KEEP: Crematogaster_subcircularis
+  KEEP: Crematogaster_subnuda
+  KEEP: Crematogaster_sumichrasti
+  KEEP: Crematogaster_telolafy
+  KEEP: Crematogaster_tenuicula
+  KEEP: Crematogaster_tetracantha
+  KEEP: Crematogaster_torosa
+  KEEP: Crematogaster_treubi
+  KEEP: Crematogaster_tricolor
+  KEEP: Crematogaster_tsisitsilo
+  KEEP: Crematogaster_victima
+  KEEP: Crematogaster_volamena
+  KEEP: Crematogaster_weberi
+  KEEP: Crematogaster_wellmani
+Total retained genus tips: 124
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Metapone_madagascarica (only candidate).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Crematogaster_with_outgroup.tre
+Outgroup in output: Metapone_madagascarica
+Genus tips in output: 118

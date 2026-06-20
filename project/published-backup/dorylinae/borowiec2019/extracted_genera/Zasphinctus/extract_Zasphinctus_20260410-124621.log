@@ -1,0 +1,27 @@
+=== Genus extraction log: Zasphinctus | 2026-04-10 12:46:21 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 154
+Ingroup (genus=Zasphinctus) identified: 6 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Parasyscia_VN_M207 (min distance=104.974530)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 6
+tips_out (final tree): 7
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Zasphinctus/extract_Zasphinctus_20260410-124621_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Zasphinctus/extract_Zasphinctus_20260410-124621_renamed.tsv

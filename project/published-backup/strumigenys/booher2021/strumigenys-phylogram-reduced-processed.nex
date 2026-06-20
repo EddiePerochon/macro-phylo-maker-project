@@ -1,0 +1,234 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=132;
+	taxlabels
+	Pheidole_fervens[&displayname="Pheidole fervens ",displayname2="Pheidole.fervens | NA | NA | NA"]
+	Pheidole_megacephala[&displayname="Pheidole megacephala",displayname2="Pheidole.megacephala | NA | NA | NA"]
+	Pheidole_wilsoni[&displayname="Pheidole wilsoni",displayname2="Pheidole.wilsoni | NA | NA | NA"]
+	Pilotrochus_besmerus[&displayname="Pilotrochus besmerus",displayname2="Pilotrochus.besmerus | NA | NA | NA"]
+	Strumigenys_DBB001[&!color=#828582,displayname="DBB001 | GRP | no lock | Afrotropical",displayname2="DBB001 | GRP | no lock | Afrotropical",displayname_country="DBB001 | GRP | no lock | Uganda"]
+	Strumigenys_DBB003[&!color=#828582,displayname="DBB003 | GRP | no lock | Oceanian",displayname2="DBB003 | GRP | no lock | Oceanian",displayname_country="DBB003 | GRP | no lock | Australia"]
+	Strumigenys_DBB025[&!color=#828582,displayname="DBB025 | GRP | no lock | Madagascan",displayname2="DBB025 | GRP | no lock | Madagascan",displayname_country="DBB025 | GRP | no lock | Madagascar"]
+	Strumigenys_DBB032[&!color=#828582,displayname="DBB032 | GRP | no lock | Asian",displayname2="DBB032 | GRP | no lock | Asian",displayname_country="DBB032 | GRP | no lock | Thailand"]
+	Strumigenys_DBB045[&!color=#c70c0f,displayname="DBB045 | LPAM | wide lock | Oceanian",displayname2="DBB045 | LPAM | wide lock | Oceanian",displayname_country="DBB045 | LPAM | wide lock | Papua New Guinea"]
+	Strumigenys_DBB087[&!color=#c70c0f,displayname="DBB087 | LPAM | wide lock | Asian",displayname2="DBB087 | LPAM | wide lock | Asian",displayname_country="DBB087 | LPAM | wide lock | China"]
+	Strumigenys_DBB121[&!color=#c70c0f,displayname="DBB121 | LPAM | wide lock | Oceanian",displayname2="DBB121 | LPAM | wide lock | Oceanian",displayname_country="DBB121 | LPAM | wide lock | Papua New Guinea"]
+	Strumigenys_DBB144[&!color=#828582,displayname="DBB144 | GRP | no lock | Madagascan",displayname2="DBB144 | GRP | no lock | Madagascan",displayname_country="DBB144 | GRP | no lock | Madagascar"]
+	Strumigenys_DBB145[&!color=#828582,displayname="DBB145 | GRP | no lock | Madagascan",displayname2="DBB145 | GRP | no lock | Madagascan",displayname_country="DBB145 | GRP | no lock | Madagascar"]
+	Strumigenys_aechme[&!color=#ffaf0f,displayname="aechme | SPAM | wide lock | Asian",displayname2="aechme | SPAM | wide lock | Asian",displayname_country="aechme | SPAM | wide lock | Malaysia"]
+	Strumigenys_alberti[&!color=#828582,displayname="alberti | GRP | no lock | Neotropical",displayname2="alberti | GRP | no lock | Neotropical",displayname_country="alberti | GRP | no lock | Guatemala"]
+	Strumigenys_amnesia[&!color=#c70c0f,displayname="amnesia | LPAM | wide lock | Asian",displayname2="amnesia | LPAM | wide lock | Asian",displayname_country="amnesia | LPAM | wide lock | Thailand"]
+	Strumigenys_anetes[&!color=#c70c0f,displayname="anetes | LPAM | wide lock | Oceanian",displayname2="anetes | LPAM | wide lock | Oceanian",displayname_country="anetes | LPAM | wide lock | Australia"]
+	Strumigenys_anorbicula[&!color=#828582,displayname="anorbicula | GRP | no lock | Afrotropical",displayname2="anorbicula | GRP | no lock | Afrotropical",displayname_country="anorbicula | GRP | no lock | Gabon"]
+	Strumigenys_apios[&!color=#c70c0f,displayname="apios | LPAM | wide lock | Madagascan",displayname2="apios | LPAM | wide lock | Madagascan",displayname_country="apios | LPAM | wide lock | Madagascar"]
+	Strumigenys_arizonica[&!color=#828582,displayname="arizonica | GRP | no lock | Nearctic",displayname2="arizonica | GRP | no lock | Nearctic",displayname_country="arizonica | GRP | no lock | United States"]
+	Strumigenys_arrogantia[&!color=#ffaf0f,displayname="arrogantia | SPAM | wide lock | Asian",displayname2="arrogantia | SPAM | wide lock | Asian",displayname_country="arrogantia | SPAM | wide lock | Philippines"]
+	Strumigenys_azteca[&!color=#ffaf0f,displayname="azteca | SPAM | interm. lock | Neotropical",displayname2="azteca | SPAM | interm. lock | Neotropical",displayname_country="azteca | SPAM | interm. lock | Honduras"]
+	Strumigenys_beebei[&!color=#ffaf0f,displayname="beebei | SPAM | interm. lock | Neotropical",displayname2="beebei | SPAM | interm. lock | Neotropical",displayname_country="beebei | SPAM | interm. lock | Peru"]
+	Strumigenys_bibiolona[&!color=#c70c0f,displayname="bibiolona | LPAM | wide lock | Madagascan",displayname2="bibiolona | LPAM | wide lock | Madagascan",displayname_country="bibiolona | LPAM | wide lock | Madagascar"]
+	Strumigenys_biolleyi[&!color=#c70c0f,displayname="biolleyi | LPAM | wide lock | Neotropical",displayname2="biolleyi | LPAM | wide lock | Neotropical",displayname_country="biolleyi | LPAM | wide lock | Nicaragua"]
+	'Strumigenys.brevicornis_complex'[&!color=#c70c0f,displayname2="brevicornis | LPAM | interm. lock | Neotropical",displayname_country="brevicornis | LPAM | interm. lock | Honduras"]
+	Strumigenys_buleru[&!color=#c70c0f,displayname="buleru | LPAM | wide lock | Oceanian",displayname2="buleru | LPAM | wide lock | Oceanian",displayname_country="buleru | LPAM | wide lock | Australia"]
+	Strumigenys_bunki[&!color=#828582,displayname="bunki | GRP | no lock | Nearctic",displayname2="bunki | GRP | no lock | Nearctic",displayname_country="bunki | GRP | no lock | United States"]
+	Strumigenys_cabira[&!color=#c70c0f,displayname="cabira | LPAM | wide lock | Madagascan",displayname2="cabira | LPAM | wide lock | Madagascan",displayname_country="cabira | LPAM | wide lock | Madagascar"]
+	Strumigenys_cacaoensis[&!color=#c70c0f,displayname="cacaoensis | LPAM | wide lock | Afrotropical",displayname2="cacaoensis | LPAM | wide lock | Afrotropical",displayname_country="cacaoensis | LPAM | wide lock | Gabon"]
+	Strumigenys_canina[&!color=#828582,displayname="canina | GRP | no lock | Asian",displayname2="canina | GRP | no lock | Asian",displayname_country="canina | GRP | no lock | Japan"]
+	Strumigenys_cassicuspis[&!color=#828582,displayname="cassicuspis | GRP | PotentialContact | Neotropical",displayname2="cassicuspis | GRP | no lock | Neotropical",displayname_country="cassicuspis | GRP | no lock | Guatemala"]
+	Strumigenys_cavinasis[&!color=#ffaf0f,displayname="cavinasis | SPAM | parallel lock | Afrotropical",displayname2="cavinasis | SPAM | parallel lock | Afrotropical",displayname_country="cavinasis | SPAM | parallel lock | Kenya"]
+	Strumigenys_chilo[&!color=#c70c0f,displayname="chilo | LPAM | wide lock | Madagascan",displayname2="chilo | LPAM | wide lock | Madagascan",displayname_country="chilo | LPAM | wide lock | Madagascar"]
+	Strumigenys_cincinnata[&!color=#ffaf0f,displayname="cincinnata | SPAM | parallel lock | Neotropical",displayname2="cincinnata | SPAM | parallel lock | Neotropical",displayname_country="cincinnata | SPAM | parallel lock | Suriname"]
+	Strumigenys_cordovensis[&!color=#c70c0f,displayname="cordovensis | LPAM | wide lock | Neotropical",displayname2="cordovensis | LPAM | wide lock | Neotropical",displayname_country="cordovensis | LPAM | wide lock | Trinidad and Tobago"]
+	Strumigenys_coveri[&!color=#ffaf0f,displayname="coveri | SPAM | interm. lock | Madagascan",displayname2="coveri | SPAM | interm. lock | Madagascan",displayname_country="coveri | SPAM | interm. lock | Madagascar"]
+	Strumigenys_denticulata[&!color=#c70c0f,displayname="denticulata | LPAM | interm. lock | Neotropical",displayname2="denticulata | LPAM | interm. lock | Neotropical",displayname_country="denticulata | LPAM | interm. lock | Guyana"]
+	Strumigenys_depressiceps[&!color=#828582,displayname="depressiceps | GRP | no lock | Neotropical",displayname2="depressiceps | GRP | no lock | Neotropical",displayname_country="depressiceps | GRP | no lock | Honduras"]
+	Strumigenys_dexis[&!color=#ffaf0f,displayname="dexis | SPAM | interm. lock | Madagascan",displayname2="dexis | SPAM | interm. lock | Madagascan",displayname_country="dexis | SPAM | interm. lock | Madagascar"]
+	Strumigenys_dextra[&!color=#c70c0f,displayname="dextra | LPAM | wide lock | Afrotropical",displayname2="dextra | LPAM | wide lock | Afrotropical",displayname_country="dextra | LPAM | wide lock | Gabon"]
+	Strumigenys_dicomas[&!color=#c70c0f,displayname="dicomas | LPAM | wide lock | Madagascan",displayname2="dicomas | LPAM | wide lock | Madagascan",displayname_country="dicomas | LPAM | wide lock | Madagascar"]
+	Strumigenys_disjuncta[&!color=#828582,displayname="disjuncta | GRP | no lock | Asian",displayname2="disjuncta | GRP | no lock | Asian",displayname_country="disjuncta | GRP | no lock | Malaysia"]
+	Strumigenys_dora[&!color=#c70c0f,displayname="dora | LPAM | wide lock | Madagascan",displayname2="dora | LPAM | wide lock | Madagascan",displayname_country="dora | LPAM | wide lock | Madagascar"]
+	Strumigenys_ekasura[&!color=#c70c0f,displayname="ekasura | LPAM | wide lock | Oceanian",displayname2="ekasura | LPAM | wide lock | Oceanian",displayname_country="ekasura | LPAM | wide lock | Fiji"]
+	Strumigenys_elongata[&!color=#c70c0f,displayname="elongata | LPAM | wide lock | Neotropical",displayname2="elongata | LPAM | wide lock | Neotropical",displayname_country="elongata | LPAM | wide lock | Nicaragua"]
+	Strumigenys_epinotalis[&!color=#828582,displayname="epinotalis | GRP | no lock | Neotropical",displayname2="epinotalis | GRP | no lock | Neotropical",displayname_country="epinotalis | GRP | no lock | United States"]
+	Strumigenys_epulo[&!color=#c70c0f,displayname="epulo | LPAM | wide lock | Madagascan",displayname2="epulo | LPAM | wide lock | Madagascan",displayname_country="epulo | LPAM | wide lock | Madagascar"]
+	Strumigenys_erynnes[&!color=#828582,displayname="erynnes | GRP | no lock | Madagascan",displayname2="erynnes | GRP | no lock | Madagascan",displayname_country="erynnes | GRP | no lock | Madagascar"]
+	Strumigenys_ettillax[&!color=#c70c0f,displayname="ettillax | LPAM | wide lock | Afrotropical",displayname2="ettillax | LPAM | wide lock | Afrotropical",displayname_country="ettillax | LPAM | wide lock | Central African Republic"]
+	Strumigenys_exiguaevitae[&!color=#828582,displayname="exiguaevitae | GRP | no lock | Madagascan",displayname2="exiguaevitae | GRP | no lock | Madagascan",displayname_country="exiguaevitae | GRP | no lock | Madagascar"]
+	Strumigenys_exilirhina[&!color=#c70c0f,displayname="exilirhina | LPAM | wide lock | Asian",displayname2="exilirhina | LPAM | wide lock | Asian",displayname_country="exilirhina | LPAM | wide lock | Myanmar"]
+	Strumigenys_ferocior[&!color=#c70c0f,displayname="ferocior | LPAM | wide lock | Oceanian",displayname2="ferocior | LPAM | wide lock | Oceanian",displayname_country="ferocior | LPAM | wide lock | Australia"]
+	Strumigenys_geoterra[&!color=#828582,displayname="geoterra | GRP | no lock | Afrotropical",displayname2="geoterra | GRP | no lock | Afrotropical",displayname_country="geoterra | GRP | no lock | Kenya"]
+	Strumigenys_glenognatha[&!color=#ffaf0f,displayname="glenognatha | SPAM | interm. lock | Neotropical",displayname2="glenognatha | SPAM | interm. lock | Neotropical",displayname_country="glenognatha | SPAM | interm. lock | Guyana"]
+	Strumigenys_gloriosa[&!color=#c70c0f,displayname="gloriosa | LPAM | wide lock | Asian",displayname2="gloriosa | LPAM | wide lock | Asian",displayname_country="gloriosa | LPAM | wide lock | Malaysia"]
+	Strumigenys_godeffroyi[&!color=#c70c0f,displayname="godeffroyi | LPAM | wide lock | Asian",displayname2="godeffroyi | LPAM | wide lock | Asian",displayname_country="godeffroyi | LPAM | wide lock | Malaysia"]
+	Strumigenys_grandidieri[&!color=#c70c0f,displayname="grandidieri | LPAM | wide lock | Madagascan",displayname2="grandidieri | LPAM | wide lock | Madagascan",displayname_country="grandidieri | LPAM | wide lock | Madagascar"]
+	Strumigenys_gundlachi[&!color=#c70c0f,displayname="gundlachi | LPAM | interm. lock | Neotropical",displayname2="gundlachi | LPAM | interm. lock | Neotropical",displayname_country="gundlachi | LPAM | interm. lock | United States"]
+	Strumigenys_hensekta[&!color=#ffaf0f,displayname="hensekta | SPAM | parallel lock | Afrotropical",displayname2="hensekta | SPAM | parallel lock | Afrotropical",displayname_country="hensekta | SPAM | parallel lock | Kenya"]
+	Strumigenys_hilaris[&!color=#c70c0f,displayname="hilaris | LPAM | wide lock | Madagascan",displayname2="hilaris | LPAM | wide lock | Madagascan",displayname_country="hilaris | LPAM | wide lock | Madagascar"]
+	Strumigenys_hoplites[&!color=#c70c0f,displayname="hoplites | LPAM | wide lock | Oceanian",displayname2="hoplites | LPAM | wide lock | Oceanian",displayname_country="hoplites | LPAM | wide lock | Papua New Guinea"]
+	Strumigenys_irrorata[&!color=#c70c0f,displayname="irrorata | LPAM | wide lock | Afrotropical",displayname2="irrorata | LPAM | wide lock | Afrotropical",displayname_country="irrorata | LPAM | wide lock | South Africa"]
+	Strumigenys_khakaura[&!color=#828582,displayname="khakaura | GRP | no lock | Madagascan",displayname2="khakaura | GRP | no lock | Madagascan",displayname_country="khakaura | GRP | no lock | Madagascar"]
+	Strumigenys_kichijo[&!color=#828582,displayname="kichijo | GRP | no lock | Asian",displayname2="kichijo | GRP | no lock | Asian",displayname_country="kichijo | GRP | no lock | Thailand"]
+	Strumigenys_kraepelini[&!color=#c70c0f,displayname="kraepelini | LPAM | wide lock | Asian",displayname2="kraepelini | LPAM | wide lock | Asian",displayname_country="kraepelini | LPAM | wide lock | Malaysia"]
+	Strumigenys_kumadori[&!color=#c70c0f,displayname="kumadori | LPAM | wide lock | Asian",displayname2="kumadori | LPAM | wide lock | Asian",displayname_country="kumadori | LPAM | wide lock | Japan"]
+	Strumigenys_lalassa[&!color=#c70c0f,displayname="lalassa | LPAM | interm. lock | Neotropical",displayname2="lalassa | LPAM | interm. lock | Neotropical",displayname_country="lalassa | LPAM | interm. lock | Costa Rica"]
+	Strumigenys_langrandi[&!color=#c70c0f,displayname="langrandi | LPAM | wide lock | Madagascan",displayname2="langrandi | LPAM | wide lock | Madagascan",displayname_country="langrandi | LPAM | wide lock | Madagascar"]
+	Strumigenys_lanuginosa[&!color=#c70c0f,displayname="lanuginosa | LPAM | wide lock | Neotropical",displayname2="lanuginosa | LPAM | wide lock | Neotropical",displayname_country="lanuginosa | LPAM | wide lock | Guatemala"]
+	Strumigenys_laticeps[&!color=#828582,displayname="laticeps | GRP | no lock | Afrotropical",displayname2="laticeps | GRP | no lock | Afrotropical",displayname_country="laticeps | GRP | no lock | Cameroon"]
+	Strumigenys_lexex[&!color=#c70c0f,displayname="lexex | LPAM | wide lock | Madagascan",displayname2="lexex | LPAM | wide lock | Madagascan",displayname_country="lexex | LPAM | wide lock | Madagascar"]
+	Strumigenys_longinoi[&!color=#ffaf0f,displayname="longinoi | SPAM | interm. lock | Neotropical",displayname2="longinoi | SPAM | interm. lock | Neotropical",displayname_country="longinoi | SPAM | interm. lock | Costa Rica"]
+	Strumigenys_louisianae[&!color=#c70c0f,displayname="louisianae | LPAM | wide lock | Neotropical",displayname2="louisianae | LPAM | wide lock | Neotropical",displayname_country="louisianae | LPAM | wide lock | United States"]
+	Strumigenys_lucomo[&!color=#c70c0f,displayname="lucomo | LPAM | wide lock | Madagascan",displayname2="lucomo | LPAM | wide lock | Madagascan",displayname_country="lucomo | LPAM | wide lock | Madagascar"]
+	Strumigenys_lujae[&!color=#828582,displayname="lujae | GRP | no lock | Afrotropical",displayname2="lujae | GRP | no lock | Afrotropical",displayname_country="lujae | GRP | no lock | "]
+	Strumigenys_marchosias[&!color=#828582,displayname="marchosias | GRP | no lock | Afrotropical",displayname2="marchosias | GRP | no lock | Afrotropical",displayname_country="marchosias | GRP | no lock | Central African Republic"]
+	Strumigenys_margaritae[&!color=#828582,displayname="margaritae | GRP | no lock | Neotropical",displayname2="margaritae | GRP | no lock | Neotropical",displayname_country="margaritae | GRP | no lock | Mexico"]
+	Strumigenys_marginiventris[&!color=#c70c0f,displayname="marginiventris | LPAM | wide lock | Neotropical",displayname2="marginiventris | LPAM | wide lock | Neotropical",displayname_country="marginiventris | LPAM | wide lock | Colombia"]
+	Strumigenys_maxillaris[&!color=#828582,displayname="maxillaris | GRP | no lock | Afrotropical",displayname2="maxillaris | GRP | no lock | Afrotropical",displayname_country="maxillaris | GRP | no lock | Madagascar"]
+	Strumigenys_microthrix[&!color=#828582,displayname="microthrix | GRP | PotentialContact | Neotropical",displayname2="microthrix | GRP | no lock | Neotropical",displayname_country="microthrix | GRP | no lock | Costa Rica"]
+	Strumigenys_milae[&!color=#c70c0f,displayname="milae | LPAM | wide lock | Madagascan",displayname2="milae | LPAM | wide lock | Madagascan",displayname_country="milae | LPAM | wide lock | Madagascar"]
+	Strumigenys_minax[&!color=#c70c0f,displayname="minax | LPAM | wide lock | Oceanian",displayname2="minax | LPAM | wide lock | Oceanian",displayname_country="minax | LPAM | wide lock | Australia"]
+	Strumigenys_minkara[&!color=#ffaf0f,displayname="minkara | SPAM | parallel lock | Afrotropical",displayname2="minkara | SPAM | parallel lock | Afrotropical",displayname_country="minkara | SPAM | parallel lock | Kenya"]
+	Strumigenys_mirifica[&!color=#c70c0f,displayname="mirifica | LPAM | wide lock | Asian",displayname2="mirifica | LPAM | wide lock | Asian",displayname_country="mirifica | LPAM | wide lock | Philippines"]
+	Strumigenys_mitis[&!color=#828582,displayname="mitis | GRP | no lock | Asian",displayname2="mitis | GRP | no lock | Asian",displayname_country="mitis | GRP | no lock | Malaysia"]
+	Strumigenys_mjoebergi[&!color=#c70c0f,displayname="mjoebergi | LPAM | wide lock | Asian",displayname2="mjoebergi | LPAM | wide lock | Asian",displayname_country="mjoebergi | LPAM | wide lock | Malaysia"]
+	Strumigenys_mormo[&!color=#828582,displayname="mormo | GRP | no lock | Afrotropical",displayname2="mormo | GRP | no lock | Afrotropical",displayname_country="mormo | GRP | no lock | Gabon"]
+	Strumigenys_nepalensis[&!color=#828582,displayname="nepalensis | GRP | no lock | Asian",displayname2="nepalensis | GRP | no lock | Asian",displayname_country="nepalensis | GRP | no lock | Thailand"]
+	Strumigenys_nidifex[&!color=#c70c0f,displayname="nidifex | LPAM | wide lock | Oceanian",displayname2="nidifex | LPAM | wide lock | Oceanian",displayname_country="nidifex | LPAM | wide lock | Fiji"]
+	Strumigenys_nigrescens[&!color=#828582,displayname="nigrescens | GRP | no lock | Neotropical",displayname2="nigrescens | GRP | no lock | Neotropical",displayname_country="nigrescens | GRP | no lock | Guatemala"]
+	Strumigenys_ninda[&!color=#828582,displayname="ninda | GRP | no lock | Afrotropical",displayname2="ninda | GRP | no lock | Afrotropical",displayname_country="ninda | GRP | no lock | Gabon"]
+	Strumigenys_norax[&!color=#c70c0f,displayname="norax | LPAM | wide lock | Madagascan",displayname2="norax | LPAM | wide lock | Madagascan",displayname_country="norax | LPAM | wide lock | Madagascar"]
+	Strumigenys_opaca[&!color=#c70c0f,displayname="opaca | LPAM | wide lock | Oceanian",displayname2="opaca | LPAM | wide lock | Oceanian",displayname_country="opaca | LPAM | wide lock | Australia"]
+	Strumigenys_orthanetes[&!color=#c70c0f,displayname="orthanetes | LPAM | wide lock | Oceanian",displayname2="orthanetes | LPAM | wide lock | Oceanian",displayname_country="orthanetes | LPAM | wide lock | Australia"]
+	Strumigenys_ortholex[&!color=#c70c0f,displayname="ortholex | LPAM | wide lock | Oceanian",displayname2="ortholex | LPAM | wide lock | Oceanian",displayname_country="ortholex | LPAM | wide lock | Papua New Guinea"]
+	Strumigenys_paranax[&!color=#c70c0f,displayname="paranax | LPAM | wide lock | Afrotropical",displayname2="paranax | LPAM | wide lock | Afrotropical",displayname_country="paranax | LPAM | wide lock | Gabon"]
+	Strumigenys_perparva[&!color=#c70c0f,displayname="perparva | LPAM | wide lock | Neotropical",displayname2="perparva | LPAM | wide lock | Neotropical",displayname_country="perparva | LPAM | wide lock | Trinidad and Tobago"]
+	Strumigenys_petiolata[&!color=#c70c0f,displayname="petiolata | LPAM | wide lock | Afrotropical",displayname2="petiolata | LPAM | wide lock | Afrotropical",displayname_country="petiolata | LPAM | wide lock | Cameroon"]
+	Strumigenys_probatrix[&!color=#828582,displayname="probatrix | GRP | PotentialContact | Neotropical",displayname2="probatrix | GRP | no lock | Neotropical",displayname_country="probatrix | GRP | no lock | Nicaragua"]
+	Strumigenys_radix[&!color=#c70c0f,displayname="radix | LPAM | wide lock | Oceanian",displayname2="radix | LPAM | wide lock | Oceanian",displayname_country="radix | LPAM | wide lock | Australia"]
+	Strumigenys_ravidura[&!color=#ffaf0f,displayname="ravidura | SPAM | interm. lock | Afrotropical",displayname2="ravidura | SPAM | interm. lock | Afrotropical",displayname_country="ravidura | SPAM | interm. lock | Gabon"]
+	Strumigenys_rofocala[&!color=#c70c0f,displayname="rofocala | LPAM | wide lock | Asian",displayname2="rofocala | LPAM | wide lock | Asian",displayname_country="rofocala | LPAM | wide lock | Malaysia"]
+	Strumigenys_rogata[&!color=#ffaf0f,displayname="rogata | SPAM | interm. lock | Neotropical",displayname2="rogata | SPAM | interm. lock | Neotropical",displayname_country="rogata | SPAM | interm. lock | Nicaragua"]
+	Strumigenys_rostrata[&!color=#828582,displayname="rostrata | GRP | no lock | Nearctic",displayname2="rostrata | GRP | no lock | Nearctic",displayname_country="rostrata | GRP | no lock | United States"]
+	Strumigenys_rotogenys[&!color=#c70c0f,displayname="rotogenys | LPAM | wide lock | Asian",displayname2="rotogenys | LPAM | wide lock | Asian",displayname_country="rotogenys | LPAM | wide lock | Malaysia"]
+	Strumigenys_semicompta[&!color=#ffaf0f,displayname="semicompta | SPAM | interm. lock | Oceanian",displayname2="semicompta | SPAM | interm. lock | Oceanian",displayname_country="semicompta | SPAM | interm. lock | Australia"]
+	Strumigenys_serket[&!color=#828582,displayname="serket | GRP | no lock | Madagascan",displayname2="serket | GRP | no lock | Madagascan",displayname_country="serket | GRP | no lock | Madagascar"]
+	Strumigenys_serrula[&!color=#828582,displayname="serrula | GRP | no lock | Afrotropical",displayname2="serrula | GRP | no lock | Afrotropical",displayname_country="serrula | GRP | no lock | Gabon"]
+	Strumigenys_seti[&!color=#828582,displayname="seti | GRP | no lock | Madagascan",displayname2="seti | GRP | no lock | Madagascan",displayname_country="seti | GRP | no lock | Madagascar"]
+	Strumigenys_sharra[&!color=#ffaf0f,displayname="sharra | SPAM | parallel lock | Afrotropical",displayname2="sharra | SPAM | parallel lock | Afrotropical",displayname_country="sharra | SPAM | parallel lock | Central African Republic"]
+	Strumigenys_sibyna[&!color=#c70c0f,displayname="sibyna | LPAM | wide lock | Afrotropical",displayname2="sibyna | LPAM | wide lock | Afrotropical",displayname_country="sibyna | LPAM | wide lock | Sao Tome and Principe"]
+	Strumigenys_sistrura[&!color=#ffaf0f,displayname="sistrura | SPAM | interm. lock | Afrotropical",displayname2="sistrura | SPAM | interm. lock | Afrotropical",displayname_country="sistrura | SPAM | interm. lock | Gabon"]
+	Strumigenys_spathoda[&!color=#c70c0f,displayname="spathoda | LPAM | wide lock | Afrotropical",displayname2="spathoda | LPAM | wide lock | Afrotropical",displayname_country="spathoda | LPAM | wide lock | Gabon"]
+	Strumigenys_sphera[&!color=#c70c0f,displayname="sphera | LPAM | wide lock | Madagascan",displayname2="sphera | LPAM | wide lock | Madagascan",displayname_country="sphera | LPAM | wide lock | Madagascar"]
+	Strumigenys_subedentata[&!color=#c70c0f,displayname="subedentata | LPAM | interm. lock | Neotropical",displayname2="subedentata | LPAM | interm. lock | Neotropical",displayname_country="subedentata | LPAM | interm. lock | Honduras"]
+	Strumigenys_sublaminata[&!color=#c70c0f,displayname="sublaminata | LPAM | wide lock | Asian",displayname2="sublaminata | LPAM | wide lock | Asian",displayname_country="sublaminata | LPAM | wide lock | Malaysia"]
+	Strumigenys_symmetrix[&!color=#828582,displayname="symmetrix | GRP | no lock | Madagascan",displayname2="symmetrix | GRP | no lock | Madagascan",displayname_country="symmetrix | GRP | no lock | Madagascar"]
+	Strumigenys_synkara[&!color=#ffaf0f,displayname="synkara | SPAM | parallel lock | Afrotropical",displayname2="synkara | SPAM | parallel lock | Afrotropical",displayname_country="synkara | SPAM | parallel lock | Gabon"]
+	Strumigenys_tacta[&!color=#828582,displayname="tacta | GRP | no lock | Afrotropical",displayname2="tacta | GRP | no lock | Afrotropical",displayname_country="tacta | GRP | no lock | Cameroon"]
+	Strumigenys_tathula[&!color=#828582,displayname="tathula | GRP | no lock | Madagascan",displayname2="tathula | GRP | no lock | Madagascan",displayname_country="tathula | GRP | no lock | Madagascar"]
+	Strumigenys_tetragnatha[&!color=#ffaf0f,displayname="tetragnatha | SPAM | interm. lock | Afrotropical",displayname2="tetragnatha | SPAM | interm. lock | Afrotropical",displayname_country="tetragnatha | SPAM | interm. lock | Cameroon"]
+	Strumigenys_tetraphanes[&!color=#c70c0f,displayname="tetraphanes | LPAM | wide lock | Afrotropical",displayname2="tetraphanes | LPAM | wide lock | Afrotropical",displayname_country="tetraphanes | LPAM | wide lock | Uganda"]
+	Strumigenys_themis[&!color=#828582,displayname="themis | GRP | no lock | Oceanian",displayname2="themis | GRP | no lock | Oceanian",displayname_country="themis | GRP | no lock | Papua New Guinea"]
+	Strumigenys_tigrilla[&!color=#828582,displayname="tigrilla | GRP | no lock | Afrotropical",displayname2="tigrilla | GRP | no lock | Afrotropical",displayname_country="tigrilla | GRP | no lock | Central African Republic"]
+	Strumigenys_tococae[&!color=#c70c0f,displayname="tococae | LPAM | wide lock | Neotropical",displayname2="tococae | LPAM | wide lock | Neotropical",displayname_country="tococae | LPAM | wide lock | French Guiana"]
+	Strumigenys_truncatidens[&!color=#ffaf0f,displayname="truncatidens | SPAM | parallel lock | Afrotropical",displayname2="truncatidens | SPAM | parallel lock | Afrotropical",displayname_country="truncatidens | SPAM | parallel lock | Cameroon"]
+	Strumigenys_victrix[&!color=#828582,displayname="victrix | GRP | no lock | Madagascan",displayname2="victrix | GRP | no lock | Madagascan",displayname_country="victrix | GRP | no lock | Madagascar"]
+	Tetramorium_bicarinatum[&displayname="Tetramorium.bicarinatum",displayname2="Tetramorium.bicarinatum | NA | NA | NA"]
+	Tetramorium_insolens[&displayname="Tetramorium.insolens",displayname2="Tetramorium.insolens | NA | NA | NA"]
+	Tetramorium_nipponense[&displayname="Tetramorium.nipponense",displayname2="Tetramorium.nipponense | NA | NA | NA"]
+	Tetramorium_termitobium[&displayname="Tetramorium.termitobium",displayname2="Tetramorium.termitobium | NA | NA | NA"]
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (Strumigenys_anorbicula:0.003735,((Strumigenys_laticeps:0.018391,(((Strumigenys_tathula:0.006611,Strumigenys_erynnes:0.005686)[&support="100|1"]:0.014784,((Strumigenys_serrula:0.007706,Strumigenys_lujae:0.009051)[&support="100|1"]:0.006077,Strumigenys_geoterra:0.016757)[&support="100|1"]:0.006081)[&support="100|1"]:0.006635,(((((((Strumigenys_synkara:0.002997,Strumigenys_minkara:0.003474)[&support="100|1"]:0.012607,(((Strumigenys_sharra:0.005094,Strumigenys_cavinasis:0.005413)[&support="100|1"]:0.007835,Strumigenys_hensekta:0.016808)[&support="89|0.94"]:4.14E-4,Strumigenys_truncatidens:0.00876)[&support="100|1"]:0.002161)[&support="100|1"]:0.006226,(Strumigenys_tigrilla:0.011104,(Strumigenys_maxillaris:0.006059,Strumigenys_ninda:0.003687)[&support="100|1"]:0.007989)[&support="100|1"]:0.008572)[&support="100|1"]:0.001945,(Strumigenys_DBB001:0.020107,((Strumigenys_tacta:0.016992,Strumigenys_khakaura:0.019259)[&support="100|1"]:0.007067,(Strumigenys_tetragnatha:0.018937,(Strumigenys_sistrura:0.014461,Strumigenys_ravidura:0.015642)[&support="100|1"]:0.003204)[&support="100|1"]:0.007082)[&support="100|1"]:0.001897)[&support="68|0.94"]:2.19E-4)[&support="85|0.99"]:6.45E-4,(((Strumigenys_DBB144:0.003685,(Strumigenys_DBB145:0.002356,(Strumigenys_DBB025:0.002326,Strumigenys_seti:0.002976)[&support="76|0.76"]:5.47E-4)[&support="99|1"]:6.52E-4)[&support="100|1"]:7.28E-4,(Strumigenys_serket:0.001169,Strumigenys_exiguaevitae:0.001715)[&support="100|1"]:0.002657)[&support="100|1"]:0.019002,(((Strumigenys_DBB087:0.011663,(Strumigenys_mirifica:0.007303,Strumigenys_gloriosa:0.004779)[&support="100|1"]:0.009579)[&support="100|1"]:0.004379,((((((((Strumigenys_godeffroyi:0.015756,Strumigenys_rofocala:0.015017)[&support="68|0.68"]:2.59E-4,(Strumigenys_ekasura:0.013379,Strumigenys_nidifex:0.009442)[&support="100|1"]:0.004658)[&support="23|0.7"]:5.0E-6,Strumigenys_mjoebergi:0.018142)[&support="68|0.92"]:2.12E-4,Strumigenys_kumadori:0.008017)[&support="100|1"]:0.005416,(Strumigenys_sublaminata:0.012408,Strumigenys_amnesia:0.01209)[&support="100|1"]:0.005269)[&support="100|1"]:7.65E-4,((Strumigenys_opaca:0.010568,Strumigenys_DBB121:0.007042)[&support="100|1"]:0.008137,(((Strumigenys_anetes:0.006626,Strumigenys_orthanetes:0.006545)[&support="100|1"]:0.005416,((Strumigenys_radix:0.024807,Strumigenys_semicompta:0.019722)[&support="17|0.17"]:1.0E-6,(Strumigenys_DBB045:0.018598,((Strumigenys_hoplites:0.004755,Strumigenys_ferocior:0.004333)[&support="100|1"]:0.009933,Strumigenys_ortholex:0.013724)[&support="100|1"]:0.002248)[&support="100|1"]:0.001635)[&support="25|0.74"]:7.5E-5)[&support="23|0.79"]:1.26E-4,(Strumigenys_minax:0.014978,Strumigenys_buleru:0.018359)[&support="95|0.95"]:5.81E-4)[&support="94|0.99"]:2.19E-4)[&support="100|1"]:0.001899)[&support="100|1"]:7.34E-4,(Strumigenys_arrogantia:0.007581,Strumigenys_aechme:0.005767)[&support="100|1"]:0.013016)[&support="100|1"]:7.55E-4,(Strumigenys_rotogenys:0.016838,(Strumigenys_kraepelini:0.010991,Strumigenys_exilirhina:0.009669)[&support="100|1"]:0.00774)[&support="94|0.97"]:4.81E-4)[&support="70|0.96"]:2.79E-4)[&support="100|1"]:0.002807,((Strumigenys_DBB032:0.017777,Strumigenys_mitis:0.021933)[&support="100|1"]:0.002741,(Strumigenys_nepalensis:0.021413,(Strumigenys_kichijo:0.013312,(Strumigenys_canina:0.009223,(Strumigenys_rostrata:0.004507,(Strumigenys_arizonica:0.004076,Strumigenys_bunki:0.003669)[&support="100|1"]:0.001369)[&support="100|1"]:0.007003)[&support="100|1"]:9.52E-4)[&support="100|1"]:0.001215)[&support="39|0.88"]:9.7E-5)[&support="78|0.92"]:2.41E-4)[&support="100|1"]:0.004248)[&support="100|1"]:5.76E-4)[&support="100|1"]:0.002712,(Strumigenys_cacaoensis:0.028174,((Strumigenys_paranax:0.003356,Strumigenys_dextra:0.004827)[&support="100|1"]:0.020189,(((Strumigenys_petiolata:0.011961,Strumigenys_ettillax:0.013989)[&support="100|1"]:0.009686,(Strumigenys_spathoda:0.020496,Strumigenys_sibyna:0.024441)[&support="53|0.53"]:3.4E-5)[&support="100|1"]:6.72E-4,((Strumigenys_tetraphanes:0.017251,Strumigenys_irrorata:0.014853)[&support="100|1"]:0.002528,(((Strumigenys_apios:0.010899,((Strumigenys_milae:0.012915,(Strumigenys_sphera:0.008938,(Strumigenys_hilaris:0.00916,Strumigenys_norax:0.007458)[&support="100|1"]:0.003282)[&support="100|1"]:6.96E-4)[&support="99|1"]:5.09E-4,Strumigenys_dicomas:0.014003)[&support="100|1"]:7.98E-4)[&support="100|1"]:5.06E-4,((Strumigenys_epulo:0.014702,(Strumigenys_lexex:0.012141,Strumigenys_langrandi:0.007815)[&support="100|1"]:0.002498)[&support="42|0.71"]:1.73E-4,(Strumigenys_coveri:0.007017,Strumigenys_dexis:0.007603)[&support="100|1"]:0.008338)[&support="27|0.7"]:1.83E-4)[&support="41|0.86"]:1.21E-4,(Strumigenys_bibiolona:0.015694,(Strumigenys_dora:0.018435,(Strumigenys_lucomo:0.015917,(Strumigenys_cabira:0.010345,(Strumigenys_grandidieri:0.01373,Strumigenys_chilo:0.011615)[&support="100|1"]:0.001131)[&support="51|0.76"]:1.12E-4)[&support="23|0.6"]:1.4E-5)[&support="24|0.58"]:4.2E-5)[&support="25|0.61"]:8.0E-5)[&support="100|1"]:0.002179)[&support="100|1"]:0.003073)[&support="100|1"]:0.001675)[&support="100|1"]:0.002664)[&support="100|1"]:0.00421)[&support="100|1"]:5.35E-4,((((Strumigenys_victrix:0.002494,Strumigenys_symmetrix:0.003235)[&support="100|1"]:0.02193,(Strumigenys_themis:0.019945,(Strumigenys_disjuncta:0.020405,Strumigenys_DBB003:0.016097)[&support="100|1"]:0.003855)[&support="100|1"]:0.011643)[&support="82|0.91"]:0.00285,(((Strumigenys_cincinnata:0.020371,((Strumigenys_glenognatha:0.018388,Strumigenys_beebei:0.016696)[&support="100|1"]:0.005018,(Strumigenys_probatrix:0.014773,(Strumigenys_azteca:0.007411,(Strumigenys_rogata:0.004138,Strumigenys_longinoi:0.007405)[&support="97|0.97"]:5.14E-4)[&support="100|1"]:0.012057)[&support="100|1"]:0.00912)[&support="100|1"]:9.04E-4)[&support="100|1"]:0.001212,(Strumigenys_microthrix:0.002845,Strumigenys_cassicuspis:0.001882)[&support="100|1"]:0.020984)[&support="100|1"]:4.95E-4,((Strumigenys_margaritae:0.021421,((Strumigenys_alberti:0.015216,Strumigenys_nigrescens:0.015361)[&support="100|1"]:0.003121,(Strumigenys_epinotalis:0.017797,Strumigenys_depressiceps:0.016339)[&support="100|1"]:0.004719)[&support="57|0.86"]:8.13E-4)[&support="100|1"]:0.005801,((Strumigenys_lalassa:0.018322,((Strumigenys_denticulata:0.016651,(Strumigenys_gundlachi:0.014371,Strumigenys_subedentata:0.015173)[&support="100|1"]:0.002249)[&support="100|1"]:0.0035,'Strumigenys.brevicornis_complex':0.020968)[&support="95|0.98"]:5.06E-4)[&support="100|1"]:0.006645,((Strumigenys_perparva:0.021173,Strumigenys_louisianae:0.022669)[&support="100|1"]:0.001286,(Strumigenys_lanuginosa:0.02375,((Strumigenys_tococae:0.014454,(Strumigenys_cordovensis:0.011837,Strumigenys_biolleyi:0.013332)[&support="100|1"]:0.007796)[&support="100|1"]:0.004276,(Strumigenys_marginiventris:0.023323,Strumigenys_elongata:0.020912)[&support="71|0.71"]:7.5E-5)[&support="91|0.98"]:5.25E-4)[&support="100|1"]:0.003378)[&support="100|1"]:6.39E-4)[&support="100|1"]:0.002324)[&support="100|1"]:5.17E-4)[&support="100|1"]:0.005199)[&support="43|0.91"]:8.02E-4,(Pilotrochus_besmerus:0.035878,((Tetramorium_termitobium:0.019483,((Tetramorium_insolens:0.005372,Tetramorium_nipponense:0.005428)[&support="100|1"]:0.002528,Tetramorium_bicarinatum:0.015081)[&support="100|1"]:0.00783)[&support="100|1"]:0.037409,(Pheidole_wilsoni:0.020383,(Pheidole_megacephala:0.013168,Pheidole_fervens:0.009276)[&support="100|1"]:0.00322)[&support="100|1"]:0.034409)[&support="97|1"]:0.002439)[&support="100|1"]:0.019958)[&support="100|1"]:0.004628)[&support="100|1"]:9.2E-5)[&support="100|1"]:0.011561)[&support="100|1"]:0.009871,Strumigenys_marchosias:0.004898)[&support="100|1"]:0.001997,Strumigenys_mormo:0.001664)[&support="|NA"];
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=574;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute="support";
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="support";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=7;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=true;
+	set nodeLabels.significantDigits=4;
+	set nodeShapeExternal.colourAttribute="User selection";
+	set nodeShapeExternal.isShown=false;
+	set nodeShapeExternal.minSize=10.0;
+	set nodeShapeExternal.scaleType=Width;
+	set nodeShapeExternal.shapeType=Circle;
+	set nodeShapeExternal.size=4.0;
+	set nodeShapeExternal.sizeAttribute="Fixed";
+	set nodeShapeInternal.colourAttribute="User selection";
+	set nodeShapeInternal.isShown=false;
+	set nodeShapeInternal.minSize=10.0;
+	set nodeShapeInternal.scaleType=Width;
+	set nodeShapeInternal.shapeType=Circle;
+	set nodeShapeInternal.size=4.0;
+	set nodeShapeInternal.sizeAttribute="Fixed";
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.minorTicks=0.5;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="displayname2";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=11;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=true;
+	set trees.orderType="increasing";
+	set trees.rooting=true;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

@@ -1,0 +1,27 @@
+=== Genus extraction log: Pheidole | 2026-06-04 17:02:18 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 450
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (genus=Pheidole) identified: 449 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Cephalotes_setulifer_CASENT0283451 (min distance=0.741404)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 449
+tips_out (final tree): 450
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/pheidole/economo2019/extract_Pheidole_20260604-170218_with_outgroup.tre

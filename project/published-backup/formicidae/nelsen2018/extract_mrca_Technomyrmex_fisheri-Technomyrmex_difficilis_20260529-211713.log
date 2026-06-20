@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-05-29 21:17:13 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1746
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 10
+Outgroup (sister_one): Axinidris_mlalu (min distance=106.047507)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 10
+tips_out (final tree): 11
+Wrote tree: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/formicidae/nelsen2018/extract_mrca_Technomyrmex_fisheri-Technomyrmex_difficilis_20260529-211713_with_outgroup.tre

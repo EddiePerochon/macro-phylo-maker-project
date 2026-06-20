@@ -1,0 +1,374 @@
+=== Genus extraction log: Formica | 2025-10-22 20:38:13 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 150 ingroup tip(s) in raw tree.
+Kept 150 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Formica_accreta_F0097 → Formica_accreta
+  KEEP: Formica_subaenescens_F0104 → Formica_subaenescens
+  KEEP: Formica_pacifica_F0135 → Formica_pacifica
+  KEEP: Formica_transmontanis_F0141 → Formica_transmontanis
+  KEEP: Formica_aerata_F0098 → Formica_aerata
+  KEEP: Formica_argentea_F0110 → Formica_argentea
+  KEEP: Formica_sp_fusca_grp_F0143 → Formica_sp
+  KEEP: Formica_sp_fusca_grp_F0165 → Formica_sp
+  KEEP: Formica_altipetens_F0099 → Formica_altipetens
+  KEEP: Formica_canadensis_F0102 → Formica_canadensis
+  KEEP: Formica_cf_altipetens_F0100 → Formica_altipetens
+  KEEP: Formica_neoclara_F0106 → Formica_neoclara
+  KEEP: Formica_glacialis_F0121 → Formica_glacialis
+  KEEP: Formica_podzolica_F0145 → Formica_podzolica
+  KEEP: Formica_subsericea_F0159 → Formica_subsericea
+  KEEP: Formica_subsericea_F0144 → Formica_subsericea
+  KEEP: Formica_subsericea_F0146 → Formica_subsericea
+  KEEP: Formica_montana_nr_F0117 → Formica_montana
+  KEEP: Formica_propatula_F0116 → Formica_propatula
+  KEEP: Formica_nr_occulta_F0131 → Formica_occulta
+  KEEP: Formica_xerophila_F0139 → Formica_xerophila
+  KEEP: Formica_cf_xerophila_F0140 → Formica_xerophila
+  KEEP: Formica_sp_fusca_grp_F0101 → Formica_sp
+  KEEP: Formica_cinerea_F0111 → Formica_cinerea
+  KEEP: Formica_fuscocinerea_F0115 → Formica_fuscocinerea
+  KEEP: Formica_lemani_F0130 → Formica_lemani
+  KEEP: Formica_adamsi_alpina_F0068 → Formica_adamsi
+  KEEP: Formica_sp_micro_grp_F0089 → Formica_sp
+  KEEP: Formica_sp_micro_grp_F0090 → Formica_sp
+  KEEP: Formica_sp_micro_grp_F0074 → Formica_sp
+  KEEP: Formica_sp_micro_grp_F0092 → Formica_sp
+  KEEP: Formica_sp_micro_grp_F0094 → Formica_sp
+  KEEP: Formica_densiventris_F0072 → Formica_densiventris
+  KEEP: Formica_cf_densiventris_F0164 → Formica_densiventris
+  KEEP: Formica_densiventris_F0073 → Formica_densiventris
+  KEEP: Formica_knighti_F0015 → Formica_knighti
+  KEEP: Formica_nepticula_F0077 → Formica_nepticula
+  KEEP: Formica_querquetulana_F0081 → Formica_querquetulana
+  KEEP: Formica_querquetulana_F0095 → Formica_querquetulana
+  KEEP: Formica_talbotae_F0156 → Formica_talbotae
+  KEEP: Formica_sp_micro_grp_F0087 → Formica_sp
+  KEEP: Formica_sp_micro_grp_F0096 → Formica_sp
+  KEEP: Formica_cf_densiventris_F0075 → Formica_densiventris
+  KEEP: Formica_mlb01_micro_grp_F0082 → Formica_mlb
+  KEEP: Formica_mlb02_micro_grp_F0083 → Formica_mlb
+  KEEP: Formica_mlb03_micro_grp_F0084 → Formica_mlb
+  KEEP: Formica_mlb04_micro_grp_F0085 → Formica_mlb
+  KEEP: Formica_sp_micro_grp_F0091 → Formica_sp
+  KEEP: Formica_nevadensis_F0078 → Formica_nevadensis
+  KEEP: Formica_nevadensis_F0079 → Formica_nevadensis
+  KEEP: Formica_sp_micro_grp_F0093 → Formica_sp
+  KEEP: Formica_nevadensis_F0080 → Formica_nevadensis
+  KEEP: Formica_sp_micro_grp_F0157 → Formica_sp
+  KEEP: Formica_ciliata_F0001 → Formica_ciliata
+  KEEP: Formica_oreas_F0012 → Formica_oreas
+  KEEP: Formica_oreas_F0125 → Formica_oreas
+  KEEP: Formica_oreas_F0013 → Formica_oreas
+  KEEP: Formica_cf_planipilis_F0028 → Formica_planipilis
+  KEEP: Formica_fossaceps_F0003 → Formica_fossaceps
+  KEEP: Formica_obscuriventris_F0006 → Formica_obscuriventris
+  KEEP: Formica_cf_fossaceps_F0004 → Formica_fossaceps
+  KEEP: Formica_cf_interga_F0010 → Formica_interga
+  KEEP: Formica_obscuriventris_F0011 → Formica_obscuriventris
+  KEEP: Formica_coloradensis_F0002 → Formica_coloradensis
+  KEEP: Formica_integroides_F0005 → Formica_integroides
+  KEEP: Formica_propinqua_F0016 → Formica_propinqua
+  KEEP: Formica_ravida_F0027 → Formica_ravida
+  KEEP: Formica_integroides_F0114 → Formica_integroides
+  KEEP: Formica_ravida_F0026 → Formica_ravida
+  KEEP: Formica_obscuripes_F0007 → Formica_obscuripes
+  KEEP: Formica_obscuripes_F0008 → Formica_obscuripes
+  KEEP: Formica_obscuripes_F0009 → Formica_obscuripes
+  KEEP: Formica_obscuripes_F0162 → Formica_obscuripes
+  KEEP: Formica_cf_subnitens_F0014 → Formica_subnitens
+  KEEP: Formica_subnitens_F0022 → Formica_subnitens
+  KEEP: Formica_subnitens_F0025 → Formica_subnitens
+  KEEP: Formica_cf_frontalis_F0017 → Formica_frontalis
+  KEEP: Formica_truncorum_F0023 → Formica_truncorum
+  KEEP: Formica_lugubris_F0021 → Formica_lugubris
+  KEEP: Formica_polyctena_F0019 → Formica_polyctena
+  KEEP: Formica_rufa_F0018 → Formica_rufa
+  KEEP: Formica_pratensis_F0020 → Formica_pratensis
+  KEEP: Formica_dakotensis_F0069 → Formica_dakotensis
+  KEEP: Formica_dakotensis_F0070 → Formica_dakotensis
+  KEEP: Formica_reflexa_F0086 → Formica_reflexa
+  KEEP: Formica_dakotensis_F0071 → Formica_dakotensis
+  KEEP: Formica_aserva_F0041 → Formica_aserva
+  KEEP: Formica_aserva_F0042 → Formica_aserva
+  KEEP: Formica_aserva_F0044 → Formica_aserva
+  KEEP: Formica_aserva_F0067 → Formica_aserva
+  KEEP: Formica_aserva_F0163 → Formica_aserva
+  KEEP: Formica_aserva_F0043 → Formica_aserva
+  KEEP: Formica_emeryi_F0050 → Formica_emeryi
+  KEEP: Formica_sp_sang_grp_F0123 → Formica_sp
+  KEEP: Formica_rubicunda_F0054 → Formica_rubicunda
+  KEEP: Formica_puberula_F0056 → Formica_puberula
+  KEEP: Formica_wheeleri_F0057 → Formica_wheeleri
+  KEEP: Formica_nr_pergandei_F0051 → Formica_pergandei
+  KEEP: Formica_puberula_F0122 → Formica_puberula
+  KEEP: Formica_pergandei_F0053 → Formica_pergandei
+  KEEP: Formica_rubicunda_F0055 → Formica_rubicunda
+  KEEP: Formica_sanguinea_F0048 → Formica_sanguinea
+  KEEP: Formica_sanguinea_F0049 → Formica_sanguinea
+  KEEP: Formica_exsecta_F0034 → Formica_exsecta
+  KEEP: Formica_mesasiatica_F0035 → Formica_mesasiatica
+  KEEP: Formica_pressilabris_F0033 → Formica_pressilabris
+  KEEP: Formica_exsectoides_F0031 → Formica_exsectoides
+  KEEP: Formica_exsectoides_F0032 → Formica_exsectoides
+  KEEP: Formica_exsectoides_F0030 → Formica_exsectoides
+  KEEP: Formica_ulkei_F0029 → Formica_ulkei
+  KEEP: Formica_uralensis_F0024 → Formica_uralensis
+  KEEP: Formica_candida_F0155 → Formica_candida
+  KEEP: Formica_hewitti_F0113 → Formica_hewitti
+  KEEP: Formica_hewitti_F0142 → Formica_hewitti
+  KEEP: Formica_neorufibarbis_F0128 → Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis_t_F0108 → Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis_F0127 → Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis_t_F0126 → Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis_F0109 → Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis_F0107 → Formica_neorufibarbis
+  KEEP: Formica_clara_F0118 → Formica_clara
+  KEEP: Formica_rufibarbis_F0136 → Formica_rufibarbis
+  KEEP: Formica_cunicularia_F0119 → Formica_cunicularia
+  KEEP: Formica_orangea_F0134 → Formica_orangea
+  KEEP: Formica_sibylla_F0132 → Formica_sibylla
+  KEEP: Formica_cf_sibylla_F0133 → Formica_sibylla
+  KEEP: Formica_subpolita_F0137 → Formica_subpolita
+  KEEP: Formica_subpolita_F0138 → Formica_subpolita
+  KEEP: Formica_gnava_F0147 → Formica_gnava
+  KEEP: Formica_sp_fusca_grp_F0160 → Formica_sp
+  KEEP: Formica_foreliana_F0103 → Formica_foreliana
+  KEEP: Formica_gnava_F0105 → Formica_gnava
+  KEEP: Formica_sp_fusca_grp_F0161 → Formica_sp
+  KEEP: Formica_moki_F0129 → Formica_moki
+  KEEP: Formica_archboldi_F0062 → Formica_archboldi
+  KEEP: Formica_pallidefulva_F0060 → Formica_pallidefulva
+  KEEP: Formica_pallidefulva_F0066 → Formica_pallidefulva
+  KEEP: Formica_dolosa_F0061 → Formica_dolosa
+  KEEP: Formica_dolosa_F0063 → Formica_dolosa
+  KEEP: Formica_incerta_F0059 → Formica_incerta
+  KEEP: Formica_incerta_F0065 → Formica_incerta
+  KEEP: Formica_lasioides_F0036 → Formica_lasioides
+  KEEP: Formica_lasioides_F0040 → Formica_lasioides
+  KEEP: Formica_manni_F0037 → Formica_manni
+  KEEP: Formica_neogagates_F0038 → Formica_neogagates
+  KEEP: Formica_perpilosa_F0039 → Formica_perpilosa
+  KEEP: Formica_obtusopilosa_F0046 → Formica_obtusopilosa
+  KEEP: Formica_obtusopilosa_F0047 → Formica_obtusopilosa
+  KEEP: Formica_sp_neog_grp_F0058 → Formica_sp
+  KEEP: Formica_gagates_F0120 → Formica_gagates
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 32 ingroup species with duplicate tips.
+Species Formica_altipetens: non-monophyletic; retain Formica_altipetens (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_aserva: monophyletic; retain Formica_aserva (min crown depth -0.002075); drop 0 duplicate(s).
+Species Formica_dakotensis: non-monophyletic; retain Formica_dakotensis (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_densiventris: non-monophyletic; retain Formica_densiventris (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_dolosa: monophyletic; retain Formica_dolosa (min crown depth -0.001349); drop 0 duplicate(s).
+Species Formica_exsectoides: monophyletic; retain Formica_exsectoides (min crown depth -0.000676); drop 0 duplicate(s).
+Species Formica_fossaceps: non-monophyletic; retain Formica_fossaceps (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_gnava: non-monophyletic; retain Formica_gnava (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_hewitti: monophyletic; retain Formica_hewitti (min crown depth -0.000691); drop 0 duplicate(s).
+Species Formica_incerta: monophyletic; retain Formica_incerta (min crown depth -0.001357); drop 0 duplicate(s).
+Species Formica_integroides: non-monophyletic; retain Formica_integroides (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_lasioides: monophyletic; retain Formica_lasioides (min crown depth -0.002052); drop 0 duplicate(s).
+Species Formica_mlb: non-monophyletic; retain Formica_mlb (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_neorufibarbis: monophyletic; retain Formica_neorufibarbis (min crown depth -0.000545); drop 0 duplicate(s).
+Species Formica_nevadensis: non-monophyletic; retain Formica_nevadensis (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_obscuripes: monophyletic; retain Formica_obscuripes (min crown depth -0.001968); drop 0 duplicate(s).
+Species Formica_obscuriventris: non-monophyletic; retain Formica_obscuriventris (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_obtusopilosa: monophyletic; retain Formica_obtusopilosa (min crown depth -0.001529); drop 0 duplicate(s).
+Species Formica_oreas: monophyletic; retain Formica_oreas (min crown depth -0.000769); drop 0 duplicate(s).
+Species Formica_pallidefulva: monophyletic; retain Formica_pallidefulva (min crown depth -0.000981); drop 0 duplicate(s).
+Species Formica_pergandei: non-monophyletic; retain Formica_pergandei (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_puberula: non-monophyletic; retain Formica_puberula (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_querquetulana: monophyletic; retain Formica_querquetulana (min crown depth -0.000840); drop 0 duplicate(s).
+Species Formica_ravida: non-monophyletic; retain Formica_ravida (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_rubicunda: non-monophyletic; retain Formica_rubicunda (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_sanguinea: monophyletic; retain Formica_sanguinea (min crown depth -0.002145); drop 0 duplicate(s).
+Species Formica_sibylla: monophyletic; retain Formica_sibylla (min crown depth -0.001958); drop 0 duplicate(s).
+Species Formica_sp: non-monophyletic; retain Formica_sp (min total patristic distance 0.000000); drop 0 duplicate(s).
+Species Formica_subnitens: monophyletic; retain Formica_subnitens (min crown depth -0.001656); drop 0 duplicate(s).
+Species Formica_subpolita: monophyletic; retain Formica_subpolita (min crown depth -0.001619); drop 0 duplicate(s).
+Species Formica_subsericea: monophyletic; retain Formica_subsericea (min crown depth -0.001163); drop 0 duplicate(s).
+Species Formica_xerophila: monophyletic; retain Formica_xerophila (min crown depth -0.002650); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 150
+Genus monophyly: TRUE
+Genus MRCA node: 163
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Formica_accreta
+  KEEP: Formica_adamsi
+  KEEP: Formica_aerata
+  KEEP: Formica_altipetens
+  KEEP: Formica_altipetens
+  KEEP: Formica_archboldi
+  KEEP: Formica_argentea
+  KEEP: Formica_aserva
+  KEEP: Formica_aserva
+  KEEP: Formica_aserva
+  KEEP: Formica_aserva
+  KEEP: Formica_aserva
+  KEEP: Formica_aserva
+  KEEP: Formica_canadensis
+  KEEP: Formica_candida
+  KEEP: Formica_ciliata
+  KEEP: Formica_cinerea
+  KEEP: Formica_clara
+  KEEP: Formica_coloradensis
+  KEEP: Formica_cunicularia
+  KEEP: Formica_dakotensis
+  KEEP: Formica_dakotensis
+  KEEP: Formica_dakotensis
+  KEEP: Formica_densiventris
+  KEEP: Formica_densiventris
+  KEEP: Formica_densiventris
+  KEEP: Formica_densiventris
+  KEEP: Formica_dolosa
+  KEEP: Formica_dolosa
+  KEEP: Formica_emeryi
+  KEEP: Formica_exsecta
+  KEEP: Formica_exsectoides
+  KEEP: Formica_exsectoides
+  KEEP: Formica_exsectoides
+  KEEP: Formica_foreliana
+  KEEP: Formica_fossaceps
+  KEEP: Formica_fossaceps
+  KEEP: Formica_frontalis
+  KEEP: Formica_fuscocinerea
+  KEEP: Formica_gagates
+  KEEP: Formica_glacialis
+  KEEP: Formica_gnava
+  KEEP: Formica_gnava
+  KEEP: Formica_hewitti
+  KEEP: Formica_hewitti
+  KEEP: Formica_incerta
+  KEEP: Formica_incerta
+  KEEP: Formica_integroides
+  KEEP: Formica_integroides
+  KEEP: Formica_interga
+  KEEP: Formica_knighti
+  KEEP: Formica_lasioides
+  KEEP: Formica_lasioides
+  KEEP: Formica_lemani
+  KEEP: Formica_lugubris
+  KEEP: Formica_manni
+  KEEP: Formica_mesasiatica
+  KEEP: Formica_mlb
+  KEEP: Formica_mlb
+  KEEP: Formica_mlb
+  KEEP: Formica_mlb
+  KEEP: Formica_moki
+  KEEP: Formica_montana
+  KEEP: Formica_neoclara
+  KEEP: Formica_neogagates
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_neorufibarbis
+  KEEP: Formica_nepticula
+  KEEP: Formica_nevadensis
+  KEEP: Formica_nevadensis
+  KEEP: Formica_nevadensis
+  KEEP: Formica_obscuripes
+  KEEP: Formica_obscuripes
+  KEEP: Formica_obscuripes
+  KEEP: Formica_obscuripes
+  KEEP: Formica_obscuriventris
+  KEEP: Formica_obscuriventris
+  KEEP: Formica_obtusopilosa
+  KEEP: Formica_obtusopilosa
+  KEEP: Formica_occulta
+  KEEP: Formica_orangea
+  KEEP: Formica_oreas
+  KEEP: Formica_oreas
+  KEEP: Formica_oreas
+  KEEP: Formica_pacifica
+  KEEP: Formica_pallidefulva
+  KEEP: Formica_pallidefulva
+  KEEP: Formica_pergandei
+  KEEP: Formica_pergandei
+  KEEP: Formica_perpilosa
+  KEEP: Formica_planipilis
+  KEEP: Formica_podzolica
+  KEEP: Formica_polyctena
+  KEEP: Formica_pratensis
+  KEEP: Formica_pressilabris
+  KEEP: Formica_propatula
+  KEEP: Formica_propinqua
+  KEEP: Formica_puberula
+  KEEP: Formica_puberula
+  KEEP: Formica_querquetulana
+  KEEP: Formica_querquetulana
+  KEEP: Formica_ravida
+  KEEP: Formica_ravida
+  KEEP: Formica_reflexa
+  KEEP: Formica_rubicunda
+  KEEP: Formica_rubicunda
+  KEEP: Formica_rufa
+  KEEP: Formica_rufibarbis
+  KEEP: Formica_sanguinea
+  KEEP: Formica_sanguinea
+  KEEP: Formica_sibylla
+  KEEP: Formica_sibylla
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_sp
+  KEEP: Formica_subaenescens
+  KEEP: Formica_subnitens
+  KEEP: Formica_subnitens
+  KEEP: Formica_subnitens
+  KEEP: Formica_subpolita
+  KEEP: Formica_subpolita
+  KEEP: Formica_subsericea
+  KEEP: Formica_subsericea
+  KEEP: Formica_subsericea
+  KEEP: Formica_talbotae
+  KEEP: Formica_transmontanis
+  KEEP: Formica_truncorum
+  KEEP: Formica_ulkei
+  KEEP: Formica_uralensis
+  KEEP: Formica_wheeleri
+  KEEP: Formica_xerophila
+  KEEP: Formica_xerophila
+Total retained genus tips: 150
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Iberoformica_subrufa_D1135 (only candidate).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Formica_with_outgroup.tre
+Outgroup in output: Iberoformica_subrufa_D1135
+Genus tips in output: 84

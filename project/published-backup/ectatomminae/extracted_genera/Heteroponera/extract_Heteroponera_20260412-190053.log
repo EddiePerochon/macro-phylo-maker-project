@@ -1,0 +1,27 @@
+=== Genus extraction log: Heteroponera | 2026-04-12 19:00:53 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 150
+Ingroup (genus=Heteroponera) identified: 14 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Acanthoponera_minor_MIN01 (min distance=0.071583)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 14
+tips_out (final tree): 15
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Heteroponera/extract_Heteroponera_20260412-190053_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/ectatomminae/extracted_genera/Heteroponera/extract_Heteroponera_20260412-190053_renamed.tsv

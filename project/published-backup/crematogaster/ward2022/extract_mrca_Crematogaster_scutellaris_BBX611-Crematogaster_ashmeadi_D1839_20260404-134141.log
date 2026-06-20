@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-04 13:41:41 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 34
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 33
+Outgroup (sister_one): Crematogaster_lotti_BBX565 (min distance=0.313937)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 33
+tips_out (final tree): 34
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/crematogaster/ward2022/extract_mrca_Crematogaster_scutellaris_BBX611-Crematogaster_ashmeadi_D1839_20260404-134141_with_outgroup.tre
