@@ -59,6 +59,21 @@ bind_tip_at <- function(tr, new_label, where_node, position, attach_age) {
 #' @param shape1,shape2 Beta distribution shape parameters.
 #' @param min_frac,max_frac Min/max fraction along the edge from child toward parent.
 #' @param .capture If `TRUE`, returns list with `tree` and detailed `log` (positions, ages).
+#' @details
+#' The new tip is attached by splitting the edge leading to \code{sister_to}.
+#' A fraction \eqn{f} is drawn from a Beta(\code{shape1}, \code{shape2})
+#' distribution and linearly scaled into the interval
+#' \code{[min_frac, max_frac]}. The attachment position is then
+#' \eqn{f \times L}, where \eqn{L} is the length of the target edge,
+#' measured from the child tip toward its parent.
+#'
+#' If the target tip has no detectable incoming edge (a pathological or
+#' degenerate case), the function falls back to attaching the new tip as a
+#' polytomy at that node.
+#'
+#' When \code{.capture = TRUE}, the returned log reports the chosen edge,
+#' sampled fraction, attachment age, insertion position, and the implied
+#' new tip length.
 #' @return Either a `phylo` tree or a list with `tree` and `log` if `.capture=TRUE`.
 #' @examples
 #' \dontrun{
@@ -85,7 +100,7 @@ graft_sister_to_tip <- function(tr, new_label, sister_to,
         edge_index = NA_integer_, edge_length = NA_real_,
         chosen_frac = NA_real_, position_from_child = 0,
         attach_age = Htot, where_node = where,
-        new_tip_length = 0, tree_depth = Htot
+        new_tip_length = Htot, tree_depth = Htot
       )))
     } else {
       return(tr2)
@@ -121,6 +136,20 @@ graft_sister_to_tip <- function(tr, new_label, sister_to,
 #'
 #' @inheritParams graft_sister_to_tip
 #' @param clade_tips Character vector of ≥2 tips defining the clade.
+#' @details
+#' The target clade is defined by the MRCA of \code{clade_tips}. The new tip
+#' is attached by splitting the edge entering that MRCA. The split position is
+#' drawn exactly as in \code{graft_sister_to_tip()}, i.e. from a Beta-distributed
+#' fraction scaled to \code{[min_frac, max_frac]} and measured from the child
+#' node (the MRCA) toward its parent.
+#'
+#' If the MRCA is the root and therefore has no incoming edge, the new tip is
+#' attached as a root polytomy.
+#'
+#' When \code{.capture = TRUE}, the returned log reports the chosen edge,
+#' sampled fraction, attachment age, insertion position, and the implied
+#' new tip length.
+
 #' @export
 graft_sister_to_clade <- function(tr, new_label, clade_tips,
                                   shape1 = 1, shape2 = 1,
@@ -181,16 +210,45 @@ graft_sister_to_clade <- function(tr, new_label, clade_tips,
 #' @param include_terminal Logical; if `FALSE`, excludes terminal edges.
 #' @param include_stem Logical; if `TRUE`, allows grafting on the edge entering the MRCA (stem).
 #' @param return_log If `TRUE`, returns `list(tree, log=list(...))` with details.
-#' @param seed Ignored; global seed is used.
+#' @details
+#' Randomness in this function is controlled by the global RNG state.
+#' To obtain reproducible placements, call \code{set.seed()} (or a package-level
+#' workflow seed helper) before invoking this function or any higher-level wrapper
+#' that uses it.
+#'
+#' Candidate edges are sampled from the clade descending from the MRCA of
+#' \code{clade_tips}. By default, all descendant edges are eligible, including
+#' terminal edges and the edge entering the MRCA (the stem edge).
+#'
+#' If \code{include_terminal = FALSE}, terminal edges are excluded. If
+#' \code{include_stem = TRUE}, the edge entering the MRCA is added to the
+#' candidate set even though it lies immediately above the crown of the clade.
+#'
+#' Candidate edges are sampled with probability proportional to their branch
+#' lengths. Once an edge is selected, an attachment fraction is drawn from a
+#' Beta(\code{shape1}, \code{shape2}) distribution scaled to the interval
+#' \code{[min_frac, max_frac]}, and the new tip is inserted at that position
+#' measured from the child toward the parent.
+#'
+#' When \code{return_log = TRUE}, the function returns a list containing the
+#' grafted tree and a detailed log, including the chosen edge index, edge type
+#' (\code{"stem"}, \code{"internal"}, or \code{"terminal"}), sampled fraction,
+#' attachment age, insertion node, and implied new tip length.
+#' @examples
+#' \dontrun{
+#' set.seed(42)
+#' tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
+#' tr2 <- graft_within_clade_random(tr, new_label = "X", clade_tips = c("A", "B"))
+#' }
 #' @inheritParams graft_sister_to_tip
 #' @export
+
 graft_within_clade_random <- function(tr, new_label, clade_tips,
                                       include_terminal = TRUE,
                                       include_stem = TRUE,
                                       shape1 = 1, shape2 = 1,
                                       min_frac = 0, max_frac = 1,
-                                      return_log = FALSE, seed = NULL) {
-  if (!is.null(seed)) warning("Per-call 'seed' ignored; using global seed.")
+                                      return_log = FALSE) {
   if (new_label %in% tr$tip.label) {
     stop(sprintf("Label '%s' already exists in the tree.", new_label))
   }
@@ -253,8 +311,6 @@ graft_within_clade_random <- function(tr, new_label, clade_tips,
     return(tr2)
   }
 }
-
-# ---- roxygen import hints (optional, keep fully-qualified calls if you prefer) ----
 
 #' @importFrom ape getMRCA drop.tip Ntip write.tree ladderize read.tree extract.clade is.ultrametric
 #' @importFrom phytools nodeHeights getDescendants force.ultrametric bind.tip
