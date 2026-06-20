@@ -70,6 +70,7 @@ Amoimyrmex_silvestrii
 Amoimyrmex_striatus
 Acromyrmex_versicolor
 Acromyrmex_balzani
+Pseudoatta
 Acromyrmex_insinuator
 Acromyrmex_octospinosus
 Acromyrmex_aspersus
@@ -77,7 +78,6 @@ Acromyrmex_coronatus
 Acromyrmex_ambiguus
 Acromyrmex_crassispinus
 Acromyrmex_lundii
-Pseudoatta
 Atta_mexicana
 Atta_insularis
 Atta_texana
@@ -1025,9 +1025,9 @@ Tetramorium_validiusculum
 Tetramorium_sericeiventre
 Tetramorium_tosii
 Tetramorium_impurum
-Strongylognathus
 Tetramorium_caespitum
 Tetramorium_atratulum
+Strongylognathus
 Tetramorium_transversinode
 Tetramorium_anodontion
 Tetramorium_delagoense
@@ -1244,7 +1244,6 @@ Vitsika_obscura
 Vitsika_incisura
 Vitsika_manifesta
 Vitsika_miranda
-Gaoligongidris
 Liomyrmex_gestroi
 Metapone_madagascarica
 Metapone_emersoni
@@ -1254,6 +1253,7 @@ Podomyrma_adelaidae
 Podomyrma_ruficeps
 Podomyrma_laevifrons
 Podomyrma_silvicola
+Peronomyrmex
 Tetheamyrma_subspongia
 Dacatria_templaris
 Proatta_butteli
@@ -1265,7 +1265,6 @@ Perissomyrmex_snyderi
 Pristomyrmex_orbiceps
 Pristomyrmex_rigidus
 Pristomyrmex_punctatus
-Peronomyrmex
 Acanthomyrmex_ferox
 Myrmecina_striata
 Myrmecina_americana
@@ -1377,6 +1376,7 @@ Temnothorax_nitens
 Lasiomyrma_gedensis
 Lordomyrma_epinotalis
 Ancyridris_polyrhachioides
+Gaoligongidris
 Propodilobus_pingorum
 Lordomyrma_bhutanensis
 Lordomyrma_desupra
