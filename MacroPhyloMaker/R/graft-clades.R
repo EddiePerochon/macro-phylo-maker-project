@@ -243,15 +243,19 @@ NULL
 
   ## Bind donor and remove retained backbone tip
   X2 <- ape::bind.tree(
-    Xc,
-    donor_scaled,
-    where = tip_idx,
-    position = pos
-  )
+      Xc,
+      donor_scaled,
+      where = tip_idx,
+      position = pos
+    )
+    out <- ape::drop.tip(X2, keep_tip)
+    out <- .ensure_positive_edges(out)
 
-  out <- ape::drop.tip(X2, keep_tip)
-  .ensure_positive_edges(out)
-}
+    list(
+      tree = out,
+      retained_tip = keep_tip
+    )
+  }
 #' Ensure strictly positive edge lengths (internal)
 #'
 #' Replaces non-finite or non-positive edge lengths with a small epsilon
@@ -945,13 +949,9 @@ if (identical(tree_type, "chronogram")) {
     donor_crown <- ape::drop.tip(donor_crown, out_tip)
 
   donor_crown <- .safe_force_ultrametric(donor_crown)
-  donor_unit <- .rescale_to_height(donor_crown, 1.0)
-  donor_unit$root.edge <- NULL
 
   unique_species <- unique(donor_crown$tip.label)
-
   needs_suffix <- length(unique_species) == 1L
-
   orig_label <- unique_species
   donor_label <- paste0(orig_label, "_donor")
 
@@ -959,10 +959,14 @@ if (identical(tree_type, "chronogram")) {
     donor_crown$tip.label[] <- donor_label
   }
 
-  label_map <- if (needs_suffix)
+  donor_unit <- .rescale_to_height(donor_crown, 1.0)
+  donor_unit$root.edge <- NULL
+
+  label_map <- if (needs_suffix) {
     data.frame(from = donor_label, to = orig_label, stringsAsFactors = FALSE)
-  else
+  } else {
     NULL
+  }
 
   log_section(logger, "Template: output")
   log_msg(logger, "Donor stem_fraction=", sprintf("%.6f", r),
@@ -1126,17 +1130,22 @@ graft_template_onto_backbone <- function(
     )
 
     if (stem_mode == "crown") {
-      out <- .graft_replace_clade_at_crown_depth(
+      crown_res <- .graft_replace_clade_at_crown_depth(
         X,
         mrca,
         donor_unit,
         eps
       )
+
+      out <- crown_res$tree
+      retained_tip <- crown_res$retained_tip
+
       log_row <- template$template_log
       log_row$stem_mode <- stem_mode
       log_row$target_type <- "clade"
       log_row$target_label <- paste(anchors, collapse = ",")
-      log_row$retained_tip <- NA
+      log_row$retained_tip <- retained_tip
+
       return(list(tree = out, log = log_row))
     }
 
@@ -1155,7 +1164,7 @@ graft_template_onto_backbone <- function(
       log_row$stem_mode <- stem_mode
       log_row$target_type <- "clade"
       log_row$target_label <- paste(anchors, collapse = ",")
-      log_row$retained_tip <- NA
+      log_row$retained_tip <- keep_tip
 
     return(list(tree = out, log = log_row))
   }
