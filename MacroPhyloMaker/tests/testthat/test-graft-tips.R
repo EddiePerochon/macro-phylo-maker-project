@@ -1,6 +1,10 @@
 library(testthat)
 library(ape)
 
+# -------------------------------
+# Helpers
+# -------------------------------
+
 make_tree <- function() {
   read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
 }
@@ -14,6 +18,45 @@ make_plan <- function(fun, tip, sister = NA_character_) {
   )
 }
 
+# ---- topological helpers ----
+
+expect_sister_tip <- function(tree, tip1, tip2) {
+  mrca <- ape::getMRCA(tree, c(tip1, tip2))
+  children <- tree$edge[tree$edge[,1] == mrca, 2]
+
+  child_tips <- children[children <= length(tree$tip.label)]
+  labels <- tree$tip.label[child_tips]
+
+  expect_equal(sort(labels), sort(c(tip1, tip2)))
+}
+
+expect_sister_clade <- function(tree, new_tip, clade_tips) {
+  clade_mrca <- ape::getMRCA(tree, clade_tips)
+  full_mrca  <- ape::getMRCA(tree, c(new_tip, clade_tips))
+
+  expect_false(clade_mrca == full_mrca)
+
+  children <- tree$edge[tree$edge[,1] == full_mrca, 2]
+
+  child_tips <- children[children <= length(tree$tip.label)]
+  child_labels <- tree$tip.label[child_tips]
+
+  expect_true(new_tip %in% child_labels)
+  expect_true(any(children == clade_mrca))
+}
+
+expect_within_clade <- function(tree, tip, clade_tips) {
+  clade_mrca <- ape::getMRCA(tree, clade_tips)
+  tip_mrca   <- ape::getMRCA(tree, c(tip, clade_tips[1]))
+
+  # tip MRCA must be inside or equal to clade MRCA
+  expect_true(tip_mrca >= clade_mrca)
+}
+
+# -------------------------------
+# Error handling
+# -------------------------------
+
 test_that("unknown graft function errors", {
   tr <- make_tree()
   plan <- make_plan("not_a_function", "X")
@@ -24,38 +67,67 @@ test_that("unknown graft function errors", {
   )
 })
 
-test_that("graft next to tip adds a new taxon", {
+# -------------------------------
+# Sister-to-tip
+# -------------------------------
+
+test_that("graft sister to tip adds tip and places correctly", {
   tr <- make_tree()
 
-  plan <- data.frame(
-    Function = "graft_sister_to_tip",
-    GraftedTip = "X",
-    Sister = "A",
-    stringsAsFactors = FALSE
-  )
+  plan <- make_plan("graft_sister_to_tip", "X", "A")
 
   res <- apply_grafts_from_table(tr, plan)
+  tree <- res$tree
 
-  expect_true("X" %in% res$tree$tip.label)
-  expect_equal(length(res$tree$tip.label), 5)
+  # existence
+  expect_true("X" %in% tree$tip.label)
+
+  # count increases by 1
+  expect_equal(length(tree$tip.label), length(tr$tip.label) + 1)
+
+  # topology
+  expect_sister_tip(tree, "A", "X")
 })
 
-test_that("within clade graft places tip inside clade", {
+# -------------------------------
+# Sister-to-clade
+# -------------------------------
+
+test_that("graft sister to clade places tip correctly", {
   tr <- make_tree()
 
-  plan <- data.frame(
-    Function = "graft_within_clade_random",
-    GraftedTip = "X",
-    Sister = "A;B",
-    stringsAsFactors = FALSE
-  )
+  plan <- make_plan("graft_sister_to_clade", "X", "A;B")
 
-  res <- apply_grafts_from_table(tr, plan, seed = 1)
+  res <- apply_grafts_from_table(tr, plan)
+  tree <- res$tree
 
-  expect_true("X" %in% res$tree$tip.label)
+  expect_true("X" %in% tree$tip.label)
+
+  expect_sister_clade(tree, "X", c("A","B"))
 })
 
-test_that("branch position parameters accepted", {
+# -------------------------------
+# Within-clade random
+# -------------------------------
+
+test_that("within-clade graft places tip inside clade", {
+  tr <- make_tree()
+
+  plan <- make_plan("graft_within_clade_random", "X", "A;B")
+
+  res <- apply_grafts_from_table(tr, plan, seed = 1)
+  tree <- res$tree
+
+  expect_true("X" %in% tree$tip.label)
+
+  expect_within_clade(tree, "X", c("A","B"))
+})
+
+# -------------------------------
+# Parameters
+# -------------------------------
+
+test_that("branch position parameters accepted silently", {
   tr <- make_tree()
 
   plan <- make_plan("graft_sister_to_tip", "X", "A")
@@ -70,6 +142,10 @@ test_that("branch position parameters accepted", {
     )
   )
 })
+
+# -------------------------------
+# Ingroup extraction
+# -------------------------------
 
 test_that("extract ingroup by anchors works", {
   tr <- make_tree()
@@ -95,6 +171,10 @@ test_that("ingroup extraction requires >=2 anchors", {
   expect_equal(res$tree$tip.label, tr$tip.label)
 })
 
+# -------------------------------
+# Utilities
+# -------------------------------
+
 test_that("parse_sister handles separators", {
   x <- "A;B, C | D"
 
@@ -113,6 +193,10 @@ test_that("get_num_or returns default correctly", {
   expect_equal(get_num_or(df, "x", 5), 5)
 })
 
+# -------------------------------
+# Logging
+# -------------------------------
+
 test_that("apply_grafts returns log when requested", {
   tr <- make_tree()
   plan <- make_plan("graft_sister_to_tip", "X", "A")
@@ -121,7 +205,12 @@ test_that("apply_grafts returns log when requested", {
 
   expect_true(is.list(res))
   expect_true("log" %in% names(res))
+  expect_true(nrow(res$log) == 1)
 })
+
+# -------------------------------
+# Output writing
+# -------------------------------
 
 test_that("pipeline_write_outputs creates files", {
   tr <- make_tree()
