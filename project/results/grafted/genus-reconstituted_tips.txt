@@ -8,6 +8,7 @@ Myrmicocrypta_longinoda
 Myrmicocrypta_ednaella
 Myrmicocrypta_bucki
 Myrmicocrypta_occipitalis
+Myrmicocrypta_spinosa
 Myrmicocrypta_camargoi
 Myrmicocrypta_erectapilosa
 Myrmicocrypta_urichi
@@ -108,6 +109,7 @@ Cephalotes_pilosus
 Cephalotes_guayaki
 Cephalotes_fiebrigi
 Cephalotes_jheringi
+Cephalotes_specularis
 Cephalotes_adolphi
 Cephalotes_targionii
 Cephalotes_angustus
@@ -129,6 +131,7 @@ Cephalotes_persimplex
 Cephalotes_simillimus
 Cephalotes_minutus
 Cephalotes_pusillus
+Cephalotes_spinosus
 Cephalotes_setulifer
 Cephalotes_trichophorus
 Cephalotes_cristatus
@@ -249,6 +252,7 @@ Pheidole_antranohofa
 Pheidole_sava
 Pheidole_itremo
 Pheidole_vony
+Pheidole_sparsa
 Pheidole_havoana
 Pheidole_befotaka
 Pheidole_vadum
@@ -306,6 +310,7 @@ Pheidole_tumida
 Pheidole_nodifera
 Pheidole_quadrensis
 Pheidole_quadricuspis
+Pheidole_spinicornis
 Pheidole_dugasi
 Pheidole_gatesi
 Pheidole_smythiesii
@@ -364,10 +369,12 @@ Pheidole_concinna
 Pheidole_sinaitica
 Pheidole_dea
 Pheidole_nigeriensis
+Pheidole_speculifera
 Pheidole_tysoni
 Pheidole_juniperae
 Pheidole_xerophila
 Pheidole_harrisonfordi
+Pheidole_specularis
 Pheidole_rectitrudis
 Pheidole_carinote
 Pheidole_beloceps
@@ -377,6 +384,7 @@ Pheidole_inquilina
 Pheidole_senex
 Pheidole_cavigenis
 Pheidole_cerebrosior
+Pheidole_spadonia
 Pheidole_deceptrix
 Pheidole_clydei
 Pheidole_nebulosa
@@ -394,6 +402,7 @@ Pheidole_sciara
 Pheidole_cockerelli
 Pheidole_sciophila
 Pheidole_angusticeps
+Pheidole_spathipilosa
 Pheidole_mackayi
 Pheidole_dentata
 Pheidole_psilogaster
@@ -573,6 +582,7 @@ Strumigenys_schmalzi
 Strumigenys_silvestrii
 Strumigenys_elongata
 Strumigenys_pariensis
+Strumigenys_spathula
 Strumigenys_trinidadensis
 Strumigenys_fairchildi
 Strumigenys_tococae
@@ -625,6 +635,7 @@ Strumigenys_ettillax
 Strumigenys_totyla
 Strumigenys_relahyla
 Strumigenys_rukha
+Strumigenys_spathoda
 Strumigenys_rogeri
 Strumigenys_hastyla
 Strumigenys_sibyna
@@ -654,6 +665,7 @@ Strumigenys_admixta
 Strumigenys_dicomas
 Strumigenys_vazimba
 Strumigenys_labaris
+Strumigenys_sphera
 Strumigenys_ection
 Strumigenys_carisa
 Strumigenys_norax
@@ -1016,7 +1028,7 @@ Melissotarsus_insularis
 Formosimyrma
 Rhopalomastix_rothneyi
 Cyphoidris_exalta
-Dicroaspis_cryptocera
+Dicroaspis
 Calyptomyrmex_kaurus
 Tetramorium_scytalum
 Tetramorium_taylori
@@ -1055,6 +1067,7 @@ Tetramorium_norvigi
 Tetramorium_malagasy
 Tetramorium_steinheili
 Tetramorium_ambatovy
+Tetramorium_spinosum
 Tetramorium_hispidum
 Indomyrma_dasypyx
 Dacetinops_cirrosus
@@ -1300,6 +1313,7 @@ Temnothorax_turcicus
 Temnothorax_interruptus
 Temnothorax_congruus
 Temnothorax_nylanderi
+Temnothorax_spinosior
 Temnothorax_rothneyi
 Temnothorax_kubira
 Temnothorax_arimensis
@@ -1363,6 +1377,7 @@ Temnothorax_punctaticeps
 Temnothorax_rugithorax
 Temnothorax_poeyi
 Temnothorax_gundlachi
+Temnothorax_splendens
 Temnothorax_sallei
 Temnothorax_purpuratus
 Temnothorax_laetus
@@ -1373,7 +1388,7 @@ Temnothorax_paiute
 Temnothorax_oxynodis
 Temnothorax_andrei
 Temnothorax_nitens
-Lasiomyrma_gedensis
+Lasiomyrma
 Lordomyrma_epinotalis
 Ancyridris_polyrhachioides
 Gaoligongidris
@@ -2115,7 +2130,6 @@ Formica_pallidefulva
 Formica_dolosa
 Formica_incerta
 Formica_moki
-Formica_fusca
 Formica_gnava
 Formica_foreliana
 Formica_sibylla
@@ -2256,6 +2270,7 @@ Metalasius
 Lasius_brunneus
 Lasius_turcicus
 Lasius_fuliginosus
+Lasius_spathepus
 Lasius_emarginatus
 Lasius_platythorax
 Lasius_psammophilus
@@ -2328,6 +2343,7 @@ Froggattella_latispina
 Iridomyrmex_pallidus
 Iridomyrmex_sanguineus
 Iridomyrmex_purpureus
+Iridomyrmex_spadius
 Ochetellus
 Turneria
 Philidris
@@ -2386,6 +2402,7 @@ Dorymyrmex_paiute
 Dorymyrmex_reginicula
 Dorymyrmex_smithi
 Dorymyrmex_goeldii
+Dorymyrmex_spurius
 Dorymyrmex_biconis
 Dorymyrmex_antillanus
 Dorymyrmex_jheringi
@@ -2494,6 +2511,7 @@ Pseudomyrmex_pupa
 Pseudomyrmex_laevigatus
 Pseudomyrmex_osurus
 Pseudomyrmex_tenuissimus
+Pseudomyrmex_spiculus
 Pseudomyrmex_rufomedius
 Pseudomyrmex_fervidus
 Pseudomyrmex_salvini
@@ -2546,6 +2564,7 @@ Pseudomyrmex_evitus
 Pseudomyrmex_feralis
 Pseudomyrmex_peperi
 Pseudomyrmex_satanicus
+Pseudomyrmex_spinicola
 Pseudomyrmex_mixtecus
 Pseudomyrmex_veneficus
 Pseudomyrmex_flavicornis
@@ -2685,7 +2704,7 @@ Lioponera_mayri
 Lioponera_suscitata
 Lioponera_marginata
 Lioponera_ruficornis
-Lividopone_livida
+Lividopone
 Zasphinctus_wilsoni
 Zasphinctus_sarowiwai
 Zasphinctus_trux
@@ -2709,13 +2728,13 @@ Simopone_conradti
 Simopone_marleyi
 Simopone_rex
 Simopone_trita
-Eusphinctus_furcatus
+Eusphinctus
 Syscia_augustae
 Syscia_typhla
 Ooceraea_fragosa
 Ooceraea_australis
 Ooceraea_biroi
-Eburopone_easoana
+Eburopone
 Cerapachys_sulcinodis
 Cerapachys_antennatus
 Chrysapace_sauteri
@@ -2728,6 +2747,7 @@ Dorylus_conradti
 Dorylus_orientalis
 Dorylus_fimbriatus
 Dorylus_fulvus
+Dorylus_spininodis
 Dorylus_kohli
 Dorylus_braunsi
 Dorylus_mayri
@@ -2766,6 +2786,7 @@ Cheliomyrmex_andicola
 Cheliomyrmex_morosus
 Labidus_coecus
 Labidus_praedator
+Labidus_spininodis
 Nomamyrmex_esenbeckii
 Nomamyrmex_hartigii
 Eciton_mexicanum
