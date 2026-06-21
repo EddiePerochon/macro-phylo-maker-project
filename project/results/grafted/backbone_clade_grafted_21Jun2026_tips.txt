@@ -845,7 +845,7 @@ Meranoplus_mcarthuri
 Lophomyrmex_bedoti
 Lophomyrmex_ambiguus
 Adlerzia_froggatti
-Recurvidris_browni
+Recurvidris
 Stereomyrmex_horni
 Trichomyrmex_robustior
 Trichomyrmex_criniceps
@@ -871,7 +871,7 @@ Acanthomyrmex_ferox
 Myrmecina_striata
 Myrmecina_americana
 Myrmecina_graminicola
-Paratopula_andamanensis
+Paratopula
 Poecilomyrma_myrmecodiae
 Romblonella_elysii
 Romblonella_scrobifera
