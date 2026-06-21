@@ -24,13 +24,15 @@ tip_desc_labels <- function(tree, node) {
 expect_sister_pair <- function(tree, tip1, tip2) {
   mrca <- ape::getMRCA(tree, c(tip1, tip2))
   expect_false(is.na(mrca))
-  expect_equal(sort(tip_desc_labels(tree, mrca)),
-               sort(c(tip1, tip2)))
+  expect_equal(
+    sort(tip_desc_labels(tree, mrca)),
+    sort(c(tip1, tip2))
+  )
 }
 
 expect_sister_to_clade <- function(tree, new_tip, clade_tips) {
   clade_mrca <- ape::getMRCA(tree, clade_tips)
-  full_mrca  <- ape::getMRCA(tree, c(new_tip, clade_tips))
+  full_mrca <- ape::getMRCA(tree, c(new_tip, clade_tips))
 
   expect_false(is.na(clade_mrca))
   expect_false(is.na(full_mrca))
@@ -57,8 +59,8 @@ expect_tip_inside_clade <- function(tree, new_tip, clade_tips) {
 ns <- asNamespace("MacroPhyloMaker")
 incoming_edge_index <- get("incoming_edge_index", envir = ns)
 draw_depth_fraction <- get("draw_depth_fraction", envir = ns)
-tree_depth_helper   <- get("tree_depth", envir = ns)
-bind_tip_at         <- get("bind_tip_at", envir = ns)
+tree_depth_helper <- get("tree_depth", envir = ns)
+bind_tip_at <- get("bind_tip_at", envir = ns)
 
 # -------------------------------------------------------------------
 # Internal helper tests
@@ -80,21 +82,27 @@ test_that("incoming_edge_index finds the correct edge for a tip and an internal 
 
 test_that("draw_depth_fraction respects bounds and falls back safely", {
   set.seed(1)
-  x <- replicate(50, draw_depth_fraction(shape1 = 2, shape2 = 5,
-                                         min_frac = 0.2, max_frac = 0.4))
+  x <- replicate(50, draw_depth_fraction(
+    shape1 = 2, shape2 = 5,
+    min_frac = 0.2, max_frac = 0.4
+  ))
   expect_true(all(x >= 0.2))
   expect_true(all(x <= 0.4))
 
   set.seed(1)
-  y <- replicate(50, draw_depth_fraction(shape1 = -1, shape2 = 0,
-                                         min_frac = 0.3, max_frac = 0.6))
+  y <- replicate(50, draw_depth_fraction(
+    shape1 = -1, shape2 = 0,
+    min_frac = 0.3, max_frac = 0.6
+  ))
   expect_true(all(y >= 0.3))
   expect_true(all(y <= 0.6))
 
   # invalid interval should reset to [0,1]
   set.seed(1)
-  z <- replicate(50, draw_depth_fraction(shape1 = 1, shape2 = 1,
-                                         min_frac = 0.9, max_frac = 0.1))
+  z <- replicate(50, draw_depth_fraction(
+    shape1 = 1, shape2 = 1,
+    min_frac = 0.9, max_frac = 0.1
+  ))
   expect_true(all(z >= 0))
   expect_true(all(z <= 1))
 })

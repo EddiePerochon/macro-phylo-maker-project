@@ -122,12 +122,11 @@ NULL
 #' @keywords internal grafting chronogram terminal-edge
 #' @noRd
 .graft_on_terminal_edge <- function(X, tip, donor_unit, r, eps = 1e-10) {
-
   H <- phytools::nodeHeights(X)
   tip_idx <- match(tip, X$tip.label)
-  ei <- which(X$edge[,2] == tip_idx)
+  ei <- which(X$edge[, 2] == tip_idx)
 
-  L <- H[ei,2] - H[ei,1]
+  L <- H[ei, 2] - H[ei, 1]
   pos <- (1 - r) * L
 
   pos_eps <- max(eps, 1e-6 * L)
@@ -156,7 +155,9 @@ NULL
   min_frac <- max(0, min(1, as.numeric(min_frac)))
   max_frac <- max(0, min(1, as.numeric(max_frac)))
   if (max_frac < min_frac) {
-    tmp <- min_frac; min_frac <- max_frac; max_frac <- tmp
+    tmp <- min_frac
+    min_frac <- max_frac
+    max_frac <- tmp
   }
   u <- stats::rbeta(1L, shape1 = shape1, shape2 = shape2)
   min_frac + u * (max_frac - min_frac)
@@ -216,8 +217,9 @@ NULL
   nh <- phytools::nodeheight(X, mrca)
   crown_depth <- root_age - nh
 
-  if (!is.finite(crown_depth) || crown_depth <= 0)
+  if (!is.finite(crown_depth) || crown_depth <= 0) {
     stop("Invalid crown depth at MRCA.")
+  }
 
   ## Collapse MRCA clade to exactly one real tip
   collapsed <- .collapse_mrca_to_existing_tip(X, mrca)
@@ -230,8 +232,9 @@ NULL
   ei <- which(Xc$edge[, 2] == tip_idx)
   L <- Hc[ei, 2] - Hc[ei, 1]
 
-  if (crown_depth >= L)
+  if (crown_depth >= L) {
     stop("Crown depth exceeds retained terminal edge length.")
+  }
 
   ## Graft position: exactly crown_depth from the tip
   pos <- crown_depth
@@ -243,19 +246,19 @@ NULL
 
   ## Bind donor and remove retained backbone tip
   X2 <- ape::bind.tree(
-      Xc,
-      donor_scaled,
-      where = tip_idx,
-      position = pos
-    )
-    out <- ape::drop.tip(X2, keep_tip)
-    out <- .ensure_positive_edges(out)
+    Xc,
+    donor_scaled,
+    where = tip_idx,
+    position = pos
+  )
+  out <- ape::drop.tip(X2, keep_tip)
+  out <- .ensure_positive_edges(out)
 
-    list(
-      tree = out,
-      retained_tip = keep_tip
-    )
-  }
+  list(
+    tree = out,
+    retained_tip = keep_tip
+  )
+}
 #' Ensure strictly positive edge lengths (internal)
 #'
 #' Replaces non-finite or non-positive edge lengths with a small epsilon
@@ -267,7 +270,9 @@ NULL
 #' @keywords internal
 #' @noRd
 .ensure_positive_edges <- function(tr, base_eps = 1e-12) {
-  if (is.null(tr$edge.length)) return(tr)
+  if (is.null(tr$edge.length)) {
+    return(tr)
+  }
   el <- tr$edge.length
   pos <- el[is.finite(el) & el > 0]
   eps <- if (length(pos)) max(base_eps, 1e-8 * min(pos)) else base_eps
@@ -288,12 +293,11 @@ NULL
 #' @keywords internal
 #' @noRd
 .collapse_mrca_to_existing_tip <- function(X, mrca) {
-
   desc <- phytools::getDescendants(X, mrca)
   tip_desc <- desc[desc <= ape::Ntip(X)]
   labels <- X$tip.label[tip_desc]
 
-  keep <- sort(labels)[1]           # deterministic choice
+  keep <- sort(labels)[1] # deterministic choice
   drop <- setdiff(labels, keep)
 
   X2 <- ape::drop.tip(X, drop)
@@ -311,10 +315,14 @@ NULL
 #' @keywords internal
 #' @noRd
 .safe_force_ultrametric <- function(tr, method_order = c("nnls", "extend")) {
-  if (ape::is.ultrametric(tr)) return(tr)
+  if (ape::is.ultrametric(tr)) {
+    return(tr)
+  }
   for (m in method_order) {
     tt <- try(phytools::force.ultrametric(tr, method = m), silent = TRUE)
-    if (!inherits(tt, "try-error") && ape::is.ultrametric(tt)) return(tt)
+    if (!inherits(tt, "try-error") && ape::is.ultrametric(tt)) {
+      return(tt)
+    }
   }
   if (is.null(tr$edge.length)) tr$edge.length <- rep(1, nrow(tr$edge))
   eps <- max(1e-8, 1e-6 * max(tr$edge.length, na.rm = TRUE))
@@ -353,8 +361,9 @@ NULL
 #' @noRd
 .compute_crown_metrics <- function(TREE, ig) {
   cr <- ape::getMRCA(TREE, ig)
-  if (is.na(cr))
+  if (is.na(cr)) {
     return(list(ok = FALSE, reason = "No ingroup MRCA"))
+  }
 
   H <- phytools::nodeHeights(TREE)
   root_age <- max(H[, 2])
@@ -364,8 +373,9 @@ NULL
   crown_depth <- root_age - nh
   total <- stem_len + crown_depth
 
-  if (!is.finite(total) || total <= 0)
+  if (!is.finite(total) || total <= 0) {
     return(list(ok = FALSE, reason = "Non-positive donor total depth"))
+  }
 
   r <- min(max(stem_len / total, 1e-8), 1 - 1e-8)
 
@@ -398,7 +408,9 @@ NULL
     size <- function(node) if (node <= N) 1L else length(ape::extract.clade(tr, node)$tip.label)
     n1 <- size(kids[1])
     n2 <- size(kids[2])
-    if (xor(n1 == 1L, n2 == 1L)) return(if (n1 == 1L) tr$tip.label[kids[1]] else tr$tip.label[kids[2]])
+    if (xor(n1 == 1L, n2 == 1L)) {
+      return(if (n1 == 1L) tr$tip.label[kids[1]] else tr$tip.label[kids[2]])
+    }
   }
   NA_character_
 }
@@ -415,15 +427,18 @@ NULL
 #' @noRd
 .fallback_single_outgroup <- function(tr) {
   N <- ape::Ntip(tr)
-  roots <- setdiff(unique(tr$edge[,1]), tr$edge[,2])
-  if (!length(roots)) return(NA_character_)
+  roots <- setdiff(unique(tr$edge[, 1]), tr$edge[, 2])
+  if (!length(roots)) {
+    return(NA_character_)
+  }
   root <- roots[1]
-  kids <- tr$edge[tr$edge[,1] == root, 2]
+  kids <- tr$edge[tr$edge[, 1] == root, 2]
 
   # (a) root child singleton (mirror .infer_single_outgroup)
   if (length(kids) == 2) {
     size <- function(node) if (node <= N) 1L else length(ape::extract.clade(tr, node)$tip.label)
-    n1 <- size(kids[1]); n2 <- size(kids[2])
+    n1 <- size(kids[1])
+    n2 <- size(kids[2])
     if (xor(n1 == 1L, n2 == 1L)) {
       return(if (n1 == 1L) tr$tip.label[kids[1]] else tr$tip.label[kids[2]])
     }
@@ -431,7 +446,9 @@ NULL
 
   # (b) farthest-from-centroid tip as a single outgroup proxy
   D <- ape::cophenetic.phylo(tr)
-  if (!is.matrix(D) || !nrow(D)) return(NA_character_)
+  if (!is.matrix(D) || !nrow(D)) {
+    return(NA_character_)
+  }
   diag(D) <- NA_real_
   means <- rowMeans(D, na.rm = TRUE)
   out <- names(which.max(means))
@@ -449,8 +466,12 @@ NULL
 #'   \code{NULL}.
 #' @export
 resolve_authority_binomials <- function(authority) {
-  if (is.null(authority)) return(NULL)
-  if (is.character(authority) && length(authority) > 1L) return(unique(authority[nzchar(authority)]))
+  if (is.null(authority)) {
+    return(NULL)
+  }
+  if (is.character(authority) && length(authority) > 1L) {
+    return(unique(authority[nzchar(authority)]))
+  }
   if (is.data.frame(authority)) {
     cn <- names(authority)
     if (all(c("Genus", "Species") %in% cn)) {
@@ -571,12 +592,10 @@ prepare_clade_template <- function(
   logger = NULL,
   expand_ingroup_to_full_donor = TRUE
 ) {
-
   stem_mode <- .normalize_stem_mode(stem_mode)
   if (!is.null(template_path) &&
-      reuse_template &&
-      file.exists(template_path)) {
-
+    reuse_template &&
+    file.exists(template_path)) {
     tpl <- readRDS(template_path)
 
     if (isTRUE(tpl$ok)) {
@@ -602,7 +621,6 @@ prepare_clade_template <- function(
   ## -------------------------------------------------------------------------
 
   clean_species_label <- function(x) {
-
     ## 1. normalize dots in qualifiers (cf., nr., aff., sp.)
     x <- gsub("(cf|nr|aff|sp)\\.", "\\1", x)
 
@@ -635,16 +653,15 @@ prepare_clade_template <- function(
   ## -------------------------------------------------------------------------
 
   out_tip <- NA_character_
-  out_tip_raw <- NA_character_   
+  out_tip_raw <- NA_character_
 
   if (isTRUE(expand_ingroup_to_full_donor) ||
-      length(ingroup_tips) == length(tr$tip.label)) {
-
+    length(ingroup_tips) == length(tr$tip.label)) {
     og <- .infer_single_outgroup(tr)
 
     if (!is.na(og) && og %in% tr$tip.label) {
       out_tip <- og
-      out_tip_raw <- og         
+      out_tip_raw <- og
 
       ingroup_tips <- setdiff(tr$tip.label, out_tip)
       log_msg(logger, "Outgroup inferred as root singleton: ", out_tip)
@@ -659,7 +676,6 @@ prepare_clade_template <- function(
   valid <- if (is.null(authority)) NULL else resolve_authority_binomials(authority)
 
   if (!is.null(valid)) {
-
     keep_ig <- intersect(ingroup_tips, valid)
 
     log_section(logger, "Template: authority filter")
@@ -669,8 +685,9 @@ prepare_clade_template <- function(
       "; dropped absent: ", length(setdiff(ingroup_tips, valid))
     )
 
-    if (!length(keep_ig))
+    if (!length(keep_ig)) {
       return(list(ok = FALSE, reason = "No ingroup retained after authority filter"))
+    }
 
     ## ---- PROTECT OUTGROUP FROM AUTHORITY FILTER ----
     keep <- keep_ig
@@ -682,258 +699,247 @@ prepare_clade_template <- function(
     ingroup_tips <- keep_ig
   }
 
-## -------------------------------------------------------------------------
-## Donor ultrametric conversion
-## -------------------------------------------------------------------------
-log_section(logger, "Template: donor ultrametric conversion")
+  ## -------------------------------------------------------------------------
+  ## Donor ultrametric conversion
+  ## -------------------------------------------------------------------------
+  log_section(logger, "Template: donor ultrametric conversion")
 
-G <- tr
+  G <- tr
 
-tree_type <- attr(donor_tree, "input_tree_type", exact = TRUE)
-if (is.null(tree_type)) tree_type <- "phylogram"
+  tree_type <- attr(donor_tree, "input_tree_type", exact = TRUE)
+  if (is.null(tree_type)) tree_type <- "phylogram"
 
-tree_type <- tolower(tree_type)
-is_ultra  <- ape::is.ultrametric(G, tol = 1e-6)
+  tree_type <- tolower(tree_type)
+  is_ultra <- ape::is.ultrametric(G, tol = 1e-6)
 
-log_msg(
-  logger,
-  "Donor tree type: ", tree_type,
-  "; ultrametric: ", is_ultra
-)
+  log_msg(
+    logger,
+    "Donor tree type: ", tree_type,
+    "; ultrametric: ", is_ultra
+  )
 
-## -------------------------------------------------------------------------
-## Case 1: Declared chronogram — NEVER run chronos
-## -------------------------------------------------------------------------
-if (identical(tree_type, "chronogram")) {
+  ## -------------------------------------------------------------------------
+  ## Case 1: Declared chronogram — NEVER run chronos
+  ## -------------------------------------------------------------------------
+  if (identical(tree_type, "chronogram")) {
+    log_msg(logger, "Input tree declared as chronogram; skipping chronos.")
 
-  log_msg(logger, "Input tree declared as chronogram; skipping chronos.")
-
-  if (!is_ultra) {
-    log_msg(
-      logger,
-      "Chronogram not ultrametric (likely numerical jitter); ",
-      "enforcing ultrametricity using 'extend'."
-    )
-    G_ultra <- phytools::force.ultrametric(G, method = "extend")
+    if (!is_ultra) {
+      log_msg(
+        logger,
+        "Chronogram not ultrametric (likely numerical jitter); ",
+        "enforcing ultrametricity using 'extend'."
+      )
+      G_ultra <- phytools::force.ultrametric(G, method = "extend")
+    } else {
+      G_ultra <- G
+    }
   } else {
-    G_ultra <- G
-  }
+    ## -----------------------------------------------------------------------
+    ## Case 2: Phylogram — allow chronos logic
+    ## -----------------------------------------------------------------------
+    if (is_ultra && chronos_select != "fixed") {
+      log_msg(
+        logger,
+        "Phylogram already ultrametric; skipping chronos and using as chronogram."
+      )
+      G_ultra <- G
+    } else {
+      log_msg(
+        logger,
+        "Phylogram detected; estimating chronogram with chronos."
+      )
 
-} else {
+      cal <- if (!is.null(calib_df)) calib_df else ape::makeChronosCalib(G)
 
-  ## -----------------------------------------------------------------------
-  ## Case 2: Phylogram — allow chronos logic
-  ## -----------------------------------------------------------------------
-  if (is_ultra && chronos_select != "fixed") {
+      pick_best <- function(G, logger, ig) {
+        candidates <- list()
+        tried <- list()
 
-    log_msg(
-      logger,
-      "Phylogram already ultrametric; skipping chronos and using as chronogram."
-    )
-    G_ultra <- G
+        for (mdl in models_grid) {
+          if (mdl == "discrete") {
+            for (kcat in rate_cats) {
+              for (lam in lambda_grid) {
+                ctrl <- ape::chronos.control()
+                ctrl$nb.rate.cat <- kcat
 
-  } else {
+                fit <- try(
+                  ape::chronos(
+                    G,
+                    lambda = lam,
+                    model = mdl,
+                    quiet = FALSE,
+                    calibration = cal,
+                    control = ctrl
+                  ),
+                  silent = TRUE
+                )
+                if (inherits(fit, "try-error")) next
 
-    log_msg(
-      logger,
-      "Phylogram detected; estimating chronogram with chronos."
-    )
+                conv <- isTRUE(attr(fit, "convergence"))
+                phi <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
+                ll <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
 
-    cal <- if (!is.null(calib_df)) calib_df else ape::makeChronosCalib(G)
+                tried[[length(tried) + 1]] <- list(
+                  model = mdl,
+                  lambda = lam,
+                  nb_rate_cat = kcat,
+                  PHIIC = phi,
+                  logLik = ll,
+                  converged = conv
+                )
 
-    pick_best <- function(G, logger, ig) {
-
-      candidates <- list()
-      tried <- list()
-
-      for (mdl in models_grid) {
-
-        if (mdl == "discrete") {
-
-          for (kcat in rate_cats) for (lam in lambda_grid) {
-
-            ctrl <- ape::chronos.control()
-            ctrl$nb.rate.cat <- kcat
-
-            fit <- try(
-              ape::chronos(
-                G,
-                lambda = lam,
-                model = mdl,
-                quiet = FALSE,
-                calibration = cal,
-                control = ctrl
-              ),
-              silent = TRUE
-            )
-            if (inherits(fit, "try-error")) next
-
-            conv <- isTRUE(attr(fit, "convergence"))
-            phi  <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
-            ll   <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
-
-            tried[[length(tried) + 1]] <- list(
-              model = mdl,
-              lambda = lam,
-              nb_rate_cat = kcat,
-              PHIIC = phi,
-              logLik = ll,
-              converged = conv
-            )
-
-            if (is.finite(phi) && is.finite(ll)) {
-              candidates[[length(candidates) + 1]] <- list(
-                tree = fit,
-                model = mdl,
-                lambda = lam,
-                nb_rate_cat = kcat,
-                PHIIC = phi,
-                logLik = ll,
-                converged = conv,
-                crown = .compute_crown_metrics(fit, ig)$crown_depth
-              )
+                if (is.finite(phi) && is.finite(ll)) {
+                  candidates[[length(candidates) + 1]] <- list(
+                    tree = fit,
+                    model = mdl,
+                    lambda = lam,
+                    nb_rate_cat = kcat,
+                    PHIIC = phi,
+                    logLik = ll,
+                    converged = conv,
+                    crown = .compute_crown_metrics(fit, ig)$crown_depth
+                  )
+                }
+              }
             }
-          }
+          } else {
+            for (lam in lambda_grid) {
+              fit <- try(
+                ape::chronos(
+                  G,
+                  lambda = lam,
+                  model = mdl,
+                  quiet = FALSE,
+                  calibration = cal
+                ),
+                silent = TRUE
+              )
+              if (inherits(fit, "try-error")) next
 
-        } else {
+              conv <- isTRUE(attr(fit, "convergence"))
+              phi <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
+              ll <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
 
-          for (lam in lambda_grid) {
-
-            fit <- try(
-              ape::chronos(
-                G,
-                lambda = lam,
-                model = mdl,
-                quiet = FALSE,
-                calibration = cal
-              ),
-              silent = TRUE
-            )
-            if (inherits(fit, "try-error")) next
-
-            conv <- isTRUE(attr(fit, "convergence"))
-            phi  <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
-            ll   <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
-
-            tried[[length(tried) + 1]] <- list(
-              model = mdl,
-              lambda = lam,
-              nb_rate_cat = NA,
-              PHIIC = phi,
-              logLik = ll,
-              converged = conv
-            )
-
-            if (is.finite(phi) && is.finite(ll)) {
-              candidates[[length(candidates) + 1]] <- list(
-                tree = fit,
+              tried[[length(tried) + 1]] <- list(
                 model = mdl,
                 lambda = lam,
                 nb_rate_cat = NA,
                 PHIIC = phi,
                 logLik = ll,
-                converged = conv,
-                crown = .compute_crown_metrics(fit, ig)$crown_depth
+                converged = conv
               )
+
+              if (is.finite(phi) && is.finite(ll)) {
+                candidates[[length(candidates) + 1]] <- list(
+                  tree = fit,
+                  model = mdl,
+                  lambda = lam,
+                  nb_rate_cat = NA,
+                  PHIIC = phi,
+                  logLik = ll,
+                  converged = conv,
+                  crown = .compute_crown_metrics(fit, ig)$crown_depth
+                )
+              }
             }
           }
         }
-      }
 
-      if (!length(candidates)) {
-        log_msg(
-          logger,
-          "ERROR: No chronos fit produced finite likelihoods; ",
-          "falling back to NNLS."
-        )
-        return(list(
-          tree = phytools::force.ultrametric(G, method = "nnls"),
-          model = "nnls",
-          lambda = NA,
-          nb_rate_cat = NA,
-          PHIIC = NA,
-          logLik = NA,
-          converged = FALSE
-        ))
-      }
-
-      conv_flag <- vapply(candidates, `[[`, logical(1), "converged")
-
-      if (any(conv_flag)) {
-        pool <- candidates[conv_flag]
-        note <- "Selected best CONVERGED chronos model."
-      } else {
-        pool <- candidates
-        note <- "WARNING: No chronos model converged; using best NON-converged model."
-      }
-
-      phiics <- vapply(pool, `[[`, numeric(1), "PHIIC")
-      j <- which.min(phiics)
-      best <- pool[[j]]
-
-      log_msg(
-        logger,
-        "Selected chronos:",
-        "\n  model=", best$model,
-        "\n  lambda=", best$lambda,
-        "\n  rate_cats=", best$nb_rate_cat,
-        "\n  PHIIC=", sprintf("%.6f", best$PHIIC),
-        "\n  logLik=", sprintf("%.6f", best$logLik),
-        "\n  converged=", best$converged,
-        "\n  note=", note
-      )
-
-      best
-    }
-
-    sel <- switch(
-      chronos_select,
-      "off"   = list(tree = phytools::force.ultrametric(G, method = "nnls")),
-      "fixed" = {
-        mdl  <- tolower(chronos_model)
-        ctrl <- ape::chronos.control()
-        fit  <- try(
-          ape::chronos(
-            G,
-            lambda = lambda,
-            model = mdl,
-            quiet = FALSE,
-            calibration = cal,
-            control = ctrl
-          ),
-          silent = TRUE
-        )
-        if (!inherits(fit, "try-error") && isTRUE(attr(fit, "convergence"))) {
-          list(
-            tree = fit,
-            model = mdl,
-            lambda = lambda,
-            nb_rate_cat = ctrl$nb.rate.cat,
-            PHIIC = attr(fit, "PHIIC")$PHIIC
+        if (!length(candidates)) {
+          log_msg(
+            logger,
+            "ERROR: No chronos fit produced finite likelihoods; ",
+            "falling back to NNLS."
           )
-        } else {
-          log_msg(logger, "Fixed chronos failed; using NNLS.")
-          list(
+          return(list(
             tree = phytools::force.ultrametric(G, method = "nnls"),
             model = "nnls",
             lambda = NA,
             nb_rate_cat = NA,
-            PHIIC = NA
-          )
+            PHIIC = NA,
+            logLik = NA,
+            converged = FALSE
+          ))
         }
-      },
-      "auto" = pick_best(G, logger, ingroup_tips)
-    )
 
-    G_ultra <- sel$tree
+        conv_flag <- vapply(candidates, `[[`, logical(1), "converged")
+
+        if (any(conv_flag)) {
+          pool <- candidates[conv_flag]
+          note <- "Selected best CONVERGED chronos model."
+        } else {
+          pool <- candidates
+          note <- "WARNING: No chronos model converged; using best NON-converged model."
+        }
+
+        phiics <- vapply(pool, `[[`, numeric(1), "PHIIC")
+        j <- which.min(phiics)
+        best <- pool[[j]]
+
+        log_msg(
+          logger,
+          "Selected chronos:",
+          "\n  model=", best$model,
+          "\n  lambda=", best$lambda,
+          "\n  rate_cats=", best$nb_rate_cat,
+          "\n  PHIIC=", sprintf("%.6f", best$PHIIC),
+          "\n  logLik=", sprintf("%.6f", best$logLik),
+          "\n  converged=", best$converged,
+          "\n  note=", note
+        )
+
+        best
+      }
+
+      sel <- switch(chronos_select,
+        "off" = list(tree = phytools::force.ultrametric(G, method = "nnls")),
+        "fixed" = {
+          mdl <- tolower(chronos_model)
+          ctrl <- ape::chronos.control()
+          fit <- try(
+            ape::chronos(
+              G,
+              lambda = lambda,
+              model = mdl,
+              quiet = FALSE,
+              calibration = cal,
+              control = ctrl
+            ),
+            silent = TRUE
+          )
+          if (!inherits(fit, "try-error") && isTRUE(attr(fit, "convergence"))) {
+            list(
+              tree = fit,
+              model = mdl,
+              lambda = lambda,
+              nb_rate_cat = ctrl$nb.rate.cat,
+              PHIIC = attr(fit, "PHIIC")$PHIIC
+            )
+          } else {
+            log_msg(logger, "Fixed chronos failed; using NNLS.")
+            list(
+              tree = phytools::force.ultrametric(G, method = "nnls"),
+              model = "nnls",
+              lambda = NA,
+              nb_rate_cat = NA,
+              PHIIC = NA
+            )
+          }
+        },
+        "auto" = pick_best(G, logger, ingroup_tips)
+      )
+
+      G_ultra <- sel$tree
+    }
   }
-}
   ## -------------------------------------------------------------------------
   ## Stem / crown metrics and donor crown extraction
   ## -------------------------------------------------------------------------
   metrics <- .compute_crown_metrics(G_ultra, ingroup_tips)
-  if (!isTRUE(metrics$ok))
+  if (!isTRUE(metrics$ok)) {
     return(list(ok = FALSE, reason = metrics$reason))
+  }
 
   if (stem_mode == "outgroup") {
     r <- metrics$r
@@ -945,8 +951,9 @@ if (identical(tree_type, "chronogram")) {
   crown_node <- metrics$crown_node
 
   donor_crown <- ape::extract.clade(G_ultra, crown_node)
-  if (!is.na(out_tip) && out_tip %in% donor_crown$tip.label)
+  if (!is.na(out_tip) && out_tip %in% donor_crown$tip.label) {
     donor_crown <- ape::drop.tip(donor_crown, out_tip)
+  }
 
   donor_crown <- .safe_force_ultrametric(donor_crown)
 
@@ -969,8 +976,10 @@ if (identical(tree_type, "chronogram")) {
   }
 
   log_section(logger, "Template: output")
-  log_msg(logger, "Donor stem_fraction=", sprintf("%.6f", r),
-          " crown_fraction=", sprintf("%.6f", 1 - r))
+  log_msg(
+    logger, "Donor stem_fraction=", sprintf("%.6f", r),
+    " crown_fraction=", sprintf("%.6f", 1 - r)
+  )
 
   tpl_row <- data.frame(
     n_ingroup_kept = length(ingroup_tips),
@@ -998,7 +1007,6 @@ if (identical(tree_type, "chronogram")) {
   }
 
   return(out)
-
 }
 
 # -----------------------------------------------------------------------------
@@ -1067,32 +1075,31 @@ graft_template_onto_backbone <- function(
   ## TIP REPLACEMENT
   ## -------------------------------------------------------------------------
   if (identical(placement$type, "tip")) {
-
-  if (stem_mode == "crown") {
-    out <- .graft_on_terminal_edge_beta(
-      X,
-      placement$tip,
-      donor_unit,
-      shape1 = placement$shape1 %||% 6,
-      shape2 = placement$shape2 %||% 2,
-      min_frac = placement$min_frac %||% 0.1,
-      max_frac = placement$max_frac %||% 0.9,
-      eps = eps
-    )
-  } else {
-    out <- .graft_on_terminal_edge(
-      X,
-      placement$tip,
-      donor_unit,
-      r,
-      eps
-    )
-  }
+    if (stem_mode == "crown") {
+      out <- .graft_on_terminal_edge_beta(
+        X,
+        placement$tip,
+        donor_unit,
+        shape1 = placement$shape1 %||% 6,
+        shape2 = placement$shape2 %||% 2,
+        min_frac = placement$min_frac %||% 0.1,
+        max_frac = placement$max_frac %||% 0.9,
+        eps = eps
+      )
+    } else {
+      out <- .graft_on_terminal_edge(
+        X,
+        placement$tip,
+        donor_unit,
+        r,
+        eps
+      )
+    }
 
     log_row <- transform(
       template$template_log,
       stem_mode = stem_mode,
-      target_type  = "tip",
+      target_type = "tip",
       target_label = placement$tip
     )
 
@@ -1103,15 +1110,18 @@ graft_template_onto_backbone <- function(
   ## CLADE (MRCA) REPLACEMENT
   ## -------------------------------------------------------------------------
   if (identical(placement$type, "clade")) {
-
     anchors <- as.character(placement$anchors)
-    if (!all(anchors %in% X$tip.label))
-      stop("Anchors not found in backbone: ",
-           paste(setdiff(anchors, X$tip.label), collapse = ", "))
+    if (!all(anchors %in% X$tip.label)) {
+      stop(
+        "Anchors not found in backbone: ",
+        paste(setdiff(anchors, X$tip.label), collapse = ", ")
+      )
+    }
 
     mrca <- ape::getMRCA(X, anchors)
-    if (is.na(mrca))
+    if (is.na(mrca)) {
       stop("Could not determine MRCA for anchors.")
+    }
 
     ## identify all descendant tips
     desc <- unique(phytools::getDescendants(X, mrca))
@@ -1160,11 +1170,11 @@ graft_template_onto_backbone <- function(
       r = r,
       eps = eps
     )
-      log_row <- template$template_log
-      log_row$stem_mode <- stem_mode
-      log_row$target_type <- "clade"
-      log_row$target_label <- paste(anchors, collapse = ",")
-      log_row$retained_tip <- keep_tip
+    log_row <- template$template_log
+    log_row$stem_mode <- stem_mode
+    log_row$target_type <- "clade"
+    log_row$target_label <- paste(anchors, collapse = ",")
+    log_row$retained_tip <- keep_tip
 
     return(list(tree = out, log = log_row))
   }
@@ -1241,13 +1251,12 @@ graft_many_clades <- function(
       }
       ig <- attr(dtr, "ingroup_tips")
     } else {
-      ig <- NULL  # templates do not need ingroup_tips
+      ig <- NULL # templates do not need ingroup_tips
     }
     if (is.list(dtr) && isTRUE(dtr$ok) && !is.null(dtr$donor_unit)) {
       # Already a prepared template
       tpl <- dtr
     } else {
-
       template_path <- NULL
       if (is.character(attr(dtr, "source_path"))) {
         template_path <- sub("\\.[^.]+$", ".template.rds", attr(dtr, "source_path"))
@@ -1265,8 +1274,10 @@ graft_many_clades <- function(
     }
 
     if (!isTRUE(tpl$ok)) {
-      log_msg(logger, "[SKIP] ", nm, ": template could not be prepared (",
-              tpl$reason, ").")
+      log_msg(
+        logger, "[SKIP] ", nm, ": template could not be prepared (",
+        tpl$reason, ")."
+      )
     } else {
       templates[[nm]] <- tpl
     }
@@ -1276,36 +1287,38 @@ graft_many_clades <- function(
   logs <- list()
   out_trees <- vector("list", length(Blist))
   for (i in seq_along(Blist)) {
-    T <- Blist[[i]]
+    backbone_i <- Blist[[i]]
     for (nm in names(templates)) {
       tpl <- templates[[nm]]
       pl <- placements[[nm]]
       ok_target <- if (pl$type == "tip") {
-        pl$tip %in% T$tip.label
+        pl$tip %in% backbone_i$tip.label
       } else {
-        length(intersect(pl$anchors, T$tip.label)) >= 2
+        length(intersect(pl$anchors, backbone_i$tip.label)) >= 2
       }
       if (!ok_target) {
         log_msg(logger, "[SKIP tree ", i, "] ", nm, ": target missing in this backbone.")
         next
       }
-      res <- graft_template_onto_backbone(T, placement = pl, template = tpl,
-                                          eps = eps, logger = logger)
-      T <- res$tree
+      res <- graft_template_onto_backbone(backbone_i,
+        placement = pl, template = tpl,
+        eps = eps, logger = logger
+      )
+      backbone_i <- res$tree
       res$log$backbone_index <- i
       logs[[length(logs) + 1]] <- res$log
     }
 
-    if (ultrametric_final != "none" && !ape::is.ultrametric(T)) {
-      T <- phytools::force.ultrametric(T, method = ultrametric_final)
-    }
-    
-    if (ultrametric_final != "none") {
-      stopifnot(ape::is.ultrametric(T))
+    if (ultrametric_final != "none" && !ape::is.ultrametric(backbone_i)) {
+      backbone_i <- phytools::force.ultrametric(T, method = ultrametric_final)
     }
 
-    T$node.label <- NULL
-    out_trees[[i]] <- T
+    if (ultrametric_final != "none") {
+      stopifnot(ape::is.ultrametric(backbone_i))
+    }
+
+    backbone_i$node.label <- NULL
+    out_trees[[i]] <- backbone_i
   }
 
   # Name-aware log binding ----------------------------------------------------
@@ -1326,12 +1339,18 @@ graft_many_clades <- function(
     colnames(log_df) <- make.names(cn, unique = TRUE)
   }
 
-  dir.create(dirname(normalizePath(out_log, mustWork = FALSE)), recursive = TRUE,
-             showWarnings = FALSE)
-  utils::write.table(log_df, file = out_log, sep = "\t", row.names = FALSE,
-                     quote = FALSE)
-  dir.create(dirname(normalizePath(out_tree, mustWork = FALSE)), recursive = TRUE,
-             showWarnings = FALSE)
+  dir.create(dirname(normalizePath(out_log, mustWork = FALSE)),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+  utils::write.table(log_df,
+    file = out_log, sep = "\t", row.names = FALSE,
+    quote = FALSE
+  )
+  dir.create(dirname(normalizePath(out_tree, mustWork = FALSE)),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
   if (is_multi) {
     names(out_trees) <- NULL
     attr(out_trees, "order") <- NULL
@@ -1341,8 +1360,10 @@ graft_many_clades <- function(
     ape::write.tree(out_trees[[1]], file = out_tree)
   }
 
-  invisible(list(tree = if (is_multi) out_trees else out_trees[[1]],
-                 log = log_df))
+  invisible(list(
+    tree = if (is_multi) out_trees else out_trees[[1]],
+    log = log_df
+  ))
 }
 
 #' Run clade grafting from a plan (MRCA or TIP in one column)
@@ -1386,12 +1407,12 @@ graft_many_clades <- function(
 #' @examples
 #' \dontrun{
 #' res <- run_clade_grafting(
-#'   backbone_path   = "./backbone.tre",
-#'   plan_path       = "./graft-plan.tsv",  # MRCA + Phylogeny_file_path
-#'   authority       = NULL,
-#'   out_prefix      = "./out/grafted",
-#'   seed_mode       = 42,
-#'   chronos_select  = "off",
+#'   backbone_path = "./backbone.tre",
+#'   plan_path = "./graft-plan.tsv", # MRCA + Phylogeny_file_path
+#'   authority = NULL,
+#'   out_prefix = "./out/grafted",
+#'   seed_mode = 42,
+#'   chronos_select = "off",
 #'   ultrametric_final = "extend",
 #'   resolve_polytomies = "none"
 #' )
@@ -1434,21 +1455,28 @@ run_clade_grafting <- function(
   run_seed <- set_global_seed(seed_mode, out_dir = out_dir)
 
   if (is.null(logger) && exists(".make_logger", mode = "function")) {
-    logger <- .make_logger(outdir = file.path(out_dir, "logs"),
-                           genus = "CladeGraft", mode = "graft",
-                           file_prefix = "clade_grafting")
+    logger <- .make_logger(
+      outdir = file.path(out_dir, "logs"),
+      genus = "CladeGraft", mode = "graft",
+      file_prefix = "clade_grafting"
+    )
     on.exit(try(.close_logger(logger), silent = TRUE), add = TRUE)
   }
 
   log_section(logger, "load plan")
-  plan_df <- tryCatch({
-    if (exists("read_table_utf8", mode = "function")) {
-      read_table_utf8(plan_path, sep = "\t", header = TRUE, quote = "")
-    } else {
-      utils::read.delim(plan_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE,
-                        quote = "", check.names = FALSE)
-    }
-  }, error = function(e) stop("Failed to read plan TSV: ", conditionMessage(e)))
+  plan_df <- tryCatch(
+    {
+      if (exists("read_table_utf8", mode = "function")) {
+        read_table_utf8(plan_path, sep = "\t", header = TRUE, quote = "")
+      } else {
+        utils::read.delim(plan_path,
+          sep = "\t", header = TRUE, stringsAsFactors = FALSE,
+          quote = "", check.names = FALSE
+        )
+      }
+    },
+    error = function(e) stop("Failed to read plan TSV: ", conditionMessage(e))
+  )
   log_msg(logger, "Plan rows: ", nrow(plan_df))
 
   has_col <- function(nm) tolower(nm) %in% tolower(names(plan_df))
@@ -1495,19 +1523,19 @@ run_clade_grafting <- function(
         log_msg(logger, "[skip row ", i, "] Missing MRCA or file path")
         next
       }
-    path <- trimws(path)
-    if (!grepl("^(/|[A-Za-z]:)", path)) {
-      if (grepl("^project/", path)) {
-        path <- here::here(path)
-      } else {
-        path <- file.path(plan_dir, path)
+      path <- trimws(path)
+      if (!grepl("^(/|[A-Za-z]:)", path)) {
+        if (grepl("^project/", path)) {
+          path <- here::here(path)
+        } else {
+          path <- file.path(plan_dir, path)
+        }
       }
-    }
-    if (!file.exists(path)) {
-      n_skip <- n_skip + 1L
-      log_msg(logger, "[skip row ", i, "] file not found: ", path)
-      next
-    }
+      if (!file.exists(path)) {
+        n_skip <- n_skip + 1L
+        log_msg(logger, "[skip row ", i, "] file not found: ", path)
+        next
+      }
       if (grepl(",", token)) {
         anchors <- parse_csv(token)
         placement <- list(type = "clade", anchors = anchors)
@@ -1569,9 +1597,8 @@ run_clade_grafting <- function(
       placements[[label]] <- placement
       n_ok <- n_ok + 1L
     } else {
-
       genus <- trimws(as.character(get_col("Genus")[i]))
-      path  <- trimws(as.character(get_col("Phylogeny_file_path")[i]))
+      path <- trimws(as.character(get_col("Phylogeny_file_path")[i]))
 
       if (!nzchar(genus) || !nzchar(path)) {
         n_skip <- n_skip + 1L
@@ -1595,7 +1622,7 @@ run_clade_grafting <- function(
 
       ## ✅ placement ALWAYS defined first
       placement <- list(type = "tip", tip = genus)
-      label     <- genus
+      label <- genus
 
       ## ✅ safe early exit for templates
       if (grepl("\\.rds$", path, ignore.case = TRUE)) {
@@ -1603,7 +1630,7 @@ run_clade_grafting <- function(
         if (!is.list(tpl) || !isTRUE(tpl$ok)) {
           stop("Template RDS is invalid: ", path)
         }
-        donors[[label]]     <- tpl
+        donors[[label]] <- tpl
         placements[[label]] <- placement
         n_ok <- n_ok + 1L
         next
@@ -1627,7 +1654,7 @@ run_clade_grafting <- function(
 
       attr(dtr, "ingroup_tips") <- unique(ig)
 
-      donors[[label]]     <- dtr
+      donors[[label]] <- dtr
       placements[[label]] <- placement
       n_ok <- n_ok + 1L
     }

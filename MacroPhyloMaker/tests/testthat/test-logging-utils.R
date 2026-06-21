@@ -3,18 +3,20 @@ library(testthat)
 # Access internal functions safely from package namespace
 ns <- asNamespace("MacroPhyloMaker")
 
-box_chars    <- get(".box_chars", envir = ns)
-make_logger  <- get(".make_logger", envir = ns)
+box_chars <- get(".box_chars", envir = ns)
+make_logger <- get(".make_logger", envir = ns)
 close_logger <- get(".close_logger", envir = ns)
-log_msg      <- get("log_msg", envir = ns)
-log_section  <- get("log_section", envir = ns)
+log_msg <- get("log_msg", envir = ns)
+log_section <- get("log_section", envir = ns)
 
 # -------------------------------------------------------------------
 # Helpers
 # -------------------------------------------------------------------
 
 read_log <- function(path) {
-  if (!file.exists(path)) return("")
+  if (!file.exists(path)) {
+    return("")
+  }
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }
 

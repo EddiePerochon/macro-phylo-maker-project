@@ -192,12 +192,15 @@
 #' @noRd
 .close_logger <- function(logger) {
   if (inherits(logger, "smart_logger") &&
-      inherits(logger$con, "connection")) {
-    try({
-      if (isOpen(logger$con)) {
-        close(logger$con)
-      }
-    }, silent = TRUE)
+    inherits(logger$con, "connection")) {
+    try(
+      {
+        if (isOpen(logger$con)) {
+          close(logger$con)
+        }
+      },
+      silent = TRUE
+    )
   }
   invisible(NULL)
 }

@@ -19,7 +19,7 @@ make_nonmono_tree <- function() {
 expect_exact_clade <- function(tree, tips) {
   mrca <- ape::getMRCA(tree, tips)
 
-  descendants <- tree$edge[tree$edge[,1] == mrca, 2]
+  descendants <- tree$edge[tree$edge[, 1] == mrca, 2]
 
   # collect all descendant tips
   desc <- phytools::getDescendants(tree, mrca)

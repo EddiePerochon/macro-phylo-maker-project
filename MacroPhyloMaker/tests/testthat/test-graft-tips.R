@@ -22,7 +22,7 @@ make_plan <- function(fun, tip, sister = NA_character_) {
 
 expect_sister_tip <- function(tree, tip1, tip2) {
   mrca <- ape::getMRCA(tree, c(tip1, tip2))
-  children <- tree$edge[tree$edge[,1] == mrca, 2]
+  children <- tree$edge[tree$edge[, 1] == mrca, 2]
 
   child_tips <- children[children <= length(tree$tip.label)]
   labels <- tree$tip.label[child_tips]
@@ -32,11 +32,11 @@ expect_sister_tip <- function(tree, tip1, tip2) {
 
 expect_sister_clade <- function(tree, new_tip, clade_tips) {
   clade_mrca <- ape::getMRCA(tree, clade_tips)
-  full_mrca  <- ape::getMRCA(tree, c(new_tip, clade_tips))
+  full_mrca <- ape::getMRCA(tree, c(new_tip, clade_tips))
 
   expect_false(clade_mrca == full_mrca)
 
-  children <- tree$edge[tree$edge[,1] == full_mrca, 2]
+  children <- tree$edge[tree$edge[, 1] == full_mrca, 2]
 
   child_tips <- children[children <= length(tree$tip.label)]
   child_labels <- tree$tip.label[child_tips]
@@ -47,7 +47,7 @@ expect_sister_clade <- function(tree, new_tip, clade_tips) {
 
 expect_within_clade <- function(tree, tip, clade_tips) {
   clade_mrca <- ape::getMRCA(tree, clade_tips)
-  tip_mrca   <- ape::getMRCA(tree, c(tip, clade_tips[1]))
+  tip_mrca <- ape::getMRCA(tree, c(tip, clade_tips[1]))
 
   # tip MRCA must be inside or equal to clade MRCA
   expect_true(tip_mrca >= clade_mrca)
@@ -103,7 +103,7 @@ test_that("graft sister to clade places tip correctly", {
 
   expect_true("X" %in% tree$tip.label)
 
-  expect_sister_clade(tree, "X", c("A","B"))
+  expect_sister_clade(tree, "X", c("A", "B"))
 })
 
 # -------------------------------
@@ -120,7 +120,7 @@ test_that("within-clade graft places tip inside clade", {
 
   expect_true("X" %in% tree$tip.label)
 
-  expect_within_clade(tree, "X", c("A","B"))
+  expect_within_clade(tree, "X", c("A", "B"))
 })
 
 # -------------------------------

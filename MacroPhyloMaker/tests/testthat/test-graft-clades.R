@@ -21,7 +21,8 @@ ensure_positive_edges <- ns_fun(".ensure_positive_edges")
 # Optional logger hooks (guarded below)
 has_logger_utils <- all(vapply(
   c(".make_logger", ".close_logger", "log_msg", "log_section"),
-  exists, logical(1), envir = pkg_ns, inherits = FALSE
+  exists, logical(1),
+  envir = pkg_ns, inherits = FALSE
 ))
 
 # -------------------------------------------------------------------
@@ -208,7 +209,7 @@ test_that(".collapse_mrca_to_existing_tip keeps exactly one deterministic descen
 
   expect_s3_class(out$tree, "phylo")
   expect_equal(length(out$tree$tip.label), 3L)
-  expect_equal(out$tip, "A")  # deterministic sort() choice
+  expect_equal(out$tip, "A") # deterministic sort() choice
   expect_true("A" %in% out$tree$tip.label)
   expect_false("B" %in% out$tree$tip.label)
 })
@@ -360,7 +361,7 @@ test_that("graft_many_clades processes a pre-built template and writes outputs",
   tpl <- make_template()
 
   out_tree <- tempfile(fileext = ".tre")
-  out_log  <- tempfile(fileext = ".tsv")
+  out_log <- tempfile(fileext = ".tsv")
 
   res <- graft_many_clades(
     backbones = bb,
@@ -389,7 +390,7 @@ test_that("graft_many_clades skips backbones missing the target and preserves ot
   tpl <- make_template()
 
   out_tree <- tempfile(fileext = ".tre")
-  out_log  <- tempfile(fileext = ".tsv")
+  out_log <- tempfile(fileext = ".tsv")
 
   res <- graft_many_clades(
     backbones = backbones,
@@ -420,10 +421,14 @@ test_that("graft_many_clades skips backbones missing the target and preserves ot
 test_that("run_clade_grafting completes an end-to-end MRCA graft on a simple plan", {
   # This wrapper depends on utilities defined across the package.
   # Guard rather than fail for missing unrelated package modules.
-  needed <- c("read_trees_any", "set_global_seed", "safe_drop_tips",
-              "extract_ingroup_by_anchors")
-  skip_if(any(!vapply(needed, exists, logical(1), envir = pkg_ns, inherits = FALSE)),
-          "run_clade_grafting dependencies are defined outside this module")
+  needed <- c(
+    "read_trees_any", "set_global_seed", "safe_drop_tips",
+    "extract_ingroup_by_anchors"
+  )
+  skip_if(
+    any(!vapply(needed, exists, logical(1), envir = pkg_ns, inherits = FALSE)),
+    "run_clade_grafting dependencies are defined outside this module"
+  )
 
   bb <- make_backbone()
   donor <- make_donor_with_outgroup()
@@ -471,7 +476,7 @@ test_that("run_clade_grafting completes an end-to-end MRCA graft on a simple pla
 test_that("prepare_clade_template writes expected logger sections when logger utilities exist", {
   skip_if_not(has_logger_utils)
 
-  make_logger  <- ns_fun(".make_logger")
+  make_logger <- ns_fun(".make_logger")
   close_logger <- ns_fun(".close_logger")
 
   dir <- tempdir()

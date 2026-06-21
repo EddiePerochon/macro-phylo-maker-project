@@ -193,7 +193,6 @@ extract_clade_with_outgroup <- function(
     paste0("extract_mrca_", anchors)
   }
 
-  created_logger <- FALSE
   if (is.null(logger)) {
     # Create a per-call logger (append console + file)
     logger <- .make_logger(
@@ -202,7 +201,6 @@ extract_clade_with_outgroup <- function(
       mode = "extract",
       file_prefix = prefix
     )
-    created_logger <- TRUE
     on.exit(.close_logger(logger), add = TRUE)
   }
 
@@ -246,10 +244,12 @@ extract_clade_with_outgroup <- function(
     if (identical(clean, "genus_species")) {
       ci <- .clean_ingroup_labels(tr, genus = genus)
       tr <- ci$tree
-      if (nrow(ci$renamed))
+      if (nrow(ci$renamed)) {
         renames_df <- rbind(renames_df, ci$renamed)
-      if (length(ci$dropped))
+      }
+      if (length(ci$dropped)) {
         dropped_vec <- unique(c(dropped_vec, ci$dropped))
+      }
       ## ---- unified collapse (phylo mode) ----
       labs <- tr$tip.label
       # Define species groups only for THIS genus
@@ -265,8 +265,9 @@ extract_clade_with_outgroup <- function(
         method = "phylo"
       )
       tr <- cd$tree
-      if (length(cd$dropped))
+      if (length(cd$dropped)) {
         dropped_vec <- unique(c(dropped_vec, cd$dropped))
+      }
       tips_all <- tr$tip.label
     }
     ingroup_tips <- tips_all[vapply(tips_all, function(x) {
@@ -330,8 +331,9 @@ extract_clade_with_outgroup <- function(
         method = "distance"
       )
       sub <- cd2$tree
-      if (length(cd2$dropped))
+      if (length(cd2$dropped)) {
         dropped_vec <- unique(c(dropped_vec, cd2$dropped))
+      }
       ingroup_tips <- sub$tip.label
       log_msg(logger, "Collapsed intraspecific duplicates by binomial (MRCA mode).")
     }
@@ -495,7 +497,7 @@ extract_clade_with_outgroup <- function(
 
   to_drop_idx <- integer(0)
 
-  D <- ape::cophenetic.phylo(tr)  # compute once
+  D <- ape::cophenetic.phylo(tr) # compute once
 
   for (sp in names(groups)) {
     sp_idx <- groups[[sp]]
@@ -509,29 +511,27 @@ extract_clade_with_outgroup <- function(
         mnode <- ape::getMRCA(tr, sp_labels)
 
         H <- phytools::nodeHeights(tr)
-        root_age <- max(H[,2])
+        root_age <- max(H[, 2])
         nh_mrca <- phytools::nodeheight(tr, mnode)
 
-        tip_heights <- sapply(sp_idx, function(i)
+        tip_heights <- sapply(sp_idx, function(i) {
           phytools::nodeheight(tr, i)
-        )
+        })
 
         crown_depths <- (root_age - tip_heights) -
-                        (root_age - nh_mrca)
+          (root_age - nh_mrca)
 
         keep_idx <- sp_idx[which.min(crown_depths)]
-
       } else {
-        sums <- sapply(sp_idx, function(i)
+        sums <- sapply(sp_idx, function(i) {
           sum(D[i, sp_idx[sp_idx != i]], na.rm = TRUE)
-        )
+        })
         keep_idx <- sp_idx[which.min(sums)]
       }
-
     } else {
-      sums <- sapply(sp_idx, function(i)
+      sums <- sapply(sp_idx, function(i) {
         sum(D[i, sp_idx[sp_idx != i]], na.rm = TRUE)
-      )
+      })
       keep_idx <- sp_idx[which.min(sums)]
     }
 

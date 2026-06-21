@@ -9,11 +9,11 @@ This document tracks planned features, improvements, and maintenance tasks.
 - [X] Count genera in each tree
 - [X] Find out which genera are missing from species tree with phylogenetic info
 - [X] Fix issue with grafting dropping tips where species name starts with "sp"
-- [ ] Figure out how to deal with Gaolingidris: In the all-genera grafted tree under seed 42 it is sister to Malagidris within a clade of Malagasy-endemic genera. This seems unlikely. However, grafting it outside of these genera will create inconsistency between species-grafted and genus-grafted trees. Similar situation may br the case with Peronomyrmex being sister to Pristomyrmex. Is that realistic?
-- [ ] Graft missing genera back onto the species tree with phylogenetic info 
+- [X] Figure out how to deal with Gaolingidris: In the all-genera grafted tree under seed 42 it is sister to Malagidris within a clade of Malagasy-endemic genera. This seems unlikely. However, grafting it outside of these genera will create inconsistency between species-grafted and genus-grafted trees. Similar situation may br the case with Peronomyrmex being sister to Pristomyrmex. Is that realistic?
+- [X] Graft missing genera back onto the species tree with phylogenetic info 
 - [ ] Redo Amblyoponinae extraction from Nelsen 2018
-- [ ] Write unit tests for all exported functions (≥80% coverage)
-- [ ] Make sure AntWiki taxonomy to TACT template works
+- [X] Write unit tests for all exported functions (≥80% coverage)
+- [X] Make sure AntWiki taxonomy to TACT template works
 - [ ] Correctly handle paraphyletic genera in TACT templates
   - [ ] Oxyopomyrmex: Nested in Goniomma, 2 species in backbone but 14 total; 
     - [ ] Can graft separately using TACT, 
@@ -34,15 +34,15 @@ This document tracks planned features, improvements, and maintenance tasks.
 
 ## Testing & Validation
 
-- [ ] Add unit tests (testthat)
+- [X] Add unit tests (testthat)
 - [ ] Benchmark performance on large datasets
-- [ ] Validate output against published phylogenies
+- [X] Validate output against published phylogenies
 - [ ] Create reproducible example workflows
 
 
 ## Documentation
 
-- [ ] Ensure documentation is complete for all functions
+- [X] Ensure documentation is complete for all functions
 - [ ] Build pkgdown website
 - [ ] Add “Getting Started” vignette
 - [ ] Add advanced use-case vignette
