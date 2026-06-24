@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-03-30 10:05:32 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 161
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 153
+Outgroup (sister_one): Pheidole_longispinosa (min distance=0.109552)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 153
+tips_out (final tree): 154
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini//extract_mrca_Rostromyrmex_pasohensis-Leptothorax_muscorum_complex_20260330-100532_with_outgroup.tre

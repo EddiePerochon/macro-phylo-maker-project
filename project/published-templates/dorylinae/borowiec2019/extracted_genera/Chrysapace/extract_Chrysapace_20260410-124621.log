@@ -1,0 +1,27 @@
+=== Genus extraction log: Chrysapace | 2026-04-10 12:46:21 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 154
+Ingroup (genus=Chrysapace) identified: 4 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Yunodorylus_eguchii_M247 (min distance=113.665240)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 4
+tips_out (final tree): 5
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Chrysapace/extract_Chrysapace_20260410-124621_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Chrysapace/extract_Chrysapace_20260410-124621_renamed.tsv

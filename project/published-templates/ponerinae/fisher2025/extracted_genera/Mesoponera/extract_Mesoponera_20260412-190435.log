@@ -1,0 +1,28 @@
+=== Genus extraction log: Mesoponera | 2026-04-12 19:04:35 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1170
+Ingroup (genus=Mesoponera) identified: 34 tips
+Genus monophyly: FALSE
+Pruned non-genus tips inside MRCA (prune_extras).
+Outgroup (sister_one): Odontomachus_circulus_EX2666_MCZ-ENT00763395 (min distance=0.096117)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 13
+tips_out (final tree): 14
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Mesoponera/extract_Mesoponera_20260412-190435_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Mesoponera/extract_Mesoponera_20260412-190435_renamed.tsv

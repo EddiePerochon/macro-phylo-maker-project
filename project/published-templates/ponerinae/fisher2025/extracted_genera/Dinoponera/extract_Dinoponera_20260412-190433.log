@@ -1,0 +1,27 @@
+=== Genus extraction log: Dinoponera | 2026-04-12 19:04:33 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1170
+Ingroup (genus=Dinoponera) identified: 2 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Pachycondyla_procidua_EX2252_CASENT0646046 (min distance=0.073957)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 2
+tips_out (final tree): 3
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Dinoponera/extract_Dinoponera_20260412-190433_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/ponerinae/extracted_genera/Dinoponera/extract_Dinoponera_20260412-190433_renamed.tsv

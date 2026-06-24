@@ -1,0 +1,27 @@
+=== Genus extraction log: Metapone | 2026-04-11 11:40:11 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1183
+Ingroup (genus=Metapone) identified: 2 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Trichomyrmex_destructor (min distance=26.475314)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 2
+tips_out (final tree): 3
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Metapone/extract_Metapone_20260411-114011_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/mami-madagascar/camacho2024/extracted_genera/Metapone/extract_Metapone_20260411-114011_renamed.tsv

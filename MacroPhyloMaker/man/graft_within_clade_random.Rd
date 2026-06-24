@@ -14,8 +14,7 @@ graft_within_clade_random(
   shape2 = 1,
   min_frac = 0,
   max_frac = 1,
-  return_log = FALSE,
-  seed = NULL
+  return_log = FALSE
 )
 }
 \arguments{
@@ -32,11 +31,41 @@ graft_within_clade_random(
 \item{min_frac, max_frac}{Min/max fraction along the edge from child toward parent.}
 
 \item{return_log}{If \code{TRUE}, returns \code{list(tree, log=list(...))} with details.}
-
-\item{seed}{Ignored; global seed is used.}
 }
 \description{
 Samples an edge inside the MRCA-defined clade (optionally including terminal and/or the stem
 edge) with probability proportional to the edge length, then attaches the new tip at a random
 position along that edge.
+}
+\details{
+Randomness in this function is controlled by the global RNG state.
+To obtain reproducible placements, call \code{set.seed()} (or a package-level
+workflow seed helper) before invoking this function or any higher-level wrapper
+that uses it.
+
+Candidate edges are sampled from the clade descending from the MRCA of
+\code{clade_tips}. By default, all descendant edges are eligible, including
+terminal edges and the edge entering the MRCA (the stem edge).
+
+If \code{include_terminal = FALSE}, terminal edges are excluded. If
+\code{include_stem = TRUE}, the edge entering the MRCA is added to the
+candidate set even though it lies immediately above the crown of the clade.
+
+Candidate edges are sampled with probability proportional to their branch
+lengths. Once an edge is selected, an attachment fraction is drawn from a
+Beta(\code{shape1}, \code{shape2}) distribution scaled to the interval
+\code{[min_frac, max_frac]}, and the new tip is inserted at that position
+measured from the child toward the parent.
+
+When \code{return_log = TRUE}, the function returns a list containing the
+grafted tree and a detailed log, including the chosen edge index, edge type
+(\code{"stem"}, \code{"internal"}, or \code{"terminal"}), sampled fraction,
+attachment age, insertion node, and implied new tip length.
+}
+\examples{
+\dontrun{
+set.seed(42)
+tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
+tr2 <- graft_within_clade_random(tr, new_label = "X", clade_tips = c("A", "B"))
+}
 }

@@ -5,11 +5,11 @@
 \title{Apply grafting plan to backbones using grafting rules}
 \usage{
 run_tip_grafting(
-  backbone_path = "FigTree-root-prior-129to158Ma-independent-genus-only.tre",
-  plan_path = "grafted_genera.tsv",
+  backbone_path = NULL,
+  plan_path = NULL,
   out_prefix = NULL,
   seed_mode = "fixed",
-  ingroup_anchors = c("Martialis", "Camponotus"),
+  ingroup_anchors = NULL,
   prefer_tree_index = 2L,
   drop_tips = NULL,
   plot_pdf = TRUE,

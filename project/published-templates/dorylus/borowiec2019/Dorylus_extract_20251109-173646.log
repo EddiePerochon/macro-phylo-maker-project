@@ -1,0 +1,70 @@
+=== Genus extraction log: Dorylus | 2025-11-09 17:36:46 ===
+
+┌────────────────────┐
+│ Preprocessing tree │
+└────────────────────┘
+Polytomies resolved randomly; zero/NA edge lengths set to small positive values.
+
+┌───────────────────────────────────────────┐
+│ Ingroup label cleaning (focal genus only) │
+└───────────────────────────────────────────┘
+Detected 13 ingroup tip(s) in raw tree.
+Kept 13 ingroup tip(s) after cleaning (raw → canonical):
+  KEEP: Dorylus_laevigatus_M157 → Dorylus_laevigatus
+  KEEP: Dorylus_conradti_M178 → Dorylus_conradti
+  KEEP: Dorylus_orientalis_M244 → Dorylus_orientalis
+  KEEP: Dorylus_fimbriatus_M288 → Dorylus_fimbriatus
+  KEEP: Dorylus_fulvus_M179 → Dorylus_fulvus
+  KEEP: Dorylus_cf_fulvus_M149 → Dorylus_fulvus
+  KEEP: Dorylus_spininodis_M292 → Dorylus_spininodis
+  KEEP: Dorylus_braunsi_M289 → Dorylus_braunsi
+  KEEP: Dorylus_affinis_M177 → Dorylus_affinis
+  KEEP: Dorylus_kohli_M180 → Dorylus_kohli
+  KEEP: Dorylus_mayri_M291 → Dorylus_mayri
+  KEEP: Dorylus_molestus_M290 → Dorylus_molestus
+  KEEP: Dorylus_rubellus_M287 → Dorylus_rubellus
+Non-target genera were not modified or dropped at this step.
+
+┌──────────────────────────────────┐
+│ Species de-duplication (ingroup) │
+└──────────────────────────────────┘
+Detected 1 ingroup species with duplicate tips.
+Species Dorylus_fulvus: monophyletic; retain Dorylus_fulvus (min crown depth -0.000919); drop 0 duplicate(s).
+
+┌──────────────────────────┐
+│ Genus tip identification │
+└──────────────────────────┘
+Ingroup tips available after cleaning & de-duplication: 14
+Genus monophyly: TRUE
+Genus MRCA node: 248
+
+┌─────────────────────┐
+│ Retained genus tips │
+└─────────────────────┘
+  KEEP: Dorylus_affinis
+  KEEP: Dorylus_braunsi
+  KEEP: Dorylus_conradti
+  KEEP: Dorylus_fimbriatus
+  KEEP: Dorylus_fulvus
+  KEEP: Dorylus_fulvus
+  KEEP: Dorylus_kohli
+  KEEP: Dorylus_laevigatus
+  KEEP: Dorylus_mayri
+  KEEP: Dorylus_molestus
+  KEEP: Dorylus_orientalis
+  KEEP: Dorylus_rubellus
+  KEEP: Dorylus_spininodis
+  KEEP: Dorylus_UG_M153
+Total retained genus tips: 14
+
+┌────────────────────┐
+│ Outgroup selection │
+└────────────────────┘
+Selected outgroup: Aenictogiton_UG_M189 (min distance 0.165527).
+
+┌──────────┐
+│ Output │
+└──────────┘
+Wrote tree: ./Dorylus_with_outgroup.tre
+Outgroup in output: Aenictogiton_UG_M189
+Genus tips in output: 14

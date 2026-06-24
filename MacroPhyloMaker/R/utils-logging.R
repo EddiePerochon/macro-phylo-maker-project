@@ -1,37 +1,26 @@
-#' Lightweight logging utilities (internal)
-#'
-#' A minimal logger used across the package to:
-#' \itemize{
-#'   \item create a per-run log file,
-#'   \item mirror log messages to the console,
-#'   \item write titled section headers for readability.
-#' }
-#'
-#' Typical workflow:
-#' \itemize{
-#'   \item Call \code{.make_logger()} once at the start of a task.
-#'   \item Use \code{log_msg()} for one-line messages.
-#'   \item Use \code{log_section()} to emit a boxed section title.
-#'   \item Call \code{.close_logger()} when finished (typically via \code{on.exit()}).
-#' }
-#'
-#' Logging behavior:
-#' \itemize{
-#'   \item \code{enable} controls whether messages are written to a log file.
-#'   \item \code{console} controls whether messages are mirrored to the console.
-#'   \item When \code{enable = FALSE}, a logger object is still created and a
-#'         logfile path is reserved, but no file is opened or written.
-#' }
-#'
-#' Box-drawing characters use UTF-8 by default. To force ASCII output, set
-#' either:
-#' \itemize{
-#'   \item \code{options(MacroPhyloMaker.ascii = TRUE)} or
-#'   \item \code{options(AntPhyloMaker.ascii = TRUE)} (backward-compatible alias).
-#' }
-#'
-#' @keywords internal
-#' @noRd
+# Lightweight logging utilities (internal)
+#
+# A minimal logger used across the package to:
+# - create a per-run log file,
+# - mirror log messages to the console,
+# - write titled section headers for readability.
+#
+# Typical workflow:
+# - Call `.make_logger()` once at the start of a task.
+# - Use `log_msg()` for one-line messages.
+# - Use `log_section()` to emit a boxed section title.
+# - Call `.close_logger()` when finished (typically via `on.exit()`).
+#
+# Logging behavior:
+# - `enable` controls whether messages are written to a log file.
+# - `console` controls whether messages are mirrored to the console.
+# - When `enable = FALSE`, a logger object is still created and a
+#   logfile path is reserved, but no file is opened or written.
+#
+# Box-drawing characters use UTF-8 by default. To force ASCII output, set
+# either:
+# - `options(MacroPhyloMaker.ascii = TRUE)` or
+# - `options(AntPhyloMaker.ascii = TRUE)` (backward-compatible alias).
 
 # -------------------------------------------------------------------
 # Internal helpers
@@ -129,7 +118,6 @@
 
   ts <- format(Sys.time(), "%Y%m%d-%H%M%S")
 
-  # Choose filename stem
   stem <- if (!is.null(file_prefix) && nzchar(file_prefix)) {
     file_prefix
   } else {
@@ -192,7 +180,7 @@
 #' @noRd
 .close_logger <- function(logger) {
   if (inherits(logger, "smart_logger") &&
-    inherits(logger$con, "connection")) {
+      inherits(logger$con, "connection")) {
     try(
       {
         if (isOpen(logger$con)) {
@@ -204,7 +192,6 @@
   }
   invisible(NULL)
 }
-
 
 # -------------------------------------------------------------------
 # Write a one-line message
@@ -230,12 +217,10 @@ log_msg <- function(logger, ..., .timestamp = FALSE, .console = NULL) {
     line <- sprintf("[%s] %s", format(Sys.time(), "%H:%M:%S"), line)
   }
 
-  # Console
   if (.logger_wants_console(logger, .console = .console)) {
     cat(line, "\n")
   }
 
-  # File
   if (.logger_wants_file(logger)) {
     writeLines(line, logger$con)
     flush(logger$con)

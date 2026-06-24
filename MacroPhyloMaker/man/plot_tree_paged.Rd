@@ -23,10 +23,44 @@ plot_tree_paged(
 )
 }
 \arguments{
-\item{out_prefix}{Output prefix (each page becomes \verb{<prefix>_pageNN.pdf}).}
+\item{tree}{A \code{phylo} object.}
 
-\item{tips_per_page}{Number of tips per page.}
+\item{out_prefix}{Output prefix; page files are named
+\code{<out_prefix>_pageNN.pdf}.}
+
+\item{tips_per_page}{Positive integer giving the number of tips per page.}
+
+\item{cex}{Label size passed to plotting.}
+
+\item{pdf_auto}{Logical; if \code{TRUE}, compute page dimensions for each
+subtree using \code{suggest_pdf_size()}.}
+
+\item{target_tpi, min_h, max_h, buffer_in, auto_width, char_per_in_at_cex, min_w, max_w}{Parameters forwarded to \code{suggest_pdf_size()}.}
+
+\item{ladderize_it}{Logical; if \code{TRUE}, ladderize the full tree before
+splitting it into pages.}
+
+\item{...}{Additional arguments passed to \code{graphics::plot()}.}
+}
+\value{
+Invisibly returns the number of pages written.
 }
 \description{
-Plot a tree across multiple PDF pages
+Splits the tip labels of a tree into consecutive blocks of
+\code{tips_per_page} and writes one PDF per block.
+}
+\details{
+Paging is based on the current tip order of the (optionally ladderized) tree,
+not on clade boundaries. This means paged output is intended for readable
+display of large trees, not for biologically meaningful partitioning.
+
+Each page is generated from a subtree produced by \code{ape::keep.tip()} on
+the corresponding block of tip labels.
+}
+\examples{
+\dontrun{
+tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,(D:1,E:1):1):1);")
+plot_tree_paged(tr, out_prefix = tempfile("tree"), tips_per_page = 2)
+}
+
 }

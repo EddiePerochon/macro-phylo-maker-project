@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-18 15:22:08 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 47
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 37
+Outgroup (sister_one): Proformica_mongolica (min distance=57.111940)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 37
+tips_out (final tree): 38
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/cataglyphis/pletincx2024/extract_mrca_Rossomyrmex_minuchae-Cataglyphis_rosenhaueri_20260418-152208_with_outgroup.tre

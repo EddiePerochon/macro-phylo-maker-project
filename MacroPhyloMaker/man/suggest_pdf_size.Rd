@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotting.R
 \name{suggest_pdf_size}
 \alias{suggest_pdf_size}
-\title{Suggest a PDF size for plotting a large tree}
+\title{Suggest a PDF size for plotting a tree}
 \usage{
 suggest_pdf_size(
   tree,
@@ -19,17 +19,61 @@ suggest_pdf_size(
 )
 }
 \arguments{
-\item{tree}{A \code{phylo}.}
+\item{tree}{A rooted or unrooted \code{phylo} object.}
 
-\item{pdf_width}{Base width in inches (or \code{NULL} to auto).}
+\item{pdf_width}{Numeric base width in inches. Used directly when
+\code{auto_width = FALSE}; otherwise treated as a fallback value.}
 
-\item{cex}{Label size used for plotting.}
+\item{cex}{Numeric label size passed to plotting.}
 
-\item{target_tpi}{Target tips-per-inch (scaled with \code{cex}).}
+\item{target_tpi}{Target tips per inch used to derive plot height.}
+
+\item{min_h, max_h}{Minimum and maximum PDF height (in inches).}
+
+\item{buffer_in}{Extra vertical buffer (in inches) added on top of the
+estimated core tree height.}
+
+\item{auto_width}{Logical; if \code{TRUE}, estimate width from the longest
+tip label. If \code{FALSE}, use \code{pdf_width} as supplied.}
+
+\item{char_per_in_at_cex}{Approximate characters-per-inch at \code{cex = 0.40},
+used to estimate width when \code{auto_width = TRUE}.}
+
+\item{min_w, max_w}{Minimum and maximum PDF width (in inches).}
 }
 \value{
-A list with \code{width} and \code{height} in inches.
+A named list with numeric elements:
+\itemize{
+\item \code{width}: suggested PDF width in inches
+\item \code{height}: suggested PDF height in inches
+}
 }
 \description{
-Suggest a PDF size for plotting a large tree
+Estimates a reasonable PDF size for plotting a phylogeny, using:
+\itemize{
+\item the number of tips (to estimate required height), and
+\item the maximum tip-label length (to estimate required width, if enabled).
+}
+}
+\details{
+The heuristic is designed for practical plotting of large trees rather than
+exact device-space calculation. Height is estimated from an effective
+tips-per-inch target that scales with \code{cex}; width is optionally
+estimated from the longest label and an approximate characters-per-inch rule.
+
+The size suggestion is heuristic, not device-exact. In particular:
+\itemize{
+\item Height depends only on tip count and \code{cex}, not branch lengths.
+\item Width depends only on the longest tip label and \code{cex}, not on
+actual rendered string width.
+\item This function is intended to provide practical defaults for plotting
+large trees, especially in automated workflows.
+}
+}
+\examples{
+\dontrun{
+tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
+suggest_pdf_size(tr)
+}
+
 }

@@ -1,0 +1,223 @@
+=== Genus grafting log: CladeGraft | 2026-06-23 20:19:30 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 119
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
+Row 2: Input_tree_type = phylogram
+Row 3: Input_tree_type = chronogram
+Row 4: Input_tree_type = chronogram
+Row 5: Input_tree_type = chronogram
+Row 6: Input_tree_type = chronogram
+Row 7: Input_tree_type = chronogram
+Row 8: Input_tree_type = chronogram
+Row 9: Input_tree_type = chronogram
+Row 10: Input_tree_type = chronogram
+Row 11: Input_tree_type = chronogram
+Row 12: Input_tree_type = phylogram
+Row 13: Input_tree_type = chronogram
+Row 14: Input_tree_type = chronogram
+Row 15: Input_tree_type = chronogram
+Row 16: Input_tree_type = chronogram
+Row 17: Input_tree_type = chronogram
+Row 18: Input_tree_type = chronogram
+Row 19: Input_tree_type = phylogram
+Row 20: Input_tree_type = chronogram
+Row 21: Input_tree_type = chronogram
+Row 22: Input_tree_type = chronogram
+Row 23: Input_tree_type = chronogram
+Row 24: Input_tree_type = phylogram
+Row 25: Input_tree_type = chronogram
+Row 26: Input_tree_type = phylogram
+Row 27: Input_tree_type = chronogram
+[skip row 27] Missing MRCA or file path
+Row 28: Input_tree_type = chronogram
+Row 29: Input_tree_type = chronogram
+Row 30: Input_tree_type = chronogram
+Row 31: Input_tree_type = phylogram
+[skip row 31] Missing MRCA or file path
+Row 32: Input_tree_type = phylogram
+[skip row 32] Missing MRCA or file path
+Row 33: Input_tree_type = phylogram
+[skip row 33] Missing MRCA or file path
+Row 34: Input_tree_type = chronogram
+Row 35: Input_tree_type = chronogram
+Row 36: Input_tree_type = chronogram
+Row 37: Input_tree_type = chronogram
+Row 38: Input_tree_type = chronogram
+Row 39: Input_tree_type = chronogram
+Row 40: Input_tree_type = chronogram
+Row 41: Input_tree_type = chronogram
+Row 42: Input_tree_type = phylogram
+[skip row 42] Missing MRCA or file path
+Row 43: Input_tree_type = phylogram
+[skip row 43] Missing MRCA or file path
+Row 44: Input_tree_type = phylogram
+[skip row 44] Missing MRCA or file path
+Row 45: Input_tree_type = chronogram
+[skip row 45] Missing MRCA or file path
+Row 46: Input_tree_type = phylogram
+[skip row 46] Missing MRCA or file path
+Row 47: Input_tree_type = chronogram
+Row 48: Input_tree_type = chronogram
+Row 49: Input_tree_type = chronogram
+Row 50: Input_tree_type = chronogram
+Row 51: Input_tree_type = phylogram
+[skip row 51] Missing MRCA or file path
+Row 52: Input_tree_type = chronogram
+Row 53: Input_tree_type = chronogram
+Row 54: Input_tree_type = phylogram
+[skip row 54] Missing MRCA or file path
+Row 55: Input_tree_type = phylogram
+[skip row 55] Missing MRCA or file path
+Row 56: Input_tree_type = chronogram
+Row 57: Input_tree_type = phylogram
+[skip row 57] Missing MRCA or file path
+Row 58: Input_tree_type = phylogram
+Row 59: Input_tree_type = phylogram
+[skip row 59] Missing MRCA or file path
+Row 60: Input_tree_type = phylogram
+[skip row 60] Missing MRCA or file path
+Row 61: Input_tree_type = chronogram
+Row 62: Input_tree_type = chronogram
+Row 63: Input_tree_type = chronogram
+Row 64: Input_tree_type = chronogram
+Row 65: Input_tree_type = chronogram
+Row 66: Input_tree_type = chronogram
+Row 67: Input_tree_type = chronogram
+Row 68: Input_tree_type = chronogram
+Row 69: Input_tree_type = chronogram
+Row 70: Input_tree_type = chronogram
+Row 71: Input_tree_type = chronogram
+Row 72: Input_tree_type = chronogram
+Row 73: Input_tree_type = chronogram
+Row 74: Input_tree_type = chronogram
+Row 75: Input_tree_type = chronogram
+Row 76: Input_tree_type = chronogram
+Row 77: Input_tree_type = chronogram
+Row 78: Input_tree_type = chronogram
+Row 79: Input_tree_type = chronogram
+Row 80: Input_tree_type = chronogram
+Row 81: Input_tree_type = chronogram
+Row 82: Input_tree_type = chronogram
+Row 83: Input_tree_type = chronogram
+Row 84: Input_tree_type = chronogram
+Row 85: Input_tree_type = chronogram
+Row 86: Input_tree_type = chronogram
+Row 87: Input_tree_type = phylogram
+[skip row 87] Missing MRCA or file path
+Row 88: Input_tree_type = phylogram
+[skip row 88] Missing MRCA or file path
+Row 89: Input_tree_type = chronogram
+Row 90: Input_tree_type = chronogram
+Row 91: Input_tree_type = chronogram
+Row 92: Input_tree_type = chronogram
+Row 93: Input_tree_type = chronogram
+Row 94: Input_tree_type = phylogram
+[skip row 94] Missing MRCA or file path
+Row 95: Input_tree_type = phylogram
+[skip row 95] Missing MRCA or file path
+Row 96: Input_tree_type = phylogram
+[skip row 96] Missing MRCA or file path
+Row 97: Input_tree_type = chronogram
+Row 98: Input_tree_type = phylogram
+[skip row 98] Missing MRCA or file path
+Row 99: Input_tree_type = phylogram
+[skip row 99] Missing MRCA or file path
+Row 100: Input_tree_type = phylogram
+[skip row 100] Missing MRCA or file path
+Row 101: Input_tree_type = phylogram
+[skip row 101] Missing MRCA or file path
+Row 102: Input_tree_type = phylogram
+[skip row 102] Missing MRCA or file path
+Row 103: Input_tree_type = phylogram
+[skip row 103] Missing MRCA or file path
+Row 104: Input_tree_type = phylogram
+[skip row 104] Missing MRCA or file path
+Row 105: Input_tree_type = chronogram
+Row 106: Input_tree_type = phylogram
+[skip row 106] Missing MRCA or file path
+Row 107: Input_tree_type = phylogram
+[skip row 107] Missing MRCA or file path
+Row 108: Input_tree_type = phylogram
+[skip row 108] Missing MRCA or file path
+Row 109: Input_tree_type = phylogram
+[skip row 109] Missing MRCA or file path
+Row 110: Input_tree_type = phylogram
+[skip row 110] Missing MRCA or file path
+Row 111: Input_tree_type = phylogram
+[skip row 111] Missing MRCA or file path
+Row 112: Input_tree_type = phylogram
+[skip row 112] Missing MRCA or file path
+Row 113: Input_tree_type = chronogram
+Row 114: Input_tree_type = phylogram
+[skip row 114] Missing MRCA or file path
+Row 115: Input_tree_type = phylogram
+[skip row 115] Missing MRCA or file path
+Row 116: Input_tree_type = phylogram
+[skip row 116] Missing MRCA or file path
+Row 117: Input_tree_type = chronogram
+Row 118: Input_tree_type = phylogram
+[skip row 118] Missing MRCA or file path
+Row 119: Input_tree_type = chronogram
+Donors ready: 81 (skipped: 38)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘
+Backbones: 1
+
+┌───────────────────┐
+│ graft many clades │
+└───────────────────┘
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Stenamma_alas
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 106; dropped absent: 29
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: phylogram; ultrametric: FALSE
+Phylogram detected; estimating chronogram with chronos.
+Selected chronos:
+  model=discrete
+  lambda=0.1
+  rate_cats=2
+  PHIIC=235.720491
+  logLik=-9.860245
+  converged=TRUE
+  note=Selected best CONVERGED chronos model.
+
+┌──────────────────┐
+│ Template: output │
+└──────────────────┘
+Donor stem_fraction=0.127883 crown_fraction=0.872117
+Saved donor template to: /home/marek/new-ant-megatree/macro-phylo-maker-project/project/published/ectatomminae/extract_mrca_Bazboltonia_microps_GPC15-Gnamptogenys_boliviensis_GAB98_with_outgroup.template.rds
+
+┌─────────────────────────┐
+│ Template: input summary │
+└─────────────────────────┘
+Outgroup inferred as root singleton: Proceratium_google
+
+┌────────────────────────────┐
+│ Template: authority filter │
+└────────────────────────────┘
+Valid ingroup species kept: 603; dropped absent: 275
+
+┌────────────────────────────────────────┐
+│ Template: donor ultrametric conversion │
+└────────────────────────────────────────┘
+Donor tree type: phylogram; ultrametric: FALSE
+Phylogram detected; estimating chronogram with chronos.

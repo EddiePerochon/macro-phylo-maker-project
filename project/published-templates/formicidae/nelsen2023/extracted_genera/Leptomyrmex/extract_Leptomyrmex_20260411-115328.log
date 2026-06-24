@@ -1,0 +1,27 @@
+=== Genus extraction log: Leptomyrmex | 2026-04-11 11:53:28 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 1435
+Ingroup (genus=Leptomyrmex) identified: 23 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Forelius_chalybaeus (min distance=124.433650)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 23
+tips_out (final tree): 24
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Leptomyrmex/extract_Leptomyrmex_20260411-115328_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/formicidae/nelsen2023/extracted_genera/Leptomyrmex/extract_Leptomyrmex_20260411-115328_renamed.tsv

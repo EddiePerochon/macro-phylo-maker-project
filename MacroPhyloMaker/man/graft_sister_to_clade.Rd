@@ -33,3 +33,17 @@ Attaches a new tip labeled \code{new_label} as sister to the MRCA of \code{clade
 the incoming edge of that MRCA at a random fraction. If the MRCA is the root (no incoming
 edge), attaches the new tip as a polytomy at the root.
 }
+\details{
+The target clade is defined by the MRCA of \code{clade_tips}. The new tip
+is attached by splitting the edge entering that MRCA. The split position is
+drawn exactly as in \code{graft_sister_to_tip()}, i.e. from a Beta-distributed
+fraction scaled to \code{[min_frac, max_frac]} and measured from the child
+node (the MRCA) toward its parent.
+
+If the MRCA is the root and therefore has no incoming edge, the new tip is
+attached as a root polytomy.
+
+When \code{.capture = TRUE}, the returned log reports the chosen edge,
+sampled fraction, attachment age, insertion position, and the implied
+new tip length.
+}

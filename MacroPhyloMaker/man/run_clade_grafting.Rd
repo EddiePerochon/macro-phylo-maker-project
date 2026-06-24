@@ -92,12 +92,12 @@ names or a bare Genus).
 \examples{
 \dontrun{
 res <- run_clade_grafting(
-  backbone_path   = "./backbone.tre",
-  plan_path       = "./graft-plan.tsv",  # MRCA + Phylogeny_file_path
-  authority       = NULL,
-  out_prefix      = "./out/grafted",
-  seed_mode       = 42,
-  chronos_select  = "off",
+  backbone_path = "./backbone.tre",
+  plan_path = "./graft-plan.tsv", # MRCA + Phylogeny_file_path
+  authority = NULL,
+  out_prefix = "./out/grafted",
+  seed_mode = 42,
+  chronos_select = "off",
   ultrametric_final = "extend",
   resolve_polytomies = "none"
 )

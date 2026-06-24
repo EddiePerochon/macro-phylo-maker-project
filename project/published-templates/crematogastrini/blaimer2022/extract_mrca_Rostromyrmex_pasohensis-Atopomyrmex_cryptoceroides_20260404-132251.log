@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-04 13:22:51 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 155
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 153
+Outgroup (sister_one): Monomorium_hanneli (min distance=171.547513)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 153
+tips_out (final tree): 154
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/crematogastrini/blaimer2022/extract_mrca_Rostromyrmex_pasohensis-Atopomyrmex_cryptoceroides_20260404-132251_with_outgroup.tre

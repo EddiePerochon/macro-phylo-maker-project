@@ -1,0 +1,27 @@
+=== Genus extraction log: Leptanilloides | 2026-04-10 12:46:21 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: FALSE
+force_positive_lengths: FALSE
+clean: genus_species
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 154
+Ingroup (genus=Leptanilloides) identified: 5 tips
+Genus monophyly: TRUE
+Outgroup (sister_one): Neivamyrmex_cf_nyensis_M296 (min distance=113.313690)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 5
+tips_out (final tree): 6
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Leptanilloides/extract_Leptanilloides_20260410-124621_with_outgroup.tre
+Wrote renames TSV: /home/marek/ant-megatree/working_code/package/project/published/dorylinae/extracted_genera/Leptanilloides/extract_Leptanilloides_20260410-124621_renamed.tsv

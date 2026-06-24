@@ -1,0 +1,26 @@
+=== Genus extraction log: clade | 2026-04-04 12:49:15 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: none
+nonmono: prune_extras
+outgroup: sister_one
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 100
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (MRCA of anchors) size: 92
+Outgroup (sister_one): Adelomyrmex_jtl037_EX548 (min distance=172.667722)
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 92
+tips_out (final tree): 93
+Wrote tree: /home/marek/ant-megatree/working_code/package/project/published/stenammini/branstetter2022//extract_mrca_Novomessor_albisetosus_EX376-Stenamma_punctiventre_EX309_20260404-124915_with_outgroup.tre

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotting.R
 \name{plot_tree_autosize}
 \alias{plot_tree_autosize}
-\title{Plot a tree on a single PDF page with optional autosizing}
+\title{Plot a tree to a single PDF page with optional autosizing}
 \usage{
 plot_tree_autosize(
   tree,
@@ -28,24 +28,77 @@ plot_tree_autosize(
 )
 }
 \arguments{
-\item{tree}{A \code{phylo}.}
+\item{tree}{A rooted or unrooted \code{phylo} object.}
 
-\item{pdf_path}{Output PDF path.}
+\item{pdf_path}{Output PDF file path.}
 
-\item{cex}{Label size used for plotting.}
+\item{cex}{Numeric label size passed to plotting.}
 
-\item{pdf_width}{Base width in inches (or \code{NULL} to auto).}
+\item{pdf_width}{Numeric base width in inches. Used directly when
+\code{auto_width = FALSE}; otherwise treated as a fallback value.}
 
-\item{pdf_auto}{If \code{TRUE}, auto-compute width/height unless both supplied.}
+\item{pdf_height}{Numeric PDF height in inches. If \code{NULL}, may be
+computed automatically when \code{pdf_auto = TRUE}.}
 
-\item{target_tpi}{Target tips-per-inch (scaled with \code{cex}).}
+\item{pdf_auto}{Logical; if \code{TRUE}, compute width and/or height whenever
+either is missing.}
 
-\item{plot_fn}{Optional function(tr) to plot custom content.}
+\item{target_tpi}{Target tips per inch used to derive plot height.}
 
-\item{ladderize_it}{Ladderize prior to plotting.}
+\item{min_h, max_h}{Minimum and maximum PDF height (in inches).}
 
-\item{tight}{If \code{TRUE}, minimal margins (pipeline-like).}
+\item{buffer_in}{Extra vertical buffer (in inches) added on top of the
+estimated core tree height.}
+
+\item{auto_width}{Logical; if \code{TRUE}, estimate width from the longest
+tip label. If \code{FALSE}, use \code{pdf_width} as supplied.}
+
+\item{char_per_in_at_cex}{Approximate characters-per-inch at \code{cex = 0.40},
+used to estimate width when \code{auto_width = TRUE}.}
+
+\item{min_w, max_w}{Minimum and maximum PDF width (in inches).}
+
+\item{plot_fn}{Optional function taking a single \code{phylo} argument; if
+supplied, this function is used instead of the default
+\code{graphics::plot()} call.}
+
+\item{ladderize_it}{Logical; if \code{TRUE}, ladderize the tree before plotting.}
+
+\item{tight}{Logical; if \code{TRUE}, use minimal margins for compact plotting.}
+
+\item{mar_safe}{Numeric margin vector passed to \code{graphics::par(mar = ...)}
+when \code{tight = FALSE}.}
+
+\item{oma_safe}{Numeric outer-margin vector passed to
+\code{graphics::par(oma = ...)} when \code{tight = FALSE}.}
+
+\item{...}{Additional arguments passed to \code{graphics::plot()} when
+\code{plot_fn} is not supplied.}
+}
+\value{
+Invisibly returns a named list with:
+\itemize{
+\item \code{width}: final PDF width used
+\item \code{height}: final PDF height used
+}
 }
 \description{
-Plot a tree on a single PDF page with optional autosizing
+Writes a single-page PDF containing a phylogeny, optionally using
+\code{suggest_pdf_size()} to determine width and/or height.
+}
+\details{
+If \code{pdf_auto = TRUE} and either \code{pdf_width} or \code{pdf_height}
+is missing, \code{suggest_pdf_size()} is used to fill in the missing
+dimension(s). If both dimensions are provided, they are used as-is.
+
+When \code{plot_fn} is supplied, it is responsible for plotting the tree and
+receives the (optionally ladderized) \code{phylo} object as its only
+argument. Additional \code{...} arguments are only used by the default plot path.
+}
+\examples{
+\dontrun{
+tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
+plot_tree_autosize(tr, tempfile(fileext = ".pdf"))
+}
+
 }

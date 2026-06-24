@@ -38,6 +38,22 @@ constrained to the interval defined by \code{min_frac} and \code{max_frac}). If 
 an immediate child of the root (no incoming edge), the function attaches the new tip as
 a polytomy at that node.
 }
+\details{
+The new tip is attached by splitting the edge leading to \code{sister_to}.
+A fraction \eqn{f} is drawn from a Beta(\code{shape1}, \code{shape2})
+distribution and linearly scaled into the interval
+\code{[min_frac, max_frac]}. The attachment position is then
+\eqn{f \times L}, where \eqn{L} is the length of the target edge,
+measured from the child tip toward its parent.
+
+If the target tip has no detectable incoming edge (a pathological or
+degenerate case), the function falls back to attaching the new tip as a
+polytomy at that node.
+
+When \code{.capture = TRUE}, the returned log reports the chosen edge,
+sampled fraction, attachment age, insertion position, and the implied
+new tip length.
+}
 \examples{
 \dontrun{
 tr <- ape::read.tree(text = "((A:1,B:1):1,(C:1,D:1):1);")
