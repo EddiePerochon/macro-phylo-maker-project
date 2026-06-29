@@ -718,6 +718,56 @@ prepare_clade_template <- function(
     "; ultrametric: ", is_ultra
   )
 
+  safe_num1 <- function(x) {
+    if (inherits(x, "try-error") || is.null(x) || !length(x)) {
+      return(NA_real_)
+    }
+    x <- suppressWarnings(as.numeric(x[1]))
+    if (is.finite(x)) x else NA_real_
+  }
+
+  extract_chronos_metrics <- function(fit) {
+    phi_info <- attr(fit, "PHIIC", exact = TRUE)
+
+    phiic <- NA_real_
+    loglik <- NA_real_
+
+    if (is.list(phi_info)) {
+      phiic <- safe_num1(phi_info$PHIIC)
+      loglik <- safe_num1(phi_info$logLik)
+    }
+
+    list(
+      PHIIC = phiic,
+      logLik = loglik,
+      has_phiic_attr = !is.null(phi_info),
+      phiic_attr_class = if (is.null(phi_info)) {
+        NA_character_
+      } else {
+        paste(class(phi_info), collapse = ",")
+      }
+    )
+  }
+
+  fmt_num <- function(x) {
+    if (length(x) == 1L && is.finite(x)) {
+      sprintf("%.6f", x)
+    } else {
+      "NA"
+    }
+  }
+
+empty_chronos_meta <- function(status = "not_run", reason = NA_character_) {
+  list(
+    status = status,
+    reason = reason,
+    selected = data.frame(),
+    trials = data.frame()
+  )
+}
+
+chronos_meta <- empty_chronos_meta()
+
   ## -------------------------------------------------------------------------
   ## Case 1: Declared chronogram — NEVER run chronos
   ## -------------------------------------------------------------------------
@@ -731,8 +781,16 @@ prepare_clade_template <- function(
         "enforcing ultrametricity using 'extend'."
       )
       G_ultra <- phytools::force.ultrametric(G, method = "extend")
+      chronos_meta <- empty_chronos_meta(
+        status = "not_run",
+        reason = "Input tree declared as chronogram."
+      )
     } else {
       G_ultra <- G
+      chronos_meta <- empty_chronos_meta(
+        status = "not_run",
+        reason = "Input tree declared as chronogram."
+      )
     }
   } else {
     ## -----------------------------------------------------------------------
@@ -744,6 +802,10 @@ prepare_clade_template <- function(
         "Phylogram already ultrametric; skipping chronos and using as chronogram."
       )
       G_ultra <- G
+      chronos_meta <- empty_chronos_meta(
+        status = "not_run",
+        reason = "Phylogram already ultrametric; chronos skipped."
+      )
     } else {
       log_msg(
         logger,
@@ -752,18 +814,186 @@ prepare_clade_template <- function(
 
       cal <- if (!is.null(calib_df)) calib_df else ape::makeChronosCalib(G)
 
+      run_chronos_safely <- function(expr) {
+        warnings <- character(0)
+
+        old_warn <- getOption("warn")
+        on.exit(options(warn = old_warn), add = TRUE)
+
+        # Prevent user/test-session options(warn = 2) from converting chronos
+        # warnings into errors.
+        options(warn = 0)
+
+        fit <- withCallingHandlers(
+          tryCatch(
+            expr,
+            error = function(e) e
+          ),
+          warning = function(w) {
+            warnings <<- c(warnings, conditionMessage(w))
+            invokeRestart("muffleWarning")
+          }
+        )
+
+        list(
+          fit = fit,
+          warnings = unique(warnings),
+          error = if (inherits(fit, "error")) conditionMessage(fit) else NA_character_
+        )
+      }
+
       pick_best <- function(G, logger, ig) {
         candidates <- list()
-        tried <- list()
+        trials <- list()
+
+        add_trial <- function(
+          mdl, lam, kcat, fit = NULL, status = "ok",
+          error_message = NA_character_,
+          warning_message = NA_character_
+        ) {
+          if (!is.null(fit) && !inherits(fit, "try-error")) {
+            info <- extract_chronos_metrics(fit)
+            conv <- isTRUE(attr(fit, "convergence"))
+
+            crown_metrics <- try(.compute_crown_metrics(fit, ig), silent = TRUE)
+            crown_depth <- if (!inherits(crown_metrics, "try-error") &&
+                               isTRUE(crown_metrics$ok)) {
+              crown_metrics$crown_depth
+            } else {
+              NA_real_
+            }
+
+            is_ultra_fit <- try(ape::is.ultrametric(fit, tol = 1e-6), silent = TRUE)
+            is_ultra_fit <- if (inherits(is_ultra_fit, "try-error")) {
+              NA
+            } else {
+              isTRUE(is_ultra_fit)
+            }
+            edge_lengths <- fit$edge.length
+            min_edge <- if (is.null(edge_lengths)) {
+              NA_real_
+            } else {
+              suppressWarnings(min(edge_lengths, na.rm = TRUE))
+            }
+            max_edge <- if (is.null(edge_lengths)) {
+              NA_real_
+            } else {
+              suppressWarnings(max(edge_lengths, na.rm = TRUE))
+            }
+            n_nonpositive <- if (is.null(edge_lengths)) {
+              NA_integer_
+            } else {
+              sum(!is.finite(edge_lengths) | edge_lengths <= 0)
+            }
+            row <- data.frame(
+              model = mdl,
+              lambda = lam,
+              nb_rate_cat = if (is.na(kcat)) NA_integer_ else as.integer(kcat),
+              status = status,
+              converged = conv,
+              PHIIC = info$PHIIC,
+              logLik = info$logLik,
+              has_phiic_attr = info$has_phiic_attr,
+              phiic_attr_class = info$phiic_attr_class,
+              crown_depth = crown_depth,
+              is_ultrametric = is_ultra_fit,
+              n_tip = ape::Ntip(fit),
+              n_node = fit$Nnode,
+              min_edge = min_edge,
+              max_edge = max_edge,
+              n_nonpositive_edges = n_nonpositive,
+              error_message = error_message,
+              warning_message = warning_message,
+              stringsAsFactors = FALSE
+            )
+
+            log_msg(
+              logger,
+              "chronos trial: ",
+              "model=", mdl,
+              " lambda=", lam,
+              " rate_cats=", if (is.na(kcat)) "NA" else kcat,
+              " converged=", conv,
+              " PHIIC=", fmt_num(info$PHIIC),
+              " logLik=", fmt_num(info$logLik),
+              " crown_depth=", fmt_num(crown_depth),
+              " ultrametric=", is_ultra_fit
+            )
+
+            trials[[length(trials) + 1L]] <<- row
+
+            ## Keep any finite-likelihood fit, even if PHIIC is NA/NaN.
+            if (is.finite(info$logLik)) {
+              candidates[[length(candidates) + 1L]] <<- list(
+                tree = fit,
+                model = mdl,
+                lambda = lam,
+                nb_rate_cat = if (is.na(kcat)) NA_integer_ else as.integer(kcat),
+                PHIIC = info$PHIIC,
+                logLik = info$logLik,
+                converged = conv,
+                crown = crown_depth,
+                is_ultrametric = is_ultra_fit
+              )
+            }
+          } else {
+            row <- data.frame(
+              model = mdl,
+              lambda = lam,
+              nb_rate_cat = if (is.na(kcat)) NA_integer_ else as.integer(kcat),
+              status = status,
+              converged = FALSE,
+              PHIIC = NA_real_,
+              logLik = NA_real_,
+              has_phiic_attr = FALSE,
+              phiic_attr_class = NA_character_,
+              crown_depth = NA_real_,
+              is_ultrametric = NA,
+              n_tip = ape::Ntip(G),
+              n_node = G$Nnode,
+              min_edge = if (is.null(G$edge.length)) {
+                NA_real_
+              } else {
+                suppressWarnings(min(G$edge.length, na.rm = TRUE))
+              },
+              max_edge = if (is.null(G$edge.length)) {
+                NA_real_
+              } else {
+                suppressWarnings(max(G$edge.length, na.rm = TRUE))
+              },
+              n_nonpositive_edges = if (is.null(G$edge.length)) {
+                NA_integer_
+              } else {
+                sum(!is.finite(G$edge.length) | G$edge.length <= 0)
+              },
+              error_message = error_message,
+              warning_message = warning_message,
+              stringsAsFactors = FALSE
+            )
+
+            log_msg(
+              logger,
+              "chronos trial FAILED: ",
+              "model=", mdl,
+              " lambda=", lam,
+              " rate_cats=", if (is.na(kcat)) "NA" else kcat,
+              if (!is.na(warning_message)) paste0(" warning=", warning_message) else "",
+              if (!is.na(error_message)) paste0(" error=", error_message) else ""
+            )
+
+            trials[[length(trials) + 1L]] <<- row
+          }
+        }
 
         for (mdl in models_grid) {
           if (mdl == "discrete") {
             for (kcat in rate_cats) {
               for (lam in lambda_grid) {
+
                 ctrl <- ape::chronos.control()
                 ctrl$nb.rate.cat <- kcat
 
-                fit <- try(
+                chr <- run_chronos_safely(
                   ape::chronos(
                     G,
                     lambda = lam,
@@ -771,95 +1001,119 @@ prepare_clade_template <- function(
                     quiet = FALSE,
                     calibration = cal,
                     control = ctrl
-                  ),
-                  silent = TRUE
-                )
-                if (inherits(fit, "try-error")) next
-
-                conv <- isTRUE(attr(fit, "convergence"))
-                phi <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
-                ll <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
-
-                tried[[length(tried) + 1]] <- list(
-                  model = mdl,
-                  lambda = lam,
-                  nb_rate_cat = kcat,
-                  PHIIC = phi,
-                  logLik = ll,
-                  converged = conv
+                  )
                 )
 
-                if (is.finite(phi) && is.finite(ll)) {
-                  candidates[[length(candidates) + 1]] <- list(
-                    tree = fit,
-                    model = mdl,
-                    lambda = lam,
-                    nb_rate_cat = kcat,
-                    PHIIC = phi,
-                    logLik = ll,
-                    converged = conv,
-                    crown = .compute_crown_metrics(fit, ig)$crown_depth
+                fit <- chr$fit
+
+                warning_message <- if (length(chr$warnings)) {
+                  paste(chr$warnings, collapse = " | ")
+                } else {
+                  NA_character_
+                }
+
+                if (inherits(fit, "error")) {
+                  add_trial(
+                    mdl = mdl,
+                    lam = lam,
+                    kcat = kcat,
+                    fit = NULL,
+                    status = "error",
+                    error_message = chr$error,
+                    warning_message = warning_message
+                  )
+                } else {
+                  add_trial(
+                    mdl = mdl,
+                    lam = lam,
+                    kcat = kcat,
+                    fit = fit,
+                    status = "ok",
+                    warning_message = warning_message
                   )
                 }
               }
             }
           } else {
             for (lam in lambda_grid) {
-              fit <- try(
+              chr <- run_chronos_safely(
                 ape::chronos(
                   G,
                   lambda = lam,
                   model = mdl,
                   quiet = FALSE,
                   calibration = cal
-                ),
-                silent = TRUE
-              )
-              if (inherits(fit, "try-error")) next
-
-              conv <- isTRUE(attr(fit, "convergence"))
-              phi <- try(attr(fit, "PHIIC")$PHIIC, silent = TRUE)
-              ll <- try(attr(fit, "PHIIC")$logLik, silent = TRUE)
-
-              tried[[length(tried) + 1]] <- list(
-                model = mdl,
-                lambda = lam,
-                nb_rate_cat = NA,
-                PHIIC = phi,
-                logLik = ll,
-                converged = conv
+                )
               )
 
-              if (is.finite(phi) && is.finite(ll)) {
-                candidates[[length(candidates) + 1]] <- list(
-                  tree = fit,
-                  model = mdl,
-                  lambda = lam,
-                  nb_rate_cat = NA,
-                  PHIIC = phi,
-                  logLik = ll,
-                  converged = conv,
-                  crown = .compute_crown_metrics(fit, ig)$crown_depth
+              fit <- chr$fit
+
+              warning_message <- if (length(chr$warnings)) {
+                paste(chr$warnings, collapse = " | ")
+              } else {
+                NA_character_
+              }
+
+              if (inherits(fit, "error")) {
+                add_trial(
+                  mdl = mdl,
+                  lam = lam,
+                  kcat = NA_integer_,
+                  fit = NULL,
+                  status = "error",
+                  error_message = chr$error,
+                  warning_message = warning_message
+                )
+              } else {
+                add_trial(
+                  mdl = mdl,
+                  lam = lam,
+                  kcat = NA_integer_,
+                  fit = fit,
+                  status = "ok",
+                  warning_message = warning_message
                 )
               }
             }
           }
         }
 
+        trials_df <- if (length(trials)) {
+          do.call(rbind, trials)
+        } else {
+          data.frame()
+        }
+
         if (!length(candidates)) {
           log_msg(
             logger,
-            "ERROR: No chronos fit produced finite likelihoods; ",
+            "ERROR: No chronos fit produced a finite logLik; ",
             "falling back to NNLS."
           )
+
+          selected_df <- data.frame(
+            model = "nnls",
+            lambda = NA_real_,
+            nb_rate_cat = NA_integer_,
+            PHIIC = NA_real_,
+            logLik = NA_real_,
+            converged = FALSE,
+            ranking_criterion = "none",
+            note = "No finite chronos logLik; fallback to NNLS.",
+            stringsAsFactors = FALSE
+          )
+
           return(list(
             tree = phytools::force.ultrametric(G, method = "nnls"),
             model = "nnls",
-            lambda = NA,
-            nb_rate_cat = NA,
-            PHIIC = NA,
-            logLik = NA,
-            converged = FALSE
+            lambda = NA_real_,
+            nb_rate_cat = NA_integer_,
+            PHIIC = NA_real_,
+            logLik = NA_real_,
+            converged = FALSE,
+            chronos_status = "nnls_fallback",
+            chronos_trials = trials_df,
+            chronos_selected = selected_df
           ))
         }
 
@@ -873,9 +1127,33 @@ prepare_clade_template <- function(
           note <- "WARNING: No chronos model converged; using best NON-converged model."
         }
 
-        phiics <- vapply(pool, `[[`, numeric(1), "PHIIC")
-        j <- which.min(phiics)
+        phiics <- vapply(pool, function(x) x$PHIIC, numeric(1))
+        logliks <- vapply(pool, function(x) x$logLik, numeric(1))
+
+        if (any(is.finite(phiics))) {
+          rank_score <- ifelse(is.finite(phiics), phiics, Inf)
+          j <- which.min(rank_score)
+          ranking_criterion <- "PHIIC"
+        } else {
+          rank_score <- ifelse(is.finite(logliks), logliks, -Inf)
+          j <- which.max(rank_score)
+          ranking_criterion <- "logLik"
+          note <- paste(note, "PHIIC unavailable/NaN; ranked by logLik.")
+        }
+
         best <- pool[[j]]
+
+        selected_df <- data.frame(
+          model = best$model,
+          lambda = best$lambda,
+          nb_rate_cat = best$nb_rate_cat,
+          PHIIC = best$PHIIC,
+          logLik = best$logLik,
+          converged = best$converged,
+          ranking_criterion = ranking_criterion,
+          note = note,
+          stringsAsFactors = FALSE
+        )
 
         log_msg(
           logger,
@@ -883,21 +1161,51 @@ prepare_clade_template <- function(
           "\n  model=", best$model,
           "\n  lambda=", best$lambda,
           "\n  rate_cats=", best$nb_rate_cat,
-          "\n  PHIIC=", sprintf("%.6f", best$PHIIC),
-          "\n  logLik=", sprintf("%.6f", best$logLik),
+          "\n  PHIIC=", fmt_num(best$PHIIC),
+          "\n  logLik=", fmt_num(best$logLik),
           "\n  converged=", best$converged,
+          "\n  ranking_criterion=", ranking_criterion,
           "\n  note=", note
         )
+
+        best$chronos_status <- if (best$converged) {
+          "selected_converged"
+        } else {
+          "selected_nonconverged"
+        }
+        best$chronos_trials <- trials_df
+        best$chronos_selected <- selected_df
 
         best
       }
 
       sel <- switch(chronos_select,
-        "off" = list(tree = phytools::force.ultrametric(G, method = "nnls")),
+        "off" = list(
+          tree = phytools::force.ultrametric(G, method = "nnls"),
+          model = "nnls",
+          lambda = NA_real_,
+          nb_rate_cat = NA_integer_,
+          PHIIC = NA_real_,
+          logLik = NA_real_,
+          converged = FALSE,
+          chronos_status = "chronos_off_nnls",
+          chronos_trials = data.frame(),
+          chronos_selected = data.frame(
+            model = "nnls",
+            lambda = NA_real_,
+            nb_rate_cat = NA_integer_,
+            PHIIC = NA_real_,
+            logLik = NA_real_,
+            converged = FALSE,
+            ranking_criterion = "none",
+            note = "chronos_select='off'; used NNLS.",
+            stringsAsFactors = FALSE
+          )
+        ),
         "fixed" = {
           mdl <- tolower(chronos_model)
           ctrl <- ape::chronos.control()
-          fit <- try(
+          chr <- run_chronos_safely(
             ape::chronos(
               G,
               lambda = lambda,
@@ -905,29 +1213,136 @@ prepare_clade_template <- function(
               quiet = FALSE,
               calibration = cal,
               control = ctrl
-            ),
-            silent = TRUE
+            )
           )
-          if (!inherits(fit, "try-error") && isTRUE(attr(fit, "convergence"))) {
+
+          fit <- chr$fit
+
+          warning_message <- if (length(chr$warnings)) {
+            paste(chr$warnings, collapse = " | ")
+          } else {
+            NA_character_
+          }
+
+          if (!inherits(fit, "error") && isTRUE(attr(fit, "convergence"))) {
+            info <- extract_chronos_metrics(fit)
+
+            log_msg(
+              logger,
+              "Fixed chronos:",
+              "\n  model=", mdl,
+              "\n  lambda=", lambda,
+              "\n  PHIIC=", fmt_num(info$PHIIC),
+              "\n  logLik=", fmt_num(info$logLik),
+              "\n  converged=", isTRUE(attr(fit, "convergence"))
+            )
+
+            trial_df <- data.frame(
+              model = mdl,
+              lambda = lambda,
+              nb_rate_cat = ctrl$nb.rate.cat,
+              status = "ok",
+              converged = isTRUE(attr(fit, "convergence")),
+              PHIIC = info$PHIIC,
+              logLik = info$logLik,
+              has_phiic_attr = info$has_phiic_attr,
+              phiic_attr_class = info$phiic_attr_class,
+              crown_depth = .compute_crown_metrics(fit, ingroup_tips)$crown_depth,
+              is_ultrametric = ape::is.ultrametric(fit, tol = 1e-6),
+              n_tip = ape::Ntip(fit),
+              n_node = fit$Nnode,
+              min_edge = suppressWarnings(min(fit$edge.length, na.rm = TRUE)),
+              max_edge = suppressWarnings(max(fit$edge.length, na.rm = TRUE)),
+              n_nonpositive_edges = sum(!is.finite(fit$edge.length) | fit$edge.length <= 0),
+              error_message = NA_character_,
+              warning_message = warning_message,
+              stringsAsFactors = FALSE
+            )
+
+            selected_df <- data.frame(
+              model = mdl,
+              lambda = lambda,
+              nb_rate_cat = ctrl$nb.rate.cat,
+              PHIIC = info$PHIIC,
+              logLik = info$logLik,
+              converged = isTRUE(attr(fit, "convergence")),
+              ranking_criterion = "fixed",
+              note = "Fixed chronos model requested.",
+              stringsAsFactors = FALSE
+            )
+
             list(
               tree = fit,
               model = mdl,
               lambda = lambda,
               nb_rate_cat = ctrl$nb.rate.cat,
-              PHIIC = attr(fit, "PHIIC")$PHIIC
+              PHIIC = info$PHIIC,
+              logLik = info$logLik,
+              converged = isTRUE(attr(fit, "convergence")),
+              chronos_status = "fixed",
+              chronos_trials = trial_df,
+              chronos_selected = selected_df
             )
           } else {
-            log_msg(logger, "Fixed chronos failed; using NNLS.")
+            log_msg(
+              logger,
+              "Fixed chronos failed; using NNLS.",
+              if (!is.na(warning_message)) paste0(" warning=", warning_message) else "",
+              if (inherits(fit, "error")) paste0(" error=", chr$error) else ""
+            )
+
+            selected_df <- data.frame(
+              model = "nnls",
+              lambda = NA_real_,
+              nb_rate_cat = NA_integer_,
+              PHIIC = NA_real_,
+              logLik = NA_real_,
+              converged = FALSE,
+              ranking_criterion = "none",
+              note = "Fixed chronos failed; fallback to NNLS.",
+              stringsAsFactors = FALSE
+            )
+
             list(
               tree = phytools::force.ultrametric(G, method = "nnls"),
               model = "nnls",
-              lambda = NA,
-              nb_rate_cat = NA,
-              PHIIC = NA
+              lambda = NA_real_,
+              nb_rate_cat = NA_integer_,
+              PHIIC = NA_real_,
+              logLik = NA_real_,
+              converged = FALSE,
+              chronos_status = "fixed_failed_nnls",
+              chronos_trials = data.frame(),
+              chronos_selected = selected_df
             )
           }
         },
         "auto" = pick_best(G, logger, ingroup_tips)
+      )
+
+      if (is.null(sel$chronos_trials)) {
+        sel$chronos_trials <- data.frame()
+      }
+
+      if (is.null(sel$chronos_selected)) {
+        sel$chronos_selected <- data.frame(
+          model = sel$model %||% NA_character_,
+          lambda = sel$lambda %||% NA_real_,
+          nb_rate_cat = sel$nb_rate_cat %||% NA_integer_,
+          PHIIC = sel$PHIIC %||% NA_real_,
+          logLik = sel$logLik %||% NA_real_,
+          converged = sel$converged %||% NA,
+          ranking_criterion = NA_character_,
+          note = sel$chronos_status %||% NA_character_,
+          stringsAsFactors = FALSE
+        )
+      }
+
+      chronos_meta <- list(
+        status = sel$chronos_status %||% "selected",
+        reason = NA_character_,
+        selected = sel$chronos_selected,
+        trials = sel$chronos_trials
       )
 
       G_ultra <- sel$tree
@@ -981,12 +1396,66 @@ prepare_clade_template <- function(
     " crown_fraction=", sprintf("%.6f", 1 - r)
   )
 
+  selected_chronos <- chronos_meta$selected
+
+  chronos_model <- if (nrow(selected_chronos)) {
+    as.character(selected_chronos$model[1])
+  } else {
+    NA_character_
+  }
+
+  chronos_lambda <- if (nrow(selected_chronos)) {
+    selected_chronos$lambda[1]
+  } else {
+    NA_real_
+  }
+
+  chronos_rate_cat <- if (nrow(selected_chronos)) {
+    selected_chronos$nb_rate_cat[1]
+  } else {
+    NA_integer_
+  }
+
+  chronos_phiic <- if (nrow(selected_chronos)) {
+    selected_chronos$PHIIC[1]
+  } else {
+    NA_real_
+  }
+
+  chronos_loglik <- if (nrow(selected_chronos)) {
+    selected_chronos$logLik[1]
+  } else {
+    NA_real_
+  }
+
+  chronos_converged <- if (nrow(selected_chronos)) {
+    selected_chronos$converged[1]
+  } else {
+    NA
+  }
+
+  chronos_rank <- if (nrow(selected_chronos)) {
+    as.character(selected_chronos$ranking_criterion[1])
+  } else {
+    NA_character_
+  }
+
   tpl_row <- data.frame(
     n_ingroup_kept = length(ingroup_tips),
     outgroup_used = if (!is.na(out_tip)) out_tip else NA_character_,
     stem_len_inferred = stem_len,
     stem_fraction = r,
     crown_fraction = 1 - r,
+    chronos_status = chronos_meta$status,
+    chronos_reason = chronos_meta$reason,
+    chronos_model = chronos_model,
+    chronos_lambda = chronos_lambda,
+    chronos_rate_cat = chronos_rate_cat,
+    chronos_PHIIC = chronos_phiic,
+    chronos_logLik = chronos_loglik,
+    chronos_converged = chronos_converged,
+    chronos_ranking_criterion = chronos_rank,
+    n_chronos_trials = nrow(chronos_meta$trials),
     stringsAsFactors = FALSE
   )
 
@@ -997,16 +1466,31 @@ prepare_clade_template <- function(
     stem_len = stem_len,
     label_map = label_map,
     template_log = tpl_row,
+    chronos_meta = chronos_meta,
     logfile = if (inherits(logger, "smart_logger")) logger$file else NA_character_
   )
-
-
+  
   if (!is.null(template_path) && write_template) {
-    saveRDS(out, template_path)
+    dir.create(
+      dirname(normalizePath(template_path, mustWork = FALSE)),
+      recursive = TRUE,
+      showWarnings = FALSE
+    )
+
+    tmp_path <- paste0(template_path, ".tmp")
+
+    saveRDS(out, tmp_path)
+
+    if (!file.rename(tmp_path, template_path)) {
+      unlink(tmp_path)
+      stop("Failed to move temporary template into place: ", template_path)
+    }
+
     log_msg(logger, "Saved donor template to: ", template_path)
   }
 
   return(out)
+
 }
 
 # -----------------------------------------------------------------------------
@@ -1310,7 +1794,10 @@ graft_many_clades <- function(
     }
 
     if (ultrametric_final != "none" && !ape::is.ultrametric(backbone_i)) {
-      backbone_i <- phytools::force.ultrametric(T, method = ultrametric_final)
+      backbone_i <- phytools::force.ultrametric(
+        backbone_i,
+        method = ultrametric_final
+      )
     }
 
     if (ultrametric_final != "none") {
