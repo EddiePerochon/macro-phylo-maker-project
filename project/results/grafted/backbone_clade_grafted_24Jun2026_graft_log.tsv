@@ -1,6 +1,6 @@
 n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	stem_mode	target_type	target_label	retained_tip	backbone_index
 106	Stenamma_alas	0.127882803497034	0.127882803497034	0.872117196502966	crown	clade	Bazboltonia,Gnamptogenys	Acanthoponera	1
-603	Proceratium_google	0.55850854983395	0.55850854983395	0.44149145016605	crown	clade	Platythyrea,Leptogenys	Anochetus	1
+603	Proceratium_google	0.0199838418444111	0.117521921982697	0.882478078017303	crown	clade	Platythyrea,Leptogenys	Anochetus	1
 124	Monomorium_hanneli	6.49973	0.07577747479519	0.92422252520481	crown	clade	Rostromyrmex,Leptothorax	Acanthomyrmex	1
 22	Agraulomyrmex_TZ01	15.9426	0.342731494727536	0.657268505272464	outgroup	tip	Acropyga	NA	1
 5	Overbeckia_my01_D2498	0.039731	0.297318735922054	0.702681264077946	outgroup	tip	Calomyrmex	NA	1
