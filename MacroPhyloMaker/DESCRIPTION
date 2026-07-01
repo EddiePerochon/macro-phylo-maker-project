@@ -1,14 +1,14 @@
 Package: MacroPhyloMaker
 Title: Tools for Extracting, Grafting, and Assembling Large Phylogenies
-Version: 2026.05.28.1
+Version: 2026.06.29
 Authors@R: 
     person("Marek", "Borowiec", role = c("aut", "cre"),
            email = "marek.borowiec@colostate.edu",
            comment = c(ORCID = "0000-0001-7510-4064"))
-Description: Provides tools to extract cleaned subtrees 
-    with outgroups, graft donor genus trees into an ultrametric backbone 
-    chronogram (including stem-aware chronos-based rescaling), fill genus-
-    level tips with species-level names using taxonomy reference, convert taxonomy 
+Description: Provides tools to extract cleaned subtrees with outgroups, 
+    graft tips and trees into ultrametric backbone chronograms 
+    (including stem-aware chronos-based rescaling), fill genus-level tips
+    with species-level names using taxonomy reference, convert taxonomy 
     tables to TACT taxonomy format, and generate autosized or paginated 
     PDF plots of large phylogenies.
 License: GPL-3 + file LICENSE
