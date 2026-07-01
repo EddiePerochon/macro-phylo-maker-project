@@ -1,0 +1,29 @@
+=== Genus extraction log: Camponotus | 2026-06-30 20:50:33 ===
+
+┌──────────┐
+│ Settings │
+└──────────┘
+resolve_polytomies: TRUE
+force_positive_lengths: TRUE
+clean: genus_species
+nonmono: prune_extras
+outgroup: none
+seed: 42
+
+┌──────────┐
+│ Input │
+└──────────┘
+tips_in: 4
+Preprocess: polytomies=TRUE, positive_lengths=TRUE
+Ingroup (genus=Camponotus) identified: 1 tips
+Single-tip genus after cleaning/collapse; skipping MRCA extraction.
+Genus monophyly: TRUE
+Single-tip genus after cleaning/collapse; extracting directly without MRCA.
+
+┌──────────┐
+│ Output │
+└──────────┘
+ingroup_out: 1
+tips_out (final tree): 1
+Wrote renames TSV: ./extract_Camponotus_20260630-205033_renamed.tsv
+Wrote drops TSV: ./extract_Camponotus_20260630-205033_dropped.tsv
