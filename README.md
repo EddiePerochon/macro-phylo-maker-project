@@ -28,7 +28,8 @@ install.packages(c(
   "devtools",
   "ape",
   "phytools",
-  "here"
+  "here",
+  "readr"
 ))
 ```
 You may need to install additional dependencies for `devtools` and others to run. This will vary a lot by system and environment, but on my Ubuntu 22.04 installing these packages was necessary:
