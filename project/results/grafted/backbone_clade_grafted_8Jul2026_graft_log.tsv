@@ -10,6 +10,7 @@ n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	chro
 2	Calomyrmex_albertisi	0.092236	0.690234228840829	0.309765771159171	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Overbeckia	NA	1
 4	Camponotus_ephippiatus	0.286504	0.802453540969373	0.197546459030627	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Opisthopsis	NA	1
 3	Camponotus_ephippiatus	0.254117	0.766888680321462	0.233111319678538	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Lathidris	NA	1
+153	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Polyrhachis	NA	1
 65	Procryptocerus_scabriusculus	0.579190216046052	0.579190216046052	0.420809783953948	selected_converged	NA	discrete	0.1	1	136.993857793293	-3.4969288966463	TRUE	PHIIC	15	outgroup	tip	Cephalotes	NA	1
 110	Recurvidris_TH01	29.3002	0.408633231584818	0.591366768415182	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Crematogaster_macracantha,Crematogaster_kelleri	Crematogaster_aberrans	1
 31	Crematogaster_lotti	0.07642	0.486844619991081	0.513155380008919	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Crematogaster_scutellaris,Crematogaster_pilosa	Crematogaster_coarctata	1
@@ -18,6 +19,10 @@ n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	chro
 9	Dorymyrmex_paranensis	10.1996	0.210162237186452	0.789837762813548	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Leptomyrmex	NA	1
 80	Iberoformica_subrufa	0.037559	0.127219456017342	0.872780543982658	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Formica	NA	1
 21	Myrmecocystus_mexicanus	0.0977426870615368	0.0977426870615368	0.902257312938463	selected_converged	NA	discrete	0.1	1	42.9336447386299	-0.466822369314962	TRUE	PHIIC	15	outgroup	tip	Lasius	NA	1
+20	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Myrmecocystus	NA	1
+5	Myrmelachista_cooperi	57.688	0.673421111859253	0.326578888140747	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Brachymyrmex	NA	1
+24	'Brachymyrmex_cf_aphidicola_EXRP168'	56.5824	0.660514800769905	0.339485199230095	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Myrmelachista	NA	1
+37	Proformica_mongolica	10.1269	0.354633001820983	0.645366998179017	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Cataglyphis,Rossomyrmex	Cataglyphis	1
 62	Nothomyrm_macrops	0.147027	0.336705109649524	0.663294890350476	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Myrmecia	NA	1
 41	Adelomyrmex_longinoi	0.056484	0.0551221521099711	0.944877847890029	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Manica,Pogonomyrmex	Hylomyrma	1
 65	Hylomyrma_immanis	0.007608	0.0119796119852806	0.988020388014719	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Pogonomyrmex_striatinodus,Pogonomyrmex_apache	Pogonomyrmex_apache	1
@@ -33,16 +38,13 @@ n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	chro
 86	Leptothorax_calderoni	11.947725	0.254238829980785	0.745761170019215	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Temnothorax_poeyi,Temnothorax_bernardi	Temnothorax_bernardi	1
 9	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Temnothorax_longinoi	NA	1
 2	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Temnothorax_unifasciatus	NA	1
-67	Acanthognathus_ocellatus	0.048505	0.0665445665445665	0.933455433455433	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Apterostigma,Acromyrmex	Acromyrmex	1
-106	Pheidole_fervens	0.3249829747	0.00476000240197014	0.99523999759803	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Pheidole_longispinosa,Pheidole_grallatrix	Pheidole_annemariae	1
+68	Acanthognathus_ocellatus	0.048505	0.0665445665445665	0.933455433455433	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Apterostigma,Acromyrmex	Acromyrmex	1
 107	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Dorylus,Eciton	Acanthostichus	1
+32	Syscia_MY_M176	0.590166321420279	0.590166321420279	0.409833678579721	selected_converged	NA	discrete	0.1	1	68.4796707809017	-2.23983539045085	TRUE	PHIIC	15	outgroup	tip	Syscia_augustae	NA	1
 20	Cardiocondyla_mauritanica	0.353134	0.64174911134211	0.35825088865789	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Ocymyrmex_celer,Ocymyrmex_picardi	Ocymyrmex_celer	1
 9	Mycetosoritis_explicata	10.7055	0.684748819894846	0.315251180105154	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Sericomyrmex_scrobifer,Sericomyrmex_mayri	Sericomyrmex_amabilis	1
 25	Trachymyrmex_arizonensis	0.006978	0.0368993543406184	0.963100645659382	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Atta_texana,Amoimyrmex_striatus	Acromyrmex_balzani	1
 12	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Myrmicocrypta_tuberculata,Myrmicocrypta_ednaella	Myrmicocrypta_buenzlii	1
-5	Myrmelachista_cooperi	57.688	0.673421111859253	0.326578888140747	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Brachymyrmex	NA	1
-24	'Brachymyrmex_cf_aphidicola_EXRP168'	56.5824	0.660514800769905	0.339485199230095	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Myrmelachista	NA	1
-37	Proformica_mongolica	10.1269	0.354633001820983	0.645366998179017	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Cataglyphis,Rossomyrmex	Cataglyphis	1
 7	Octostruma_petiolata	0.196706188239599	0.196706188239599	0.803293811760401	selected_converged	NA	discrete	0.1	1	16.7228764842191	-1.36143824210955	TRUE	PHIIC	15	outgroup	tip	Basiceros	NA	1
 30	Apomyrma_stygia	9.53407	0.0842823574381994	0.915717642561801	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Amblyopone,Myopopone	Adetomyrma	1
 2	Liometopum_luctuosum	35.6299	0.801358016638965	0.198641983361035	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Aptinoma	NA	1
@@ -64,7 +66,6 @@ n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	chro
 3	Monomorium_hanneli	9.52347	0.146751147269828	0.853248852730172	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Syllophopsis	NA	1
 3	Monomorium_hanneli	45.6534	0.754744992065435	0.245255007934565	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Myrmicaria	NA	1
 2	Tranopelta_gilva	40.8797	0.688333271593921	0.311666728406079	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Ochetomyrmex	NA	1
-153	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Polyrhachis	NA	1
 24	Syllophopsis_ferodens	37.953945	0.565094485590561	0.434905514409439	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Monomorium	NA	1
 13	Kempfidris_inusualis	10.887789	0.15813638124167	0.84186361875833	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Solenopsis	NA	1
 18	Austromorium_flavigaster	11.884528	0.203870796464519	0.796129203535481	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Chelaner	NA	1
@@ -76,7 +77,5 @@ n_ingroup_kept	outgroup_used	stem_len_inferred	stem_fraction	crown_fraction	chro
 9	Simopone_nonnihil	9.170808133	0.127372335175248	0.872627664824752	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Tanipone_aglandula,Tanipone_scelesta	Tanipone_aglandula	1
 16	Malagidris_dulcis	2.521536357	0.206312729820328	0.793687270179672	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Vitsika_producta,Vitsika_suspicax	Vitsika_brevis	1
 10	Stigmatomma_roahady	6.982472627	0.140766386511013	0.859233613488987	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Mystrium_mysticum,Mystrium_mirror	Mystrium_barrybressleri	1
-72	Strumigenys_rogeri	3.46917336	0.389106571446238	0.610893428553762	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	clade	Strumigenys_bibiolona,Strumigenys_lura	Strumigenys_actis	1
 8	Stigmatomma_sakalava	5.679869481	0.0977718026220857	0.902228197377914	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	clade	Adetomyrma_bressleri,Adetomyrma_caputleae	Adetomyrma_bressleri	1
 3	Vitsika_labes	8.912668562	0.43525851546112	0.56474148453888	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	outgroup	tip	Eutetramorium_mocquerysi	NA	1
-20	NA	0	1e-08	0.99999999	not_run	Input tree declared as chronogram.	NA	NA	NA	NA	NA	NA	NA	0	crown	tip	Myrmecocystus	NA	1
