@@ -48,6 +48,8 @@ sudo apt install \
     libpng-dev \
     libjpeg-dev \
     libtiff5-dev
+    libwebp-dev \
+    libuv1-dev
 ```
 ## Load the development package
 From the same directory as above.
