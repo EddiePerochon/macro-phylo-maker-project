@@ -31,7 +31,24 @@ install.packages(c(
   "here"
 ))
 ```
+You may need to install additional dependencies for `devtools` and others to run. This will vary a lot by system and environment, but on my Ubuntu 22.04 installing these packages was necessary:
+```
+sudo apt update
 
+sudo apt install \
+    build-essential \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    libfontconfig1-dev \
+    libcairo2-dev \
+    libfreetype6-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libtiff5-dev
+```
 ## Load the development package
 From the same directory as above.
 ```
