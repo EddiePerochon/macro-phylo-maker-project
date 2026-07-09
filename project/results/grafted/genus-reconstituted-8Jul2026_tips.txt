@@ -921,7 +921,7 @@ Melissotarsus_insularis
 Formosimyrma
 Rhopalomastix_rothneyi
 Cyphoidris_exalta
-Dicroaspis_cryptocera
+Dicroaspis
 Calyptomyrmex_kaurus
 Tetramorium_scytalum
 Tetramorium_taylori
@@ -1107,7 +1107,7 @@ Crematogaster_hova
 Lophomyrmex_bedoti
 Lophomyrmex_ambiguus
 Adlerzia_froggatti
-Recurvidris_browni
+Recurvidris
 Stereomyrmex_horni
 Trichomyrmex_robustior
 Trichomyrmex_criniceps
@@ -1175,7 +1175,7 @@ Acanthomyrmex_ferox
 Myrmecina_striata
 Myrmecina_americana
 Myrmecina_graminicola
-Paratopula_andamanensis
+Paratopula
 Poecilomyrma_myrmecodiae
 Romblonella_elysii
 Romblonella_scrobifera
@@ -1281,7 +1281,7 @@ Temnothorax_paiute
 Temnothorax_oxynodis
 Temnothorax_andrei
 Temnothorax_nitens
-Lasiomyrma_gedensis
+Lasiomyrma
 Lordomyrma_epinotalis
 Ancyridris_polyrhachioides
 Gaoligongidris
@@ -2597,7 +2597,7 @@ Lioponera_mayri
 Lioponera_suscitata
 Lioponera_marginata
 Lioponera_ruficornis
-Lividopone_livida
+Lividopone
 Zasphinctus_wilsoni
 Zasphinctus_sarowiwai
 Zasphinctus_trux
@@ -2621,7 +2621,7 @@ Simopone_conradti
 Simopone_marleyi
 Simopone_rex
 Simopone_trita
-Eusphinctus_furcatus
+Eusphinctus
 Syscia_atitlana
 Syscia_setosa
 Syscia_murillocruzae
@@ -2658,14 +2658,14 @@ Syscia_typhla
 Ooceraea_fragosa
 Ooceraea_australis
 Ooceraea_biroi
-Eburopone_easoana
+Eburopone
 Cerapachys_sulcinodis
 Cerapachys_antennatus
 Chrysapace_sauteri
 Chrysapace_jacobsoni
 Yunodorylus_paradoxus
 Yunodorylus_eguchii
-Aenictogiton_attenuatus
+Aenictogiton
 Dorylus_laevigatus
 Dorylus_conradti
 Dorylus_orientalis
