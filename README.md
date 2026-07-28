@@ -454,6 +454,21 @@ After tip grafting and clade grafting, some species may still remain unplaced be
 
 This step uses ChronoSTA as a controlled gap-filling procedure. The reference tree is the output of the previous MacroPhyloMaker grafting steps. Donor trees are searched for species absent from the reference tree, recalibrated to the reference timescale when needed, split into smaller subtrees, optionally prefused when they overlap, and then merged back into local regions of the reference tree. This allows additional species to be incorporated without rebuilding the entire tree from scratch.
 
+### Note on ChronoSTA compatibility patch
+
+The workflow downloads the upstream `chronosta.py` script from the [Chrono-STA repository](https://github.com/josebarbamontoya/chrono-sta) at runtime. To maintain compatibility with recent NumPy/Pandas versions, MacroPhyloMaker applies a small runtime patch to the temporary copy of `chronosta.py` used for each analysis. The patch replaces an in-place modification of `m.values` with a writable copy before calling `np.fill_diagonal()`.
+
+The original downloaded script is not modified. The patch is applied only to the temporary copy written into the ChronoSTA run directory, and the log records when the patch is applied. This preserves provenance while allowing the workflow to run reproducibly with current Python environments.
+
+Users may alternatively provide their own ChronoSTA script with `chronosta_script = "path/to/chronosta.py"`. If the script already contains the compatibility patch, MacroPhyloMaker will detect this and skip patching.
+
+ChronoSTA is developed independently and distributed by its authors. MacroPhyloMaker does not vendor a modified copy of ChronoSTA. Instead, it downloads or uses a user-provided upstream `chronosta.py` script and applies a documented runtime compatibility patch to the temporary copy used for each analysis. Users should cite ChronoSTA and comply with its license when distributing modified ChronoSTA code.
+
+When using this step of the workflow please cite:
+```
+Barba-Montoya, J., Craig, J. M., & Kumar, S. (2025). Integrating phylogenies with chronology to assemble the tree of life. Frontiers in Bioinformatics, 5, 1571568.
+```
+
 ### Example
 
 ```r
