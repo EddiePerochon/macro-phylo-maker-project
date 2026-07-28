@@ -10,6 +10,13 @@ The goal is to allow fully reproducible construction of large phylogenies by:
 2. Preparing donor templates
 3. Grafting clades and tips onto a backbone chronogram
 
+This workflow was developed by Marek Borowiec [marek.borowiec@colostate.edu](mailto:marek.borowiec@colostate.edu) and Eddie Pérochon [eddie.perochon@hotmail.com](mailto:eddie.perochon@hotmail.com).
+
+If you use our approach, please cite:
+```
+Pérochon, E., Bertelsmeier, C., Borowiec, M.L. (2026). Assembling the ant tree of life through scalable phylogenetic synthesis. Journal, volume, pages. doi:XXXX.
+```
+
 ---
 
 # Setup Instructions
@@ -534,10 +541,60 @@ The function can automatically download the ChronoSTA Python script if it is not
 python -m pip install biopython pandas numpy scipy matplotlib
 ```
 
-You can set up the ChronoSTA script and Python dependencies from R with:
+Because many systems have more than one Python installation, it is safest to choose one Python executable explicitly and use it consistently for setup, dependency checks, and the final grafting call. For example, on a system using Anaconda:
 
 ```r
-setup_chronosta_env()
+py <- "/home/marek/anaconda3/bin/python3"
+
+setup_chronosta_env(python = py)
+check_chronosta_python(py)
+```
+
+Then pass the same Python executable to `run_chronosta_grafting()`:
+
+```r
+res <- run_chronosta_grafting(
+  reference_tree = here::here(
+    "project", "results", "grafted",
+    "genus-reconstituted-8Jul2026.tre"
+  ),
+  donor_tree_dir = here::here(
+    "project", "chronosta", "source_trees"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "chronosta_gapfilled"
+  ),
+  split_seed = 19982018,
+  ref_weight = 5,
+  recalibrate = TRUE,
+  split_gen = TRUE,
+  split_sbt = TRUE,
+  prefuse = TRUE,
+  monoph_restore = TRUE,
+  paraph_exc = c(
+    "Monomorium",
+    "Camponotus",
+    "Rogeria",
+    "Syllophopsis",
+    "Neoponera"
+  ),
+  python = py
+)
+```
+
+If the dependency check reports missing Python modules even after setup, confirm that R and ChronoSTA are using the same Python:
+
+```r
+system2(py, c("-c", "import sys; print(sys.executable)"), stdout = TRUE)
+system2(py, c("-m", "pip", "--version"), stdout = TRUE)
+check_chronosta_python(py)
+```
+
+For Anaconda users, dependencies can also be installed with conda:
+
+```bash
+/home/marek/anaconda3/bin/conda install -c conda-forge biopython pandas numpy scipy matplotlib
 ```
 
 If you already have a local copy of `chronosta.py`, you can provide it explicitly:
@@ -600,6 +657,64 @@ ChronoSTA grafting is used after the main tip and clade grafting steps:
 
 This final step is intended for species that are present in published source trees but could not be incorporated by direct clade grafting because their source trees partially overlap with, but were not selected over, other donor trees.
 
+
+### ChronoSTA troubleshooting
+
+#### `setup_chronosta_env()` succeeds, but `run_chronosta_grafting()` says Python packages are missing
+
+This usually means that setup installed packages into one Python environment, while the final grafting call is using a different Python executable. Always set a Python path explicitly and use it in all three places:
+
+```r
+py <- "/home/marek/anaconda3/bin/python3"
+
+setup_chronosta_env(python = py)
+check_chronosta_python(py)
+
+res <- run_chronosta_grafting(
+  ...,
+  python = py
+)
+```
+
+#### `sh: 1: Syntax error: word unexpected (expecting ")")`
+
+This indicates that the Python dependency check is being interpreted by the shell rather than passed safely to Python. Use the patched version of `check_chronosta_python()` that writes a temporary Python script and runs that file, rather than sending an inline Python expression through `python -c`.
+
+#### Avoid unnecessary upgrades in a shared Python environment
+
+ChronoSTA requires `biopython`, `pandas`, `numpy`, `scipy`, and `matplotlib`, but it does not require the newest available versions. If you are using an Anaconda base environment that also supports other analyses, avoid unnecessary `--upgrade` installs unless needed. Prefer:
+
+```bash
+/home/marek/anaconda3/bin/python3 -m pip install biopython pandas numpy scipy matplotlib
+```
+
+or:
+
+```bash
+/home/marek/anaconda3/bin/conda install -c conda-forge biopython pandas numpy scipy matplotlib
+```
+
+#### Checking imports manually
+
+A direct check outside MacroPhyloMaker is:
+
+```r
+py <- "/home/marek/anaconda3/bin/python3"
+
+system2(
+  py,
+  c(
+    "-c",
+    "import Bio, pandas, numpy, scipy, matplotlib; print('ChronoSTA imports OK')"
+  ),
+  stdout = TRUE,
+  stderr = TRUE
+)
+```
+
+If this command works but `check_chronosta_python(py)` fails, the package helper function should be updated.
+
+
 ---
 
 ## Replicating the ant macrophylogeny workflow from the paper
@@ -632,10 +747,12 @@ install.packages(c(
 devtools::load_all("MacroPhyloMaker")
 ```
 
-If using the ChronoSTA-enabled final grafting step, also set up Python dependencies:
+If using the ChronoSTA-enabled final grafting step, also set up Python dependencies. Use an explicit Python executable so that setup, checks, and the final run all use the same environment:
 
 ```r
-setup_chronosta_env()
+py <- "/home/marek/anaconda3/bin/python3"
+setup_chronosta_env(python = py)
+check_chronosta_python(py)
 ```
 
 ### Step 1. Graft missing genera onto the genus-level backbone
@@ -729,7 +846,8 @@ res <- run_chronosta_grafting(
     "Rogeria",
     "Syllophopsis",
     "Neoponera"
-  )
+  ),
+  python = py
 )
 ```
 
@@ -783,5 +901,3 @@ To update the tree when new source phylogenies become available:
 5. Compare the new logs, overlap tables, tip counts, and final trees.
 
 For reproducible paper-style runs, do not use `setwd()` or absolute paths. Use `here::here(...)` throughout, and keep seeds fixed for stochastic steps.
-
-
