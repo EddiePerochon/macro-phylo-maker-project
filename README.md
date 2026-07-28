@@ -439,5 +439,349 @@ The function writes:
 <out_prefix>.pdf → tree visualization (optional)
 <out_prefix>_tips.txt → final tip list
 ```
+---
+
+## Time-informed species grafting with ChronoSTA
+
+After tip grafting and clade grafting, some species may still remain unplaced because they occur in source trees that partially overlap with trees already used for clade grafting. In these cases, choosing a single donor tree for a clade can leave species from alternative, overlapping source trees behind. The function `run_chronosta_grafting()` performs a final time-informed grafting step to recover these species while minimizing disruption to the existing backbone topology.
+
+This step uses ChronoSTA as a controlled gap-filling procedure. The reference tree is the output of the previous MacroPhyloMaker grafting steps. Donor trees are searched for species absent from the reference tree, recalibrated to the reference timescale when needed, split into smaller subtrees, optionally prefused when they overlap, and then merged back into local regions of the reference tree. This allows additional species to be incorporated without rebuilding the entire tree from scratch.
+
+### Example
+
+```r
+res <- run_chronosta_grafting(
+  reference_tree = here::here(
+    "project", "results", "grafted",
+    "genus-reconstituted-8Jul2026.tre"
+  ),
+  donor_tree_dir = here::here(
+    "project", "chronosta", "source_trees"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "chronosta_gapfilled"
+  ),
+  split_seed = 19982018,
+  ref_weight = 5,
+  recalibrate = TRUE,
+  split_gen = TRUE,
+  split_sbt = TRUE,
+  prefuse = TRUE,
+  monoph_restore = TRUE,
+  paraph_exc = c(
+    "Monomorium",
+    "Camponotus",
+    "Rogeria",
+    "Syllophopsis",
+    "Neoponera"
+  )
+)
+```
+
+### Inputs
+
+- `reference_tree`
+  - A Newick tree path or a `phylo` object.
+  - Usually the output of clade grafting followed by genus reconstitution.
+  - This tree should be ultrametric and should contain the species already incorporated by previous grafting steps.
+
+- `donor_tree_dir`
+  - Folder containing additional donor trees in `.nwk` or `.tre` format.
+  - These trees should already have harmonized tip labels in `Genus_species` format.
+  - Donor trees are scanned for species that are absent from the reference tree.
+
+- `out_prefix`
+  - Prefix for all output files.
+  - Output files, logs, intermediate tables, and final trees are written using this prefix.
+
+- `split_seed`
+  - Seed controlling stochastic subtree splitting.
+  - Set this value for reproducible runs.
+
+- `ref_weight`
+  - Weight assigned to the reference tree during ChronoSTA merging.
+  - Internally, this is implemented by duplicating the reference tree when ChronoSTA is run.
+  - Larger values make the final merged tree more strongly anchored to the reference topology.
+
+- `paraph_exc`
+  - Genera that are allowed to remain non-monophyletic in the final cleanup step.
+  - These are cases where non-monophyly is already known or accepted from source phylogenies.
+
+### What the function does
+
+For each donor tree, `run_chronosta_grafting()`:
+
+1. Identifies species present in the donor tree but absent from the reference tree.
+2. Identifies shared nodes between the donor tree and reference tree.
+3. Optionally recalibrates donor trees to the reference timescale using `chronos()`.
+4. Splits donor trees at the genus level to avoid imposing deep donor-tree topology onto the reference.
+5. Further splits donor trees into smaller subtrees containing:
+   - missing species,
+   - representative shared species,
+   - and local outgroups where possible.
+6. Optionally prefuses overlapping subtrees with ChronoSTA.
+7. Merges each subtree locally with the corresponding region of the reference tree.
+8. Rescales the ChronoSTA output to the original reference-tree timescale.
+9. Grafts the merged subtree back onto the reference.
+10. Optionally restores genus-level monophyly by removing newly introduced conflicts while preserving known non-monophyletic genera.
+
+### ChronoSTA setup
+
+The function can automatically download the ChronoSTA Python script if it is not found. Python must be available on the system, and the following Python packages are required:
+
+```bash
+python -m pip install biopython pandas numpy scipy matplotlib
+```
+
+You can set up the ChronoSTA script and Python dependencies from R with:
+
+```r
+setup_chronosta_env()
+```
+
+If you already have a local copy of `chronosta.py`, you can provide it explicitly:
+
+```r
+res <- run_chronosta_grafting(
+  reference_tree = here::here(
+    "project", "results", "grafted",
+    "genus-reconstituted-8Jul2026.tre"
+  ),
+  donor_tree_dir = here::here(
+    "project", "chronosta", "source_trees"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "chronosta_gapfilled"
+  ),
+  chronosta_script = here::here(
+    "software", "chrono-sta", "code", "chronosta.py"
+  )
+)
+```
+
+### Outputs
+
+The function writes several files:
+
+```text
+<out_prefix>_final_tree.nwk
+<out_prefix>_final_tree_monophyletic.nwk
+<out_prefix>_overlap.tsv
+<out_prefix>_splits.tsv
+<out_prefix>_prefusion_overlap.tsv
+<out_prefix>_prefusion_groups.tsv
+<out_prefix>_monophyly_removed.tsv
+logs/chronosta_grafting_YYYYMMDD_HHMMSS.log
+```
+
+The returned object contains:
+
+```r
+res$tree              # final tree used for downstream analyses
+res$raw_tree          # tree before optional monophyly cleanup
+res$overlap           # donor tree overlap summary
+res$split_log         # subtree splitting summary
+res$monophyly         # monophyly cleanup details
+res$paths             # file paths to outputs
+res$parameters        # parameters used in the run
+```
+
+### Typical workflow
+
+ChronoSTA grafting is used after the main tip and clade grafting steps:
+
+1. Start with a genus-level backbone.
+2. Add missing genera with `run_tip_grafting()`.
+3. Add species-level clades with `run_clade_grafting()`.
+4. Reconstitute genus tips removed during clade grafting, if needed, using `run_tip_grafting()`.
+5. Add remaining species from overlapping donor trees using `run_chronosta_grafting()`.
+
+This final step is intended for species that are present in published source trees but could not be incorporated by direct clade grafting because their source trees partially overlap with, but were not selected over, other donor trees.
+
+---
+
+## Replicating the ant macrophylogeny workflow from the paper
+
+The full ant-tree workflow used in the paper can be rerun from the files provided in this repository. The goal is to make each major step explicit, reproducible, and updateable when new phylogenies or taxonomy files become available.
+
+### Step 0. Clone repository and load package
+
+```bash
+git clone https://github.com/marekborowiec/macro-phylo-maker-project.git
+cd macro-phylo-maker-project
+```
+
+Then in R:
+
+```r
+install.packages(c(
+  "devtools",
+  "ape",
+  "phytools",
+  "phangorn",
+  "stringr",
+  "progress",
+  "igraph",
+  "MonoPhy",
+  "here",
+  "readr"
+))
+
+devtools::load_all("MacroPhyloMaker")
+```
+
+If using the ChronoSTA-enabled final grafting step, also set up Python dependencies:
+
+```r
+setup_chronosta_env()
+```
+
+### Step 1. Graft missing genera onto the genus-level backbone
+
+```r
+run_tip_grafting(
+  backbone_path = here::here("project", "backbones", "genus.tre"),
+  plan_path     = here::here("project", "tables", "grafted_genera.tsv"),
+  out_prefix    = here::here("project", "results", "grafted", "genus"),
+  seed_mode     = 42,
+  ingroup_anchors = c("Martialis", "Camponotus")
+)
+```
+
+This creates an updated genus-level backbone by inserting genera missing from the starting chronogram according to the table in `project/tables/grafted_genera.tsv`.
+
+### Step 2. Graft published clade-level phylogenies
+
+```r
+run_clade_grafting(
+  backbone_path = here::here("project", "backbones", "genus.tre"),
+  plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
+  authority = here::here(
+    "project", "tables",
+    "antwiki-valid-species-8Mar2026.txt"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "backbone_clade_grafted_24Jun2026"
+  ),
+  seed_mode = 42,
+  chronos_select = "auto",
+  ultrametric_final = "none",
+  plot_pdf = TRUE,
+  pdf_auto = TRUE,
+  plot_cex = 0.35
+)
+```
+
+This step reads the clade grafting table, filters donor phylogenies against the authority file, converts phylograms to chronograms when needed, prepares graftable templates, and inserts donor clades into the backbone.
+
+### Step 3. Reconstitute genera removed during clade grafting
+
+Some genus-level terminals may be removed or overwritten when larger clades are grafted wholesale. These can be restored using a second tip-grafting step:
+
+```r
+run_tip_grafting(
+  backbone_path = here::here(
+    "project", "results", "grafted",
+    "backbone_clade_grafted_24Jun2026.tre"
+  ),
+  plan_path = here::here(
+    "project", "tables",
+    "reconstitute-with-genera-post-grafting.tsv"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "genus-reconstituted-8Jul2026"
+  ),
+  seed_mode = 42
+)
+```
+
+This produces the reference tree for the final ChronoSTA-enabled species grafting step.
+
+### Step 4. Add remaining species using ChronoSTA-enabled time-informed grafting
+
+```r
+res <- run_chronosta_grafting(
+  reference_tree = here::here(
+    "project", "results", "grafted",
+    "genus-reconstituted-8Jul2026.tre"
+  ),
+  donor_tree_dir = here::here(
+    "project", "chronosta", "source_trees"
+  ),
+  out_prefix = here::here(
+    "project", "results", "grafted",
+    "chronosta_gapfilled"
+  ),
+  split_seed = 19982018,
+  ref_weight = 5,
+  recalibrate = TRUE,
+  split_gen = TRUE,
+  split_sbt = TRUE,
+  prefuse = TRUE,
+  monoph_restore = TRUE,
+  paraph_exc = c(
+    "Monomorium",
+    "Camponotus",
+    "Rogeria",
+    "Syllophopsis",
+    "Neoponera"
+  )
+)
+```
+
+This step searches additional donor trees for species absent from the reference tree, calibrates them to the reference timescale where possible, divides them into smaller grafting units, uses ChronoSTA to merge missing species with the relevant reference subtrees, rescales the outputs, and grafts them back into the reference tree.
+
+### Step 5. Inspect outputs
+
+The final outputs are written to `project/results/grafted/` and include:
+
+```text
+chronosta_gapfilled_final_tree.nwk
+chronosta_gapfilled_final_tree_monophyletic.nwk
+chronosta_gapfilled_overlap.tsv
+chronosta_gapfilled_splits.tsv
+chronosta_gapfilled_prefusion_overlap.tsv
+chronosta_gapfilled_prefusion_groups.tsv
+chronosta_gapfilled_monophyly_removed.tsv
+logs/chronosta_grafting_YYYYMMDD_HHMMSS.log
+```
+
+The most commonly used final tree is:
+
+```r
+res$tree
+```
+
+or the corresponding file:
+
+```text
+project/results/grafted/chronosta_gapfilled_final_tree_monophyletic.nwk
+```
+
+### Re-running the workflow after adding new data
+
+To update the tree when new source phylogenies become available:
+
+1. Add the new source tree to the appropriate folder under `project/published/` or `project/chronosta/source_trees/`.
+2. If it should be grafted directly as a clade, add or update its row in:
+
+   ```text
+   project/tables/clades-to-graft-clean.tsv
+   ```
+
+3. If it should be used only in the ChronoSTA gap-filling step, place it in:
+
+   ```text
+   project/chronosta/source_trees/
+   ```
+
+4. Re-run the workflow from Step 1 or from the earliest affected step.
+5. Compare the new logs, overlap tables, tip counts, and final trees.
+
+For reproducible paper-style runs, do not use `setwd()` or absolute paths. Use `here::here(...)` throughout, and keep seeds fixed for stochastic steps.
 
 
