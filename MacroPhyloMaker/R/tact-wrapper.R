@@ -240,15 +240,43 @@ read_tact_taxonomy <- function(taxonomy,
       )
     }
 
-    is_species_rank <- vapply(strsplit(trimws(tx$TaxonName), "\\s+"), length, integer(1)) == 2L
-    sp <- tx[is_species_rank, c("Genus", "Species"), drop = FALSE]
-    sp <- sp[nchar(sp$Genus) > 0 & nchar(sp$Species) > 0, , drop = FALSE]
+    # AntWiki export columns are not fully consistent for species parsing:
+    # `TaxonName` is the authoritative binomial/trinomial string, whereas some
+    # `Species` cells contain a full binomial rather than an epithet. Trim all
+    # character columns before any tokenization to avoid trailing-space labels.
+    char_cols <- vapply(tx, is.character, logical(1))
+    tx[char_cols] <- lapply(tx[char_cols], trimws)
+
+    taxon_tokens <- strsplit(tx$TaxonName, "\\s+")
+    is_species_rank <- vapply(taxon_tokens, length, integer(1)) == 2L
+
+    sp <- tx[is_species_rank, , drop = FALSE]
+    toks <- strsplit(sp$TaxonName, "\\s+")
+
+    genus_from_taxon <- vapply(toks, `[`, character(1), 1)
+    epithet_from_taxon <- vapply(toks, `[`, character(1), 2)
+
+    genus_clean <- trimws(sp$Genus)
+    empty_genus <- is.na(genus_clean) | genus_clean == ""
+    genus_clean[empty_genus] <- genus_from_taxon[empty_genus]
+
+    disagree <- genus_clean != genus_from_taxon
+    if (any(disagree, na.rm = TRUE)) {
+      warning(
+        "Omitting AntWiki rows where Genus does not match the TaxonName genus: ",
+        paste(utils::head(sp$TaxonName[disagree], 20), collapse = ", "),
+        if (sum(disagree, na.rm = TRUE) > 20) " ..." else "",
+        call. = FALSE
+      )
+    }
+
+    keep_rows <- !disagree
 
     out <- data.frame(
       Family = family,
-      genus = sp$Genus,
-      species = paste(sp$Genus, sp$Species),
-      species_underscore = paste(sp$Genus, sp$Species, sep = "_"),
+      genus = genus_clean[keep_rows],
+      species = paste(genus_clean[keep_rows], epithet_from_taxon[keep_rows]),
+      species_underscore = paste(genus_clean[keep_rows], epithet_from_taxon[keep_rows], sep = "_"),
       stringsAsFactors = FALSE
     )
   } else if (taxonomy_format == "tact_csv") {
@@ -382,26 +410,6 @@ write_tact_taxonomy_newick <- function(tax, file, family = "Formicidae") {
   }, character(1))
   nwk <- paste0("(", paste(genus_strings, collapse = ","), ")", family, ";")
   writeLines(nwk, file)
-  invisible(file)
-}
-
-#' Write the cleaned TACT tree from a TACT grafting result
-#'
-#' @param res Result object returned by `run_tact_grafting()`.
-#' @param file Output Newick file path.
-#'
-#' @return Invisibly returns `file`.
-#' @export
-write_tact_result_tree <- function(res, file) {
-  if (is.null(res$tree) || !inherits(res$tree, "phylo")) {
-    stop("`res$tree` is not a valid phylo object.", call. = FALSE)
-  }
-
-  ape::write.tree(
-    phy = res$tree,
-    file = file
-  )
-
   invisible(file)
 }
 
@@ -593,22 +601,27 @@ detect_nonmono_genera_for_tact <- function(tree, exclude_tips = character(0), ge
 #' @return A list of character vectors, each containing graftable tips for one
 #'   temporary pseudo-genus.
 #' @keywords internal
+#' Partition a non-monophyletic genus into TACT-safe singleton pseudo-genera
+#'
+#' The earlier MRCA-child partitioning strategy can create pseudo-genera whose
+#' local placement is too broad in large trees. For TACT completion, the safest
+#' treatment of a non-monophyletic genus is to make each existing graftable
+#' backbone representative its own temporary pseudo-genus. Missing species are
+#' then allocated across these single-tip anchors, which prevents TACT from
+#' placing missing species on unrelated high-level branches.
+#'
+#' @param tree An object of class `phylo`.
+#' @param genus Character genus name.
+#' @param exclude_tips Character vector of protected tips that should not receive
+#'   missing species.
+#'
+#' @return A list of character vectors. Each element contains one graftable tip.
+#' @keywords internal
 .partition_genus_by_mrca_children <- function(tree, genus, exclude_tips = character(0)) {
   all_tips <- grep(paste0("^", genus, "_"), tree$tip.label, value = TRUE)
   graftable <- setdiff(all_tips, exclude_tips)
-  if (length(graftable) == 0L) return(list())
-  if (length(graftable) == 1L) return(list(graftable))
-
-  mrca <- ape::getMRCA(tree, graftable)
-  children <- tree$edge[tree$edge[, 1] == mrca, 2]
-  groups <- list()
-  for (ch in children) {
-    tips <- intersect(.tact_desc_tips(tree, ch), graftable)
-    if (length(tips)) groups[[length(groups) + 1L]] <- tips
-  }
-
-  if (length(groups) <= 1L) groups <- as.list(graftable)
-  groups
+  if (!length(graftable)) return(list())
+  as.list(graftable)
 }
 
 # -----------------------------------------------------------------------------
@@ -774,6 +787,7 @@ split_nonmono_genera_for_tact <- function(tree,
     paste(nonmono_g, collapse = ", "),
     logger = logger
   )
+  .tact_msg("Using singleton pseudo-genus anchors for non-monophyletic genera.", logger = logger)
 
   if (nonmono == "error") {
     stop("Non-monophyletic genera present: ", paste(nonmono_g, collapse = ", "), call. = FALSE)
@@ -955,49 +969,6 @@ restore_tact_temp_names <- function(tree, map) {
   tree
 }
 
-#' Remove invalid node labels before writing TACT output
-#'
-#' Some TACT Nexus outputs contain node labels that do not match the number of
-#' internal nodes after reading with `ape`. `ape::write.tree()` warns in that
-#' case. These labels are not used by the MacroPhyloMaker TACT wrapper, so this
-#' helper drops them before writing cleaned Newick trees. Supports both `phylo`
-#' and `multiPhylo` objects.
-#'
-#' @param tree A `phylo` or `multiPhylo` object.
-#'
-#' @return A tree object of the same class with invalid `node.label` removed.
-#' @keywords internal
-.tact_drop_invalid_node_labels <- function(tree) {
-  if (inherits(tree, "multiPhylo")) {
-    out <- lapply(tree, .tact_drop_invalid_node_labels)
-    class(out) <- "multiPhylo"
-    return(out)
-  }
-
-  if (!is.null(tree$node.label) && length(tree$node.label) != ape::Nnode(tree)) {
-    tree$node.label <- NULL
-  }
-  tree
-}
-
-#' Read a TACT output tree
-#'
-#' Reads Newick outputs with `ape::read.tree()` and Nexus outputs with
-#' `ape::read.nexus()`. TACT can write more than one tree, so this may return a
-#' `phylo` or `multiPhylo` object.
-#'
-#' @param path Character path to a TACT output tree.
-#'
-#' @return A `phylo` or `multiPhylo` object.
-#' @keywords internal
-.tact_read_output_tree <- function(path) {
-  if (grepl("\\.(nex|nexus)(\\.tre)?$", path, ignore.case = TRUE) ||
-      grepl("\\.nexus\\.tre$", path, ignore.case = TRUE)) {
-    return(ape::read.nexus(path))
-  }
-  ape::read.tree(path)
-}
-
 # -----------------------------------------------------------------------------
 # TACT execution
 # -----------------------------------------------------------------------------
@@ -1153,17 +1124,104 @@ run_tact_external <- function(work_dir,
 .find_tact_output_tree <- function(work_dir, output_prefix) {
   stem <- basename(output_prefix)
 
+  # Prefer Newick over Nexus. TACT writes both, and Nexus is often modified last,
+  # so choosing by mtime can select the less convenient output.
   candidates <- c(
     file.path(work_dir, paste0(stem, ".newick.tre")),
-    file.path(work_dir, paste0(stem, ".nexus.tre")),
     file.path(work_dir, paste0(stem, ".tre")),
     file.path(work_dir, paste0(stem, ".nwk")),
-    file.path(work_dir, paste0(stem, ".newick"))
+    file.path(work_dir, paste0(stem, ".newick")),
+    file.path(work_dir, paste0(stem, ".nexus.tre")),
+    file.path(work_dir, paste0(stem, ".nex"))
   )
 
   candidates <- candidates[file.exists(candidates)]
   if (!length(candidates)) return(NA_character_)
-  candidates[which.max(file.info(candidates)$mtime)]
+  candidates[1]
+}
+
+
+#' Get tip counts for phylo or multiPhylo objects
+#'
+#' @param tree A `phylo`, `multiPhylo`, or other object.
+#'
+#' @return Integer vector of tip counts, or `NA_integer_`.
+#' @keywords internal
+.tact_n_tips <- function(tree) {
+  if (inherits(tree, "multiPhylo")) {
+    return(vapply(tree, ape::Ntip, integer(1)))
+  }
+  if (inherits(tree, "phylo")) {
+    return(ape::Ntip(tree))
+  }
+  NA_integer_
+}
+
+#' Detect temporary TACT labels in phylo or multiPhylo objects
+#'
+#' @param tree A `phylo`, `multiPhylo`, or other object.
+#'
+#' @return Integer count of labels matching `TACTTMP` or `TACTEXCL`.
+#' @keywords internal
+.tact_n_temp_labels <- function(tree) {
+  if (inherits(tree, "multiPhylo")) {
+    return(vapply(tree, .tact_n_temp_labels, integer(1)))
+  }
+  if (!inherits(tree, "phylo")) {
+    return(NA_integer_)
+  }
+  sum(grepl("TACTTMP|TACTEXCL", tree$tip.label))
+}
+
+#' Detect scaffold taxa that should not remain in final tree
+#'
+#' Detects code-like species and placeholder taxa such as `Uwari_sp`.
+#'
+#' @param labels Character vector of tip labels.
+#'
+#' @return Logical vector.
+#' @keywords internal
+.tact_is_scaffold_taxon <- function(labels) {
+  ep <- .tact_get_epithet(labels)
+
+  code_like <- !is.na(ep) & grepl("^[A-Z]{1,5}[0-9]{0,4}$", ep)
+
+  placeholder <- !is.na(ep) & tolower(ep) %in% c(
+    "sp", "spp", "species", "nr", "cf", "aff"
+  )
+
+  trailing_empty <- grepl("_$", labels)
+
+  code_like | placeholder | trailing_empty
+}
+
+#' Drop scaffold taxa from TACT output
+#'
+#' Removes specimen-code labels and placeholder labels such as `Uwari_sp`.
+#'
+#' @param tree A `phylo` or `multiPhylo` object.
+#'
+#' @return A list with `tree` and `dropped` elements.
+#' @keywords internal
+.tact_drop_code_species <- function(tree) {
+  if (inherits(tree, "multiPhylo")) {
+    pieces <- lapply(tree, .tact_drop_code_species)
+    out <- lapply(pieces, `[[`, "tree")
+    class(out) <- "multiPhylo"
+    dropped <- sort(unique(unlist(lapply(pieces, `[[`, "dropped"), use.names = FALSE)))
+    return(list(tree = out, dropped = dropped))
+  }
+
+  if (!inherits(tree, "phylo")) {
+    return(list(tree = tree, dropped = character(0)))
+  }
+
+  dropped <- tree$tip.label[.tact_is_scaffold_taxon(tree$tip.label)]
+  if (length(dropped)) {
+    tree <- ape::drop.tip(tree, dropped)
+  }
+
+  list(tree = tree, dropped = dropped)
 }
 
 # -----------------------------------------------------------------------------
@@ -1203,6 +1261,10 @@ run_tact_external <- function(work_dir,
 #'   `"keep"`, controlling genus-only backbone tips.
 #' @param species_code One of `"keep"`, `"temporary_species"`, or `"drop"`,
 #'   controlling code-like labels such as `Eburopone_MG04`.
+#' @param drop_code_species_after_tact Logical. If `TRUE`, remove code-like and `_sp` scaffold terminals from the final TACT tree after grafting is complete.
+#' @param enforce_taxonomy_tip_count Logical. If `TRUE`, stop on a final
+#'   tree/taxonomy tip-count mismatch. If `FALSE` (default), issue a warning,
+#'   write mismatch reports, and return the full tree.
 #' @param exclude_taxa Optional character vector of exact taxa to protect from
 #'   grafting. If present in the backbone, the corresponding branch is renamed to
 #'   a protected `TACTEXCL...` pseudo-genus. If absent from the backbone but
@@ -1255,6 +1317,8 @@ run_tact_grafting <- function(backbone_tree,
                               nonmono_allocation = c("proportional", "equal", "random"),
                               genus_only = c("replace_random_species", "temporary_species", "keep"),
                               species_code = c("keep", "temporary_species", "drop"),
+                              drop_code_species_after_tact = TRUE,
+                              enforce_taxonomy_tip_count = FALSE,
                               exclude_taxa = NULL,
                               exclude_mrca = NULL,
                               exclude_missing = c("warn", "error", "ignore"),
@@ -1284,6 +1348,7 @@ run_tact_grafting <- function(backbone_tree,
 
   tree <- if (inherits(backbone_tree, "phylo")) backbone_tree else ape::read.tree(backbone_tree)
   tax <- read_tact_taxonomy(taxonomy, taxonomy_format = taxonomy_format, family = family)
+  target_taxonomy_species_count <- nrow(tax)
 
   .tact_msg("Backbone tips: ", ape::Ntip(tree), logger = logger)
   .tact_msg("Taxonomy species rows: ", nrow(tax), logger = logger)
@@ -1320,6 +1385,8 @@ run_tact_grafting <- function(backbone_tree,
   )
   tax <- tax_excl$taxonomy
   excluded_taxonomy <- tax_excl$removed
+  target_taxonomy_species_count <- target_taxonomy_species_count - nrow(excluded_taxonomy)
+  target_taxonomy_tips <- sort(unique(tax$species_underscore))
 
   .tact_section("TACT grafting: non-monophyletic genera", logger = logger)
   spl <- split_nonmono_genera_for_tact(
@@ -1436,32 +1503,127 @@ run_tact_grafting <- function(backbone_tree,
   raw_tree_path <- NA_character_
   final_tree <- NA
   final_path <- NA_character_
+  dropped_code_species <- character(0)
 
   if (tact_runner != "none") {
     raw_tree_path <- .find_tact_output_tree(work_dir, raw_output_prefix)
     if (!is.na(raw_tree_path) && file.exists(raw_tree_path)) {
-      raw_tree <- .tact_read_output_tree(raw_tree_path)
+      raw_tree <- ape::read.tree(raw_tree_path)
       raw_tree <- .tact_normalize_output_labels(raw_tree)
       final_tree <- restore_tact_temp_names(raw_tree, spl$map)
-      final_tree <- .tact_drop_invalid_node_labels(final_tree)
+
+      if (isTRUE(drop_code_species_after_tact)) {
+        dropped_res <- .tact_drop_code_species(final_tree)
+        final_tree <- dropped_res$tree
+        dropped_code_species <- dropped_res$dropped
+        if (length(dropped_code_species)) {
+          .tact_msg(
+            "Dropped code-like/scaffold taxa after TACT: ",
+            paste(dropped_code_species, collapse = ", "),
+            logger = logger
+          )
+        }
+      }
+
       final_path <- paste0(out_prefix, "_tacted_cleaned.tre")
-      ape::write.tree(
-        phy = final_tree,
-        file = final_path
-      )
-      .tact_msg(
-        "Cleaned TACT tip count(s): ",
-        paste(.tact_n_tips(final_tree), collapse = ", "),
-        logger = logger
+      ape::write.tree(phy = final_tree, file = final_path)
+
+      dropped_code_species_path <- paste0(out_prefix, "_dropped_code_species.tsv")
+      utils::write.table(
+        data.frame(tip = dropped_code_species, reason = "code_like_or_placeholder_scaffold_taxon", stringsAsFactors = FALSE),
+        dropped_code_species_path,
+        sep = " ",
+        row.names = FALSE,
+        quote = FALSE
       )
 
-      .tact_msg(
-        "Remaining temporary TACT labels: ",
-        paste(.tact_n_temp_labels(final_tree), collapse = ", "),
-        logger = logger
+      validation_path <- paste0(out_prefix, "_validation.tsv")
+      final_tip_counts <- .tact_n_tips(final_tree)
+      taxonomy_count_match <- final_tip_counts == target_taxonomy_species_count
+      validation <- data.frame(
+        output_tree = seq_along(final_tip_counts),
+        raw_output_path = raw_tree_path,
+        raw_n_tips = .tact_n_tips(raw_tree),
+        cleaned_n_tips = final_tip_counts,
+        remaining_temp_labels = .tact_n_temp_labels(final_tree),
+        dropped_code_species = length(dropped_code_species),
+        expected_taxonomy_species = target_taxonomy_species_count,
+        taxonomy_tip_count_match = taxonomy_count_match,
+        taxonomy_species_rows_after_tact_preprocessing = nrow(tax_tact),
+        backbone_tips = ape::Ntip(tree),
+        stringsAsFactors = FALSE
       )
+      utils::write.table(
+        validation,
+        validation_path,
+        sep = " ",
+        row.names = FALSE,
+        quote = FALSE
+      )
+
       .tact_msg("Raw TACT output tree detected: ", raw_tree_path, logger = logger)
       .tact_msg("Cleaned TACT tree written: ", final_path, logger = logger)
+      .tact_msg("Cleaned TACT tip count(s): ", paste(final_tip_counts, collapse = ", "), logger = logger)
+      tree_tips_final <- if (inherits(final_tree, "multiPhylo")) {
+        sort(unique(unlist(lapply(final_tree, `[[`, "tip.label"), use.names = FALSE)))
+      } else {
+        sort(final_tree$tip.label)
+      }
+      tree_not_taxonomy <- sort(setdiff(tree_tips_final, target_taxonomy_tips))
+      taxonomy_not_tree <- sort(setdiff(target_taxonomy_tips, tree_tips_final))
+
+      tree_not_taxonomy_path <- paste0(out_prefix, "_tree_not_taxonomy.tsv")
+      taxonomy_not_tree_path <- paste0(out_prefix, "_taxonomy_not_tree.tsv")
+      mismatch_summary_path <- paste0(out_prefix, "_taxonomy_mismatch_summary.tsv")
+
+      utils::write.table(
+        data.frame(species = tree_not_taxonomy, stringsAsFactors = FALSE),
+        tree_not_taxonomy_path,
+        sep = " ",
+        row.names = FALSE,
+        quote = FALSE
+      )
+      utils::write.table(
+        data.frame(species = taxonomy_not_tree, stringsAsFactors = FALSE),
+        taxonomy_not_tree_path,
+        sep = " ",
+        row.names = FALSE,
+        quote = FALSE
+      )
+      utils::write.table(
+        data.frame(
+          expected_taxonomy_species = target_taxonomy_species_count,
+          observed_cleaned_tree_tips = paste(final_tip_counts, collapse = ","),
+          tree_not_taxonomy = length(tree_not_taxonomy),
+          taxonomy_not_tree = length(taxonomy_not_tree),
+          taxonomy_tip_count_match = all(taxonomy_count_match),
+          stringsAsFactors = FALSE
+        ),
+        mismatch_summary_path,
+        sep = " ",
+        row.names = FALSE,
+        quote = FALSE
+      )
+
+      .tact_msg("TACT validation table written: ", validation_path, logger = logger)
+      .tact_msg("TACT mismatch summary written: ", mismatch_summary_path, logger = logger)
+      .tact_msg("Tree-only species report written: ", tree_not_taxonomy_path, logger = logger)
+      .tact_msg("Taxonomy-only species report written: ", taxonomy_not_tree_path, logger = logger)
+
+      if (any(!taxonomy_count_match)) {
+        msg <- paste0(
+          "Final TACT tree tip count does not match taxonomy species count. ",
+          "Expected ", target_taxonomy_species_count,
+          "; observed ", paste(final_tip_counts, collapse = ", "),
+          ". Validation table: ", validation_path,
+          ". Mismatch summary: ", mismatch_summary_path
+        )
+        if (isTRUE(enforce_taxonomy_tip_count)) {
+          stop(msg, call. = FALSE)
+        } else {
+          warning(msg, call. = FALSE)
+        }
+      }
     } else {
       .tact_msg(
         "TACT completed, but no output tree was detected. Check work directory: ",
@@ -1491,6 +1653,11 @@ run_tact_grafting <- function(backbone_tree,
     nonmono_genera = paste0(out_prefix, "_nonmono_genera.tsv"),
     skipped_taxa = paste0(out_prefix, "_skipped_taxa.tsv"),
     excluded_taxonomy = paste0(out_prefix, "_excluded_taxonomy.tsv"),
+    dropped_code_species = paste0(out_prefix, "_dropped_code_species.tsv"),
+    validation = paste0(out_prefix, "_validation.tsv"),
+    taxonomy_mismatch_summary = paste0(out_prefix, "_taxonomy_mismatch_summary.tsv"),
+    tree_not_taxonomy = paste0(out_prefix, "_tree_not_taxonomy.tsv"),
+    taxonomy_not_tree = paste0(out_prefix, "_taxonomy_not_tree.tsv"),
     excluded_tips = paste0(out_prefix, "_excluded_tips.txt"),
     log = logger$file,
     work_dir = work_dir
@@ -1505,6 +1672,7 @@ run_tact_grafting <- function(backbone_tree,
     nonmono_genera = spl$nonmono,
     skipped_taxa = spl$skipped,
     excluded_taxonomy = excluded_taxonomy,
+    dropped_code_species = dropped_code_species,
     excluded_tips = exclude_tips,
     paths = paths,
     parameters = list(
@@ -1513,6 +1681,8 @@ run_tact_grafting <- function(backbone_tree,
       nonmono_allocation = nonmono_allocation,
       genus_only = genus_only,
       species_code = species_code,
+      drop_code_species_after_tact = drop_code_species_after_tact,
+      enforce_taxonomy_tip_count = enforce_taxonomy_tip_count,
       tact_runner = tact_runner,
       docker_image = docker_image,
       taxonomy_output = taxonomy_output

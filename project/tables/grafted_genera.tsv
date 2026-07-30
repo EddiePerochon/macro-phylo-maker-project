@@ -73,5 +73,6 @@ Myrmicinae	Bondroitia	graft within clade random	Adelomyrmex,Stegomyrmex	1	1	0.1	
 Myrmicinae	Kempfidris	graft sister to tip	Solenopsis	1	1	0.1	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
 Myrmicinae	Tropidomyrmex	graft sister to tip	Kempfidris	1	1	0.1	0.9	NA	NA	Ward et al (2015)	https://doi.org/10.1111/syen.12090
 Myrmicinae	Syllophopsis	graft within clade random	Adelomyrmex,Monomorium	1	1	0.1	0.9	TRUE	TRUE	Ward et al (2015)	https://doi.org/10.1111/syen.12090
+Myrmicinae	Chimaeridris	graft sister to tip	Pheidole	1	1	0.1	0.9	NA	NA	Wilson (1989)	NA
 Amblyoponinae	Xymmer	graft within clade random	Adetomyrma,Myopopone	6	2	0.8	0.9	TRUE	TRUE	Ward and Fisher (2016)	https://doi.org/10.1111%2Fsyen.12186
 Amblyoponinae	Mystrium	graft within clade random	Adetomyrma,Myopopone	6	2	0.8	0.9	TRUE	TRUE	Ward and Fisher (2016)	https://doi.org/10.1111%2Fsyen.12186

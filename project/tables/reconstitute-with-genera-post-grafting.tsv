@@ -7,3 +7,4 @@ Myrmicinae	Peronomyrmex	graft sister to clade	Podomyrma_laevifrons,Podomyrma_ade
 Attini	Pseudoatta	graft within clade random	Acromyrmex_versicolor,Acromyrmex_crassispinus	1	1	0.1	0.9	TRUE	TRUE	Hanish et al (2022)	https://doi.org/10.1093%2Fisd%2Fixab029
 Crematogastrini	Secostruma	graft sister to tip	Dilobocondyla_borneensis	1	1	0.1	0.9	NA	NA	Ward et al (2010)	https://doi.org/10.1093/sysbio/syq012
 Crematogastrini	Strongylognathus	graft within clade random	Tetramorium_impurum,Tetramorium_caespitum	1	1	0.1	0.9	TRUE	TRUE	Blaimer et al (2018)	https://doi.org/10.1093/isd/ixy013
+Crematogastrini	Chimaeridris	graft within clade random	Pheidole_dea,Pheidole_sauberi	1	1	0.1	0.9	TRUE	TRUE	Longino pers comm	NA
