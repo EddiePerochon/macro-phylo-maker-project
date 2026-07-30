@@ -1210,7 +1210,7 @@ This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree 
 ### Step 4. Add remaining species using Chrono-STA-enabled time-informed grafting
 
 ```r
-res <- run_chronosta_grafting(
+res_chronosta <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
     "genus-reconstituted-30Jul2026.tre"
@@ -1248,13 +1248,13 @@ Chrono-STA-enabled grafting returns an R object and writes several files. The ob
 
 ```r
 # In-session object returned by run_chronosta_grafting()
-class(res$tree)
-ape::Ntip(res$tree)
-head(res$tree$tip.label)
+class(res_chronosta$tree)
+ape::Ntip(res_chronosta$tree)
+head(res_chronosta$tree$tip.label)
 
 # Important output files
-res$paths
-file.exists(unlist(res$paths))
+res_chronosta$paths
+file.exists(unlist(res_chronosta$paths))
 ```
 
 If starting from a new R session, read the written tree from disk:
