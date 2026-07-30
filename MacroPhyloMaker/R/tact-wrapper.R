@@ -729,11 +729,256 @@ prepare_tact_backbone_labels <- function(tree,
       species_underscore = missing_from_tax,
       stringsAsFactors = FALSE
     )
+    if ("realm" %in% names(tax)) {
+      add$realm <- "Unknown"
+    }
     tax <- rbind(tax, add)
     tax <- tax[!duplicated(tax$species_underscore), , drop = FALSE]
   }
 
   list(tree = tree, taxonomy = tax, label_map = map, dropped = dropped)
+}
+
+
+# -----------------------------------------------------------------------------
+# Biogeography helpers
+# -----------------------------------------------------------------------------
+
+#' Sanitize realm labels for tree tip names
+#'
+#' @param x Character vector.
+#' @return Character vector safe to append to Newick tip labels.
+#' @keywords internal
+.tact_sanitize_realm <- function(x) {
+  x <- ifelse(is.na(x) | !nzchar(x), "Unknown", x)
+  x <- gsub("[^A-Za-z0-9]+", "_", x)
+  x <- gsub("^_+|_+$", "", x)
+  ifelse(nzchar(x), x, "Unknown")
+}
+
+#' Read country-to-realm map
+#'
+#' @param country_realm_map A path or data frame with country and realm columns.
+#' @param logger Optional logger.
+#' @return Named character vector mapping country names to realms.
+#' @keywords internal
+.tact_read_country_realm_map <- function(country_realm_map, logger = NULL) {
+  if (is.null(country_realm_map)) {
+    return(setNames(character(0), character(0)))
+  }
+
+  rm <- if (is.data.frame(country_realm_map)) {
+    country_realm_map
+  } else {
+    utils::read.table(
+      country_realm_map,
+      header = TRUE,
+      sep = "\t",
+      quote = "",
+      comment.char = "",
+      check.names = FALSE,
+      stringsAsFactors = FALSE,
+      fill = TRUE
+    )
+  }
+
+  names(rm) <- trimws(names(rm))
+  country_col <- intersect(c("Country", "country"), names(rm))[1]
+  realm_col <- intersect(c("UdvardyRealm", "Realm", "realm", "BiogeographicRealm"), names(rm))[1]
+
+  if (is.na(country_col) || is.na(realm_col)) {
+    stop(
+      "Country-realm map must contain columns `Country` and `UdvardyRealm` or `Realm`.",
+      call. = FALSE
+    )
+  }
+
+  country <- trimws(rm[[country_col]])
+  realm <- trimws(rm[[realm_col]])
+  keep <- nzchar(country) & nzchar(realm)
+  country <- country[keep]
+  realm <- realm[keep]
+
+  dup <- duplicated(country)
+  if (any(dup)) {
+    warning(
+      "Duplicate country entries in realm map; using the first occurrence for: ",
+      paste(unique(country[dup]), collapse = ", "),
+      call. = FALSE
+    )
+    country <- country[!dup]
+    realm <- realm[!dup]
+  }
+
+  out <- setNames(realm, country)
+  .tact_msg("Country-realm map entries loaded: ", length(out), logger = logger)
+  out
+}
+
+#' Assign biogeographic realms to normalized taxonomy
+#'
+#' Uses the AntWiki `TypeLocalityCountry` column and an external country-realm
+#' map. The function mirrors the AntWiki binomial filtering in
+#' `read_tact_taxonomy()`, including omission of rows where `Genus` disagrees
+#' with the genus parsed from `TaxonName`.
+#'
+#' @param tax Normalized taxonomy data frame.
+#' @param taxonomy Original taxonomy input path or data frame.
+#' @param taxonomy_format Taxonomy format.
+#' @param country_realm_map Country-to-realm map path or data frame.
+#' @param unknown_realm Label for missing/unmapped countries.
+#' @param logger Optional logger.
+#' @return Taxonomy data frame with a `realm` column.
+#' @keywords internal
+.tact_add_biogeo_realms <- function(tax,
+                                    taxonomy,
+                                    taxonomy_format,
+                                    country_realm_map,
+                                    unknown_realm = "Unknown",
+                                    logger = NULL) {
+  if ("realm" %in% names(tax)) return(tax)
+
+  tax$realm <- unknown_realm
+
+  if (!identical(taxonomy_format, "antwiki")) {
+    .tact_msg(
+      "Biogeography enabled, but taxonomy_format is not 'antwiki'; assigning all taxa to `",
+      unknown_realm, "`.",
+      logger = logger
+    )
+    return(tax)
+  }
+
+  realm_map <- .tact_read_country_realm_map(country_realm_map, logger = logger)
+  if (!length(realm_map)) {
+    warning("Biogeography enabled but no usable country-realm map was supplied; all realms set to Unknown.", call. = FALSE)
+    return(tax)
+  }
+
+  tx <- if (is.data.frame(taxonomy)) {
+    taxonomy
+  } else {
+    utils::read.table(
+      taxonomy,
+      header = TRUE,
+      sep = "\t",
+      quote = "",
+      comment.char = "",
+      check.names = FALSE,
+      stringsAsFactors = FALSE,
+      fill = TRUE
+    )
+  }
+
+  req <- c("TaxonName", "Genus")
+  miss <- setdiff(req, names(tx))
+  if (length(miss)) {
+    warning(
+      "Cannot assign biogeographic realms; AntWiki taxonomy is missing column(s): ",
+      paste(miss, collapse = ", "),
+      call. = FALSE
+    )
+    return(tax)
+  }
+
+  char_cols <- vapply(tx, is.character, logical(1))
+  tx[char_cols] <- lapply(tx[char_cols], trimws)
+
+  # Some AntWiki exports have fewer fields per row than the full header. In
+  # those files the type-locality country values can be shifted into another
+  # column name, often `Author`. Choose the candidate column with the largest
+  # exact overlap with the supplied country-realm map.
+  country_candidates <- intersect(
+    c("TypeLocalityCountry", "Author", "Year", "ChangedComb", "TrinomialAuthority"),
+    names(tx)
+  )
+  if (!length(country_candidates)) {
+    warning("Cannot assign biogeographic realms; no plausible country column found.", call. = FALSE)
+    return(tax)
+  }
+  country_overlap <- vapply(country_candidates, function(cc) {
+    sum(unique(tx[[cc]]) %in% names(realm_map))
+  }, integer(1))
+  country_col <- country_candidates[which.max(country_overlap)]
+  if (!length(country_col) || country_overlap[[country_col]] == 0L) {
+    warning("No AntWiki country column values matched the country-realm map; all realms set to Unknown.", call. = FALSE)
+    return(tax)
+  }
+  .tact_msg("Using AntWiki column for type-locality country realm matching: ", country_col, logger = logger)
+
+  tokens <- strsplit(tx$TaxonName, "\\s+")
+  is_species_rank <- vapply(tokens, length, integer(1)) == 2L
+  sp <- tx[is_species_rank, , drop = FALSE]
+  toks <- strsplit(sp$TaxonName, "\\s+")
+  genus_from_taxon <- vapply(toks, `[`, character(1), 1)
+  epithet_from_taxon <- vapply(toks, `[`, character(1), 2)
+  genus_clean <- trimws(sp$Genus)
+  disagree <- genus_clean != genus_from_taxon
+  sp <- sp[!disagree, , drop = FALSE]
+  genus_from_taxon <- genus_from_taxon[!disagree]
+  epithet_from_taxon <- epithet_from_taxon[!disagree]
+
+  species_underscore <- paste(genus_from_taxon, epithet_from_taxon, sep = "_")
+  country <- trimws(sp[[country_col]])
+  realm <- unname(realm_map[country])
+  realm[is.na(realm) | !nzchar(realm)] <- unknown_realm
+
+  realm_lookup <- setNames(realm, species_underscore)
+  idx <- match(tax$species_underscore, names(realm_lookup))
+  hit <- !is.na(idx)
+  tax$realm[hit] <- realm_lookup[idx[hit]]
+
+  unmapped_country <- sort(unique(country[(is.na(unname(realm_map[country])) | !nzchar(unname(realm_map[country]))) & nzchar(country)]))
+  if (length(unmapped_country)) {
+    warning(
+      "Type-locality countries not found in realm map; assigning `", unknown_realm, "`: ",
+      paste(utils::head(unmapped_country, 30), collapse = ", "),
+      if (length(unmapped_country) > 30) " ..." else "",
+      call. = FALSE
+    )
+  }
+
+  .tact_msg(
+    "Biogeographic realms assigned to taxonomy rows: ",
+    sum(tax$realm != unknown_realm), " / ", nrow(tax),
+    logger = logger
+  )
+  tax
+}
+
+#' Append biogeographic realm names to tree tip labels
+#'
+#' @param tree A `phylo` or `multiPhylo` object.
+#' @param tax Taxonomy data frame with `species_underscore` and `realm` columns.
+#' @param file Output tree path.
+#' @param unknown_realm Realm label used for unknown or scaffold taxa.
+#' @return Invisibly returns `file`.
+#' @keywords internal
+.tact_write_realm_labelled_tree <- function(tree, tax, file, unknown_realm = "Unknown") {
+  realm_lookup <- if ("realm" %in% names(tax)) {
+    setNames(tax$realm, tax$species_underscore)
+  } else {
+    setNames(rep(unknown_realm, nrow(tax)), tax$species_underscore)
+  }
+
+  append_one <- function(tr) {
+    lab <- tr$tip.label
+    realm <- unname(realm_lookup[lab])
+    realm[is.na(realm) | !nzchar(realm)] <- unknown_realm
+    tr$tip.label <- paste0(lab, "__", .tact_sanitize_realm(realm))
+    tr
+  }
+
+  out_tree <- if (inherits(tree, "multiPhylo")) {
+    out <- lapply(tree, append_one)
+    class(out) <- "multiPhylo"
+    out
+  } else {
+    append_one(tree)
+  }
+
+  ape::write.tree(phy = out_tree, file = file)
+  invisible(file)
 }
 
 # -----------------------------------------------------------------------------
@@ -766,10 +1011,19 @@ split_nonmono_genera_for_tact <- function(tree,
                                           nonmono_allocation = c("proportional", "equal", "random"),
                                           exclude_tips = character(0),
                                           seed = 1,
-                                          logger = NULL) {
+                                          logger = NULL,
+                                          biogeo = FALSE,
+                                          realm_col = "realm",
+                                          biogeo_unknown_realm = "Unknown",
+                                          biogeo_apply_to_all_genera = TRUE) {
   nonmono <- match.arg(nonmono)
   nonmono_allocation <- match.arg(nonmono_allocation)
   set.seed(seed)
+
+  if (!(realm_col %in% names(tax))) {
+    tax[[realm_col]] <- biogeo_unknown_realm
+  }
+  tax[[realm_col]][is.na(tax[[realm_col]]) | !nzchar(tax[[realm_col]])] <- biogeo_unknown_realm
 
   nonmono_g <- detect_nonmono_genera_for_tact(tree, exclude_tips = character(0))
   excluded_genera <- unique(.tact_get_genus(exclude_tips))
@@ -778,16 +1032,31 @@ split_nonmono_genera_for_tact <- function(tree,
     intersect(excluded_genera, unique(.tact_get_genus(tree$tip.label)))
   )))
 
+  if (isTRUE(biogeo) && isTRUE(biogeo_apply_to_all_genera)) {
+    tree_genera <- unique(.tact_get_genus(tree$tip.label))
+    tax_genera <- unique(tax$genus)
+    candidate_genera <- intersect(tree_genera, tax_genera)
+    candidate_genera <- candidate_genera[vapply(candidate_genera, function(g) {
+      species_in_tax <- tax$species_underscore[tax$genus == g]
+      species_in_tree <- grep(paste0("^", g, "_"), tree$tip.label, value = TRUE)
+      length(species_in_tree) > 0 && length(setdiff(species_in_tax, species_in_tree)) > 0
+    }, logical(1))]
+    nonmono_g <- sort(unique(c(nonmono_g, candidate_genera)))
+  }
+
   if (!length(nonmono_g)) {
     return(list(tree = tree, taxonomy = tax, map = data.frame(), nonmono = data.frame(), skipped = data.frame()))
   }
 
   .tact_msg(
-    "Non-monophyletic genera detected for TACT handling: ",
+    "Non-monophyletic/biogeographic genera detected for TACT handling: ",
     paste(nonmono_g, collapse = ", "),
     logger = logger
   )
-  .tact_msg("Using singleton pseudo-genus anchors for non-monophyletic genera.", logger = logger)
+  .tact_msg("Using singleton pseudo-genus anchors for handled genera.", logger = logger)
+  if (isTRUE(biogeo)) {
+    .tact_msg("Biogeographic realm-aware allocation enabled.", logger = logger)
+  }
 
   if (nonmono == "error") {
     stop("Non-monophyletic genera present: ", paste(nonmono_g, collapse = ", "), call. = FALSE)
@@ -796,13 +1065,14 @@ split_nonmono_genera_for_tact <- function(tree,
   map <- data.frame(
     original_genus = character(), temp_genus = character(), old_label = character(),
     new_label = character(), cluster = integer(), protected = logical(),
-    stringsAsFactors = FALSE
+    realm = character(), stringsAsFactors = FALSE
   )
   skipped <- data.frame(
     genus = character(), species_underscore = character(), reason = character(),
     stringsAsFactors = FALSE
   )
   labels <- tree$tip.label
+  realm_lookup <- setNames(tax[[realm_col]], tax$species_underscore)
 
   for (g in nonmono_g) {
     species_in_tax <- tax$species_underscore[tax$genus == g]
@@ -815,7 +1085,7 @@ split_nonmono_genera_for_tact <- function(tree,
         skipped <- rbind(skipped, data.frame(
           genus = g,
           species_underscore = species_missing,
-          reason = "nonmonophyletic_genus_skipped",
+          reason = "handled_genus_skipped",
           stringsAsFactors = FALSE
         ))
       }
@@ -837,7 +1107,18 @@ split_nonmono_genera_for_tact <- function(tree,
       next
     }
 
-    temp_genera <- paste0("TACTTMP", g, sprintf("%02d", seq_along(groups)))
+    anchor_realm <- vapply(groups, function(gr) {
+      rr <- realm_lookup[gr]
+      rr <- rr[!is.na(rr) & nzchar(rr)]
+      if (!length(rr)) return(biogeo_unknown_realm)
+      names(sort(table(rr), decreasing = TRUE))[1]
+    }, character(1))
+    anchor_realm[is.na(anchor_realm) | !nzchar(anchor_realm)] <- biogeo_unknown_realm
+
+    temp_genera <- paste0(
+      "TACTTMP", g, "_", .tact_sanitize_realm(anchor_realm),
+      sprintf("%02d", seq_along(groups))
+    )
 
     for (k in seq_along(groups)) {
       old <- groups[[k]]
@@ -850,12 +1131,18 @@ split_nonmono_genera_for_tact <- function(tree,
         new_label = new,
         cluster = k,
         protected = FALSE,
+        realm = anchor_realm[k],
         stringsAsFactors = FALSE
       ))
     }
 
     if (length(protected)) {
-      temp_ex <- paste0("TACTEXCL", g, sprintf("%02d", seq_along(protected)))
+      prot_realm <- realm_lookup[protected]
+      prot_realm[is.na(prot_realm) | !nzchar(prot_realm)] <- biogeo_unknown_realm
+      temp_ex <- paste0(
+        "TACTEXCL", g, "_", .tact_sanitize_realm(prot_realm),
+        sprintf("%02d", seq_along(protected))
+      )
       for (j in seq_along(protected)) {
         old <- protected[j]
         new <- sub(paste0("^", g, "_"), paste0(temp_ex[j], "_"), old)
@@ -867,13 +1154,12 @@ split_nonmono_genera_for_tact <- function(tree,
           new_label = new,
           cluster = NA_integer_,
           protected = TRUE,
+          realm = prot_realm[j],
           stringsAsFactors = FALSE
         ))
       }
     }
 
-    # Remove original rows for all existing backbone tips of this genus, then add
-    # rows for the temporary labels now present in the backbone.
     tax <- tax[!(tax$genus == g & tax$species_underscore %in% species_in_tree), , drop = FALSE]
     g_map <- map[map$original_genus == g, , drop = FALSE]
     if (nrow(g_map)) {
@@ -884,17 +1170,39 @@ split_nonmono_genera_for_tact <- function(tree,
         species_underscore = g_map$new_label,
         stringsAsFactors = FALSE
       )
+      add_existing[[realm_col]] <- g_map$realm
       tax <- rbind(tax, add_existing)
     }
 
     if (length(species_missing)) {
+      missing_realm <- realm_lookup[species_missing]
+      missing_realm[is.na(missing_realm) | !nzchar(missing_realm)] <- biogeo_unknown_realm
       weights <- vapply(groups, length, integer(1))
       if (nonmono_allocation == "equal") weights <- rep(1, length(groups))
 
-      if (nonmono_allocation == "random") {
-        assign <- sample(seq_along(groups), length(species_missing), replace = TRUE)
-      } else {
-        assign <- sample(seq_along(groups), length(species_missing), replace = TRUE, prob = weights)
+      assign <- integer(length(species_missing))
+      for (m in seq_along(species_missing)) {
+        candidates <- seq_along(groups)
+        if (isTRUE(biogeo) && !identical(missing_realm[m], biogeo_unknown_realm)) {
+          same_realm <- which(anchor_realm == missing_realm[m])
+          if (length(same_realm)) candidates <- same_realm
+        }
+
+        # Important: `sample()` treats a single numeric `x` as `seq_len(x)`.
+        # If `candidates` has length 1 and equals, for example, 5, then
+        # `sample(candidates, 1, prob = weights[candidates])` incorrectly
+        # expects five probabilities. Sample over candidate positions instead.
+        if (length(candidates) == 1L) {
+          assign[m] <- candidates
+        } else if (nonmono_allocation == "random") {
+          assign[m] <- candidates[sample.int(length(candidates), 1L)]
+        } else {
+          assign[m] <- candidates[sample.int(
+            length(candidates),
+            1L,
+            prob = weights[candidates]
+          )]
+        }
       }
 
       tax <- tax[!(tax$genus == g & tax$species_underscore %in% species_missing), , drop = FALSE]
@@ -908,13 +1216,18 @@ split_nonmono_genera_for_tact <- function(tree,
         species_underscore = missing_temp_labels,
         stringsAsFactors = FALSE
       )
+      add_missing[[realm_col]] <- missing_realm
       tax <- rbind(tax, add_missing)
     }
   }
 
   tree$tip.label <- labels
   tax <- tax[!duplicated(tax$species_underscore), , drop = FALSE]
-  nonmono_log <- data.frame(genus = nonmono_g, action = nonmono, stringsAsFactors = FALSE)
+  nonmono_log <- data.frame(
+    genus = nonmono_g,
+    action = if (isTRUE(biogeo)) "split_biogeo" else nonmono,
+    stringsAsFactors = FALSE
+  )
 
   list(tree = tree, taxonomy = tax, map = map, nonmono = nonmono_log, skipped = skipped)
 }
@@ -1265,6 +1578,17 @@ run_tact_external <- function(work_dir,
 #' @param enforce_taxonomy_tip_count Logical. If `TRUE`, stop on a final
 #'   tree/taxonomy tip-count mismatch. If `FALSE` (default), issue a warning,
 #'   write mismatch reports, and return the full tree.
+#' @param biogeo Logical. If `TRUE`, use type-locality country mapped to
+#'   biogeographic realm to allocate missing species preferentially to same-realm
+#'   temporary genus anchors.
+#' @param country_realm_map Optional path or data frame mapping `Country` to
+#'   `UdvardyRealm` or `Realm`.
+#' @param biogeo_unknown_realm Character label for missing or unmapped realm.
+#' @param biogeo_apply_to_all_genera Logical. If `TRUE`, realm-aware singleton
+#'   anchors are created for all genera with backbone representatives and missing
+#'   species, not only genera detected as non-monophyletic.
+#' @param write_biogeo_labelled_trees Logical. If `TRUE`, write realm-appended
+#'   input/backbone and final cleaned trees for visual inspection.
 #' @param exclude_taxa Optional character vector of exact taxa to protect from
 #'   grafting. If present in the backbone, the corresponding branch is renamed to
 #'   a protected `TACTEXCL...` pseudo-genus. If absent from the backbone but
@@ -1319,6 +1643,11 @@ run_tact_grafting <- function(backbone_tree,
                               species_code = c("keep", "temporary_species", "drop"),
                               drop_code_species_after_tact = TRUE,
                               enforce_taxonomy_tip_count = FALSE,
+                              biogeo = FALSE,
+                              country_realm_map = NULL,
+                              biogeo_unknown_realm = "Unknown",
+                              biogeo_apply_to_all_genera = TRUE,
+                              write_biogeo_labelled_trees = TRUE,
                               exclude_taxa = NULL,
                               exclude_mrca = NULL,
                               exclude_missing = c("warn", "error", "ignore"),
@@ -1348,6 +1677,18 @@ run_tact_grafting <- function(backbone_tree,
 
   tree <- if (inherits(backbone_tree, "phylo")) backbone_tree else ape::read.tree(backbone_tree)
   tax <- read_tact_taxonomy(taxonomy, taxonomy_format = taxonomy_format, family = family)
+  if (isTRUE(biogeo)) {
+    tax <- .tact_add_biogeo_realms(
+      tax = tax,
+      taxonomy = taxonomy,
+      taxonomy_format = taxonomy_format,
+      country_realm_map = country_realm_map,
+      unknown_realm = biogeo_unknown_realm,
+      logger = logger
+    )
+  } else if (!("realm" %in% names(tax))) {
+    tax$realm <- biogeo_unknown_realm
+  }
   target_taxonomy_species_count <- nrow(tax)
 
   .tact_msg("Backbone tips: ", ape::Ntip(tree), logger = logger)
@@ -1388,6 +1729,18 @@ run_tact_grafting <- function(backbone_tree,
   target_taxonomy_species_count <- target_taxonomy_species_count - nrow(excluded_taxonomy)
   target_taxonomy_tips <- sort(unique(tax$species_underscore))
 
+  backbone_realm_labelled_path <- paste0(out_prefix, "_backbone_biogeo_labels.tre")
+  final_realm_labelled_path <- paste0(out_prefix, "_tacted_cleaned_biogeo_labels.tre")
+  if (isTRUE(write_biogeo_labelled_trees)) {
+    .tact_write_realm_labelled_tree(
+      tree = tree,
+      tax = tax,
+      file = backbone_realm_labelled_path,
+      unknown_realm = biogeo_unknown_realm
+    )
+    .tact_msg("Backbone tree with realm labels written: ", backbone_realm_labelled_path, logger = logger)
+  }
+
   .tact_section("TACT grafting: non-monophyletic genera", logger = logger)
   spl <- split_nonmono_genera_for_tact(
     tree = tree,
@@ -1396,7 +1749,11 @@ run_tact_grafting <- function(backbone_tree,
     nonmono_allocation = nonmono_allocation,
     exclude_tips = exclude_tips,
     seed = seed,
-    logger = logger
+    logger = logger,
+    biogeo = biogeo,
+    realm_col = "realm",
+    biogeo_unknown_realm = biogeo_unknown_realm,
+    biogeo_apply_to_all_genera = biogeo_apply_to_all_genera
   )
   tree_tact <- spl$tree
   tax_tact <- spl$taxonomy
@@ -1527,6 +1884,15 @@ run_tact_grafting <- function(backbone_tree,
 
       final_path <- paste0(out_prefix, "_tacted_cleaned.tre")
       ape::write.tree(phy = final_tree, file = final_path)
+      if (isTRUE(write_biogeo_labelled_trees)) {
+        .tact_write_realm_labelled_tree(
+          tree = final_tree,
+          tax = tax,
+          file = final_realm_labelled_path,
+          unknown_realm = biogeo_unknown_realm
+        )
+        .tact_msg("Cleaned TACT tree with realm labels written: ", final_realm_labelled_path, logger = logger)
+      }
 
       dropped_code_species_path <- paste0(out_prefix, "_dropped_code_species.tsv")
       utils::write.table(
@@ -1655,6 +2021,9 @@ run_tact_grafting <- function(backbone_tree,
     excluded_taxonomy = paste0(out_prefix, "_excluded_taxonomy.tsv"),
     dropped_code_species = paste0(out_prefix, "_dropped_code_species.tsv"),
     validation = paste0(out_prefix, "_validation.tsv"),
+    biogeo_taxonomy_realms = paste0(out_prefix, "_biogeo_taxonomy_realms.tsv"),
+    backbone_biogeo_labels = backbone_realm_labelled_path,
+    cleaned_tree_biogeo_labels = final_realm_labelled_path,
     taxonomy_mismatch_summary = paste0(out_prefix, "_taxonomy_mismatch_summary.tsv"),
     tree_not_taxonomy = paste0(out_prefix, "_tree_not_taxonomy.tsv"),
     taxonomy_not_tree = paste0(out_prefix, "_taxonomy_not_tree.tsv"),
@@ -1683,6 +2052,11 @@ run_tact_grafting <- function(backbone_tree,
       species_code = species_code,
       drop_code_species_after_tact = drop_code_species_after_tact,
       enforce_taxonomy_tip_count = enforce_taxonomy_tip_count,
+      biogeo = biogeo,
+      country_realm_map = country_realm_map,
+      biogeo_unknown_realm = biogeo_unknown_realm,
+      biogeo_apply_to_all_genera = biogeo_apply_to_all_genera,
+      write_biogeo_labelled_trees = write_biogeo_labelled_trees,
       tact_runner = tact_runner,
       docker_image = docker_image,
       taxonomy_output = taxonomy_output

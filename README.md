@@ -460,9 +460,9 @@ The workflow downloads the upstream `chronosta.py` script from the [Chrono-STA r
 
 The original downloaded script is not modified. The patch is applied only to the temporary copy written into the ChronoSTA run directory, and the log records when the patch is applied. This preserves provenance while allowing the workflow to run reproducibly with current Python environments.
 
-Users may alternatively provide their own ChronoSTA script with `chronosta_script = "path/to/chronosta.py"`. If the script already contains the compatibility patch, MacroPhyloMaker will detect this and skip patching.
+Users may alternatively provide their own Chrono-STA script with `chronosta_script = "path/to/chronosta.py"`. If the script already contains the compatibility patch, MacroPhyloMaker will detect this and skip patching.
 
-ChronoSTA is developed independently and distributed by its authors. MacroPhyloMaker does not vendor a modified copy of ChronoSTA. Instead, it downloads or uses a user-provided upstream `chronosta.py` script and applies a documented runtime compatibility patch to the temporary copy used for each analysis. Users should cite ChronoSTA and comply with its license when distributing modified ChronoSTA code.
+ChronoSTA is developed independently and distributed by its authors. MacroPhyloMaker does not vendor a modified copy of ChronoSTA. Instead, it downloads or uses a user-provided upstream `chronosta.py` script and applies a documented runtime compatibility patch to the temporary copy used for each analysis. Users should cite ChronoSTA and comply with its license when distributing modified Chrono-STA code.
 
 When using this step of the workflow please cite:
 ```
@@ -522,8 +522,8 @@ res <- run_chronosta_grafting(
   - Set this value for reproducible runs.
 
 - `ref_weight`
-  - Weight assigned to the reference tree during ChronoSTA merging.
-  - Internally, this is implemented by duplicating the reference tree when ChronoSTA is run.
+  - Weight assigned to the reference tree during Chrono-STA merging.
+  - Internally, this is implemented by duplicating the reference tree when Chrono-STA is run.
   - Larger values make the final merged tree more strongly anchored to the reference topology.
 
 - `paraph_exc`
@@ -732,6 +732,258 @@ If this command works but `check_chronosta_python(py)` fails, the package helper
 
 ---
 
+
+
+## Taxonomic completion with TACT
+
+After tip grafting, clade grafting, and optional ChronoSTA gap-filling, the tree may still be incomplete relative to the current species-level taxonomy. `run_tact_grafting()` performs a final taxonomic completion step using TACT. MacroPhyloMaker does not distribute TACT; instead, it prepares TACT-ready inputs, calls an external TACT installation or Docker image, restores temporary labels, removes scaffold taxa, and writes validation reports.
+
+### What this step does
+
+The wrapper:
+
+1. Reads the current backbone tree.
+2. Reads the AntWiki taxonomy authority file.
+3. Uses `TaxonName` as the authoritative name field for AntWiki input.
+4. Keeps only binomial species names, i.e. rows of the form `Genus species`.
+5. Omits trinomials, subspecies, and AntWiki rows where the genus parsed from `TaxonName` disagrees with the `Genus` column.
+6. Detects non-monophyletic genera and temporarily splits them into TACT-safe pseudo-genera.
+7. Optionally assigns species to biogeographic realms using type-locality country and a country-to-realm table.
+8. Optionally uses biogeographic realms to assign missing species preferentially to same-realm backbone anchors within each genus.
+9. Runs TACT to add missing species and simulate branching times.
+10. Restores temporary labels in the final tree.
+11. Removes scaffold terminals such as code-like species and placeholder labels, e.g. `Eburopone_CM02`, `Recurvidris_TH01`, and `Uwari_sp`.
+12. Writes validation reports comparing the final tree with the processed taxonomy.
+
+### TACT installation
+
+The easiest route is Docker:
+
+```bash
+docker run --rm jonchang/tact tact_add_taxa --help
+```
+
+If this command succeeds, the wrapper can be run with:
+
+```r
+tact_runner = "docker"
+docker_image = "jonchang/tact"
+```
+
+A local system installation can also be used with:
+
+```r
+tact_runner = "system"
+tact_bin = "tact_add_taxa"
+```
+
+Use `tact_runner = "none"` to prepare TACT input files without running TACT.
+
+### AntWiki taxonomy handling
+
+For `taxonomy_format = "antwiki"`, the wrapper uses the `TaxonName` column rather than constructing names from `Genus` and `Species`. This avoids artifacts caused by AntWiki rows where the `Species` column contains an entire binomial. Only two-token `TaxonName` values are retained:
+
+```text
+Genus species
+```
+
+Three-token names are treated as trinomials or infraspecific names and omitted. Rows where the genus in `TaxonName` does not match the `Genus` column are treated as probable table errors and omitted with a warning.
+
+### Biogeography-aware TACT completion
+
+If `biogeo = TRUE`, the wrapper assigns species to realms using a country-to-realm table. The table should contain either:
+
+```text
+Country    UdvardyRealm
+```
+
+or:
+
+```text
+Country    Realm
+```
+
+For this project, the country table is expected at:
+
+```text
+project/tables/country_udvardy_realm.tsv
+```
+
+The biogeography-aware workflow uses type-locality country as a proxy for biogeographic affinity. Existing backbone representatives are assigned realms when possible. Missing species are then preferentially assigned to temporary same-realm anchors within their genus. If no same-realm anchor exists, the species is assigned among all available anchors for that genus. This is especially useful for globally distributed genera where missing species should not be grafted indiscriminately across distant biogeographic clades.
+
+### Example: biogeography-aware TACT run
+
+```r
+res_tact <- run_tact_grafting(
+  backbone_tree = here::here(
+    "project", "results", "grafted",
+    "final_tree_monophyletic_4183sp.tre"
+  ),
+  taxonomy = here::here(
+    "project", "tables",
+    "antwiki-valid-species-8Mar2026.txt"
+  ),
+  out_prefix = here::here(
+    "project", "results", "tact",
+    "Formicidae_complete_tact_biogeo"
+  ),
+  taxonomy_format = "antwiki",
+  tact_runner = "docker",
+  docker_image = "jonchang/tact",
+  outgroups = NULL,
+  seed = 42,
+  nonmono = "split",
+  nonmono_allocation = "proportional",
+  genus_only = "replace_random_species",
+  species_code = "keep",
+  drop_code_species_after_tact = TRUE,
+  enforce_taxonomy_tip_count = FALSE,
+  biogeo = TRUE,
+  country_realm_map = here::here(
+    "project", "tables",
+    "country_udvardy_realm.tsv"
+  ),
+  biogeo_unknown_realm = "Unknown",
+  biogeo_apply_to_all_genera = TRUE,
+  write_biogeo_labelled_trees = TRUE,
+  keep_temp = TRUE
+)
+```
+
+### Important arguments
+
+- `backbone_tree`: current tree to complete.
+- `taxonomy`: AntWiki or other taxonomy table.
+- `out_prefix`: prefix for all output files.
+- `tact_runner`: `"docker"`, `"system"`, or `"none"`.
+- `seed`: controls wrapper-level stochastic choices, including allocation of missing species to temporary anchors.
+- `nonmono`: use `"split"` for normal treatment of non-monophyletic genera.
+- `nonmono_allocation`: use `"proportional"`, `"equal"`, or `"random"`.
+- `drop_code_species_after_tact`: removes code-like and placeholder scaffold taxa after TACT.
+- `enforce_taxonomy_tip_count`: if `FALSE`, writes reports and warns rather than stopping on tree/taxonomy mismatches.
+- `biogeo`: enables biogeography-aware allocation.
+- `country_realm_map`: country-to-realm table.
+- `biogeo_apply_to_all_genera`: if `TRUE`, applies realm-aware temporary anchors to all genera with backbone representatives and missing species.
+- `write_biogeo_labelled_trees`: writes inspection trees with realm names appended to tip labels.
+- `keep_temp`: keeps the TACT work directory for debugging.
+
+### Main outputs
+
+The main cleaned final tree is:
+
+```text
+<out_prefix>_tacted_cleaned.tre
+```
+
+Important audit outputs are:
+
+```text
+<out_prefix>_validation.tsv
+<out_prefix>_taxonomy_mismatch_summary.tsv
+<out_prefix>_tree_not_taxonomy.tsv
+<out_prefix>_taxonomy_not_tree.tsv
+<out_prefix>_dropped_code_species.tsv
+<out_prefix>_biogeo_taxonomy_realms.tsv
+<out_prefix>_nonmono_temp_name_map.tsv
+<out_prefix>_nonmono_genera.tsv
+<out_prefix>_skipped_taxa.tsv
+<out_prefix>_excluded_taxonomy.tsv
+<out_prefix>_excluded_tips.txt
+```
+
+If `write_biogeo_labelled_trees = TRUE`, the wrapper also writes:
+
+```text
+<out_prefix>_backbone_biogeo_labels.tre
+<out_prefix>_tacted_cleaned_biogeo_labels.tre
+```
+
+These realm-labelled trees are intended for visual inspection and should not be treated as the primary clean analysis tree.
+
+### Checking the TACT output
+
+```r
+ape::Ntip(res_tact$tree)
+read.delim(res_tact$paths$validation)
+read.delim(res_tact$paths$taxonomy_mismatch_summary)
+read.delim(res_tact$paths$biogeo_taxonomy_realms)
+
+grep("TACTTMP|TACTEXCL", res_tact$tree$tip.label, value = TRUE)
+```
+
+The last command should return `character(0)` for the cleaned tree.
+
+### Randomized TACT replicates
+
+The wrapper contains stochastic steps, and TACT itself performs stochastic grafting. To generate multiple plausible completed trees, run the TACT step with different seeds and different output prefixes. For stronger wrapper-level randomization, use `nonmono_allocation = "random"`.
+
+```r
+seeds <- 1:20
+
+for (seed_i in seeds) {
+  run_tact_grafting(
+    backbone_tree = here::here(
+      "project", "results", "grafted",
+      "final_tree_monophyletic_4183sp.tre"
+    ),
+    taxonomy = here::here(
+      "project", "tables",
+      "antwiki-valid-species-8Mar2026.txt"
+    ),
+    out_prefix = here::here(
+      "project", "results", "tact",
+      sprintf("Formicidae_complete_tact_biogeo_rep%03d", seed_i)
+    ),
+    taxonomy_format = "antwiki",
+    tact_runner = "docker",
+    docker_image = "jonchang/tact",
+    seed = seed_i,
+    nonmono = "split",
+    nonmono_allocation = "random",
+    genus_only = "replace_random_species",
+    species_code = "keep",
+    drop_code_species_after_tact = TRUE,
+    enforce_taxonomy_tip_count = FALSE,
+    biogeo = TRUE,
+    country_realm_map = here::here(
+      "project", "tables",
+      "country_udvardy_realm.tsv"
+    ),
+    write_biogeo_labelled_trees = FALSE,
+    keep_temp = FALSE
+  )
+}
+```
+
+For exploratory visual checks, use `write_biogeo_labelled_trees = TRUE` and `keep_temp = TRUE`. For large replicate batches, set both to `FALSE`.
+
+### TACT troubleshooting
+
+#### Docker cannot run TACT
+
+Confirm Docker works:
+
+```bash
+docker run --rm jonchang/tact tact_add_taxa --help
+```
+
+#### Taxonomy and tree tip counts do not match
+
+This does not necessarily mean the tree was not created. Inspect:
+
+```text
+<out_prefix>_taxonomy_mismatch_summary.tsv
+<out_prefix>_tree_not_taxonomy.tsv
+<out_prefix>_taxonomy_not_tree.tsv
+```
+
+These reports distinguish scaffold labels, omitted table-error rows, and true name mismatches.
+
+#### Many species have `Unknown` realm
+
+This usually means the type-locality string is not an exact match to a row in the country-to-realm map. Add rows for historical or regional strings such as `Tropical Africa`, `South America`, or `East Indies` if those should map to a realm.
+
+
 ## Replicating the ant macrophylogeny workflow from the paper
 
 The full ant-tree workflow used in the paper can be rerun from the files provided in this repository. The goal is to make each major step explicit, reproducible, and updateable when new phylogenies or taxonomy files become available.
@@ -868,7 +1120,61 @@ res <- run_chronosta_grafting(
 
 This step searches additional donor trees for species absent from the reference tree, calibrates them to the reference timescale where possible, divides them into smaller grafting units, uses ChronoSTA to merge missing species with the relevant reference subtrees, rescales the outputs, and grafts them back into the reference tree.
 
-### Step 5. Inspect outputs
+### Step 5. Complete the tree with biogeography-aware TACT
+
+After ChronoSTA-enabled grafting, use TACT to add remaining species from the AntWiki taxonomy. This step retains valid binomials from `TaxonName`, omits malformed AntWiki rows where the genus fields disagree, optionally assigns species to biogeographic realms using type-locality country, and runs TACT to complete the tree.
+
+```r
+res_tact <- run_tact_grafting(
+  backbone_tree = here::here(
+    "project", "results", "grafted",
+    "chronosta_gapfilled_final_tree_monophyletic.nwk"
+  ),
+  taxonomy = here::here(
+    "project", "tables",
+    "antwiki-valid-species-8Mar2026.txt"
+  ),
+  out_prefix = here::here(
+    "project", "results", "tact",
+    "Formicidae_complete_tact_biogeo"
+  ),
+  taxonomy_format = "antwiki",
+  tact_runner = "docker",
+  docker_image = "jonchang/tact",
+  outgroups = NULL,
+  seed = 42,
+  nonmono = "split",
+  nonmono_allocation = "proportional",
+  genus_only = "replace_random_species",
+  species_code = "keep",
+  drop_code_species_after_tact = TRUE,
+  enforce_taxonomy_tip_count = FALSE,
+  biogeo = TRUE,
+  country_realm_map = here::here(
+    "project", "tables",
+    "country_udvardy_realm.tsv"
+  ),
+  biogeo_unknown_realm = "Unknown",
+  biogeo_apply_to_all_genera = TRUE,
+  write_biogeo_labelled_trees = TRUE,
+  keep_temp = TRUE
+)
+```
+
+The primary TACT-completed tree is:
+
+```r
+res_tact$paths$cleaned_tree
+```
+
+The realm-labelled inspection trees are:
+
+```r
+res_tact$paths$backbone_biogeo_labels
+res_tact$paths$cleaned_tree_biogeo_labels
+```
+
+### Step 6. Inspect outputs
 
 The final outputs are written to `project/results/grafted/` and include:
 
