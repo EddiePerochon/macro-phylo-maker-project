@@ -483,9 +483,9 @@ run_tip_grafting <- function(backbone_path = NULL,
                              prefer_tree_index = 2L, # kept for compatibility, ignored
                              drop_tips = NULL,
                              plot_pdf = TRUE,
-                             pdf_width = 6,
-                             pdf_height = 30,
-                             pdf_auto = FALSE,
+                             pdf_width = NULL,
+                             pdf_height = NULL,
+                             pdf_auto = TRUE,
                              plot_cex = 0.5,
                              plot_fn = NULL) {
   # RNG / out dir prep

@@ -1,0 +1,95 @@
+=== Genus grafting log: CladeGraft | 2026-07-30 15:49:05 ===
+
+┌───────────┐
+│ load plan │
+└───────────┘
+Plan rows: 80
+
+┌──────────────────────────────┐
+│ assemble donors & placements │
+└──────────────────────────────┘
+Row 1: Input_tree_type = phylogram
+Row 2: Input_tree_type = phylogram
+Row 3: Input_tree_type = chronogram
+Row 4: Input_tree_type = chronogram
+Row 5: Input_tree_type = chronogram
+Row 6: Input_tree_type = chronogram
+Row 7: Input_tree_type = chronogram
+Row 8: Input_tree_type = chronogram
+Row 9: Input_tree_type = chronogram
+Row 10: Input_tree_type = chronogram
+Row 11: Input_tree_type = chronogram
+Row 12: Input_tree_type = chronogram
+Row 13: Input_tree_type = phylogram
+Row 14: Input_tree_type = chronogram
+Row 15: Input_tree_type = chronogram
+Row 16: Input_tree_type = chronogram
+Row 17: Input_tree_type = chronogram
+Row 18: Input_tree_type = chronogram
+Row 19: Input_tree_type = chronogram
+Row 20: Input_tree_type = phylogram
+Row 21: Input_tree_type = chronogram
+Row 22: Input_tree_type = chronogram
+Row 23: Input_tree_type = chronogram
+Row 24: Input_tree_type = chronogram
+Row 25: Input_tree_type = chronogram
+Row 26: Input_tree_type = chronogram
+Row 27: Input_tree_type = chronogram
+Row 28: Input_tree_type = chronogram
+Row 29: Input_tree_type = phylogram
+Row 30: Input_tree_type = chronogram
+Row 31: Input_tree_type = phylogram
+Row 32: Input_tree_type = chronogram
+Row 33: Input_tree_type = chronogram
+Row 34: Input_tree_type = chronogram
+Row 35: Input_tree_type = chronogram
+Row 36: Input_tree_type = chronogram
+Row 37: Input_tree_type = chronogram
+Row 38: Input_tree_type = chronogram
+Row 39: Input_tree_type = chronogram
+Row 40: Input_tree_type = chronogram
+Row 41: Input_tree_type = chronogram
+Row 42: Input_tree_type = phylogram
+Row 43: Input_tree_type = chronogram
+Row 44: Input_tree_type = chronogram
+Row 45: Input_tree_type = chronogram
+Row 46: Input_tree_type = chronogram
+Row 47: Input_tree_type = phylogram
+Row 48: Input_tree_type = chronogram
+Row 49: Input_tree_type = chronogram
+Row 50: Input_tree_type = chronogram
+Row 51: Input_tree_type = chronogram
+Row 52: Input_tree_type = chronogram
+Row 53: Input_tree_type = chronogram
+Row 54: Input_tree_type = chronogram
+Row 55: Input_tree_type = chronogram
+Row 56: Input_tree_type = chronogram
+Row 57: Input_tree_type = chronogram
+Row 58: Input_tree_type = chronogram
+Row 59: Input_tree_type = chronogram
+Row 60: Input_tree_type = chronogram
+Row 61: Input_tree_type = chronogram
+Row 62: Input_tree_type = chronogram
+Row 63: Input_tree_type = chronogram
+Row 64: Input_tree_type = chronogram
+Row 65: Input_tree_type = chronogram
+Row 66: Input_tree_type = chronogram
+Row 67: Input_tree_type = chronogram
+Row 68: Input_tree_type = chronogram
+Row 69: Input_tree_type = chronogram
+Row 70: Input_tree_type = chronogram
+Row 71: Input_tree_type = chronogram
+Row 72: Input_tree_type = chronogram
+Row 73: Input_tree_type = chronogram
+Row 74: Input_tree_type = chronogram
+Row 75: Input_tree_type = chronogram
+Row 76: Input_tree_type = chronogram
+Row 77: Input_tree_type = chronogram
+Row 78: Input_tree_type = chronogram
+Row 79: Input_tree_type = chronogram
+Row 80: Input_tree_type = chronogram
+Donors ready: 80 (skipped: 0)
+
+┌────────────────┐
+│ load backbones │
+└────────────────┘

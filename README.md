@@ -59,6 +59,30 @@ sudo apt install \
     libwebp-dev \
     libuv1-dev
 ```
+## TACT installation
+
+To use stochastic polyromy resolutions you will need Taxonomic Addition for Complete Trees (TACT; see below for citation). The easiest route is Docker:
+
+```bash
+docker run --rm jonchang/tact tact_add_taxa --help
+```
+
+If this command succeeds, the wrapper can be run with:
+
+```r
+tact_runner = "docker"
+docker_image = "jonchang/tact"
+```
+
+A local system installation can also be used with:
+
+```r
+tact_runner = "system"
+tact_bin = "tact_add_taxa"
+```
+
+Use `tact_runner = "none"` to prepare TACT input files without running TACT.
+
 ## Load the development package
 From the same directory as above.
 ```
@@ -448,21 +472,21 @@ The function writes:
 ```
 ---
 
-## Time-informed species grafting with ChronoSTA
+## Time-informed species grafting with Chrono-STA
 
 After tip grafting and clade grafting, some species may still remain unplaced because they occur in source trees that partially overlap with trees already used for clade grafting. In these cases, choosing a single donor tree for a clade can leave species from alternative, overlapping source trees behind. The function `run_chronosta_grafting()` performs a final time-informed grafting step to recover these species while minimizing disruption to the existing backbone topology.
 
-This step uses ChronoSTA as a controlled gap-filling procedure. The reference tree is the output of the previous MacroPhyloMaker grafting steps. Donor trees are searched for species absent from the reference tree, recalibrated to the reference timescale when needed, split into smaller subtrees, optionally prefused when they overlap, and then merged back into local regions of the reference tree. This allows additional species to be incorporated without rebuilding the entire tree from scratch.
+This step uses Chrono-STA as a controlled gap-filling procedure. The reference tree is the output of the previous MacroPhyloMaker grafting steps. Donor trees are searched for species absent from the reference tree, recalibrated to the reference timescale when needed, split into smaller subtrees, optionally prefused when they overlap, and then merged back into local regions of the reference tree. This allows additional species to be incorporated without rebuilding the entire tree from scratch.
 
-### Note on ChronoSTA compatibility patch
+### Note on Chrono-STA compatibility patch
 
 The workflow downloads the upstream `chronosta.py` script from the [Chrono-STA repository](https://github.com/josebarbamontoya/chrono-sta) at runtime. To maintain compatibility with recent NumPy/Pandas versions, MacroPhyloMaker applies a small runtime patch to the temporary copy of `chronosta.py` used for each analysis. The patch replaces an in-place modification of `m.values` with a writable copy before calling `np.fill_diagonal()`.
 
-The original downloaded script is not modified. The patch is applied only to the temporary copy written into the ChronoSTA run directory, and the log records when the patch is applied. This preserves provenance while allowing the workflow to run reproducibly with current Python environments.
+The original downloaded script is not modified. The patch is applied only to the temporary copy written into the Chrono-STA run directory, and the log records when the patch is applied. This preserves provenance while allowing the workflow to run reproducibly with current Python environments.
 
 Users may alternatively provide their own Chrono-STA script with `chronosta_script = "path/to/chronosta.py"`. If the script already contains the compatibility patch, MacroPhyloMaker will detect this and skip patching.
 
-ChronoSTA is developed independently and distributed by its authors. MacroPhyloMaker does not vendor a modified copy of ChronoSTA. Instead, it downloads or uses a user-provided upstream `chronosta.py` script and applies a documented runtime compatibility patch to the temporary copy used for each analysis. Users should cite ChronoSTA and comply with its license when distributing modified Chrono-STA code.
+Chrono-STA is developed independently and distributed by its authors. MacroPhyloMaker does not vendor a modified copy of Chrono-STA. Instead, it downloads or uses a user-provided upstream `chronosta.py` script and applies a documented runtime compatibility patch to the temporary copy used for each analysis. Users should cite Chrono-STA and comply with its license when distributing modified Chrono-STA code.
 
 When using this step of the workflow please cite:
 ```
@@ -542,15 +566,15 @@ For each donor tree, `run_chronosta_grafting()`:
    - missing species,
    - representative shared species,
    - and local outgroups where possible.
-6. Optionally prefuses overlapping subtrees with ChronoSTA.
+6. Optionally prefuses overlapping subtrees with Chrono-STA.
 7. Merges each subtree locally with the corresponding region of the reference tree.
-8. Rescales the ChronoSTA output to the original reference-tree timescale.
+8. Rescales the Chrono-STA output to the original reference-tree timescale.
 9. Grafts the merged subtree back onto the reference.
 10. Optionally restores genus-level monophyly by removing newly introduced conflicts while preserving known non-monophyletic genera.
 
-### ChronoSTA setup
+### Chrono-STA setup
 
-The function can automatically download the ChronoSTA Python script if it is not found. Python must be available on the system, and the following Python packages are required:
+The function can automatically download the Chrono-STA Python script if it is not found. Python must be available on the system, and the following Python packages are required:
 
 ```bash
 python -m pip install biopython pandas numpy scipy matplotlib
@@ -598,7 +622,7 @@ res <- run_chronosta_grafting(
 )
 ```
 
-If the dependency check reports missing Python modules even after setup, confirm that R and ChronoSTA are using the same Python:
+If the dependency check reports missing Python modules even after setup, confirm that R and Chrono-STA are using the same Python:
 
 ```r
 system2(py, c("-c", "import sys; print(sys.executable)"), stdout = TRUE)
@@ -662,7 +686,7 @@ res$parameters        # parameters used in the run
 
 ### Typical workflow
 
-ChronoSTA grafting is used after the main tip and clade grafting steps:
+Chrono-STA grafting is used after the main tip and clade grafting steps:
 
 1. Start with a genus-level backbone.
 2. Add missing genera with `run_tip_grafting()`.
@@ -673,7 +697,7 @@ ChronoSTA grafting is used after the main tip and clade grafting steps:
 This final step is intended for species that are present in published source trees but could not be incorporated by direct clade grafting because their source trees partially overlap with, but were not selected over, other donor trees.
 
 
-### ChronoSTA troubleshooting
+### Chrono-STA troubleshooting
 
 #### `setup_chronosta_env()` succeeds, but `run_chronosta_grafting()` says Python packages are missing
 
@@ -697,7 +721,7 @@ This indicates that the Python dependency check is being interpreted by the shel
 
 #### Avoid unnecessary upgrades in a shared Python environment
 
-ChronoSTA requires `biopython`, `pandas`, `numpy`, `scipy`, and `matplotlib`, but it does not require the newest available versions. If you are using an Anaconda base environment that also supports other analyses, avoid unnecessary `--upgrade` installs unless needed. Prefer:
+Chrono-STA requires `biopython`, `pandas`, `numpy`, `scipy`, and `matplotlib`, but it does not require the newest available versions. If you are using an Anaconda base environment that also supports other analyses, avoid unnecessary `--upgrade` installs unless needed. Prefer:
 
 ```bash
 /home/marek/anaconda3/bin/python3 -m pip install biopython pandas numpy scipy matplotlib
@@ -720,7 +744,7 @@ system2(
   py,
   c(
     "-c",
-    "import Bio, pandas, numpy, scipy, matplotlib; print('ChronoSTA imports OK')"
+    "import Bio, pandas, numpy, scipy, matplotlib; print('Chrono-STA imports OK')"
   ),
   stdout = TRUE,
   stderr = TRUE
@@ -729,14 +753,16 @@ system2(
 
 If this command works but `check_chronosta_python(py)` fails, the package helper function should be updated.
 
-
 ---
-
-
 
 ## Taxonomic completion with TACT
 
-After tip grafting, clade grafting, and optional ChronoSTA gap-filling, the tree may still be incomplete relative to the current species-level taxonomy. `run_tact_grafting()` performs a final taxonomic completion step using TACT. MacroPhyloMaker does not distribute TACT; instead, it prepares TACT-ready inputs, calls an external TACT installation or Docker image, restores temporary labels, removes scaffold taxa, and writes validation reports.
+After tip grafting, clade grafting, and optional Chrono-STA gap-filling, the tree may still be incomplete relative to the current species-level taxonomy. `run_tact_grafting()` performs a final taxonomic completion step using TACT. MacroPhyloMaker does not distribute TACT; instead, it prepares TACT-ready inputs, calls an external TACT installation or Docker image, restores temporary labels, removes scaffold taxa, and writes validation reports.
+
+When using this step of the workflow please cite:
+```
+Chang, J., Rabosky, D. L., & Alfaro, M. E. (2019). Estimating diversification rates on incompletely-sampled phylogenies: theoretical concerns and practical solutions. Systematic Biology. doi:10.1093/sysbio/syz081
+```
 
 ### What this step does
 
@@ -754,30 +780,6 @@ The wrapper:
 10. Restores temporary labels in the final tree.
 11. Removes scaffold terminals such as code-like species and placeholder labels, e.g. `Eburopone_CM02`, `Recurvidris_TH01`, and `Uwari_sp`.
 12. Writes validation reports comparing the final tree with the processed taxonomy.
-
-### TACT installation
-
-The easiest route is Docker:
-
-```bash
-docker run --rm jonchang/tact tact_add_taxa --help
-```
-
-If this command succeeds, the wrapper can be run with:
-
-```r
-tact_runner = "docker"
-docker_image = "jonchang/tact"
-```
-
-A local system installation can also be used with:
-
-```r
-tact_runner = "system"
-tact_bin = "tact_add_taxa"
-```
-
-Use `tact_runner = "none"` to prepare TACT input files without running TACT.
 
 ### AntWiki taxonomy handling
 
@@ -932,7 +934,7 @@ for (seed_i in seeds) {
     ),
     out_prefix = here::here(
       "project", "results", "tact",
-      sprintf("Formicidae_complete_tact_biogeo_rep%03d", seed_i)
+      sprintf("Formicidae-complete-tact-biogeo-30Jul2026_rep%03d", seed_i)
     ),
     taxonomy_format = "antwiki",
     tact_runner = "docker",
@@ -983,8 +985,11 @@ These reports distinguish scaffold labels, omitted table-error rows, and true na
 
 This usually means the type-locality string is not an exact match to a row in the country-to-realm map. Add rows for historical or regional strings such as `Tropical Africa`, `South America`, or `East Indies` if those should map to a realm.
 
+---
 
 ## Replicating the ant macrophylogeny workflow from the paper
+
+See Setup Instructions at the top of this file.
 
 The full ant-tree workflow used in the paper can be rerun from the files provided in this repository. The goal is to make each major step explicit, reproducible, and updateable when new phylogenies or taxonomy files become available.
 
@@ -998,23 +1003,10 @@ cd macro-phylo-maker-project
 Then in R:
 
 ```r
-install.packages(c(
-  "devtools",
-  "ape",
-  "phytools",
-  "phangorn",
-  "stringr",
-  "progress",
-  "igraph",
-  "MonoPhy",
-  "here",
-  "readr"
-))
-
 devtools::load_all("MacroPhyloMaker")
 ```
 
-If using the ChronoSTA-enabled final grafting step, also set up Python dependencies. Use an explicit Python executable so that setup, checks, and the final run all use the same environment:
+If using the Chrono-STA-enabled grafting step, also set up Python dependencies. Use an explicit Python executable so that setup, checks, and run all use the same environment:
 
 ```r
 py <- "/home/marek/anaconda3/bin/python3"
@@ -1025,10 +1017,16 @@ check_chronosta_python(py)
 ### Step 1. Graft missing genera onto the genus-level backbone
 
 ```r
+backbone_genus_tree_path <- here::here("project", "backbones", "genus.tre")
+backbone_genus_tree <- ape::read.tree(backbone_genus_tree_path)
+backbone_noNewGenus <- ape::drop.tip(backbone_genus_tree, "NewGenus") # dropping "NewGenus" tip representing the isolated Neoponera bucki
+backbone_noNewGenus_path <- here::here("project", "backbones", "genus-noNewGenus.tre")
+ape::write.tree(backbone_noNewGenus, backbone_noNewGenus_path)
+
 run_tip_grafting(
-  backbone_path = here::here("project", "backbones", "genus.tre"),
+  backbone_path = here::here("project", "backbones", "genus-noNewGenus.tre"),
   plan_path     = here::here("project", "tables", "grafted_genera.tsv"),
-  out_prefix    = here::here("project", "results", "grafted", "genus"),
+  out_prefix    = here::here("project", "results", "grafted", "genus-30Jul2026"),
   seed_mode     = 42,
   ingroup_anchors = c("Martialis", "Camponotus")
 )
@@ -1036,11 +1034,62 @@ run_tip_grafting(
 
 This creates an updated genus-level backbone by inserting genera missing from the starting chronogram according to the table in `project/tables/grafted_genera.tsv`.
 
+#### Inspect Step 1 outputs
+
+After this step, confirm that the genus-level grafting tree and graft log exist, then inspect the tree as an R `phylo` object. The file path and the object are different things: the path tells R where the tree is stored, while the `phylo` object is what you plot, count tips from, or pass to downstream functions.
+
+```r
+genus_tree_path <- here::here(
+  "project", "results", "grafted",
+  "genus-30Jul2026.tre"
+)
+
+genus_log_path <- here::here(
+  "project", "results", "grafted",
+  "genus_graft_log.tsv"
+)
+
+file.exists(genus_tree_path)
+file.exists(genus_log_path)
+
+genus_tree <- ape::read.tree(genus_tree_path)
+ape::Ntip(genus_tree)
+head(genus_tree$tip.label)
+
+if (file.exists(genus_log_path)) {
+  head(read.delim(genus_log_path))
+}
+```
+
+Useful checks at this stage are:
+
+- Did the expected missing genera appear in `genus_tree$tip.label`?
+- Did the graft log record all rows from `project/tables/grafted_genera.tsv`?
+- Are the intended anchor taxa still present?
+
+For a quick plot:
+
+```r
+plot_tree_autosize(
+  genus_tree,
+  here::here("project", "results", "grafted", "genus_check.pdf"),
+  cex = 0.35
+)
+```
+
+
 ### Step 2. Graft published clade-level phylogenies
 
 ```r
+grafted_genera_tree_path <- here::here("project", "results", "grafted", "genus-30Jul2026.tre")
+grafted_genera_tree <- ape::read.tree(grafted_genera_tree_path)
+grafted_noChimaeridris <- ape::drop.tip(grafted_genera_tree, "Chimaeridris") # dropping "Chimaeridris" tip in reality likely nested in Pheidole
+grafted_genera_noChimaeridris_path <- here::here("project", "results", "grafted", "genus-30Jul2026-noChimaeridris.tre")
+ape::write.tree(grafted_noChimaeridris, grafted_genera_noChimaeridris_path)
+
+
 run_clade_grafting(
-  backbone_path = here::here("project", "backbones", "genus.tre"),
+  backbone_path = here::here("project", "results", "grafted", "genus-30Jul2026-noChimaeridris.tre"),
   plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
   authority = here::here(
     "project", "tables",
@@ -1048,7 +1097,7 @@ run_clade_grafting(
   ),
   out_prefix = here::here(
     "project", "results", "grafted",
-    "backbone_clade_grafted_24Jun2026"
+    "backbone-clade-grafted-30Jul2026"
   ),
   seed_mode = 42,
   chronos_select = "auto",
@@ -1061,15 +1110,57 @@ run_clade_grafting(
 
 This step reads the clade grafting table, filters donor phylogenies against the authority file, converts phylograms to chronograms when needed, prepares graftable templates, and inserts donor clades into the backbone.
 
+#### Inspect Step 2 outputs
+
+The clade-grafting step writes the grafted tree, a graft log, and, if `plot_pdf = TRUE`, a PDF visualization. Inspect both the file outputs and the returned tree if you assigned the run to an object.
+
+```r
+clade_tree_path <- here::here(
+  "project", "results", "grafted",
+  "backbone-clade-grafted-30Jul2026.tre"
+)
+
+clade_log_path <- here::here(
+  "project", "results", "grafted",
+  "backbone-clade-grafted-30Jul2026_graft_log.tsv"
+)
+
+clade_pdf_path <- here::here(
+  "project", "results", "grafted",
+  "backbone-clade-grafted-30Jul2026.pdf"
+)
+
+file.exists(clade_tree_path)
+file.exists(clade_log_path)
+file.exists(clade_pdf_path)
+
+clade_tree <- ape::read.tree(clade_tree_path)
+ape::Ntip(clade_tree)
+head(clade_tree$tip.label)
+
+if (file.exists(clade_log_path)) {
+  clade_log <- read.delim(clade_log_path)
+  nrow(clade_log)
+  head(clade_log)
+}
+```
+
+Useful checks at this stage are:
+
+- Are the major donor clades present in the tree?
+- Did the graft log include one row for each intended clade-grafting operation?
+- Do any expected donor species appear in the final tip labels?
+- A PDF is written by default (`backbone-clade-grafted-30Jul2026.pdf`), does the placement of major clades look reasonable?
+
 ### Step 3. Reconstitute genera removed during clade grafting
 
-Some genus-level terminals may be removed or overwritten when larger clades are grafted wholesale. These can be restored using a second tip-grafting step:
+We removed some genus-level terminals in the previous steps, and others are overwritten when larger clades are grafted wholesale in Step 2. These can be restored using a second tip-grafting step:
 
 ```r
 run_tip_grafting(
   backbone_path = here::here(
     "project", "results", "grafted",
-    "backbone_clade_grafted_24Jun2026.tre"
+    "backbone-clade-grafted-30Jul2026.tre"
   ),
   plan_path = here::here(
     "project", "tables",
@@ -1077,21 +1168,52 @@ run_tip_grafting(
   ),
   out_prefix = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-8Jul2026"
+    "genus-reconstituted-30Jul2026"
   ),
-  seed_mode = 42
+  seed_mode = 42,
+  plot_cex = 0.35
 )
 ```
 
-This produces the reference tree for the final ChronoSTA-enabled species grafting step.
+This produces the reference tree for the final Chrono-STA-enabled species grafting step.
 
-### Step 4. Add remaining species using ChronoSTA-enabled time-informed grafting
+#### Inspect Step 3 outputs
+
+This step produces the post-clade-grafting reference tree with reconstituted genus-level terminals. Check that the file exists, read it into R, and confirm that the genera you intended to restore are present.
+
+```r
+reconstituted_tree_path <- here::here(
+  "project", "results", "grafted",
+  "genus-reconstituted-30Jul2026.tre"
+)
+
+reconstituted_log_path <- here::here(
+  "project", "results", "grafted",
+  "genus-reconstituted-30Jul2026_graft_log.tsv"
+)
+
+file.exists(reconstituted_tree_path)
+file.exists(reconstituted_log_path)
+
+reconstituted_tree <- ape::read.tree(reconstituted_tree_path)
+ape::Ntip(reconstituted_tree)
+head(reconstituted_tree$tip.label)
+
+if (file.exists(reconstituted_log_path)) {
+  head(read.delim(reconstituted_log_path))
+}
+```
+
+This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree will be reused in a later R session, read it from `reconstituted_tree_path`. If you assigned the output of `run_tip_grafting()` to an object, use the object directly in the same session.
+
+
+### Step 4. Add remaining species using Chrono-STA-enabled time-informed grafting
 
 ```r
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-8Jul2026.tre"
+    "genus-reconstituted-30Jul2026.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -1118,17 +1240,85 @@ res <- run_chronosta_grafting(
 )
 ```
 
-This step searches additional donor trees for species absent from the reference tree, calibrates them to the reference timescale where possible, divides them into smaller grafting units, uses ChronoSTA to merge missing species with the relevant reference subtrees, rescales the outputs, and grafts them back into the reference tree.
+This step searches additional donor trees for species absent from the reference tree, calibrates them to the reference timescale where possible, divides them into smaller grafting units, uses Chrono-STA to merge missing species with the relevant reference subtrees, rescales the outputs, and grafts them back into the reference tree.
+
+#### Inspect Step 4 outputs
+
+Chrono-STA-enabled grafting returns an R object and writes several files. The object is useful immediately in the same R session, while the files make the run reproducible and allow later inspection.
+
+```r
+# In-session object returned by run_chronosta_grafting()
+class(res$tree)
+ape::Ntip(res$tree)
+head(res$tree$tip.label)
+
+# Important output files
+res$paths
+file.exists(unlist(res$paths))
+```
+
+If starting from a new R session, read the written tree from disk:
+
+```r
+chronosta_tree_path <- here::here(
+  "project", "results", "grafted",
+  "chronosta_gapfilled_final_tree_monophyletic.nwk"
+)
+
+chronosta_tree <- ape::read.tree(chronosta_tree_path)
+ape::Ntip(chronosta_tree)
+head(chronosta_tree$tip.label)
+```
+
+Inspect the audit tables:
+
+```r
+read.delim(here::here(
+  "project", "results", "grafted",
+  "chronosta_gapfilled_overlap.tsv"
+)) |>
+  head()
+
+read.delim(here::here(
+  "project", "results", "grafted",
+  "chronosta_gapfilled_splits.tsv"
+)) |>
+  head()
+
+read.delim(here::here(
+  "project", "results", "grafted",
+  "chronosta_gapfilled_monophyly_removed.tsv"
+)) |>
+  head()
+```
+
+Useful checks at this stage are:
+
+- How many new species did Chrono-STA add?
+- Which donor trees contributed missing species?
+- Which species or clades were removed during optional monophyly cleanup?
+- Does the resulting tree remain on the expected temporal scale?
+
+For a PDF check:
+
+```r
+plot_tree_autosize(
+  chronosta_tree,
+  here::here("project", "results", "grafted", "chronosta_check.pdf"),
+  cex = 0.1
+)
+```
+
 
 ### Step 5. Complete the tree with biogeography-aware TACT
 
-After ChronoSTA-enabled grafting, use TACT to add remaining species from the AntWiki taxonomy. This step retains valid binomials from `TaxonName`, omits malformed AntWiki rows where the genus fields disagree, optionally assigns species to biogeographic realms using type-locality country, and runs TACT to complete the tree.
+After Chrono-STA-enabled grafting, use TACT to add remaining species from the AntWiki taxonomy. This step retains valid binomials from `TaxonName`, omits malformed AntWiki rows where the genus fields disagree, optionally assigns species to biogeographic realms using type-locality country, and runs TACT to complete the tree.
 
 ```r
 res_tact <- run_tact_grafting(
   backbone_tree = here::here(
     "project", "results", "grafted",
-    "chronosta_gapfilled_final_tree_monophyletic.nwk"
+    "final_tree_monophyletic_4183sp.tre"
   ),
   taxonomy = here::here(
     "project", "tables",
@@ -1136,7 +1326,7 @@ res_tact <- run_tact_grafting(
   ),
   out_prefix = here::here(
     "project", "results", "tact",
-    "Formicidae_complete_tact_biogeo"
+    "Formicidae-complete-tact-biogeo-30Jul2026"
   ),
   taxonomy_format = "antwiki",
   tact_runner = "docker",
@@ -1161,64 +1351,110 @@ res_tact <- run_tact_grafting(
 )
 ```
 
-The primary TACT-completed tree is:
+#### Inspect the final TACT tree
+
+If the TACT run completed in the current R session, the returned object contains both the final tree object and paths to written files:
 
 ```r
+# R phylo object available in the current session
+class(res_tact$tree)
+ape::Ntip(res_tact$tree)
+head(res_tact$tree$tip.label)
+
+# Path to the same cleaned tree written to disk
 res_tact$paths$cleaned_tree
+file.exists(res_tact$paths$cleaned_tree)
 ```
 
-The realm-labelled inspection trees are:
+Paths of the output files are written to screen and they can also be retrieved in R. The realm-labelled inspection tree paths are:
 
 ```r
 res_tact$paths$backbone_biogeo_labels
 res_tact$paths$cleaned_tree_biogeo_labels
 ```
 
-### Step 6. Inspect outputs
-
-The final outputs are written to `project/results/grafted/` and include:
+The primary analysis tree is the cleaned TACT tree without realm suffixes should have been written to:
 
 ```text
-chronosta_gapfilled_final_tree.nwk
-chronosta_gapfilled_final_tree_monophyletic.nwk
-chronosta_gapfilled_overlap.tsv
-chronosta_gapfilled_splits.tsv
-chronosta_gapfilled_prefusion_overlap.tsv
-chronosta_gapfilled_prefusion_groups.tsv
-chronosta_gapfilled_monophyly_removed.tsv
-logs/chronosta_grafting_YYYYMMDD_HHMMSS.log
+project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre
 ```
 
-The most commonly used final tree is:
+The realm-labelled tree is an inspection tree:
+
+```text
+project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned_biogeo_labels.tre
+```
+
+Use the realm-labelled tree to visually check whether the biogeography-aware grafting behaved as expected, but use the cleaned tree for downstream comparative analyses unless realm suffixes are explicitly needed.
+
+#### Plot and inspect biogeography-aware placement
+
+To plot the realm-labelled TACT tree use:
 
 ```r
-res$tree
+t <- ape::read.tree(
+  here::here(
+    "project", "results", "tact",
+    "Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned_biogeo_labels.tre"
+  )
+)
+
+plot_tree_autosize(
+  t,
+  here::here("project", "results", "tact", "tact_biogeo.pdf"),
+  cex = 0.1
+)
 ```
 
-or the corresponding file:
+You can also plot the clean final tree without realm suffixes:
+
+```r
+t_clean <- ape::read.tree(
+  here::here(
+    "project", "results", "tact",
+    "Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre"
+  )
+)
+
+plot_tree_autosize(
+  t_clean,
+  here::here("project", "results", "tact", "tact_cleaned.pdf"),
+  cex = 0.1
+)
+```
+
+#### Final output to use in downstream analyses
+
+For most downstream analyses, use this file:
 
 ```text
-project/results/grafted/chronosta_gapfilled_final_tree_monophyletic.nwk
+project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre
+```
+
+or, within the same R session that ran TACT, use:
+
+```r
+res_tact$tree
 ```
 
 ### Re-running the workflow after adding new data
 
 To update the tree when new source phylogenies become available:
 
-1. Add the new source tree to the appropriate folder under `project/published/` or `project/chronosta/source_trees/`.
+1. Add the new source tree to the appropriate folder under `project/published/` and/or `project/chronosta/source_trees/`.
 2. If it should be grafted directly as a clade, add or update its row in:
 
    ```text
    project/tables/clades-to-graft-clean.tsv
    ```
 
-3. If it should be used only in the ChronoSTA gap-filling step, place it in:
+3. If it should be used only in the Chrono-STA gap-filling step, place it in:
 
    ```text
    project/chronosta/source_trees/
    ```
 
 4. Re-run the workflow from Step 1 or from the earliest affected step.
-5. Compare the new logs, overlap tables, tip counts, and final trees.
+5. Compare the new logs and trees.
 
-For reproducible paper-style runs, do not use `setwd()` or absolute paths. Use `here::here(...)` throughout, and keep seeds fixed for stochastic steps.
+For reproducible runs, do not use `setwd()` or absolute paths. Use `here::here(...)` throughout, and keep seeds fixed for stochastic steps.
