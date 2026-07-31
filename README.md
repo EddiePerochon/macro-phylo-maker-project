@@ -61,9 +61,10 @@ sudo apt install \
 ```
 ## TACT installation
 
-To use stochastic polyromy resolutions you will need Taxonomic Addition for Complete Trees (TACT; see below for citation). The easiest route is Docker:
+To use stochastic polyromy resolutions you will need Taxonomic Addition for Complete Trees (TACT; see below for citation). The easiest route is [Docker](https://docs.docker.com/engine/install/):
 
 ```bash
+docker pull jonchang/tact:latest
 docker run --rm jonchang/tact tact_add_taxa --help
 ```
 
