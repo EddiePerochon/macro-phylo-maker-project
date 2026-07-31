@@ -68,7 +68,7 @@ docker pull jonchang/tact:latest
 docker run --rm jonchang/tact tact_add_taxa --help
 ```
 
-If this command succeeds, the wrapper can be run with:
+If these commands succeed, the wrapper function (see below) can be run with the following arguments:
 
 ```r
 tact_runner = "docker"
@@ -85,7 +85,7 @@ tact_bin = "tact_add_taxa"
 Use `tact_runner = "none"` to prepare TACT input files without running TACT.
 
 ## Load the development package
-From the same directory as above.
+From the same directory as above launch `R` command line interface.
 ```
 devtools::load_all("MacroPhyloMaker")
 ```
