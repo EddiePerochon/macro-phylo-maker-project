@@ -1457,17 +1457,6 @@ Useful checks at this stage are:
 - Did the graft log record all rows from `project/tables/grafted_genera.tsv`?
 - Are the intended anchor taxa still present?
 
-For a quick plot:
-
-```r
-plot_tree_autosize(
-  genus_tree,
-  here::here("project", "results", "grafted", "genus_check.pdf"),
-  cex = 0.35
-)
-```
-
-
 ### Step 2. Graft published clade-level phylogenies
 
 ```r
@@ -1499,6 +1488,49 @@ run_clade_grafting(
 ```
 
 This step reads the clade grafting table, filters donor phylogenies against the authority file, converts phylograms to chronograms when needed, prepares graftable templates, and inserts donor clades into the backbone.
+
+In this step any taxon in donor trees missing valid specific epithet will be dropped. However, in donor trees some genera have only been sequenced for unidenitifiable morphospecies. Because of this, we manually modified certain input trees with placeholder valid names to ensure no genera are orphaned. We should now undo this:  
+
+```r
+# Replace orphan/placeholder species names with genus-only terminals in tree files.
+
+files <- list.files(
+  here::here("project", "results", "grafted"),
+  pattern = "\\.(tre|tree|nwk|newick)$",
+  full.names = TRUE,
+  ignore.case = TRUE
+)
+
+replacements <- c(
+  "Eusphinctus_furcatus" = "Eusphinctus",
+  "Eburopone_easoana" = "Eburopone",
+  "Lividopone_livida" = "Lividopone",
+  "Lasiomyrma_gedensis" = "Lasiomyrma",
+  "Dicroaspis_cryptocera" = "Dicroaspis",
+  "Paratopula_andamanensis" = "Paratopula",
+  "Recurvidris_browni" = "Recurvidris",
+  "Aenictogiton_attenuatus" = "Aenictogiton"
+)
+
+for (f in files) {
+  x <- readLines(f, warn = FALSE)
+  for (old in names(replacements)) {
+    x <- gsub(old, replacements[[old]], x, fixed = TRUE)
+  }
+  writeLines(x, f)
+}
+```
+
+Confirm these genera have indeed been restored to genus-only tips:
+```r
+tr <- ape::read.tree(files[1])
+
+grep(
+  "Eusphinctus|Eburopone|Lividopone|Lasiomyrma|Dicroaspis|Paratopula|Recurvidris|Aenictogiton",
+  tr$tip.label,
+  value = TRUE
+)
+```
 
 #### Inspect Step 2 outputs
 
@@ -1708,7 +1740,7 @@ After Chrono-STA-enabled grafting, use TACT to add remaining species from the An
 res_tact <- run_tact_grafting(
   backbone_tree = here::here(
     "project", "results", "grafted",
-    "final_tree_monophyletic_4183sp.tre"
+    "final_tree_monophyletic_4183sp.tre" # remember to replace with final tree once Chrono-STA step is fixed
   ),
   taxonomy = here::here(
     "project", "tables",
