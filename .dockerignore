@@ -1,0 +1,14 @@
+.git
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+project/results
+project/published
+project/chronosta/source_trees
+*.pdf
+*.tre
+*.nwk
+*.nex
+*.nexus
+*.zip
