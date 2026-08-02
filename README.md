@@ -889,7 +889,7 @@ In order for this step to work, Python environment has to be set up in a way R c
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-8Jul2026.tre"
+    "genus-reconstituted-2Aug2026.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -985,7 +985,7 @@ Then pass the same Python executable to `run_chronosta_grafting()`:
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-8Jul2026.tre"
+    "genus-reconstituted-2Aug2026.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -1032,7 +1032,7 @@ If you already have a local copy of `chronosta.py`, you can provide it explicitl
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-8Jul2026.tre"
+    "genus-reconstituted-2Aug2026.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
