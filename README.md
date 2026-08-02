@@ -17,9 +17,39 @@ If you use our approach, please cite:
 Pérochon, E., Bertelsmeier, C., Borowiec, M.L. (2026). Assembling the ant tree of life through scalable phylogenetic synthesis. Journal, volume, pages. doi:XXXX.
 ```
 
+Parts of this workflow also rely on Chrono-STA:
+```
+Barba-Montoya, J., Craig, J. M., & Kumar, S. (2025). Integrating phylogenies with chronology to assemble the tree of life. Frontiers in Bioinformatics, 5, 1571568.
+```
+
+And Taxonomic Addition for Complete Trees (TACT):
+```
+Chang, J., Rabosky, D. L., & Alfaro, M. E. (2020). Estimating diversification rates on incompletely-sampled phylogenies: theoretical concerns and practical solutions. Systematic Biology, 69, 602–611. doi:10.1093/sysbio/syz081
+```
+
 ---
 
-# Setup Instructions
+## Setup overview
+
+There are two supported ways to run the workflow:
+
+1. **Recommended: Docker environment**
+   - Best for most users.
+   - Avoids local R package compilation problems.
+   - Avoids local Python dependency problems for Chrono-STA.
+   - Includes Docker command-line tools needed for the TACT wrapper.
+   - Gives the most reproducible environment.
+
+2. **Alternative: piecemeal local installation**
+   - Useful for development and debugging.
+   - Requires managing system libraries, R packages, Python packages, Docker, and TACT yourself.
+   - More flexible, but more likely to fail on a new machine.
+
+If you only want to replicate the paper workflow, start with the Docker setup. If you are modifying package code or debugging system-specific issues, the local setup may be useful.
+
+---
+
+# Recommended setup: Docker
 
 ## Clone the repository
 
@@ -28,108 +58,460 @@ git clone https://github.com/marekborowiec/macro-phylo-maker-project.git
 cd macro-phylo-maker-project
 ```
 
-## Install required R packages
-Inside directory `macro-phylo-maker-project` open `R` command line interface and install:
+## Install Docker on the host system
+
+[Install Docker](https://www.docker.com/get-started/) using the instructions for your operating system. Then test that Docker works:
+
+```bash
+docker --version
+docker run --rm hello-world
 ```
+
+If either command fails, fix Docker before continuing.
+
+## Build the MacroPhyloMaker Docker image
+
+From the repository root:
+
+```bash
+cd /path/to/macro-phylo-maker-project
+
+docker build -t macrophylomaker:latest .
+```
+
+The first build can take several minutes because Docker installs R packages and Python packages. Later builds should reuse cached layers.
+
+The image should include:
+
+- R 4.4.1,
+- required R packages,
+- Python and packages needed for Chrono-STA,
+- Docker command-line tools needed to launch the external TACT Docker image,
+- `DOCKER_API_VERSION=1.43` for compatibility with older host Docker daemons,
+- `CHRONOSTA_PYTHON=/opt/chronosta-venv/bin/python`.
+
+## Run the Docker environment
+
+From the repository root:
+
+```bash
+docker run --rm -it \
+  -v "$PWD":"$PWD" \
+  -w "$PWD" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  macrophylomaker:latest
+```
+
+This starts R inside the container.
+
+The mount:
+
+```bash
+-v "$PWD":"$PWD" -w "$PWD"
+```
+
+is intentional. The project appears at the same absolute path inside the container as on the host. This matters because the TACT wrapper starts another Docker container, and Docker bind mounts are resolved by the host Docker daemon.
+
+The mount:
+
+```bash
+-v /var/run/docker.sock:/var/run/docker.sock
+```
+
+lets the MacroPhyloMaker container call the host Docker daemon. This is required for `tact_runner = "docker"`.
+
+### Security note
+
+Mounting `/var/run/docker.sock` gives the container access to the host Docker daemon. Use this only with trusted containers that you built yourself. If you do not need TACT, you can omit the Docker socket mount:
+
+```bash
+docker run --rm -it \
+  -v "$PWD":"$PWD" \
+  -w "$PWD" \
+  macrophylomaker:latest
+```
+
+## Load the package inside Docker
+
+Inside the R session started by Docker:
+
+```r
+devtools::load_all("MacroPhyloMaker")
+```
+
+## Verify the Python environment for Chrono-STA
+
+This is an important step. Do this before running `run_chronosta_grafting()`.
+In the Docker image, the Python executable is defined by the environment variable `CHRONOSTA_PYTHON`.
+
+```r
+py <- Sys.getenv("CHRONOSTA_PYTHON")
+py
+```
+
+Expected:
+
+```text
+/opt/chronosta-venv/bin/python
+```
+
+Use a temporary Python script to verify imports:
+
+```r
+tf <- tempfile(fileext = ".py")
+
+writeLines(
+  c(
+    "import Bio",
+    "import pandas",
+    "import numpy",
+    "import scipy",
+    "import matplotlib",
+    "print('Python deps OK')"
+  ),
+  tf
+)
+
+system2(
+  py,
+  tf,
+  stdout = TRUE,
+  stderr = TRUE
+)
+```
+
+Expected output:
+
+```text
+Python deps OK
+```
+
+## Verify that TACT can run from inside Docker
+
+Inside R:
+
+```r
+system2(
+  "docker",
+  c("run", "--rm", "jonchang/tact", "tact_add_taxa", "--help"),
+  stdout = TRUE,
+  stderr = TRUE
+)
+```
+
+Expected output begins with:
+
+```text
+Usage: tact_add_taxa [OPTIONS]
+```
+
+If this works, the container can run the external TACT Docker image.
+
+## Docker troubleshooting
+
+### TACT cannot mount the work directory
+
+Make sure you ran the container with:
+
+```bash
+-v "$PWD":"$PWD" -w "$PWD"
+```
+
+Do not mount the project only as `/work` if you plan to run TACT through Docker. The host Docker daemon needs to see the same path that the MacroPhyloMaker container passes to the nested TACT container.
+
+### Output files are owned by root
+
+By default, Docker may create output files owned by root. If this is inconvenient, run the container as your host user:
+
+```bash
+docker run --rm -it \
+  --user "$(id -u):$(id -g)" \
+  --group-add "$(stat -c '%g' /var/run/docker.sock)" \
+  -e HOME=/tmp \
+  -v "$PWD":"$PWD" \
+  -w "$PWD" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  macrophylomaker:latest
+```
+
+If Docker access fails with this version, use the simpler root-based command first to confirm that the workflow works.
+
+---
+
+# Alternative setup: piecemeal local installation
+
+Use this route if you do not want to use Docker for the R environment, or if you are developing the package locally.
+
+## Clone the repository
+
+```bash
+git clone https://github.com/marekborowiec/macro-phylo-maker-project.git
+cd macro-phylo-maker-project
+```
+
+## Install system libraries on Ubuntu
+
+On Ubuntu, install development libraries needed by R packages:
+
+```bash
+sudo apt update
+sudo apt install \
+  build-essential \
+  gfortran \
+  make \
+  cmake \
+  pkg-config \
+  git \
+  curl \
+  wget \
+  ca-certificates \
+  libcurl4-openssl-dev \
+  libssl-dev \
+  libxml2-dev \
+  libfontconfig1-dev \
+  libcairo2-dev \
+  libfreetype6-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
+  libpng-dev \
+  libjpeg-dev \
+  libtiff5-dev \
+  libwebp-dev \
+  libuv1-dev \
+  libglpk-dev \
+  libgmp3-dev \
+  libmpfr-dev \
+  libgsl-dev \
+  python3 \
+  python3-pip \
+  python3-venv
+```
+
+Other Linux distributions, macOS, and Windows will require equivalent libraries.
+
+## Install R packages
+
+From R in the repository root:
+
+```r
 install.packages(c(
   "devtools",
   "ape",
   "phytools",
+  "phangorn",
+  "stringr",
+  "progress",
+  "igraph",
+  "MonoPhy",
   "here",
-  "readr"
+  "readr",
+  "data.table",
+  "dplyr",
+  "tidyr",
+  "tibble",
+  "ggplot2",
+  "remotes"
 ))
 ```
-You may need to install additional dependencies for `devtools` and others to run. This will vary a lot by system and environment, but on my Ubuntu 22.04 installing these packages was necessary:
-```
-sudo apt update
 
-sudo apt install \
-    build-essential \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    libxml2-dev \
-    libfontconfig1-dev \
-    libcairo2-dev \
-    libfreetype6-dev \
-    libharfbuzz-dev \
-    libfribidi-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libtiff5-dev
-    libwebp-dev \
-    libuv1-dev
-```
-## TACT installation
+Then load the package:
 
-To use stochastic polyromy resolutions you will need Taxonomic Addition for Complete Trees (TACT; see below for citation). The easiest route is [Docker](https://docs.docker.com/engine/install/):
+```r
+devtools::load_all("MacroPhyloMaker")
+```
+
+## Set up Python for Chrono-STA locally
+
+Chrono-STA requires Python packages:
+
+- `biopython`
+- `pandas`
+- `numpy`
+- `scipy`
+- `matplotlib`
+
+You may use Anaconda, Miniconda, a virtual environment, or a system Python. The important rule is: **choose one Python executable and use the same one for setup, verification, and `run_chronosta_grafting()`**.
+
+### Option A: Anaconda or Miniconda
+
+Example:
+
+```r
+py <- "/home/marek/anaconda3/bin/python3"
+```
+
+Install packages using conda from the shell:
+
+```bash
+/home/marek/anaconda3/bin/conda install -c conda-forge biopython pandas numpy scipy matplotlib
+```
+
+or using pip:
+
+```bash
+/home/marek/anaconda3/bin/python3 -m pip install biopython pandas numpy scipy matplotlib
+```
+
+### Option B: Python virtual environment
+
+From the shell:
+
+```bash
+python3 -m venv .venv-chronosta
+.venv-chronosta/bin/python -m pip install --upgrade pip setuptools wheel
+.venv-chronosta/bin/python -m pip install biopython pandas numpy scipy matplotlib
+```
+
+Then in R:
+
+```r
+py <- here::here(".venv-chronosta", "bin", "python")
+```
+
+## Verify Python from the R console before Chrono-STA
+
+This is an important step. Do this before running `run_chronosta_grafting()`.
+
+```r
+tf <- tempfile(fileext = ".py")
+
+writeLines(
+  c(
+    "import Bio",
+    "import pandas",
+    "import numpy",
+    "import scipy",
+    "import matplotlib",
+    "print('Python deps OK')"
+  ),
+  tf
+)
+
+system2(
+  py,
+  tf,
+  stdout = TRUE,
+  stderr = TRUE
+)
+```
+
+Expected output:
+
+```text
+Python deps OK
+```
+
+If this fails, `run_chronosta_grafting()` will likely fail. Fix Python first.
+
+### Relationship to `setup_chronosta_env()` and `check_chronosta_python()`
+
+`setup_chronosta_env(python = py)` can install or check Python-side dependencies depending on your local setup, and `check_chronosta_python(py)` is intended to verify them. However, on some systems an inline `python -c` check can fail because of shell quoting, even when the Python environment itself is fine. The temporary-script verification above is the most reliable check from R.
+
+Recommended local pattern:
+
+```r
+py <- "/home/marek/anaconda3/bin/python3"
+
+setup_chronosta_env(python = py)
+check_chronosta_python(py)
+
+# Robust verification. If this fails, do not run Chrono-STA yet.
+tf <- tempfile(fileext = ".py")
+writeLines(
+  c(
+    "import Bio",
+    "import pandas",
+    "import numpy",
+    "import scipy",
+    "import matplotlib",
+    "print('Python deps OK')"
+  ),
+  tf
+)
+system2(py, tf, stdout = TRUE, stderr = TRUE)
+```
+
+Then pass the same `py` to `run_chronosta_grafting()`:
+
+```r
+res_chronosta <- run_chronosta_grafting(
+  ...,
+  python = py
+)
+```
+
+### Docker-specific Python pattern
+
+Inside the Docker environment, use:
+
+```r
+py <- Sys.getenv("CHRONOSTA_PYTHON")
+```
+
+Then run the same temporary-script verification. In Docker, you normally do not need `setup_chronosta_env()` because the image already contains the Python virtual environment.
+
+## Install or access TACT locally
+
+The recommended route is still Docker:
 
 ```bash
 docker pull jonchang/tact:latest
 docker run --rm jonchang/tact tact_add_taxa --help
 ```
 
-If these commands succeed, the wrapper function (see below) can be run with the following arguments:
+Then run MacroPhyloMaker TACT with:
 
 ```r
 tact_runner = "docker"
 docker_image = "jonchang/tact"
 ```
 
-A local system installation can also be used with:
+A system TACT installation can also be used:
 
 ```r
 tact_runner = "system"
 tact_bin = "tact_add_taxa"
 ```
 
-Use `tact_runner = "none"` to prepare TACT input files without running TACT.
+Use:
 
-## Load the development package
-From the same directory as above launch `R` command line interface.
+```r
+tact_runner = "none"
 ```
-devtools::load_all("MacroPhyloMaker")
-```
-This will activate all package functions. Now you should be able to run code examples below. I tested clade grafting to make sure it works. Your current mileage for other functions may vary for the moment.
 
-Some explainers first.
+to prepare TACT input files without running TACT.
 
-# Repository Structure
-```
-MacroPhyloMaker/        # R package (core functions)
+---
+
+# Repository structure
+
+```text
+MacroPhyloMaker/        # R package and workflow functions
 project/
-  backbones/                                         # backbone trees
-    Borowiec-129to158Ma-independent-genus-only.tre   # Borowiec et al. 2025 tree
-    genus.tree                                       # as above but with missing genera grafted
-  published/            # input phylogenies
-  tables/               # graft tables and taxonomy authority
-  results/              # outputs (trees, logs, PDFs)
+  backbones/            # backbone trees
+  published/            # donor phylogenies
+  chronosta/            # Chrono-STA donor trees and related inputs
+  tables/               # graft tables, taxonomy authority, realm maps
+  results/              # outputs: trees, logs, PDFs
 ```
 
-# Internal Functions
-These are defined in the package and used throughout pipelines:
+---
 
-`extract_clade_with_outgroup()` — extract focal clades with optional sister outgroup
-`run_tip_grafting()` — apply tip-level grafting plans
-`run_clade_grafting()` — full clade-grafting pipeline from TSV plan
-`graft_many_clades()` — batch grafting engine
-`prepare_clade_template()` — converts donor phylogenies into graftable templates
+# Important path rule
 
-# Important
-All files/scripts must use `here::here(...)`, not relative paths. **This is something that I had to adjust to make this portable, but I am still working to fix it throughout by converting from relative paths.** Clade grafting example below, at least, should work now.
+Use `here::here(...)` throughout the workflow. Do not use `setwd()`, hard-coded absolute paths, or `../` relative paths in scripts that should be portable.
 
-Do not use:
+Example:
 
-absolute paths `(/home/...)`, `setwd()`, `"../"`
-
-### Example:
-
-```
+```r
 tree_path <- here::here(
   "project", "published", "attini",
   "hanisch2022",
   "Pbruchi_MC1_SN_mcmctree_combr1-4_rename.nwk"
 )
 ```
+
+---
 
 # Workflow
 
@@ -250,6 +632,8 @@ This function is used to:
 
 These outputs are then referenced in the clade grafting plan file.
 
+---
+
 ## Grafting tips
 The function `run_tip_grafting()` inserts tips into a backbone phylogeny according to a predefined grafting table. This can be the first grafting step, producing a backbone used for downstream clade grafting, or used to attach isolated tips missing from grafted clades.
 
@@ -364,6 +748,8 @@ Tip grafting is the first major step in the assembly pipeline:
 - Add missing genera using `run_tip_grafting()`
 - Use the resulting tree as input for clade grafting
 
+---
+
 ## Clade grafting
 The function `run_clade_grafting()` integrates full donor phylogenies (clades) into a backbone tree. It takes a TSV plan describing donor trees and their placement, converts donors into standardized templates, and grafts them onto the backbone while preserving branch‑length structure.
 
@@ -372,7 +758,7 @@ Example:
 run_clade_grafting(
   backbone_path = here::here("project", "backbones", "genus.tre"),
   plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
-  authority = here::here("project", "tables", "antwiki-valid-species-8Mar2026.txt"),
+  authority = here::here("project", "tables", "antwiki-valid-species-2Aug2026.txt"),
   out_prefix = here::here("project", "results", "grafted",
                           "backbone_clade_grafted_new_bby_test"),
   seed_mode = 42,
@@ -471,6 +857,7 @@ The function writes:
 <out_prefix>.pdf → tree visualization (optional)
 <out_prefix>_tips.txt → final tip list
 ```
+
 ---
 
 ## Time-informed species grafting with Chrono-STA
@@ -495,6 +882,8 @@ Barba-Montoya, J., Craig, J. M., & Kumar, S. (2025). Integrating phylogenies wit
 ```
 
 ### Example
+
+In order for this step to work, Python environment has to be set up in a way R can see it. See [Verify the Python environment for Chrono-STA](#verify-the-python-environment-for-chrono-sta) and [Set up Python for Chrono-STA locally](#set-up-python-for-chrono-sta-locally) sections above for steps necessary for this function to work under Docker and local installations.
 
 ```r
 res <- run_chronosta_grafting(
@@ -762,7 +1151,7 @@ After tip grafting, clade grafting, and optional Chrono-STA gap-filling, the tre
 
 When using this step of the workflow please cite:
 ```
-Chang, J., Rabosky, D. L., & Alfaro, M. E. (2019). Estimating diversification rates on incompletely-sampled phylogenies: theoretical concerns and practical solutions. Systematic Biology. doi:10.1093/sysbio/syz081
+Chang, J., Rabosky, D. L., & Alfaro, M. E. (20120). Estimating diversification rates on incompletely-sampled phylogenies: theoretical concerns and practical solutions. Systematic Biology, 69, 602–611. doi:10.1093/sysbio/syz081
 ```
 
 ### What this step does
@@ -824,7 +1213,7 @@ res_tact <- run_tact_grafting(
   ),
   taxonomy = here::here(
     "project", "tables",
-    "antwiki-valid-species-8Mar2026.txt"
+    "antwiki-valid-species-2Aug2026.txt"
   ),
   out_prefix = here::here(
     "project", "results", "tact",
@@ -931,11 +1320,11 @@ for (seed_i in seeds) {
     ),
     taxonomy = here::here(
       "project", "tables",
-      "antwiki-valid-species-8Mar2026.txt"
+      "antwiki-valid-species-2Aug2026.txt"
     ),
     out_prefix = here::here(
       "project", "results", "tact",
-      sprintf("Formicidae-complete-tact-biogeo-30Jul2026_rep%03d", seed_i)
+      sprintf("Formicidae-complete-tact-biogeo-2Aug2026_rep%03d", seed_i)
     ),
     taxonomy_format = "antwiki",
     tact_runner = "docker",
@@ -1027,7 +1416,7 @@ ape::write.tree(backbone_noNewGenus, backbone_noNewGenus_path)
 run_tip_grafting(
   backbone_path = here::here("project", "backbones", "genus-noNewGenus.tre"),
   plan_path     = here::here("project", "tables", "grafted_genera.tsv"),
-  out_prefix    = here::here("project", "results", "grafted", "genus-30Jul2026"),
+  out_prefix    = here::here("project", "results", "grafted", "genus-2Aug2026"),
   seed_mode     = 42,
   ingroup_anchors = c("Martialis", "Camponotus")
 )
@@ -1042,7 +1431,7 @@ After this step, confirm that the genus-level grafting tree and graft log exist,
 ```r
 genus_tree_path <- here::here(
   "project", "results", "grafted",
-  "genus-30Jul2026.tre"
+  "genus-2Aug2026.tre"
 )
 
 genus_log_path <- here::here(
@@ -1082,23 +1471,23 @@ plot_tree_autosize(
 ### Step 2. Graft published clade-level phylogenies
 
 ```r
-grafted_genera_tree_path <- here::here("project", "results", "grafted", "genus-30Jul2026.tre")
+grafted_genera_tree_path <- here::here("project", "results", "grafted", "genus-2Aug2026.tre")
 grafted_genera_tree <- ape::read.tree(grafted_genera_tree_path)
-grafted_noChimaeridris <- ape::drop.tip(grafted_genera_tree, "Chimaeridris") # dropping "Chimaeridris" tip in reality likely nested in Pheidole
-grafted_genera_noChimaeridris_path <- here::here("project", "results", "grafted", "genus-30Jul2026-noChimaeridris.tre")
+grafted_noChimaeridris <- ape::drop.tip(grafted_genera_tree, "Chimaeridris") # dropping "Chimaeridris" tip nested in Pheidole (Longino pers. comm.)
+grafted_genera_noChimaeridris_path <- here::here("project", "results", "grafted", "genus-2Aug2026-noChimaeridris.tre")
 ape::write.tree(grafted_noChimaeridris, grafted_genera_noChimaeridris_path)
 
 
 run_clade_grafting(
-  backbone_path = here::here("project", "results", "grafted", "genus-30Jul2026-noChimaeridris.tre"),
+  backbone_path = here::here("project", "results", "grafted", "genus-2Aug2026-noChimaeridris.tre"),
   plan_path = here::here("project", "tables", "clades-to-graft-clean.tsv"),
   authority = here::here(
     "project", "tables",
-    "antwiki-valid-species-8Mar2026.txt"
+    "antwiki-valid-species-2Aug2026.txt"
   ),
   out_prefix = here::here(
     "project", "results", "grafted",
-    "backbone-clade-grafted-30Jul2026"
+    "backbone-clade-grafted-2Aug2026"
   ),
   seed_mode = 42,
   chronos_select = "auto",
@@ -1118,17 +1507,17 @@ The clade-grafting step writes the grafted tree, a graft log, and, if `plot_pdf 
 ```r
 clade_tree_path <- here::here(
   "project", "results", "grafted",
-  "backbone-clade-grafted-30Jul2026.tre"
+  "backbone-clade-grafted-2Aug2026.tre"
 )
 
 clade_log_path <- here::here(
   "project", "results", "grafted",
-  "backbone-clade-grafted-30Jul2026_graft_log.tsv"
+  "backbone-clade-grafted-2Aug2026_graft_log.tsv"
 )
 
 clade_pdf_path <- here::here(
   "project", "results", "grafted",
-  "backbone-clade-grafted-30Jul2026.pdf"
+  "backbone-clade-grafted-2Aug2026.pdf"
 )
 
 file.exists(clade_tree_path)
@@ -1151,7 +1540,7 @@ Useful checks at this stage are:
 - Are the major donor clades present in the tree?
 - Did the graft log include one row for each intended clade-grafting operation?
 - Do any expected donor species appear in the final tip labels?
-- A PDF is written by default (`backbone-clade-grafted-30Jul2026.pdf`), does the placement of major clades look reasonable?
+- A PDF is written by default (`backbone-clade-grafted-2Aug2026.pdf`), does the placement of major clades look reasonable?
 
 ### Step 3. Reconstitute genera removed during clade grafting
 
@@ -1161,7 +1550,7 @@ We removed some genus-level terminals in the previous steps, and others are over
 run_tip_grafting(
   backbone_path = here::here(
     "project", "results", "grafted",
-    "backbone-clade-grafted-30Jul2026.tre"
+    "backbone-clade-grafted-2Aug2026.tre"
   ),
   plan_path = here::here(
     "project", "tables",
@@ -1169,7 +1558,7 @@ run_tip_grafting(
   ),
   out_prefix = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-30Jul2026"
+    "genus-reconstituted-2Aug2026"
   ),
   seed_mode = 42,
   plot_cex = 0.35
@@ -1185,12 +1574,12 @@ This step produces the post-clade-grafting reference tree with reconstituted gen
 ```r
 reconstituted_tree_path <- here::here(
   "project", "results", "grafted",
-  "genus-reconstituted-30Jul2026.tre"
+  "genus-reconstituted-2Aug2026.tre"
 )
 
 reconstituted_log_path <- here::here(
   "project", "results", "grafted",
-  "genus-reconstituted-30Jul2026_graft_log.tsv"
+  "genus-reconstituted-2Aug2026_graft_log.tsv"
 )
 
 file.exists(reconstituted_tree_path)
@@ -1214,7 +1603,7 @@ This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree 
 res_chronosta <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-30Jul2026.tre"
+    "genus-reconstituted-2Aug2026.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -1323,11 +1712,11 @@ res_tact <- run_tact_grafting(
   ),
   taxonomy = here::here(
     "project", "tables",
-    "antwiki-valid-species-8Mar2026.txt"
+    "antwiki-valid-species-2Aug2026.txt"
   ),
   out_prefix = here::here(
     "project", "results", "tact",
-    "Formicidae-complete-tact-biogeo-30Jul2026"
+    "Formicidae-complete-tact-biogeo-2Aug2026"
   ),
   taxonomy_format = "antwiki",
   tact_runner = "docker",
@@ -1377,13 +1766,13 @@ res_tact$paths$cleaned_tree_biogeo_labels
 The primary analysis tree is the cleaned TACT tree without realm suffixes should have been written to:
 
 ```text
-project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre
+project/results/tact/Formicidae-complete-tact-biogeo-2Aug2026_tacted_cleaned.tre
 ```
 
 The realm-labelled tree is an inspection tree:
 
 ```text
-project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned_biogeo_labels.tre
+project/results/tact/Formicidae-complete-tact-biogeo-2Aug2026_tacted_cleaned_biogeo_labels.tre
 ```
 
 Use the realm-labelled tree to visually check whether the biogeography-aware grafting behaved as expected, but use the cleaned tree for downstream comparative analyses unless realm suffixes are explicitly needed.
@@ -1396,7 +1785,7 @@ To plot the realm-labelled TACT tree use:
 t <- ape::read.tree(
   here::here(
     "project", "results", "tact",
-    "Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned_biogeo_labels.tre"
+    "Formicidae-complete-tact-biogeo-2Aug2026_tacted_cleaned_biogeo_labels.tre"
   )
 )
 
@@ -1413,7 +1802,7 @@ You can also plot the clean final tree without realm suffixes:
 t_clean <- ape::read.tree(
   here::here(
     "project", "results", "tact",
-    "Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre"
+    "Formicidae-complete-tact-biogeo-2Aug2026_tacted_cleaned.tre"
   )
 )
 
@@ -1429,7 +1818,7 @@ plot_tree_autosize(
 For most downstream analyses, use this file:
 
 ```text
-project/results/tact/Formicidae-complete-tact-biogeo-30Jul2026_tacted_cleaned.tre
+project/results/tact/Formicidae-complete-tact-biogeo-2Aug2026_tacted_cleaned.tre
 ```
 
 or, within the same R session that ran TACT, use:
