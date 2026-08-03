@@ -1422,7 +1422,7 @@ run_tip_grafting(
 )
 ```
 
-This creates an updated genus-level backbone by inserting genera missing from the starting chronogram according to the table in `project/tables/grafted_genera.tsv`.
+This creates a complete genus-level backbone by inserting genera missing from the backbone chronogram according to the table in `project/tables/grafted_genera.tsv`. See that table for placements, assumptions, and sources.
 
 #### Inspect Step 1 outputs
 
@@ -1487,7 +1487,7 @@ run_clade_grafting(
 )
 ```
 
-This step reads the clade grafting table, filters donor phylogenies against the authority file, converts phylograms to chronograms when needed, prepares graftable templates, and inserts donor clades into the backbone.
+This step reads the clade grafting table, filters donor phylogenies against the authority file, converts phylograms to chronograms when needed, prepares graftable templates, and inserts donor clades into the complete generic backbone.
 
 In this step any taxon in donor trees missing valid specific epithet will be dropped. However, in donor trees some genera have only been sequenced for unidenitifiable morphospecies. Because of this, we manually modified certain input trees with placeholder valid names to ensure no genera are orphaned. We should now undo this:  
 
@@ -1597,11 +1597,11 @@ run_tip_grafting(
 )
 ```
 
-This produces the reference tree for the final Chrono-STA-enabled species grafting step.
+This produces the reference tree for the final Chrono-STA-enabled species grafting step. It contains all valid ant taxa present in non-overlapping phylogenetic datasets included (3,387 in 2 August 2026 version).
 
 #### Inspect Step 3 outputs
 
-This step produces the post-clade-grafting reference tree with reconstituted genus-level terminals. Check that the file exists, read it into R, and confirm that the genera you intended to restore are present.
+Check that the file exists, read it into R, and confirm that the genera you intended to restore are present.
 
 ```r
 reconstituted_tree_path <- here::here(
@@ -1630,6 +1630,10 @@ This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree 
 
 
 ### Step 4. Add remaining species using Chrono-STA-enabled time-informed grafting
+
+This step adds taxa with phylogenetic information that could not be included in the previous steps. That happens when multiple trees have been produced for a given clade and only one, most recent, best-resolved, etc. was chosen for the previous step.
+
+Be sure to follow setup instructions before running this function. 
 
 ```r
 res_chronosta <- run_chronosta_grafting(
@@ -1735,6 +1739,8 @@ plot_tree_autosize(
 ### Step 5. Complete the tree with biogeography-aware TACT
 
 After Chrono-STA-enabled grafting, use TACT to add remaining species from the AntWiki taxonomy. This step retains valid binomials from `TaxonName`, omits malformed AntWiki rows where the genus fields disagree, optionally assigns species to biogeographic realms using type-locality country, and runs TACT to complete the tree.
+
+Be sure to follow Docker setup instructions for TACT before running this function.
 
 ```r
 res_tact <- run_tact_grafting(
