@@ -10,6 +10,8 @@ The goal is to allow fully reproducible construction of large phylogenies by:
 2. Preparing donor templates
 3. Grafting clades and tips onto a backbone chronogram
 
+This file first provides installation instructions followed by a general overview of code functionality. The final portion provides code to reproduce the latest versions of ant trees published at [ant-tree.org](www.ant-tree.org).
+
 This workflow was developed by Marek Borowiec [marek.borowiec@colostate.edu](mailto:marek.borowiec@colostate.edu) and Eddie Pérochon [eddie.perochon@hotmail.com](mailto:eddie.perochon@hotmail.com).
 
 If you use our approach, please cite:
@@ -1379,7 +1381,7 @@ This usually means the type-locality string is not an exact match to a row in th
 
 ## Replicating the ant macrophylogeny workflow from the paper
 
-See Setup Instructions at the top of this file.
+See [Setup Overview](#setup-overview) at the top of this file and [Verify the Python environment for Chrono-STA](#verify-the-python-environment-for-chrono-sta), [Set up Python for Chrono-STA locally](#set-up-python-for-chrono-sta-locally), [Verify that TACT can run from inside Docker](#verify-that-tact-can-run-from-inside-docker)for steps necessary before proceeding.
 
 The full ant-tree workflow used in the paper can be rerun from the files provided in this repository. The goal is to make each major step explicit, reproducible, and updateable when new phylogenies or taxonomy files become available.
 
