@@ -1630,7 +1630,7 @@ if (file.exists(reconstituted_log_path)) {
 
 This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree will be reused in a later R session, read it from `reconstituted_tree_path`. If you assigned the output of `run_tip_grafting()` to an object, use the object directly in the same session.
 
-#### Rescale trees before next steps
+#### Rescale trees and input species names before next steps
 
 The original backbone chronogram used here had branch length units expressed as 0.01 = 1Mya. Before we proceed, we need to rescale trees for downstream analyses such that branch length 1 = 1Mya:
 
@@ -1657,6 +1657,33 @@ clg_rescaled <- rescale_tree_time_units(
 )
 ``` 
 
+In the resulting trees some terminals are represented only by genus name. It is necessary to add species names to those before using Chrono-STA. We take them from the original Borowiec et al. 2025 chronogram:
+```r
+#Read full tree
+gent2ag <- read.tree(here::here(
+  "project", "results", "grafted",
+  "genus-reconstituted-2Aug2026-rescaled.tre"
+))
+
+#Read initial Borowiec et al. 2025 species-level tree
+backbone_for_chronosta <- read.tree(here::here("project","chronosta","source_trees",
+  "bakb.nwk"))
+
+#Add species names from Borowiec et al. 2025 to monotypic genera that miss species name on the reference
+list_reps <- unlist(sapply(gent2ag$tip.label[!str_detect(gent2ag$tip.label, "_")] ,
+                           function(x){backbone_for_chronosta$tip.label[str_detect(backbone_for_chronosta$tip.label, x)]}))
+for(i in 1:length(list_reps))
+{
+  gen <- names(list_reps)[i]
+  gent2ag$tip.label[gent2ag$tip.label == gen] <- list_reps[i]
+}
+
+#Save output
+write.tree(phy=gent2ag, here::here(
+  "project", "results", "grafted",
+  "genus-reconstituted-2Aug2026-rescaled-for-chronosta.tre"))
+``` 
+
 ### Step 4. Add remaining species using Chrono-STA-enabled time-informed grafting
 
 This step adds taxa with phylogenetic information that could not be included in the previous steps. That happens when multiple trees have been produced for a given clade and only one, most recent, best-resolved, etc. was chosen for the previous step.
@@ -1667,7 +1694,7 @@ Be sure to follow setup instructions before running this function.
 res_chronosta <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-2Aug2026-rescaled.tre"
+    "genus-reconstituted-2Aug2026-rescaled-for-chronosta.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
