@@ -1,10 +1,30 @@
 # ---- internal helpers -------------------------------------------------------
 
-#' Index of the edge entering a node
-#' @keywords internal
-#' @noRd
-incoming_edge_index <- function(tr, node) {
-  which(tr$edge[, 2] == node)
+#' Rescale phylogenetic branch lengths by a constant factor
+#'
+#' @param tree A `phylo` object or path to a Newick tree file.
+#' @param factor Numeric scaling factor applied to all branch lengths.
+#' @param out_path Optional output path for the rescaled tree.
+#'
+#' @return A rescaled `phylo` object.
+#' @export
+rescale_tree_time_units <- function(tree, factor = 100, out_path = NULL) {
+  if (is.character(tree)) {
+    tree <- ape::read.tree(tree)
+  }
+
+  tree$edge.length <- tree$edge.length * factor
+
+  if (!is.null(tree$root.edge)) {
+    tree$root.edge <- tree$root.edge * factor
+  }
+
+  if (!is.null(out_path)) {
+    dir.create(dirname(out_path), recursive = TRUE, showWarnings = FALSE)
+    ape::write.tree(phy = tree, file = out_path)
+  }
+
+  tree
 }
 
 #' Draw a fraction along an edge using a Beta(shape1,shape2) scaled to \[min,max\]
