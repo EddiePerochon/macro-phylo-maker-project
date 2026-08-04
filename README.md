@@ -1659,17 +1659,17 @@ clg_rescaled <- rescale_tree_time_units(
 
 In the resulting trees some terminals are represented only by genus name. It is necessary to add species names to those before using Chrono-STA. We take them from the original Borowiec et al. 2025 chronogram:
 ```r
-#Read full tree
+# Read clade-grafted tree
 gent2ag <- read.tree(here::here(
   "project", "results", "grafted",
   "genus-reconstituted-2Aug2026-rescaled.tre"
 ))
 
-#Read initial Borowiec et al. 2025 species-level tree
+# Read initial Borowiec et al. 2025 species-level tree
 backbone_for_chronosta <- read.tree(here::here("project","chronosta","source_trees",
   "bakb.nwk"))
 
-#Add species names from Borowiec et al. 2025 to monotypic genera that miss species name on the reference
+# Add species names from Borowiec et al. 2025 to monotypic genera that miss species name on the reference
 list_reps <- unlist(sapply(gent2ag$tip.label[!str_detect(gent2ag$tip.label, "_")] ,
                            function(x){backbone_for_chronosta$tip.label[str_detect(backbone_for_chronosta$tip.label, x)]}))
 for(i in 1:length(list_reps))
@@ -1785,7 +1785,7 @@ For a PDF check:
 plot_tree_autosize(
   chronosta_tree,
   here::here("project", "results", "grafted", "chronosta_check.pdf"),
-  cex = 0.1
+  cex = 0.2
 )
 ```
 
@@ -1800,7 +1800,7 @@ Be sure to follow Docker setup instructions for TACT before running this functio
 res_tact <- run_tact_grafting(
   backbone_tree = here::here(
     "project", "results", "grafted",
-    "final_tree_monophyletic_4183sp.tre" # remember to replace with final tree once Chrono-STA step is fixed
+    "chronosta_gapfilled_final_tree_monophyletic.nwk"
   ),
   taxonomy = here::here(
     "project", "tables",
@@ -1808,7 +1808,7 @@ res_tact <- run_tact_grafting(
   ),
   out_prefix = here::here(
     "project", "results", "tact",
-    "Formicidae-complete-tact-biogeo-2Aug2026"
+    "Formicidae-complete-tact-biogeo-4Aug2026"
   ),
   taxonomy_format = "antwiki",
   tact_runner = "docker",
