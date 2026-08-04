@@ -1381,7 +1381,7 @@ This usually means the type-locality string is not an exact match to a row in th
 
 ## Replicating the ant macrophylogeny workflow from the paper
 
-See [Setup Overview](#setup-overview) at the top of this file and [Verify the Python environment for Chrono-STA](#verify-the-python-environment-for-chrono-sta), [Set up Python for Chrono-STA locally](#set-up-python-for-chrono-sta-locally), [Verify that TACT can run from inside Docker](#verify-that-tact-can-run-from-inside-docker)for steps necessary before proceeding.
+See [Setup Overview](#setup-overview) at the top of this file and [Verify the Python environment for Chrono-STA](#verify-the-python-environment-for-chrono-sta), [Set up Python for Chrono-STA locally](#set-up-python-for-chrono-sta-locally), [Verify that TACT can run from inside Docker](#verify-that-tact-can-run-from-inside-docker) for steps necessary before proceeding.
 
 The full ant-tree workflow used in the paper can be rerun from the files provided in this repository. The goal is to make each major step explicit, reproducible, and updateable when new phylogenies or taxonomy files become available.
 
@@ -1630,6 +1630,32 @@ if (file.exists(reconstituted_log_path)) {
 
 This tree is the immediate input to Chrono-STA-enabled gap filling. If the tree will be reused in a later R session, read it from `reconstituted_tree_path`. If you assigned the output of `run_tip_grafting()` to an object, use the object directly in the same session.
 
+#### Rescale trees before next steps
+
+The original backbone chronogram used here had branch length units expressed as 0.01 = 1Mya. Before we proceed, we need to rescale trees for downstream analyses such that branch length 1 = 1Mya:
+
+```r
+# This rescales complete genus-level tree
+complete_genus <- read.tree(here::here("project", "results", "grafted", 
+  "genus-2Aug2026.tre"))
+cg_rescaled <- rescale_tree_time_units(
+  complete_genus,
+  factor = 100,
+  out_path = here::here("project", "results", "grafted",
+    "genus-2Aug2026-rescaled.tre")
+)
+
+# This rescales species tree produced by clade grafting, 
+# to be used in Chrono-STA step
+clade_grafted <- read.tree(here::here("project", "results", "grafted",
+  "genus-reconstituted-2Aug2026.tre"))
+clg_rescaled <- rescale_tree_time_units(
+  clade_grafted,
+  factor = 100,
+  out_path = here::here("project", "results", "grafted",
+    "genus-reconstituted-2Aug2026-rescaled.tre")
+)
+``` 
 
 ### Step 4. Add remaining species using Chrono-STA-enabled time-informed grafting
 
@@ -1641,7 +1667,7 @@ Be sure to follow setup instructions before running this function.
 res_chronosta <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-2Aug2026.tre"
+    "genus-reconstituted-2Aug2026-rescaled.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -1650,7 +1676,7 @@ res_chronosta <- run_chronosta_grafting(
     "project", "results", "grafted",
     "chronosta_gapfilled"
   ),
-  split_seed = 19982018,
+  split_seed = 42,
   ref_weight = 5,
   recalibrate = TRUE,
   split_gen = TRUE,
@@ -1658,11 +1684,10 @@ res_chronosta <- run_chronosta_grafting(
   prefuse = TRUE,
   monoph_restore = TRUE,
   paraph_exc = c(
-    "Monomorium",
     "Camponotus",
-    "Rogeria",
     "Syllophopsis",
-    "Neoponera"
+    "Lasius",
+    "Eurhopalothrix"
   ),
   python = py
 )
