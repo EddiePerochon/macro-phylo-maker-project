@@ -1905,6 +1905,51 @@ plot_tree_autosize(
 )
 ```
 
+Once confirmed this worked, we generate 100 replicates of TACT-completed trees:
+
+```r
+seeds <- 1:100
+
+for (seed_i in seeds) {
+  run_tact_grafting(
+    backbone_tree = here::here(
+      "project", "results", "grafted",
+      "chronosta_gapfilled_final_tree_monophyletic.nwk"
+    ),
+    taxonomy = here::here(
+      "project", "tables",
+      "antwiki-valid-species-2Aug2026.txt"
+    ),
+    out_prefix = here::here(
+      "project", "results", "tact",
+      sprintf("Formicidae-complete-tact-biogeo-4Aug2026_rep%03d", seed_i)
+    ),
+    taxonomy_format = "antwiki",
+    tact_runner = "docker",
+    docker_image = "jonchang/tact",
+    seed = seed_i,
+    nonmono = "split",
+    nonmono_allocation = "random",
+    genus_only = "replace_random_species",
+    species_code = "keep",
+    drop_code_species_after_tact = TRUE,
+    enforce_taxonomy_tip_count = FALSE,
+    biogeo = TRUE,
+    country_realm_map = here::here(
+      "project", "tables",
+      "country_udvardy_realm.tsv"
+    ),
+    write_biogeo_labelled_trees = FALSE,
+    keep_temp = FALSE
+  )
+}
+```
+
+Then we combined these into a single tree outside of R:
+```bash
+cat Formicidae-complete-tact-biogeo-4Aug2026_rep*_tacted_cleaned.tre > 100-tact-replicates.tre
+```
+
 #### Final output to use in downstream analyses
 
 For most downstream analyses, use this file:
@@ -1918,6 +1963,11 @@ or, within the same R session that ran TACT, use:
 ```r
 res_tact$tree
 ```
+
+If you want to use the 100 replicate trees, see
+```text
+project/results/tact/100-tact-replicates.tre
+``` 
 
 ### Re-running the workflow after adding new data
 
