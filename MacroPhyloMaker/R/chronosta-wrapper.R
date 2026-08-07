@@ -349,6 +349,14 @@ run_chronosta_grafting <- function(
     }
     tax_ref <- ape::nodepath(tree_bkb, to = ape::Ntip(tree_bkb) + 1, from = nd)
     nd_ref <- if (length(tax_ref) > 1) tax_ref[2] else tax_ref[1]
+    
+    gen_ref <- unique(str_split_fixed(extract.clade(ref, nd_ref)$tip.label, "_", n = 2)[,1])
+    gen_bra <- unique(str_split_fixed(tre[[1]]$tip.label, "_", n = 2)[,1])
+    
+    if(sum(!gen_bra %in% gen_ref) > 0){
+      nd_ref <- getMRCA(ref, ref$tip.label[str_detect(ref$tip.label, paste(paste0("^", gen_bra), collapse = "|"))])
+    }
+    
     ref <- ape::extract.clade(tree_bkb, nd_ref)
 
     nam_tr <- paste0("fsub_", names(tree_list_fusion)[i])

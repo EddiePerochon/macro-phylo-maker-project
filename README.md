@@ -891,7 +891,7 @@ In order for this step to work, Python environment has to be set up in a way R c
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-2Aug2026.tre"
+    "genus-reconstituted-2Aug2026-rescaled-for-chronosta.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -900,20 +900,18 @@ res <- run_chronosta_grafting(
     "project", "results", "grafted",
     "chronosta_gapfilled"
   ),
-  split_seed = 19982018,
+  split_seed = 1998,
   ref_weight = 5,
   recalibrate = TRUE,
   split_gen = TRUE,
   split_sbt = TRUE,
   prefuse = TRUE,
   monoph_restore = TRUE,
-  paraph_exc = c(
-    "Monomorium",
-    "Camponotus",
-    "Rogeria",
-    "Syllophopsis",
-    "Neoponera"
-  )
+  paraph_exc =  c( "Lasius",
+  "Camponotus",
+  "Colobopsis",
+  "Eurhophalothrix",
+  "Syllophopsis")
 )
 ```
 
@@ -943,8 +941,8 @@ res <- run_chronosta_grafting(
   - Larger values make the final merged tree more strongly anchored to the reference topology.
 
 - `paraph_exc`
-  - Genera that are allowed to remain non-monophyletic in the final cleanup step.
-  - These are cases where non-monophyly is already known or accepted from source phylogenies.
+  - Genera that not are allowed to remain non-monophyletic in the final cleanup step, even though they are found non-monophyletic in reference or source trees.
+  - These are cases where non-monophyly is present from source phylogenies, but not accepted.
 
 ### What the function does
 
@@ -987,7 +985,7 @@ Then pass the same Python executable to `run_chronosta_grafting()`:
 res <- run_chronosta_grafting(
   reference_tree = here::here(
     "project", "results", "grafted",
-    "genus-reconstituted-2Aug2026.tre"
+    "genus-reconstituted-2Aug2026-rescaled-for-chronosta.tre"
   ),
   donor_tree_dir = here::here(
     "project", "chronosta", "source_trees"
@@ -996,20 +994,18 @@ res <- run_chronosta_grafting(
     "project", "results", "grafted",
     "chronosta_gapfilled"
   ),
-  split_seed = 19982018,
+  split_seed = 1998,
   ref_weight = 5,
   recalibrate = TRUE,
   split_gen = TRUE,
   split_sbt = TRUE,
   prefuse = TRUE,
   monoph_restore = TRUE,
-  paraph_exc = c(
-    "Monomorium",
-    "Camponotus",
-    "Rogeria",
-    "Syllophopsis",
-    "Neoponera"
-  ),
+  paraph_exc = c( "Lasius",
+  "Camponotus",
+  "Colobopsis"
+  "Eurhophalothrix",
+  "Syllophopsis"),
   python = py
 )
 ```
@@ -1712,6 +1708,7 @@ res_chronosta <- run_chronosta_grafting(
   monoph_restore = TRUE,
   paraph_exc = c(
     "Camponotus",
+    "Colobopsis"
     "Syllophopsis",
     "Lasius",
     "Eurhopalothrix"
