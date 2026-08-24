@@ -1003,7 +1003,7 @@ res <- run_chronosta_grafting(
   monoph_restore = TRUE,
   paraph_exc = c( "Lasius",
   "Camponotus",
-  "Colobopsis"
+  "Colobopsis",
   "Eurhophalothrix",
   "Syllophopsis"),
   python = py
