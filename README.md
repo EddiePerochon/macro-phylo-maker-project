@@ -104,6 +104,12 @@ docker run --rm -it \
   macrophylomaker:latest
 ```
 
+Alternatively (on Windows computers), you can use this command line. Just adapt "add_your_pathway"
+
+```bash
+docker run --rm -it -v "%cd%":/c/add_your_pathway/macro-phylo-maker-project -w /c/add_our_pathway/macro-phylo-maker-project -v /var/run/docker.sock:/var/run/docker.sock macrophylomaker:latest
+```
+
 This starts R inside the container.
 
 The mount:
